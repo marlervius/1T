@@ -3,21 +3,23 @@
 % =====================================================================
 
 \fk{Del 1 — Eksponentialfunksjoner}
-\fo{1.1} a) $1{,}08$ \ b) $0{,}65$ \ c) $1{,}025$ \ d) $1{,}6$
+\fo{1.1} a) $1{,}12$ \ b) $0{,}65$ \ c) $1{,}025$ \ d) $1{,}6$
 \fo{1.2} a) $a = 4$, $b = 3$ \ b) $f(0) = 4$, $f(1) = 12$, $f(2) = 36$ \ c) Voksende, fordi $b = 3 > 1$.
 \fo{1.3} a) $1{,}10$ \ b) $f(x) = 500 \cdot 1{,}1^x$ \ c) $f(2) = 500 \cdot 1{,}21 = 605$ kr
-\fo{1.4} a) $f(x) = 240\,000 \cdot 0{,}85^x$ \ b) $f(4) = 240\,000 \cdot 0{,}85^4 \approx 125\,300$ kr \ c) Omtrent $5{,}4$ år.
-\fo{1.5} $a \cdot b = 40$ og $a \cdot b^3 = 10$. Deling gir $b^2 = \frac14$, så $b = \frac12$ og $a = 80$. $f(x) = 80 \cdot \left(\frac12\right)^x$.
+\fo{1.4} a) $f(x) = 240\,000 \cdot 0{,}85^x$ \ b) $f(4) = 240\,000 \cdot 0{,}85^4 \approx 125\,300$ kr \ c) Omtrent $5{,}4$ år. d) Modellen gir $240\,000 \cdot 0{,}85^{30} \approx 1\,831$ kr. Verdien blir aldri 0, men en bil er sjelden verdt så lite. En bil kan også bli skrapet eller bli veteranbil. Modellen passer best de første årene.
+\fo{1.5} $a \cdot b = 40$ og $a \cdot b^3 = 10$. Deling gir $b^2 = \frac14$, så $b = \frac12$ ($b = -\frac12$ forkastes fordi $b > 0$) og $a = 80$. $f(x) = 80 \cdot \left(\frac12\right)^x$.
 Kontroll: $80 \cdot \frac12 = 40$ og $80 \cdot \frac18 = 10$.
-\fo{1.6} Feilen er overgangen til $(800 \cdot 0{,}75)^2$. Det er ikke lov å gange $a$ inn i $b^x$. Riktig: $f(2) = 800 \cdot 0{,}75^2 = 800 \cdot 0{,}5625 = 450$ kr.
+\fo{1.6} Feilen er overgangen til $(800 \cdot 0{,}75)^2$ i andre pil. Det er ikke lov å gange $a$ inn i $b^x$. Riktig: $f(2) = 800 \cdot 0{,}75^2 = 800 \cdot 0{,}5625 = 450$ kr.
 \fo{1.7} a) Omtrent $11{,}9$ år. \ b) Også $11{,}9$ år. Doblingstiden er den samme uansett startbeløp.
-\fo{1.9} a) Alltid. $f(x+1) - f(x) = a \cdot b^x(b - 1) > 0$ når $b > 1$.
-b) Aldri. $a > 0$ og $b^x > 0$, så $f(x) > 0$ for alle $x$. Verdien går mot 0, men blir ikke negativ.
+\fo{1.8} a) $A(1) = 27\,000$, $A(2) = 29\,000$, $A(10) = 45\,000$. $B(1) = 27\,000$, $B(2) = 29\,160$, $B(10) \approx 53\,973$.
+b) Første gang etter 2 år. Ved $x = 1$ er de like. c) $A$ øker med like mye hvert år ($2\,000$). $B$ ganges med samme faktor $1{,}08$, så tilleggene blir større og større.
+\fo{1.9} a) Alltid. $a \cdot b^x \cdot c \cdot d^x = ac \cdot (bd)^x$, en eksponentialfunksjon med vekstfaktor $bd$.
+b) Noen ganger. Er $b = d$, er summen $(a + c) \cdot b^x$. Er $b \ne d$, passer det ikke: for $2^x + 3^x$ er verdiene $5$ og $13$ for $x = 1$ og $2$, så faktoren er ikke fast.
 c) Aldri. $1{,}3^2 = 1{,}69$, så veksten er $69\,\%$, ikke $60\,\%$.
 \fo{1.10} a) Etter 3 år er verdien doblet: $a \cdot b^{x+3} = 2 \cdot a \cdot b^x$. Deler vi på $a \cdot b^x$, får vi $b^3 = 2$.
 b) 9 år er tre perioder på 3 år. Verdien er doblet tre ganger: $b^9 = (b^3)^3 = 2^3 = 8$. Verdien er 8 ganger så stor.
 \fo{1.11} a) Eksempel: $f(x) = 48 \cdot 0{,}5^x$, for $f(3) = 48 \cdot \frac18 = 6$ og $0 < b < 1$. Flere svar er riktige.
-b) Nei. $a > 0$ og $b^x > 0$ gir $f(1) = a \cdot b > 0$. Verdien kan aldri være $-4$.
+b) Nei. $a = f(0) = 5$ og $5b^2 = 20$ gir $b^2 = 4$, så $b = 2$. Da er $f(1) = 5 \cdot 2 = 10$, ikke $12$.
 \fo{Sjekk 1} a) $1{,}09$ \ b) $7 \cdot 8 = 56$ \ c) Avtagende, fordi $b = 0{,}95$ ligger mellom 0 og 1.
 
 \fk{Del 2 — Potensfunksjoner}
@@ -26,19 +28,19 @@ b) Nei. $a > 0$ og $b^x > 0$ gir $f(1) = a \cdot b > 0$. Verdien kan aldri være
 \fo{2.3} $f(2x) = 4 \cdot 8 \cdot x^3 = 8 \cdot f(x)$. Funksjonsverdien blir 8 ganger så stor.
 \fo{2.4} a) $27$ \ b) $2$ \ c) $\frac13$
 \fo{2.5} a) A er lineær (økning 5 hver gang). B er eksponentiell ($x$ øker med 1, $y$ ganges med 3). C er potensfunksjon ($x$ dobles, $y$ ganges med $\frac12$).
-b) B: $f(x) = 5 \cdot 3^x$. C: $2^b = \frac12$ gir $b = -1$, og $a = 24$, så $f(x) = 24x^{-1} = \frac{24}{x}$.
+b) B: $f(x) = 5 \cdot 3^x$. C: $2^k = \frac12$ gir $k = -1$, og $a = 24$, så $f(x) = 24x^{-1} = \frac{24}{x}$.
 \fo{2.6} a) A er $x^2$, B er $x$, C er $x^{\tfrac12}$. \ b) $x^{\tfrac12}$ er størst for $0 < x < 1$, og $x^2$ er størst for $x > 1$.
-c) Alle gir $1$ for $x = 1$, fordi $1^b = 1$ for alle $b$.
-\fo{2.7} Feilen er overgangen til $2^{b+2}$. Riktig er $(2^2)^b = 2^{2b}$. Da blir $2b = 3$, så $b = \frac32$. Kontroll: $4^{\tfrac32} = 2^3 = 8$.
-\fo{2.8} a) Alltid. Når $x$ ganges med $k > 1$, ganges $f(x)$ med $k^b$. Det er større enn 1 når $b > 0$.
-b) Noen ganger. Avtagende for $b < 0$ (for eksempel $x^{-1}$), voksende for $b > 0$.
+c) Alle gir $1$ for $x = 1$, fordi $1^k = 1$ for alle $k$. For $x < 1$ blir potensen mindre jo større eksponenten er, for $x > 1$ blir den større. Derfor bytter rekkefølgen ved $x = 1$.
+\fo{2.7} Feilen er overgangen til $2^{k+2}$. Riktig er $(2^2)^k = 2^{2k}$. Da blir $2k = 3$, så $k = \frac32$. Kontroll: $4^{\tfrac32} = 2^3 = 8$.
+\fo{2.8} a) Alltid. Når $x$ ganges med $r > 1$, ganges $f(x)$ med $r^k$. Det er større enn 1 når $k > 0$.
+b) Noen ganger. Avtagende for $k < 0$ (for eksempel $x^{-1}$), voksende for $k > 0$.
 c) Aldri. $\frac{a}{x} \ne 0$ for alle $x$, fordi $a > 0$. Grafen nærmer seg $x$-aksen, men treffer den ikke.
 \fo{2.9} a) For $0 \le x < 2$ og for $x > 4$. De er like for $x = 2$ og $x = 4$, og $x^2$ er størst for $2 < x < 4$.
 b) $2^x$ ganges med $2$. $x^2$ ganges med $\left(\frac{11}{10}\right)^2 = 1{,}21$. Eksponentialfunksjonen ganges med en større faktor for hvert steg, og vinner til slutt.
-\fo{2.10} a) $2^b = \frac{80}{20} = 4$, så $b = 2$ og $a = 5$: $f(x) = 5x^2$.
+c) For $x = -1$ er $2^x = 0{,}5 < 1 = x^2$, men for $x = 0$ er $2^0 = 1 > 0 = 0^2$. Grafene krysser hverandre en gang for $x$ mellom $-1$ og $0$ (omtrent $x = -0{,}77$). Til sammen er det tre skjæringspunkter.
+\fo{2.10} a) $2^k = \frac{80}{20} = 4$, så $k = 2$ og $a = 5$: $f(x) = 5x^2$.
 b) $b^2 = \frac{80}{20} = 4$, så $b = 2$ og $a = 5$: $g(x) = 5 \cdot 2^x$.
-c) $f(6) = 180$ og $g(6) = 320$.
-d) Eksempel: $(6, 180)$ ligger bare på $f$. Flere svar er riktige. Vi trenger en måling til, helst langt fra de to første, for å skille typene.
+c) Eksempel: et punkt med $x = 6$. Grafene til $5x^2$ og $5 \cdot 2^x$ møtes bare ved $x = 2$ og $x = 4$ (for $x > 0$, se 2.9). For $x > 4$ er $2^x$ størst, så $g$ ligger høyere enn $f$. Flere svar er riktige: ethvert $x > 0$ unntatt 2 og 4.
 \fo{Sjekk 2} a) $8$ \ b) $3^2 = 9$ og $2^3 = 8$ \ c) $f(x) = x^{-2}$
 
 \fk{Ekstra utfordring}
@@ -47,12 +49,12 @@ b) $400 \cdot \left(\frac12\right)^4 = 25$ mg \ c) $400 \cdot \left(\frac12\righ
 \fo{U2} a) $5^x = 5^3$, $x = 3$ \ b) $2^x = 32 = 2^5$, $x = 5$ \ c) $2^{-x} = 2^4$, $x = -4$
 \fo{U3} a) Den indre løkken ganger beløpet med $1 + \frac{p}{100}$ og teller et år, helt til beløpet er minst 2. \texttt{belop} er 1,0 fordi vi måler i forhold til startbeløpet.
 b) $p = 4$: $18$ år, $18{,}0$. $p = 7$: $11$ år, omtrent $10{,}3$.
-c) Antall år for $p = 1, \ldots, 10$: 70, 36, 24, 18, 15, 12, 11, 10, 9, 8. Regelen gir 72, 36, 24, 18, 14,4, 12, 10,3, 9, 8, 7,2. Regelen stemmer godt, men heltallene i programmet er alltid avrundet opp til hele år.
-\fo{U4} a) $\frac{a \cdot b^{x+1}}{a \cdot b^x} = b^{x+1-x} = b$.
-b) $\frac{a(2x)^k}{a x^k} = \frac{a \cdot 2^k x^k}{a x^k} = 2^k$.
+c) Antall år for $p = 1, \ldots, 10$: 70, 36, 24, 18, 15, 12, 11, 10, 9, 8. Regelen gir 72, 36, 24, 18, 14,4, 12, 10,3, 9, 8, 7,2. Regelen stemmer godt, men heltallene i programmet er alltid avrundet opp til hele år. Regelen gir litt for mye ved små $p$ (72 mot 69,7 ved $p = 1$) og stemmer best rundt $p = 8$.
+\fo{U4} a) $f(1) = f(0) \cdot b$, $f(2) = f(1) \cdot b = f(0) \cdot b^2$, og slik fortsetter det: $f(n) = f(n-1) \cdot b$, så $f(n) = f(0) \cdot b^n$.
+b) $g(2) = g(1) \cdot r$, $g(4) = g(2) \cdot r = g(1) \cdot r^2$, og så videre: $g(2^n) = g(1) \cdot r^n$. Med $r = 2^k$ blir $g(2^n) = g(1) \cdot (2^n)^k$, altså $g(x) = g(1) \cdot x^k$ for $x = 2^n$.
 c) Eksponentiell tabell: $x$ øker med 1, og $y$ ganges med $b$. Potenstabell: $x$ dobles, og $y$ ganges med $2^k$.
-\fo{U5} Ja, men bare konstante funksjoner. Forholdet $\frac{f(2x)}{f(x)}$ er $b^x$ i den første modellen og $2^k$ i den andre. Da må $b^x = 2^k$ for alle $x$. For $x = 1$ er $b = 2^k$, og for $x = 2$ er $b^2 = 2^k$. Altså $b^2 = b$, så $b = 1$ og $k = 0$. Da er $f(x) = a$.
+\fo{U5} Ja, men bare konstante funksjoner. Fra $f(1)$, $f(2)$ og $f(4)$ får vi $ab = c$, $ab^2 = c \cdot 2^k$ og $ab^4 = c \cdot 4^k$. Deler vi, får vi $b = 2^k$ og $b^2 = 2^k$. Altså $b^2 = b$, så $b = 1$ (for $b > 0$ utelukker $b = 0$). Da gir $2^k = 1$ bare $k = 0$. Da er $f(x) = a$.
 \fo{U6} a) $16^{\tfrac34} = 8$. Dyret bruker 8 ganger så mye energi.
 b) Det store dyret bruker $\frac{8}{16} = \frac12$ så mye per kilo.
 c) $20\,000^{\tfrac34} \approx 1\,680$ ganger så mye energi.
-d) Eksempel: Dyr er ikke like i form og oppbygning, så en enkel potens kan ikke gjelde nøyaktig for alle. Modellen er en tilnærming og gjelder best for gjennomsnittlige verdier for mange arter.
+d) Eksempel: Dyr er ikke like i form og oppbygning, så en enkel potens kan ikke gjelde nøyaktig for alle. Modellen er en tilnærming og gjelder best for gjennomsnittlige verdier for mange arter. Eksponenten $\tfrac34$ er tilpasset målingene. Noen datasett passer bedre med $\tfrac23$.

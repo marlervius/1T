@@ -39,7 +39,7 @@ chk("VF 1d tall", [2 * 5**2, (2 * 5) ** 2], [50, 100])
 sant("VF 1e", float(Rational(95, 100) ** 100) > 0, "0,95^x er alltid positiv")
 
 # ---------- Nivå 1 ----------
-chk("1.1a", 1 + Rational(8, 100), Rational(108, 100))
+chk("1.1a", 1 + Rational(12, 100), Rational(112, 100))
 chk("1.1b", 1 - Rational(35, 100), Rational(65, 100))
 chk("1.1c", 1 + Rational(25, 10) / 100, Rational(1025, 1000))
 chk("1.1d", 1 + Rational(60, 100), Rational(16, 10))
@@ -56,19 +56,21 @@ chk("1.3 f(2)", 500 * Rational(11, 10) ** 2, 605)
 chk("1.4a", 1 - Rational(15, 100), Rational(85, 100))
 v4 = 240000 * Rational(85, 100) ** 4
 chk("1.4b", round(float(v4), -2), 125300)
+chk("1.4d", round(float(240000 * Rational(85, 100) ** 30), -2), 1800)
+sant("1.4d nøyaktig", round(float(240000 * Rational(85, 100) ** 30)) == 1831, "ca. 1831 kr")
 x4 = nsolve(240000 * Rational(85, 100) ** x - 100000, x, 5)
 chk("1.4c", round(float(x4), 1), 5.4)
 
 # 1.5: (1,40) og (3,10)
 los("1.5 b", Eq(b**2, Rational(10, 40)), [Rational(1, 2), -Rational(1, 2)], var=b)  # b>0 gir b = 1/2
+sant("1.5 b>0", [r for r in solve(b**2 - Rational(1, 4), b) if r > 0] == [Rational(1, 2)], "b = -1/2 forkastes")
 chk("1.5 a", Rational(40) / Rational(1, 2), 80)
 chk("1.5 kontroll", [80 * Rational(1, 2) ** 1, 80 * Rational(1, 2) ** 3], [40, 10])
 
 # 1.6: første feilen er pil 3
-sant("1.6 pil 1", 1 - Rational(25, 100) == Rational(75, 100), "b = 0,75")
-sant("1.6 pil 2", True, "f(x) = 800 * 0,75^x er definisjonen")
-sant("1.6 pil 3 feil", 800 * Rational(75, 100) ** 2 != (800 * Rational(75, 100)) ** 2, "a*b^x er ikke (ab)^x")
-sant("1.6 pil 4", (800 * Rational(75, 100)) ** 2 == 360000, "600^2")
+sant("1.6 pil 1", 1 - Rational(25, 100) == Rational(75, 100), "b = 0,75 og f(x) = 800 * 0,75^x")
+sant("1.6 pil 2 feil", 800 * Rational(75, 100) ** 2 != (800 * Rational(75, 100)) ** 2, "a*b^x er ikke (ab)^x")
+sant("1.6 pil 3", (800 * Rational(75, 100)) ** 2 == 360000, "600^2")
 chk("1.6 riktig", 800 * Rational(75, 100) ** 2, 450)
 
 # 1.7: doblingstid 6 %
@@ -79,9 +81,16 @@ chk("1.7b", round(float(x7b), 1), 11.9)
 aapen("1.7c", "Doblingstiden er den samme uansett startbeløp")
 
 # ---------- Nivå 3 ----------
-chk("1.9a", simplify(A * B ** (X + 1) - A * B**X - A * B**X * (B - 1)), 0)
-sant("1.9a pos", all(Rational(3, 2) ** i > 0 for i in range(-20, 20)), "(b-1) > 0 når b > 1")
-sant("1.9b", all(Rational(1, 2) ** i > 0 for i in range(0, 50)), "positivt")
+chk("1.8a", [25000 + 2000 * i for i in (1, 2, 10)], [27000, 29000, 45000])
+chk("1.8a B", [round(float(25000 * Rational(108, 100) ** i)) for i in (1, 2, 10)], [27000, 29160, 53973])
+forste = min(i for i in range(1, 50) if 25000 * Rational(108, 100) ** i > 25000 + 2000 * i)
+chk("1.8b", forste, 2)
+aapen("1.8c", "A: like tillegg. B: samme faktor")
+# 1.9: produkt og sum
+C_, D_ = symbols("C_ D_", positive=True)
+chk("1.9a", simplify(powsimp(A * B**X * C_ * D_**X - A * C_ * (B * D_) ** X, force=True)), 0)
+chk("1.9b lik b", simplify(A * B**X + C_ * B**X - (A + C_) * B**X), 0)
+sant("1.9b ulik", 1 * 2**1 + 1 * 3**1 == 5 and 1 * 2**2 + 1 * 3**2 == 13 and (13 / 5) != 5 / 1, "2^x + 3^x har ulik faktor: 5, 13")
 chk("1.9c", Rational(13, 10) ** 2, Rational(169, 100))
 sant("1.9c ikke 60", Rational(13, 10) ** 2 != Rational(16, 10), "69 % og ikke 60 %")
 
@@ -89,7 +98,9 @@ chk("1.10a", simplify(A * B ** (X + 3) / (A * B**X)), B**3)
 chk("1.10b", (2 ** Rational(1, 3)) ** 9, 8)
 chk("1.11a", 48 * Rational(1, 2) ** 3, 6)
 sant("1.11a avtar", Rational(1, 2) < 1, "0 < b < 1")
-sant("1.11b", all(Rational(a_) * Rational(b_) > 0 for a_ in (1, 5) for b_ in (Rational(1, 3), 2)), "a*b > 0")
+los("1.11b b", Eq(b**2 * 5, 20), [2, -2], var=b)
+chk("1.11b f(1)", 5 * 2, 10)
+sant("1.11b nei", 5 * 2 != 12, "f(1) = 10, ikke 12")
 
 chk("Sjekk 1a", 1 + Rational(9, 100), Rational(109, 100))
 chk("Sjekk 1b", 7 * 2**3, 56)
@@ -104,12 +115,14 @@ chk("Eks 2.1 steg", expand(3 * (2 * X) ** 2), 4 * 3 * X**2)
 # Eks 2
 chk("Eks 2.2 forhold", [Rational(16, 2), Rational(128, 16), Rational(1024, 128)], [8, 8, 8])
 chk("Eks 2.2 b", 2**3, 8)
+chk("Eks 2.2 deltay/deltax", [Rational(16 - 2, 1), Rational(128 - 16, 2), Rational(1024 - 128, 4)], [14, 56, 224])
+chk("Eks 2.2 ikke eksp", [8**2, Rational(128, 16)], [64, 8])
 chk("Eks 2.2 a", 2 * 1**3, 2)
 chk("Eks 2.2 kontroll", [2 * xx**3 for xx in (1, 2, 4, 8)], [2, 16, 128, 1024])
 # Vanlige feil
 chk("VF 2a", [2**3, 3**2], [8, 9])
 chk("VF 2b", [9 ** Rational(1, 2), Rational(9, 2)], [3, Rational(9, 2)])
-sant("VF 2b ulik", 3 != Rational(9, 2), "sqrt(9) er ikke 9/2")
+sant("VF 2b ulik", 3 != Rational(9, 2) and 4 ** Rational(1, 2) == Rational(4, 2), "gjelder ikke generelt: x = 9 moteksempel, x = 4 stemmer")
 chk("VF 2c", simplify((2 * X) ** 2 / X**2), 4)
 
 # ---------- Nivå 1 ----------
@@ -160,19 +173,19 @@ sant("2.8a2", all((Rational(i) * 2) ** Rational(1, 2) > Rational(i) ** Rational(
 sant("2.8b", Rational(2) ** -1 < 1 and 2**1 > 1, "x^(-1) avtar, x^1 vokser")
 sant("2.8c", all(Rational(5) / Rational(i) != 0 for i in range(1, 50)), "a/x er aldri 0")
 
-sant("2.9a", all(2**i > i**2 for i in (0, 1, 5, 6)), "2^x > x^2 for x = 0, 1, 5, 6")
-sant("2.9b", all(2**i < i**2 for i in (3,)), "x = 3: 8 < 9")
-chk("2.9 likhet", [2**2 - 2**2, 2**4 - 4**2], [0, 0])
-sant("2.9c", 2**11 == 2 * 2**10 and Rational(11**2, 10**2) == Rational(121, 100), "faktorer 2 og 1,21")
+g = lambda v: 2**v - v**2
+rutenett = [Rational(i, 100) for i in range(0, 1001) if i not in (200, 400)]
+sant("2.9a", all((g(v) > 0) == (v < 2 or v > 4) for v in rutenett) and g(2) == 0 and g(4) == 0, "2^x > x^2 nøyaktig for 0<=x<2 og x>4")
+neg = nsolve(2**x - x**2, x, -0.8)
+sant("2.9c", g(-1) < 0 and g(0) > 0 and -1 < neg < 0, "ett skjæringspunkt for x<0 (x = %.3f), tre til sammen" % neg)
+sant("2.9b", 2**11 == 2 * 2**10 and Rational(11**2, 10**2) == Rational(121, 100), "faktorer 2 og 1,21")
 
 # 2.10: f(2)=20, f(4)=80
 los("2.10a b", Eq(2**b, 4), [2], var=b)
 chk("2.10a a", Rational(20, 2**2), 5)
 los("2.10b b", Eq(b**2, 4), [2, -2], var=b)
 chk("2.10b a", Rational(20, 2**2), 5)
-chk("2.10c", [5 * 6**2, 5 * 2**6], [180, 320])
-chk("2.10d", [5 * 3**2, 5 * 2**3], [45, 40])
-aapen("2.10d", "Lag selv: et punkt som bare ligger på én graf, f.eks. (6, 180)")
+sant("2.10c", all(5 * v**2 != 5 * 2**v for v in (1, 3, 5, 6, 7)) and 5*2**2 == 5*2**2 and 5*4**2 == 5*2**4, "grafene møtes bare ved x = 2 og x = 4 for x>0")
 
 chk("Sjekk 2a", simplify((2 * X) ** 3 / X**3), 8)
 chk("Sjekk 2b", [3**2, 2**3], [9, 8])
@@ -202,10 +215,23 @@ chk("U3a", [r[1] for r in lok["ut"]], [70, 36, 24, 18, 15, 12, 11, 10, 9, 8])
 aapen("U3b", "Kommentar til sammenligning med 72/p")
 sant("U3c", all(abs(r[1] - r[2]) <= 2 for r in lok["ut"]), "avvik høyst 2 år")
 
-chk("U4a", simplify(A * B ** (X + 1) / (A * B**X)), B)
-chk("U4b", simplify(powsimp(A * (2 * X) ** K / (A * X**K), force=True)), 2**K)
-chk("U5 forhold eksp", simplify(powsimp(A * B ** (2 * X) / (A * B**X), force=True)), B**X)
+f0, rr = symbols("f0 rr", positive=True)
+fv = f0
+ok = True
+for nn in range(1, 8):
+    fv = fv * rr
+    ok = ok and simplify(fv - f0 * rr**nn) == 0
+sant("U4a", ok, "f(n) = f(n-1)*b gir f(n) = f(0)*b^n")
+gv = f0
+ok = True
+for nn in range(1, 8):
+    gv = gv * rr
+    ok = ok and simplify(gv - f0 * rr**nn) == 0
+sant("U4b", ok, "g(2^n) = g(1)*r^n")
+sant("U4b k", simplify((2**K) ** 5 - 2 ** (5 * K)) == 0, "r = 2^k gir g(2^n) = g(1)*(2^n)^k")
+aapen("U4c", "Tolking for tabeller")
 lsg = [s for s in solve([Eq(b, 2**k), Eq(b**2, 2**k)], [b, k], dict=True) if s[b] > 0]
+sant("U5 b=0", 0**2 == 0**1, "b = 0 løser b^2 = b, men b > 0")
 sant("U5 løsning", lsg == [{b: 1, k: 0}], "b = 1 og k = 0")
 chk("U6a", 16 ** Rational(3, 4), 8)
 chk("U6b", Rational(8, 16), Rational(1, 2))

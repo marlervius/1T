@@ -4,7 +4,7 @@
 
 \begin{infoboks}{Velg metode selv}
 Arket bygger på 3.5 Eksponential- og potensfunksjoner. Vis regning og begrunnelse.
-Alle tall i oppgavene er tenkte, ikke målinger. Bruk eksakte svar når det går.
+Tallene i U1 er tenkte. Kleibers lov i U6 er en virkelig modell, laget ut fra målinger. Bruk eksakte svar når det går.
 \end{infoboks}
 
 \nivaahode{2}
@@ -48,18 +48,18 @@ for p in range(1, 11):
 \oppg{U4}{3}{\uh}
 Bevis.
 \begin{tasks}(1)
-  \task Vis at $\dfrac{f(x+1)}{f(x)} = b$ for alle $x$ når $f(x) = a \cdot b^x$.
-  \task Vis at $\dfrac{g(2x)}{g(x)} = 2^k$ for alle $x > 0$ når $g(x) = a \cdot x^k$.
+  \task Vis at hvis $\dfrac{f(x+1)}{f(x)} = b$ for alle heltall $x$, er $f(n) = f(0) \cdot b^n$ for alle heltall $n \ge 0$.
+  \task Anta at $\dfrac{g(2x)}{g(x)} = r$ for $x = 1, 2, 4, 8, \ldots$ Vis at $g(2^n) = g(1) \cdot r^n$. Hva betyr det når $r = 2^k$?
   \task Hva betyr de to resultatene for hvordan en tabell ser ut?
 \end{tasks}
 
 \oppg{U5}{3}{\uh}
 Er det mulig at en funksjon både kan skrives som $f(x) = a \cdot b^x$ og som $f(x) = c \cdot x^k$ for alle $x > 0$?
-Undersøk, og finn alle slike funksjoner. Begrunn svaret.
-\hint{Hva er $\dfrac{f(2x)}{f(x)}$ i hver av de to modellene?}
+(Vi tillater $b = 1$ og $k = 0$.) Undersøk, og finn alle slike funksjoner. Begrunn svaret.
+\hint{Hva må gjelde for $f(1)$, $f(2)$ og $f(4)$?}
 
 \oppg{U6}{3}{\mh}
-Kleibers lov er en modell. Den sier at energiforbruket til et pattedyr er omtrent proporsjonalt med $m^{\tfrac34}$, der $m$ er massen.
+Kleibers lov (1932) bygger på målinger av mange pattedyr. Den sier at energiforbruket i hvile er omtrent proporsjonalt med $m^{\tfrac34}$, der $m$ er massen.
 \begin{tasks}(1)
   \task Hvor mange ganger mer energi bruker et dyr som er 16 ganger så tungt?
   \task Hvor mye energi bruker det store dyret per kilo, sammenlignet med det lille?
