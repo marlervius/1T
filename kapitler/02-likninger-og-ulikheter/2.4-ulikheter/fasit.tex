@@ -1,0 +1,152 @@
+% =====================================================================
+%  2.4 Ulikheter — fasit
+% =====================================================================
+
+\fk{Del 1 — Lineære ulikheter}
+\fo{1.1} a) $x > 4$, $\langle 4, \rightarrow\rangle$ \ b) $x \le 6$, $\langle\leftarrow, 6]$ \ c) $x < -6$, $\langle\leftarrow, -6\rangle$ \ d) $x \ge 5$, $[5, \rightarrow\rangle$
+\fo{1.2} $-2x < 6$ og $x > -3$ (tegnet snus). Intervall: $\langle -3, \rightarrow\rangle$
+\fo{1.3} a) $x > -5$, $\langle -5, \rightarrow\rangle$ \ b) $x \le -6$, $\langle\leftarrow, -6]$ \ c) $x < 3$, $\langle\leftarrow, 3\rangle$ \ d) $x \ge -2$, $[-2, \rightarrow\rangle$
+\fo{1.4} a) $x > 1$, $\langle 1, \rightarrow\rangle$ \ b) $x \le 2$, $\langle\leftarrow, 2]$ \ c) $0 \le x < 5$, $[0, 5\rangle$
+\fo{1.5} a) $x \le 9$, $\langle\leftarrow, 9]$ \ b) $x < -3$, $\langle\leftarrow, -3\rangle$ \ c) $x \ge -6$, $[-6, \rightarrow\rangle$ \ d) $x > 1$, $\langle 1, \rightarrow\rangle$
+\fo{1.6} a) $-1 \le x < 3$, $[-1, 3\rangle$ \ b) $-2 \le x < 2$, $[-2, 2\rangle$ (tegnene snus når vi deler med $-2$)
+\fo{1.7} Feilen er siste overgang, fra $-7x \ge -21$ til $x \ge 3$. Vi deler med $-7$ og må snu tegnet. Riktig: $x \le 3$, $\langle\leftarrow, 3]$.
+\fo{1.8} a) $99 + 15g < 249$ gir $g < 10$. b) A er billigst når du bruker under 10 GB, altså høyst 9 hele GB. Ved 10 GB koster begge 249 kr.
+\fo{1.9} a) Aldri. Fra $a < b$ følger $-a > -b$. b) Noen ganger. $1 < 2$ og $1 < 4$ stemmer, men $-3 < 2$ og $9 < 4$ stemmer ikke. c) Alltid. Trekker vi fra $2x$, står $1 > -3$ igjen, og det er sant.
+\fo{1.10} A: $-5x > -20$. Vi deler med $-5$ og snur: $x < 4$. B: $20 > 5x$. Vi deler med $5$ og snur ikke: $4 > x$. Dette er samme ulikhet lest fra hver sin side, så svaret blir det samme.
+\fo{1.11} Hvis $a > 0$: $x > \frac{6}{a}$. Hvis $a < 0$: $x < \frac{6}{a}$ (tegnet snus). Hvis $a = 0$: $0 > 6$ er usant, så ingen løsning.
+\fo{Sjekk 1} a) $x \ge -2$, $[-2, \rightarrow\rangle$ \ b) $[-2, 4\rangle$ \ c) Fra $2 < 3$ får vi $-2$ og $-3$ når vi ganger med $-1$. Tallene speiles om 0, og $-2 > -3$. Rekkefølgen er snudd.
+
+\fk{Del 2 — Andregradsulikheter}
+\fo{2.1} a) $(x-2)(x-4) = x^2 - 4x - 2x + 8 = x^2 - 6x + 8$. b) Se figuren. c) $2 \le x \le 4$, $[2, 4]$.
+
+\begin{center}
+\begin{tikzpicture}[font=\small,pos/.style={line width=1.1pt},neg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
+  \draw[graa,thin] (1.40,0.40) -- (1.40,-1.95);
+  \draw[graa,thin] (3.30,0.40) -- (3.30,-1.95);
+  \node[anchor=east] at (-0.15,-0.00) {$x-2$};
+  \draw[neg] (0.00,-0.00) -- (1.40,-0.00);
+  \draw[pos] (1.40,-0.00) -- (3.30,-0.00);
+  \draw[pos] (3.30,-0.00) -- (4.70,-0.00);
+  \node[fill=white,inner sep=1.5pt] at (1.40,-0.00) {$0$};
+  \node[anchor=east] at (-0.15,-0.70) {$x-4$};
+  \draw[neg] (0.00,-0.70) -- (1.40,-0.70);
+  \draw[neg] (1.40,-0.70) -- (3.30,-0.70);
+  \draw[pos] (3.30,-0.70) -- (4.70,-0.70);
+  \node[fill=white,inner sep=1.5pt] at (3.30,-0.70) {$0$};
+  \node[anchor=east] at (-0.15,-1.55) {$(x-2)(x-4)$};
+  \draw[pos,hoved] (0.00,-1.55) -- (1.40,-1.55);
+  \draw[neg,hoved] (1.40,-1.55) -- (3.30,-1.55);
+  \draw[pos,hoved] (3.30,-1.55) -- (4.70,-1.55);
+  \node[fill=white,inner sep=1.5pt] at (1.40,-1.55) {$0$};
+  \node[fill=white,inner sep=1.5pt] at (3.30,-1.55) {$0$};
+  \node[below] at (1.40,-1.95) {$2$};
+  \node[below] at (3.30,-1.95) {$4$};
+\end{tikzpicture}
+\end{center}
+\fo{2.2} a) $x < -5$ eller $x > 1$, $\langle\leftarrow, -5\rangle \cup \langle 1, \rightarrow\rangle$ \ b) $-2 \le x \le 5$, $[-2, 5]$ \ c) $0 < x < 3$, $\langle 0, 3\rangle$
+\fo{2.3} a) $(x+4)(x-2) < 0$: $\langle -4, 2\rangle$ \ b) $(x-2)(x-5) \ge 0$: $\langle\leftarrow, 2] \cup [5, \rightarrow\rangle$ \ c) $-3 \le x \le 3$: $[-3, 3]$
+\fo{2.4} a) $(x-5)(x+2) > 0$: $x < -2$ eller $x > 5$, $\langle\leftarrow, -2\rangle \cup \langle 5, \rightarrow\rangle$
+
+\begin{center}
+\begin{tikzpicture}[font=\small,pos/.style={line width=1.1pt},neg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
+  \draw[graa,thin] (1.40,0.40) -- (1.40,-1.95);
+  \draw[graa,thin] (3.30,0.40) -- (3.30,-1.95);
+  \node[anchor=east] at (-0.15,-0.00) {$x-5$};
+  \draw[neg] (0.00,-0.00) -- (1.40,-0.00);
+  \draw[neg] (1.40,-0.00) -- (3.30,-0.00);
+  \draw[pos] (3.30,-0.00) -- (4.70,-0.00);
+  \node[fill=white,inner sep=1.5pt] at (3.30,-0.00) {$0$};
+  \node[anchor=east] at (-0.15,-0.70) {$x+2$};
+  \draw[neg] (0.00,-0.70) -- (1.40,-0.70);
+  \draw[pos] (1.40,-0.70) -- (3.30,-0.70);
+  \draw[pos] (3.30,-0.70) -- (4.70,-0.70);
+  \node[fill=white,inner sep=1.5pt] at (1.40,-0.70) {$0$};
+  \node[anchor=east] at (-0.15,-1.55) {$(x-5)(x+2)$};
+  \draw[pos,hoved] (0.00,-1.55) -- (1.40,-1.55);
+  \draw[neg,hoved] (1.40,-1.55) -- (3.30,-1.55);
+  \draw[pos,hoved] (3.30,-1.55) -- (4.70,-1.55);
+  \node[fill=white,inner sep=1.5pt] at (1.40,-1.55) {$0$};
+  \node[fill=white,inner sep=1.5pt] at (3.30,-1.55) {$0$};
+  \node[below] at (1.40,-1.95) {$-2$};
+  \node[below] at (3.30,-1.95) {$5$};
+\end{tikzpicture}
+\end{center}
+b) $(x-3)(x-4) \le 0$: $3 \le x \le 4$, $[3, 4]$ \ c) $2(x-3)(x+2) < 0$: $-2 < x < 3$, $\langle -2, 3\rangle$
+\fo{2.5} a) $D = -16 < 0$ og $a > 0$: alle tall \ b) $(x+3)^2 \le 0$ bare når $x = -3$ \ c) $(x-4)^2 > 0$ for alle $x \neq 4$ \ d) $D = -4 < 0$ og $a > 0$: ingen løsning
+\fo{2.6} Feilen er siste overgang. Produktet $(x-4)(x+3)$ er positivt \emph{utenfor} nullpunktene, ikke mellom dem. Riktig: $x < -3$ eller $x > 4$.
+\fo{2.7} a) Noen ganger. $x^2 > x$ er sann for $x < 0$ og $x > 1$, men ikke for $x = \frac{1}{2}$. b) Alltid. En kvadrat er aldri negativ. c) Aldri. $x^2 + 1 \ge 1$. d) Alltid. $x^2 \ge 0$, så $-x^2 \le 0$.
+\fo{2.8} Eksempel: $x^2 - 3x - 10 \le 0$, fordi $(x+2)(x-5) \le 0$ er sann mellom nullpunktene, med endepunkter. Og $(x-3)^2 > 0$, fordi en kvadrat er positiv unntatt der den er 0. Flere svar er riktige.
+\fo{2.9} Parabelen må ikke krysse $x$-aksen, så $D = k^2 - 16 < 0$, som gir $-4 < k < 4$. For $k = \pm 4$ er $D = 0$: parabelen berører aksen, og uttrykket er 0 der. Da er ikke $> 0$ oppfylt for alle $x$.
+\fo{Sjekk 2} a) $(x+4)(x-3) \ge 0$: $\langle\leftarrow, -4] \cup [3, \rightarrow\rangle$ \ b) Ingen løsning, fordi $x^2 + 9 \ge 9$ \ c) Vi vet ikke om $x$ er positiv. Er $x$ negativ, snus tegnet, og $x = 0$ går tapt. Riktig: $x(x-7) \ge 0$.
+
+\fk{Ekstra utfordring}
+\fo{U1} $x(x-2)(x+2) \ge 0$. Løsning: $[-2, 0] \cup [2, \rightarrow\rangle$.
+
+\begin{center}
+\begin{tikzpicture}[font=\small,pos/.style={line width=1.1pt},neg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
+  \draw[graa,thin] (1.40,0.40) -- (1.40,-2.65);
+  \draw[graa,thin] (3.30,0.40) -- (3.30,-2.65);
+  \draw[graa,thin] (5.20,0.40) -- (5.20,-2.65);
+  \node[anchor=east] at (-0.15,-0.00) {$x$};
+  \draw[neg] (0.00,-0.00) -- (1.40,-0.00);
+  \draw[neg] (1.40,-0.00) -- (3.30,-0.00);
+  \draw[pos] (3.30,-0.00) -- (5.20,-0.00);
+  \draw[pos] (5.20,-0.00) -- (6.60,-0.00);
+  \node[fill=white,inner sep=1.5pt] at (3.30,-0.00) {$0$};
+  \node[anchor=east] at (-0.15,-0.70) {$x-2$};
+  \draw[neg] (0.00,-0.70) -- (1.40,-0.70);
+  \draw[neg] (1.40,-0.70) -- (3.30,-0.70);
+  \draw[neg] (3.30,-0.70) -- (5.20,-0.70);
+  \draw[pos] (5.20,-0.70) -- (6.60,-0.70);
+  \node[fill=white,inner sep=1.5pt] at (5.20,-0.70) {$0$};
+  \node[anchor=east] at (-0.15,-1.40) {$x+2$};
+  \draw[neg] (0.00,-1.40) -- (1.40,-1.40);
+  \draw[pos] (1.40,-1.40) -- (3.30,-1.40);
+  \draw[pos] (3.30,-1.40) -- (5.20,-1.40);
+  \draw[pos] (5.20,-1.40) -- (6.60,-1.40);
+  \node[fill=white,inner sep=1.5pt] at (1.40,-1.40) {$0$};
+  \node[anchor=east] at (-0.15,-2.25) {$x(x-2)(x+2)$};
+  \draw[neg,hoved] (0.00,-2.25) -- (1.40,-2.25);
+  \draw[pos,hoved] (1.40,-2.25) -- (3.30,-2.25);
+  \draw[neg,hoved] (3.30,-2.25) -- (5.20,-2.25);
+  \draw[pos,hoved] (5.20,-2.25) -- (6.60,-2.25);
+  \node[fill=white,inner sep=1.5pt] at (1.40,-2.25) {$0$};
+  \node[fill=white,inner sep=1.5pt] at (3.30,-2.25) {$0$};
+  \node[fill=white,inner sep=1.5pt] at (5.20,-2.25) {$0$};
+  \node[below] at (1.40,-2.65) {$-2$};
+  \node[below] at (3.30,-2.65) {$0$};
+  \node[below] at (5.20,-2.65) {$2$};
+\end{tikzpicture}
+\end{center}
+\fo{U2} a) $20t - 5t^2 > 15$ gir $t^2 - 4t + 3 < 0$, altså $(t-1)(t-3) < 0$. Løsning: $1 < t < 3$. b) I 2 sekunder.
+\fo{U3} a) $-0,5$, $0,0$, $0,5$, $1,0$, $1,5$, $2,0$, $2,5$ (hver på egen linje). b) Programmet tester bare noen punkter og sier ikke noe om verdiene imellom. Ulikheten $(x - 1,2)(x - 1,4) < 0$ har løsning $\langle 1,2;\ 1,4\rangle$, men ingen testverdi ligger der. c) $-1,0$ og $3,0$ kommer med. De er nullpunktene, og de er med når tegnet er $\le$.
+\fo{U4} a) Vi vet ikke om $x$ er positiv. For $x = -1$ er $1 < -3$ usant, men $x < 3$ sier at $-1$ er med. Delt på et negativt tall måtte tegnet snus. b) $x(x-3) < 0$: $0 < x < 3$.
+\fo{U5} Nevneren $x + 2$ får × i $x = -2$ (ikke definert). Linja for kvotienten er positiv for $x < -2$ og $x > 1$.
+
+\begin{center}
+\begin{tikzpicture}[font=\small,pos/.style={line width=1.1pt},neg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
+  \draw[graa,thin] (1.40,0.40) -- (1.40,-1.95);
+  \draw[graa,thin] (3.30,0.40) -- (3.30,-1.95);
+  \node[anchor=east] at (-0.15,-0.00) {$x-1$};
+  \draw[neg] (0.00,-0.00) -- (1.40,-0.00);
+  \draw[neg] (1.40,-0.00) -- (3.30,-0.00);
+  \draw[pos] (3.30,-0.00) -- (4.70,-0.00);
+  \node[fill=white,inner sep=1.5pt] at (3.30,-0.00) {$0$};
+  \node[anchor=east] at (-0.15,-0.70) {$x+2$};
+  \draw[neg] (0.00,-0.70) -- (1.40,-0.70);
+  \draw[pos] (1.40,-0.70) -- (3.30,-0.70);
+  \draw[pos] (3.30,-0.70) -- (4.70,-0.70);
+  \node[fill=white,inner sep=1.5pt] at (1.40,-0.70) {$\times$};
+  \node[anchor=east] at (-0.15,-1.55) {$\frac{x-1}{x+2}$};
+  \draw[pos,hoved] (0.00,-1.55) -- (1.40,-1.55);
+  \draw[neg,hoved] (1.40,-1.55) -- (3.30,-1.55);
+  \draw[pos,hoved] (3.30,-1.55) -- (4.70,-1.55);
+  \node[fill=white,inner sep=1.5pt] at (1.40,-1.55) {$\times$};
+  \node[fill=white,inner sep=1.5pt] at (3.30,-1.55) {$0$};
+  \node[below] at (1.40,-1.95) {$-2$};
+  \node[below] at (3.30,-1.95) {$1$};
+\end{tikzpicture}
+\end{center}
+Løsning: $\langle\leftarrow, -2\rangle \cup [1, \rightarrow\rangle$. Nevneren er 0 i $x = -2$, og vi kan ikke dele på 0. I $x = 1$ er telleren 0, og $\frac{0}{3} = 0 \ge 0$.
+\fo{U6} a) $(\sqrt{a} - \sqrt{b})^2 = a - 2\sqrt{ab} + b \ge 0$, så $a + b \ge 2\sqrt{ab}$. Del på 2. b) Likhet når $(\sqrt{a} - \sqrt{b})^2 = 0$, altså $a = b$. c) Sidene $a$ og $b$ har $a + b = 10$, så $\sqrt{ab} \le 5$ og $ab \le 25$. Likhet når $a = b = 5$: kvadratet på $5\text{ cm} \cdot 5\text{ cm}$ har størst areal, $25\text{ cm}^2$.
+\fo{U7} $D = 16 - 4k$. For $k < 4$ er $D > 0$: to nullpunkter, og løsningen er et intervall (for $k = 3$: $[1, 3]$). For $k = 4$ er $D = 0$ og $(x-2)^2 \le 0$, så bare $x = 2$. For $k > 4$ er $D < 0$ og parabelen ligger over aksen: ingen løsning. Minst én løsning når $k \le 4$.

@@ -88,11 +88,11 @@ k1 = 6 - 2 * x + 4 >= 5 * x - 11
 k2 = 10 - 2 * x >= 5 * x - 11
 k3 = -7 * x >= -21
 k4 = x >= 3
-sant("1.7 pil 1", lsm(k0) == lsm(k1), "gange ut parentesen")
-sant("1.7 pil 2", lsm(k1) == lsm(k2), "6+4=10")
-sant("1.7 pil 3", lsm(k2) == lsm(k3), "samle x-ledd og tall")
-sant("1.7 pil 4 er feil", lsm(k3) != lsm(k4), "tegnet skulle vært snudd")
-ulikhet("1.7 rett", 2 * (3 - x) + 4 >= 5 * x - 11, Interval(-oo, 3))
+sant("1.7a", lsm(k0) == lsm(k1), "gange ut parentesen")
+sant("1.7b", lsm(k1) == lsm(k2), "6+4=10")
+sant("1.7c", lsm(k2) == lsm(k3), "samle x-ledd og tall")
+sant("1.7d", lsm(k3) != lsm(k4), "tegnet skulle vært snudd")
+ulikhet("1.7e", 2 * (3 - x) + 4 >= 5 * x - 11, Interval(-oo, 3))
 
 # 1.8: mobilabonnement
 ulikhet("1.8a", 99 + 15 * g < 249, ap(-oo, 10), var=g)
@@ -101,21 +101,21 @@ chk("1.8b lik pris", 99 + 15 * 10, 249)
 
 # 1.9 alltid / noen ganger / aldri
 par = [(p, q) for p in range(-5, 6) for q in range(-5, 6) if p < q]
-sant("1.9a aldri", all(not (-p < -q) for p, q in par), "-a < -b er aldri sann når a < b")
-sant("1.9b noen ganger", (1 < 2 and 1**2 < 2**2) and (-3 < 2 and not ((-3) ** 2 < 2**2)), "1<2 ok, -3<2 feiler")
-ulikhet("1.9c alltid", 2 * x + 1 > 2 * x - 3, S.Reals)
+sant("1.9a", all(not (-p < -q) for p, q in par), "-a < -b er aldri sann når a < b")
+sant("1.9b", (1 < 2 and 1**2 < 2**2) and (-3 < 2 and not ((-3) ** 2 < 2**2)), "1<2 ok, -3<2 feiler")
+ulikhet("1.9c", 2 * x + 1 > 2 * x - 3, S.Reals)
 
 # 1.10 to metoder
-ulikhet("1.10 metode A", 4 - 3 * x > 2 * x - 16, ap(-oo, 4))
-sant("1.10 A steg", lsm(-5 * x > -20) == ap(-oo, 4), "-5x > -20 gir x < 4")
-sant("1.10 B steg", lsm(20 > 5 * x) == ap(-oo, 4), "20 > 5x gir x < 4")
+ulikhet("1.10a", 4 - 3 * x > 2 * x - 16, ap(-oo, 4))
+sant("1.10b", lsm(-5 * x > -20) == ap(-oo, 4), "-5x > -20 gir x < 4")
+sant("1.10c", lsm(20 > 5 * x) == ap(-oo, 4), "20 > 5x gir x < 4")
 
 # 1.11 ax > 6
-ulikhet("1.11 a=2", 2 * x > 6, ap(3, oo))
-ulikhet("1.11 a=-2", -2 * x > 6, ap(-oo, -3))
-sant("1.11 a=0", not (0 * 5 > 6) and lsm(0 * x > 6) == S.EmptySet, "ingen løsning")
-sant("1.11 generelt a>0", lsm(a * x > 6) is not None and lsm(Rational(5) * x > 6) == ap(Rational(6, 5), oo), "x > 6/a")
-sant("1.11 generelt a<0", lsm(Rational(-5) * x > 6) == ap(-oo, Rational(-6, 5)), "x < 6/a")
+ulikhet("1.11a", 2 * x > 6, ap(3, oo))
+ulikhet("1.11b", -2 * x > 6, ap(-oo, -3))
+sant("1.11c", not (0 * 5 > 6) and lsm(0 * x > 6) == S.EmptySet, "ingen løsning")
+sant("1.11d", lsm(a * x > 6) is not None and lsm(Rational(5) * x > 6) == ap(Rational(6, 5), oo), "x > 6/a")
+sant("1.11e", lsm(Rational(-5) * x > 6) == ap(-oo, Rational(-6, 5)), "x < 6/a")
 
 # Sjekk 1
 ulikhet("Sjekk 1a", 2 - 4 * x <= 10, Interval(-2, oo))
@@ -189,16 +189,16 @@ ulikhet("2.5d", x**2 + 6 * x + 10 <= 0, S.EmptySet)
 f0 = x**2 - x > 12
 f1 = x**2 - x - 12 > 0
 f2 = (x - 4) * (x + 3) > 0
-sant("2.6 pil 1", lsm(f0) == lsm(f1), "trekk fra 12")
-sant("2.6 pil 2", lsm(f1) == lsm(f2) and expand((x - 4) * (x + 3)) == x**2 - x - 12, "faktorisering")
-sant("2.6 pil 3 er feil", lsm(f2) != ap(-3, 4), "produktet er positivt utenfor nullpunktene")
-ulikhet("2.6 rett", x**2 - x > 12, Union(ap(-oo, -3), ap(4, oo)))
+sant("2.6a", lsm(f0) == lsm(f1), "trekk fra 12")
+sant("2.6b", lsm(f1) == lsm(f2) and expand((x - 4) * (x + 3)) == x**2 - x - 12, "faktorisering")
+sant("2.6c", lsm(f2) != ap(-3, 4), "produktet er positivt utenfor nullpunktene")
+ulikhet("2.6d", x**2 - x > 12, Union(ap(-oo, -3), ap(4, oo)))
 
 # 2.7 alltid / noen ganger / aldri
-ulikhet("2.7a noen ganger", x**2 > x, Union(ap(-oo, 0), ap(1, oo)))
-ulikhet("2.7b alltid", (x - 3) ** 2 >= 0, S.Reals)
-ulikhet("2.7c aldri", x**2 + 1 < 0, S.EmptySet)
-ulikhet("2.7d alltid", -(x**2) <= 0, S.Reals)
+ulikhet("2.7a", x**2 > x, Union(ap(-oo, 0), ap(1, oo)))
+ulikhet("2.7b", (x - 3) ** 2 >= 0, S.Reals)
+ulikhet("2.7c", x**2 + 1 < 0, S.EmptySet)
+ulikhet("2.7d", -(x**2) <= 0, S.Reals)
 
 # 2.8 lag selv (eksempel på godt svar)
 chk("2.8a faktorisering", expand((x + 2) * (x - 5)), x**2 - 3 * x - 10)
@@ -206,11 +206,11 @@ ulikhet("2.8a", x**2 - 3 * x - 10 <= 0, Interval(-2, 5))
 ulikhet("2.8b", (x - 3) ** 2 > 0, Union(ap(-oo, 3), ap(3, oo)))
 
 # 2.9: x^2 + kx + 4 > 0 for alle x
-ulikhet("2.9 k", k**2 - 16 < 0, ap(-4, 4), var=k)
-ulikhet("2.9 k=3", x**2 + 3 * x + 4 > 0, S.Reals)
-ulikhet("2.9 k=0", x**2 + 4 > 0, S.Reals)
-ulikhet("2.9 k=4", x**2 + 4 * x + 4 > 0, Union(ap(-oo, -2), ap(-2, oo)))
-ulikhet("2.9 k=5", x**2 + 5 * x + 4 > 0, Union(ap(-oo, -4), ap(-1, oo)))
+ulikhet("2.9a", k**2 - 16 < 0, ap(-4, 4), var=k)
+ulikhet("2.9b", x**2 + 3 * x + 4 > 0, S.Reals)
+ulikhet("2.9c", x**2 + 4 > 0, S.Reals)
+ulikhet("2.9d", x**2 + 4 * x + 4 > 0, Union(ap(-oo, -2), ap(-2, oo)))
+ulikhet("2.9e", x**2 + 5 * x + 4 > 0, Union(ap(-oo, -4), ap(-1, oo)))
 
 # Sjekk 2
 chk("Sjekk 2a faktorisering", expand((x + 4) * (x - 3)), x**2 + x - 12)
@@ -245,8 +245,8 @@ ulikhet("U3b smalt intervall", (x - Rational(6, 5)) * (x - Rational(7, 5)) < 0, 
 sant("U3b ingen testverdi", not any(Rational(6, 5) < Rational(i, 2) < Rational(7, 5) for i in range(-20, 21)), "ingen multiplum av 0,5 i <1,2; 1,4>")
 ulikhet("U3 løsning", x**2 - 2 * x - 3 < 0, ap(-1, 3))
 
-ulikhet("U4 rett", x**2 < 3 * x, ap(0, 3))
-sant("U4 moteksempel 2", not ((-1) ** 2 < 3 * (-1)) and (-1 < 3), "x = -1 oppfyller ikke x^2 < 3x")
+ulikhet("U4b", x**2 < 3 * x, ap(0, 3))
+sant("U4a", not ((-1) ** 2 < 3 * (-1)) and (-1 < 3), "x = -1 oppfyller ikke x^2 < 3x")
 
 ulikhet("U5", (x - 1) / (x + 2) >= 0, Union(ap(-oo, -2), Interval(1, oo)))
 sant("U5 x=-2", (-2) + 2 == 0 and (-2) not in lsm((x - 1) / (x + 2) >= 0), "x = -2 gir nevner 0")
@@ -258,9 +258,9 @@ chk("U6c areal", max(s * (10 - s) for s in range(0, 11)), 25)
 los("U6c likhet", Eq(x * (10 - x), 25), [5])
 ulikhet("U6c ikke større", x * (10 - x) > 25, S.EmptySet)
 
-ulikhet("U7 k", 16 - 4 * k >= 0, Interval(-oo, 4), var=k)
-ulikhet("U7 k=3", x**2 - 4 * x + 3 <= 0, Interval(1, 3))
-ulikhet("U7 k=4", x**2 - 4 * x + 4 <= 0, FiniteSet(2))
-ulikhet("U7 k=5", x**2 - 4 * x + 5 <= 0, S.EmptySet)
+ulikhet("U7a", 16 - 4 * k >= 0, Interval(-oo, 4), var=k)
+ulikhet("U7b", x**2 - 4 * x + 3 <= 0, Interval(1, 3))
+ulikhet("U7c", x**2 - 4 * x + 4 <= 0, FiniteSet(2))
+ulikhet("U7d", x**2 - 4 * x + 5 <= 0, S.EmptySet)
 
 rapport()

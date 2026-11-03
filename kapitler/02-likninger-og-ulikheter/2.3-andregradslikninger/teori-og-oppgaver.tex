@@ -29,7 +29,7 @@ Regelen gjelder \textbf{bare for 0}. Fra $a \cdot b = 6$ kan vi ikke si noe om $
 \end{tabular}
 
 \smallskip
-Sum--produkt: finn to tall med produkt 6 og sum 5. Metoden virker bare når $a = 1$ og løsningene er hele tall.
+Sum--produkt: finn to tall med produkt 6 og sum 5. Metoden passer best når $a = 1$ og løsningene er hele tall.
 \end{mustkunne}
 
 \begin{eksempel}[1 — felles faktor, ikke del på $x$]
@@ -59,7 +59,7 @@ Kontroll: & $4^2 - 4 - 12 = 0$ og $(-3)^2 + 3 - 12 = 0$.\\
 \begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
   \item $x^2 = 5x \;\Rightarrow\; x = 5$ er feil. Når du deler på $x$, mister du $x = 0$. Riktig: $x(x - 5) = 0$, så $x = 0$ eller $x = 5$.
   \item $x^2 = 9 \;\Rightarrow\; x = 3$ er feil. Også $(-3)^2 = 9$. Riktig: $x = 3$ eller $x = -3$.
-  \item $(x-2)(x-3) = 6 \;\Rightarrow\; x - 2 = 6$ eller $x - 3 = 6$ er feil. Regelen gjelder bare for 0. Riktig: gang ut til $x^2 - 5x = 0$, så $x = 0$ eller $x = 5$.
+  \item $(x+1)(x+2) = 12 \;\Rightarrow\; x + 1 = 12$ eller $x + 2 = 12$ er feil. Regelen gjelder bare for 0. Riktig: gang ut til $x^2 + 3x - 10 = 0$, så $(x+5)(x-2) = 0$ og $x = -5$ eller $x = 2$.
 \end{itemize}
 \end{vanligfeil}
 
@@ -94,7 +94,7 @@ Vi skal løse $x^2 + 7x + 10 = 0$ med sum--produkt-metoden. Fyll inn.
 \nivaahode{2}
 
 \oppg{1.4}{2}{\uh}
-Løs likningene. Velg metode etter at du har sett på likningen.
+Løs likningene. Skriv hvilken metode du valgte, og hvorfor.
 \begin{tasks}(2)
   \task $x^2 - 3x - 10 = 0$
   \task $x^2 - 10x + 25 = 0$
@@ -126,13 +126,13 @@ Finn den første feilen. Løs likningen riktig.
 Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret.
 \begin{tasks}(1)
   \task Likningen $x^2 = k$ har to løsninger.
-  \task Likningen $(x - p)(x - q) = 0$ har to ulike løsninger.
-  \task Løsningene av $x^2 + bx = 0$ er $x = 0$ og $x = -b$.
+  \task Likningen $(x - m)(x - n) = 0$ har to ulike løsninger.
+  \task Tallene $0$ og $-b$ er løsninger av $x^2 + bx = 0$.
 \end{tasks}
 
 \oppg{1.8}{3}{\uh}
 Finn to verdier av $k$ slik at $x^2 + kx + 36 = 0$ har nøyaktig én løsning.
-\hint{Hvilken kvadratsetning gir 36 som siste ledd?}
+\hint{Hvordan ser venstre side ut faktorisert når det bare er én løsning?}
 
 \oppg{1.9}{3}{\uh}
 En andregradslikning $x^2 + px + q = 0$ har løsningene $x = 3$ og $x = 8$.
@@ -157,7 +157,7 @@ En andregradslikning $x^2 + px + q = 0$ har løsningene $x = 3$ og $x = 8$.
 abc-formelen & En formel som løser alle andregradslikninger $ax^2 + bx + c = 0$. & \mittsprak\\
 diskriminant & Tallet $D = b^2 - 4ac$. Det sier hvor mange løsninger likningen har. & \mittsprak\\
 fullstendig kvadrat & Et uttrykk som kan skrives som $(x + d)^2$, for eksempel $x^2 + 6x + 9$. & \mittsprak\\
-nullpunkt & Et punkt der grafen til en funksjon krysser $x$-aksen. Her er funksjonsverdien 0. & \mittsprak\\
+nullpunkt & En $x$-verdi der funksjonsverdien er 0. Der treffer grafen $x$-aksen. & \mittsprak\\
 \end{ordliste}
 
 \begin{mustkunne}
@@ -177,23 +177,24 @@ x &= 1 \text{ eller } x = -7
 \begin{minipage}[t]{0.50\linewidth}
 \textbf{Generelt:} $ax^2 + bx + c = 0$
 \begin{align*}
-x^2 + \tfrac{b}{a}x &= -\tfrac{c}{a}\\
-\left(x + \tfrac{b}{2a}\right)^2 &= \tfrac{b^2}{4a^2} - \tfrac{c}{a}\\
-&= \tfrac{b^2 - 4ac}{4a^2}\\
-x + \tfrac{b}{2a} &= \pm \tfrac{\sqrt{b^2 - 4ac}}{2a}
+x^2 + \frac{b}{a}x + \frac{c}{a} &= 0 \quad \text{(del på } a \neq 0)\\
+x^2 + \frac{b}{a}x &= -\frac{c}{a}\\
+x^2 + \frac{b}{a}x + \left(\frac{b}{2a}\right)^2 &= \left(\frac{b}{2a}\right)^2 - \frac{c}{a}\\
+\left(x + \frac{b}{2a}\right)^2 &= \frac{b^2 - 4ac}{4a^2}\\
+x + \frac{b}{2a} &= \pm \frac{\sqrt{b^2 - 4ac}}{2a}
 \end{align*}
 \end{minipage}
 
 \medskip
 \[ \boxed{\;x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\;} \qquad D = b^2 - 4ac \]
-$D > 0$: to løsninger. $D = 0$: én løsning. $D < 0$: ingen løsning, fordi vi ikke kan ta kvadratroten av et negativt tall.
+$D > 0$: to løsninger. $D = 0$: én løsning. $D < 0$: ingen løsning, fordi $\left(x + \frac{b}{2a}\right)^2$ ikke kan være negativ.
 
 \medskip
 \begin{minipage}[t]{0.32\linewidth}
 \centering
 \begin{tikzpicture}
 \begin{axis}[width=\linewidth, height=0.8\linewidth, axis lines=middle, xmin=-2, xmax=4, ymin=-4, ymax=4,
-  xtick={-1,3}, ytick={\empty}, tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$},
+  x tick label style={anchor=north east, font=\scriptsize}, xtick={-1,3}, ytick={\empty}, tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$},
   label style={font=\small}, title={\small $D > 0$: to nullpunkt}]
 \addplot[domain=-1.5:3.5, thick, hoved, samples=40] {x^2 - 2*x - 3};
 \addplot[only marks, mark=*, mark size=1.5pt] coordinates {(-1,0) (3,0)};
@@ -280,14 +281,13 @@ Løs likningene med abc-formelen. Gi eksakte svar.
 Løs $x^2 + 4x - 21 = 0$ med fullstendig kvadrat. Fyll inn.
 \begin{tasks}(1)
   \task $x^2 + 4x = $\skrivlinje[1.2cm]. Legg til $2^2 = 4$ på begge sider: $x^2 + 4x + 4 = $\skrivlinje[1.2cm]
-  \task $(x + 2)^2 = $\skrivlinje[1.2cm], så $x + 2 = \pm$\skrivlinje[1.2cm]
-  \task $x = $\skrivlinje[1.2cm] eller $x = $\skrivlinje[1.2cm]
+  \task $(x + 2)^2 = $\skrivlinje[1.2cm], så $x + 2 = \pm$\skrivlinje[1.2cm], altså $x = $\skrivlinje[1.2cm] eller $x = $\skrivlinje[1.2cm]
 \end{tasks}
 
 \nivaahode{2}
 
 \oppg{2.4}{2}{\uh}
-Løs likningene. Velg den raskeste metoden. Gi eksakte svar.
+Løs likningene. Skriv hvilken metode du valgte, og hvorfor. Gi eksakte svar.
 \begin{tasks}(2)
   \task $x^2 - 2x - 2 = 0$
   \task $3x^2 + x - 2 = 0$
@@ -298,8 +298,7 @@ Løs likningene. Velg den raskeste metoden. Gi eksakte svar.
 \oppg{2.5}{2}{\uh}
 Emma løser en likning slik:
 \begin{align*}
-&2x^2 - 5x - 3 = 0\\
-&\longrightarrow\quad a = 2,\; b = -5,\; c = -3\\
+&2x^2 - 5x - 3 = 0, \quad a = 2,\; b = -5,\; c = -3\\
 &\longrightarrow\quad x = \frac{5 \pm \sqrt{(-5)^2 - 4 \cdot 2 \cdot (-3)}}{2 \cdot 2}\\
 &\longrightarrow\quad x = \frac{5 \pm \sqrt{-25 + 24}}{4}\\
 &\longrightarrow\quad \text{Ingen løsning, fordi } D = -1 < 0
@@ -307,34 +306,31 @@ Emma løser en likning slik:
 Finn den første feilen. Løs likningen riktig.
 
 \oppg{2.6}{2}{\mh}
-Et rektangel har omkrets 34 cm og areal 60 cm$^2$. Finn sidelengdene.
-\begin{tasks}(1)
-  \task Kall den ene siden $x$. Forklar hvorfor den andre siden er $17 - x$.
-  \task Sett opp en likning for arealet og løs den.
-\end{tasks}
+Et rektangel har omkrets 34 cm og areal 60 cm$^2$. Kall den ene siden $x$. Sett opp en likning for arealet og finn sidelengdene.
 
 \oppg{2.7}{2}{\mh}
-En ball kastes rett opp. Høyden over bakken er $h(t) = 20t - 5t^2$ meter, der $t$ er tiden i sekunder.
-\begin{tasks}(1)
-  \task Når er ballen 15 meter over bakken?
-  \task Forklar hva de to svarene betyr.
-  \task Når treffer ballen bakken?
-\end{tasks}
+En ball kastes rett opp. Høyden over bakken er $h(t) = 20t - 5t^2$ meter, der $t$ er tiden i sekunder. Finn når ballen er 15 meter over bakken. Forklar hva de to svarene betyr.
 
 \nivaahode{3}
 
 \oppg{2.8}{3}{\uh}
-Se på parabelen $y = x^2 - 4x + k$. Finn verdier av $k$ slik at parabelen
+Se på parabelen $y = x^2 - 4x + k$. Finn \textbf{alle} verdier av $k$ slik at parabelen
 \begin{tasks}(3)
   \task skjærer $x$-aksen i to punkt
   \task tangerer $x$-aksen
   \task ikke treffer $x$-aksen
+  \task! Bruk diskriminanten til å vise at $k = \pm 12$ er de eneste verdiene i oppgave 1.8.
 \end{tasks}
 
 \oppg{2.9}{3}{\uh}
-Forkort brøken. Oppgi hvilke verdier av $x$ som ikke er tillatt.
-\[ \frac{2x^2 - x - 3}{x^2 - 1} \]
-\hint{Finn nullpunktene til telleren.}
+Gitt likningen $ax^2 + bx + c = 0$. Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret.
+\begin{tasks}(1)
+  \task Har $a$ og $c$ motsatt fortegn, har likningen to løsninger.
+  \task Har $a$ og $c$ samme fortegn, har likningen ingen løsning.
+\end{tasks}
+
+\oppg{2.10}{3}{\uh}
+Grafen til $y = ax^2 + bx + c$ skjærer $x$-aksen i $-1$ og $3$, og $y$-aksen i $6$. Finn $a$, $b$ og $c$.
 
 \begin{sjekk}
 \begin{tasks}(2)

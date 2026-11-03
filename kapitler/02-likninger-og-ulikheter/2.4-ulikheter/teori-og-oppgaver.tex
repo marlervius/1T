@@ -1,0 +1,570 @@
+% =====================================================================
+%  2.4 Ulikheter — teori og oppgaver
+%
+%  MAL FOR FORTEGNSLINJE (kopier til senere seksjoner, f.eks. 3.4 og 4.4).
+%  Én rad per faktor, en loddrett strek ved hvert nullpunkt, 0 markert i
+%  nullpunktet, heltrukket strek = positiv, stiplet strek = negativ.
+%  Nederste rad (blå) er produktet. Nullpunktene står under figuren.
+%  I en nevner brukes $\times$ i stedet for $0$ (ikke definert).
+%  Endre bare etikettene, x-posisjonene (1,40 + 1,90 cm per nullpunkt) og
+%  hvilke strekene som er heltrukket (pos) og stiplet (neg).
+%  Eksempel: (x+1)(x-3), nullpunkt -1 og 3:
+%
+%  \begin{tikzpicture}[font=\small,pos/.style={line width=1.1pt},neg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
+%    \draw[graa,thin] (1.40,0.40) -- (1.40,-1.95);
+%    \draw[graa,thin] (3.30,0.40) -- (3.30,-1.95);
+%    \node[anchor=east] at (-0.15,-0.00) {$x+1$};
+%    \draw[neg] (0.00,-0.00) -- (1.40,-0.00);
+%    \draw[pos] (1.40,-0.00) -- (3.30,-0.00);
+%    \draw[pos] (3.30,-0.00) -- (4.70,-0.00);
+%    \node[fill=white,inner sep=1.5pt] at (1.40,-0.00) {$0$};
+%    \node[anchor=east] at (-0.15,-0.70) {$x-3$};
+%    \draw[neg] (0.00,-0.70) -- (1.40,-0.70);
+%    \draw[neg] (1.40,-0.70) -- (3.30,-0.70);
+%    \draw[pos] (3.30,-0.70) -- (4.70,-0.70);
+%    \node[fill=white,inner sep=1.5pt] at (3.30,-0.70) {$0$};
+%    \node[anchor=east] at (-0.15,-1.55) {$(x+1)(x-3)$};
+%    \draw[pos,hoved] (0.00,-1.55) -- (1.40,-1.55);
+%    \draw[neg,hoved] (1.40,-1.55) -- (3.30,-1.55);
+%    \draw[pos,hoved] (3.30,-1.55) -- (4.70,-1.55);
+%    \node[fill=white,inner sep=1.5pt] at (1.40,-1.55) {$0$};
+%    \node[fill=white,inner sep=1.5pt] at (3.30,-1.55) {$0$};
+%    \node[below] at (1.40,-1.95) {$-1$};
+%    \node[below] at (3.30,-1.95) {$3$};
+%  \end{tikzpicture}
+%  Tallinje (løsning): rad med pil, tick per heltall, tykk blå strek,
+%  fylt ring = med, åpen (hvit) ring = ikke med. Se figuren i oppg. 1.4.
+% =====================================================================
+
+\del{1}{Lineære ulikheter}
+
+\begin{ordliste}
+ulikhet & To uttrykk med et ulikhetstegn mellom. Løsningen er ofte mange tall. & \mittsprak\\
+ulikhetstegn & Tegnene $<$, $>$, $\le$ og $\ge$. & \mittsprak\\
+tallinje & En linje der hvert tall har sin plass. Vi viser løsningen på den. & \mittsprak\\
+intervall & Alle tallene mellom to endepunkter, for eksempel $\langle 1, 4]$. & \mittsprak\\
+åpent og lukket intervall & Åpent: endepunktet er ikke med ($\langle$ eller $\rangle$). Lukket: endepunktet er med ($[$ eller $]$). & \mittsprak\\
+\end{ordliste}
+
+\begin{mustkunne}
+\begin{minipage}[t]{0.46\linewidth}
+\textbf{Regler.} Vi løser en ulikhet som en likning, men:
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+  \item Legg til eller trekk fra det samme på begge sider.
+  \item Gang eller del med det samme \emph{positive} tallet.
+  \item Gang eller del med et \emph{negativt} tall: \textbf{snu} ulikhetstegnet.
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.50\linewidth}
+\textbf{Hvorfor snur vi tegnet?} Vi vet at $2 < 3$. Gang med $-1$. Tallene speiles om 0, og rekkefølgen blir motsatt: $-2 > -3$.
+
+\medskip
+\begin{tikzpicture}[x=0.55cm,font=\small]
+  \draw[-{Stealth[length=2mm]}] (-4.6,0) -- (4.6,0);
+  \foreach \i in {-4,...,4} \draw (\i,0.07) -- (\i,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$\i$};
+  \fill[hoved] (2,0) circle (2.5pt);
+  \fill[hoved] (3,0) circle (2.5pt);
+  \fill[niv3] (-2,0) circle (2.5pt);
+  \fill[niv3] (-3,0) circle (2.5pt);
+  \draw[->,graa] (2,0.2) to[bend left=50] (-2,0.2);
+  \draw[->,graa] (3,0.2) to[bend left=50] (-3,0.2);
+\end{tikzpicture}
+\end{minipage}
+
+\medskip
+\textbf{Tre måter å svare på.} Åpen ring og $\langle$ eller $\rangle$: tallet er ikke med. Fylt ring og $[$ eller $]$: tallet er med.
+\renewcommand{\arraystretch}{1.3}
+
+\smallskip
+\begin{tabular}{@{}l l l@{}}
+\textbf{Ulikhet} & \textbf{Tallinje} & \textbf{Intervall}\\
+$x > 2$ & \begin{tikzpicture}[x=0.45cm,font=\small]
+  \draw[-{Stealth[length=2mm]}] (-2.5,-0.00) -- (5.5,-0.00);
+  \draw (-2,0.07) -- (-2,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$-2$};
+  \draw (-1,0.07) -- (-1,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$-1$};
+  \draw (0,0.07) -- (0,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$0$};
+  \draw (1,0.07) -- (1,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$1$};
+  \draw (2,0.07) -- (2,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$2$};
+  \draw (3,0.07) -- (3,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$3$};
+  \draw (4,0.07) -- (4,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$4$};
+  \draw (5,0.07) -- (5,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$5$};
+  \draw[hoved,line width=2.2pt] (2,-0.00) -- (5.5,-0.00);
+  \filldraw[hoved,fill=white,line width=0.9pt] (2,-0.00) circle (2.6pt);
+\end{tikzpicture} & $\langle 2, \rightarrow\rangle$\\
+$x \le 3$ & \begin{tikzpicture}[x=0.45cm,font=\small]
+  \draw[-{Stealth[length=2mm]}] (-2.5,-0.00) -- (5.5,-0.00);
+  \draw (-2,0.07) -- (-2,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$-2$};
+  \draw (-1,0.07) -- (-1,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$-1$};
+  \draw (0,0.07) -- (0,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$0$};
+  \draw (1,0.07) -- (1,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$1$};
+  \draw (2,0.07) -- (2,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$2$};
+  \draw (3,0.07) -- (3,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$3$};
+  \draw (4,0.07) -- (4,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$4$};
+  \draw (5,0.07) -- (5,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$5$};
+  \draw[hoved,line width=2.2pt] (-2.5,-0.00) -- (3,-0.00);
+  \filldraw[hoved,fill=hoved,line width=0.9pt] (3,-0.00) circle (2.6pt);
+\end{tikzpicture} & $\langle\leftarrow, 3]$\\
+$-1 \le x < 4$ & \begin{tikzpicture}[x=0.45cm,font=\small]
+  \draw[-{Stealth[length=2mm]}] (-2.5,-0.00) -- (5.5,-0.00);
+  \draw (-2,0.07) -- (-2,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$-2$};
+  \draw (-1,0.07) -- (-1,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$-1$};
+  \draw (0,0.07) -- (0,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$0$};
+  \draw (1,0.07) -- (1,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$1$};
+  \draw (2,0.07) -- (2,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$2$};
+  \draw (3,0.07) -- (3,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$3$};
+  \draw (4,0.07) -- (4,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$4$};
+  \draw (5,0.07) -- (5,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$5$};
+  \draw[hoved,line width=2.2pt] (-1,-0.00) -- (4,-0.00);
+  \filldraw[hoved,fill=hoved,line width=0.9pt] (-1,-0.00) circle (2.6pt);
+  \filldraw[hoved,fill=white,line width=0.9pt] (4,-0.00) circle (2.6pt);
+\end{tikzpicture} & $[-1, 4\rangle$\\
+\end{tabular}
+\end{mustkunne}
+
+\begin{eksempel}[1 — del på et negativt tall]
+Løs $5 - 3x \ge 11$.
+
+\begin{stegtabell}
+$-3x \ge 6$ & Trekk fra 5 på begge sider.\\
+$x \le -2$ & Del med $-3$. Tallet er negativt, så vi snur tegnet.\\
+$\langle\leftarrow, -2]$ & Intervall. $-2$ er med, så klammen er $]$.\\
+Kontroll: & $x = -3$ gir $5 + 9 = 14 \ge 11$, som stemmer. $x = 0$ gir $5 \ge 11$, som er usant.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{eksempel}[2 — dobbel ulikhet]
+Løs $-1 < 2x + 3 \le 7$. Vis svaret på tallinjen.
+
+\begin{stegtabell}
+$-4 < 2x \le 4$ & Trekk fra 3 i alle tre deler.\\
+$-2 < x \le 2$ & Del med 2 i alle deler. 2 er positivt, så tegnene beholdes.\\
+$\langle -2, 2]$ & Intervall. $-2$ er ikke med ($\langle$), 2 er med ($]$).\\
+\end{stegtabell}
+
+\smallskip
+\begin{center}
+\begin{tikzpicture}[x=0.7cm,font=\small]
+  \draw[-{Stealth[length=2mm]}] (-4.5,-0.00) -- (4.5,-0.00);
+  \draw (-4,0.07) -- (-4,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$-4$};
+  \draw (-3,0.07) -- (-3,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$-3$};
+  \draw (-2,0.07) -- (-2,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$-2$};
+  \draw (-1,0.07) -- (-1,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$-1$};
+  \draw (0,0.07) -- (0,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$0$};
+  \draw (1,0.07) -- (1,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$1$};
+  \draw (2,0.07) -- (2,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$2$};
+  \draw (3,0.07) -- (3,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$3$};
+  \draw (4,0.07) -- (4,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$4$};
+  \draw[hoved,line width=2.2pt] (-2,-0.00) -- (2,-0.00);
+  \filldraw[hoved,fill=white,line width=0.9pt] (-2,-0.00) circle (2.6pt);
+  \filldraw[hoved,fill=hoved,line width=0.9pt] (2,-0.00) circle (2.6pt);
+\end{tikzpicture}
+\end{center}
+\end{eksempel}
+
+\begin{vanligfeil}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
+  \item $-3x < 12$, så $x < -4$ er feil. Vi deler på $-3$, og da snur tegnet: $x > -4$.
+  \item $x \ge 4$ skrevet som $\langle 4, \rightarrow\rangle$ er feil. 4 er med, så det må være $[4, \rightarrow\rangle$.
+  \item $4 < x + 2 \le 9$ gir $4 < x \le 9$ er feil. Du må trekke fra 2 i alle tre deler: $2 < x \le 7$.
+\end{itemize}
+\end{vanligfeil}
+
+\nivaahode{1}
+
+\oppg{1.1}{1}{\uh}
+Løs ulikhetene.
+\begin{tasks}(4)
+  \task $x + 5 > 9$
+  \task $3x \le 18$
+  \task $\dfrac{x}{2} < -3$
+  \task $x - 7 \ge -2$
+\end{tasks}
+
+\oppg{1.2}{1}{\uh}
+Fullfør løsningen av $7 - 2x < 13$. Skriv tall og ulikhetstegn i rutene.
+
+\medskip
+Trekk fra 7: \quad $-2x$ \rute\ \rute
+
+Del med $-2$: \quad $x$ \rute\ \rute
+
+Intervall: \skrivlinje[3cm]
+
+\oppg{1.3}{1}{\uh}
+Løs ulikhetene. Pass på når du deler på et negativt tall.
+\begin{tasks}(4)
+  \task $-2x < 10$
+  \task $-3x \ge 18$
+  \task $4 - x > 1$
+  \task $2 - 5x \le 12$
+\end{tasks}
+
+\oppg{1.4}{1}{\uh}
+Skriv ulikheten og intervallet som hver tallinje viser.
+
+\begin{center}
+\begin{tikzpicture}[x=0.7cm,font=\small]
+  \node[anchor=east] at (-3.7,-0.00) {a)};
+  \draw[-{Stealth[length=2mm]}] (-3.5,-0.00) -- (6.5,-0.00);
+  \draw (-3,0.07) -- (-3,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$-3$};
+  \draw (-2,0.07) -- (-2,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$-2$};
+  \draw (-1,0.07) -- (-1,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$-1$};
+  \draw (0,0.07) -- (0,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$0$};
+  \draw (1,0.07) -- (1,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$1$};
+  \draw (2,0.07) -- (2,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$2$};
+  \draw (3,0.07) -- (3,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$3$};
+  \draw (4,0.07) -- (4,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$4$};
+  \draw (5,0.07) -- (5,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$5$};
+  \draw (6,0.07) -- (6,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$6$};
+  \draw[hoved,line width=2.2pt] (1,-0.00) -- (6.5,-0.00);
+  \filldraw[hoved,fill=white,line width=0.9pt] (1,-0.00) circle (2.6pt);
+  \node[anchor=east] at (-3.7,-0.85) {b)};
+  \draw[-{Stealth[length=2mm]}] (-3.5,-0.85) -- (6.5,-0.85);
+  \draw (-3,-0.78) -- (-3,-0.92) node[below,font=\scriptsize,inner sep=2pt] {$-3$};
+  \draw (-2,-0.78) -- (-2,-0.92) node[below,font=\scriptsize,inner sep=2pt] {$-2$};
+  \draw (-1,-0.78) -- (-1,-0.92) node[below,font=\scriptsize,inner sep=2pt] {$-1$};
+  \draw (0,-0.78) -- (0,-0.92) node[below,font=\scriptsize,inner sep=2pt] {$0$};
+  \draw (1,-0.78) -- (1,-0.92) node[below,font=\scriptsize,inner sep=2pt] {$1$};
+  \draw (2,-0.78) -- (2,-0.92) node[below,font=\scriptsize,inner sep=2pt] {$2$};
+  \draw (3,-0.78) -- (3,-0.92) node[below,font=\scriptsize,inner sep=2pt] {$3$};
+  \draw (4,-0.78) -- (4,-0.92) node[below,font=\scriptsize,inner sep=2pt] {$4$};
+  \draw (5,-0.78) -- (5,-0.92) node[below,font=\scriptsize,inner sep=2pt] {$5$};
+  \draw (6,-0.78) -- (6,-0.92) node[below,font=\scriptsize,inner sep=2pt] {$6$};
+  \draw[hoved,line width=2.2pt] (-3.5,-0.85) -- (2,-0.85);
+  \filldraw[hoved,fill=hoved,line width=0.9pt] (2,-0.85) circle (2.6pt);
+  \node[anchor=east] at (-3.7,-1.70) {c)};
+  \draw[-{Stealth[length=2mm]}] (-3.5,-1.70) -- (6.5,-1.70);
+  \draw (-3,-1.63) -- (-3,-1.77) node[below,font=\scriptsize,inner sep=2pt] {$-3$};
+  \draw (-2,-1.63) -- (-2,-1.77) node[below,font=\scriptsize,inner sep=2pt] {$-2$};
+  \draw (-1,-1.63) -- (-1,-1.77) node[below,font=\scriptsize,inner sep=2pt] {$-1$};
+  \draw (0,-1.63) -- (0,-1.77) node[below,font=\scriptsize,inner sep=2pt] {$0$};
+  \draw (1,-1.63) -- (1,-1.77) node[below,font=\scriptsize,inner sep=2pt] {$1$};
+  \draw (2,-1.63) -- (2,-1.77) node[below,font=\scriptsize,inner sep=2pt] {$2$};
+  \draw (3,-1.63) -- (3,-1.77) node[below,font=\scriptsize,inner sep=2pt] {$3$};
+  \draw (4,-1.63) -- (4,-1.77) node[below,font=\scriptsize,inner sep=2pt] {$4$};
+  \draw (5,-1.63) -- (5,-1.77) node[below,font=\scriptsize,inner sep=2pt] {$5$};
+  \draw (6,-1.63) -- (6,-1.77) node[below,font=\scriptsize,inner sep=2pt] {$6$};
+  \draw[hoved,line width=2.2pt] (0,-1.70) -- (5,-1.70);
+  \filldraw[hoved,fill=hoved,line width=0.9pt] (0,-1.70) circle (2.6pt);
+  \filldraw[hoved,fill=white,line width=0.9pt] (5,-1.70) circle (2.6pt);
+\end{tikzpicture}
+\end{center}
+
+\nivaahode{2}
+
+\oppg{1.5}{2}{\uh}
+Løs ulikhetene. Svar som ulikhet og som intervall.
+\begin{tasks}(2)
+  \task $3x - 5 \le 2x + 4$
+  \task $2(x - 3) > 5x + 3$
+  \task $\dfrac{x + 2}{2} \ge \dfrac{x}{3}$
+  \task $6 - 3(x + 1) < x - 1$
+\end{tasks}
+
+\oppg{1.6}{2}{\uh}
+Løs de doble ulikhetene. Svar som intervall.
+\begin{tasks}(2)
+  \task $-4 \le 3x - 1 < 8$
+  \task $1 < 5 - 2x \le 9$
+\end{tasks}
+
+\oppg{1.7}{2}{\uh}
+Finn \textbf{den første feilen}. Løs riktig.
+\[ 2(3 - x) + 4 \ge 5x - 11 \;\longrightarrow\; 6 - 2x + 4 \ge 5x - 11 \;\longrightarrow\; 10 - 2x \ge 5x - 11 \;\longrightarrow\; -7x \ge -21 \;\longrightarrow\; x \ge 3 \]
+
+\oppg{1.8}{2}{\mh}
+Abonnement A koster 99 kr i måneden og 15 kr per GB. Abonnement B koster 249 kr i måneden, uansett bruk.
+\begin{tasks}(1)
+  \task La $g$ være antall GB. Sett opp en ulikhet for når A er billigst, og løs den.
+  \task Hvor mange hele GB kan du bruke i måneden hvis A skal være billigst? Svar i en setning.
+\end{tasks}
+
+\nivaahode{3}
+
+\oppg{1.9}{3}{\uh}
+Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret.
+\begin{tasks}(1)
+  \task Hvis $a < b$, så er $-a < -b$.
+  \task Hvis $a < b$, så er $a^2 < b^2$.
+  \task $2x + 1 > 2x - 3$ for alle tall $x$.
+\end{tasks}
+
+\oppg{1.10}{3}{\uh}
+Løs $4 - 3x > 2x - 16$ på to måter.
+Metode A: samle $x$-leddene på venstre side. Metode B: samle dem på høyre side.
+Hvor snur du tegnet? Forklar hvorfor begge metodene gir samme svar.
+
+\oppg{1.11}{3}{\uh}
+Løs ulikheten $ax > 6$ for $x$. Hvordan avhenger svaret av om $a$ er positiv, negativ eller null? Forklar.
+
+\begin{sjekk}
+\begin{tasks}(2)
+  \task Løs $2 - 4x \le 10$.
+  \task Skriv $-2 \le x < 4$ som intervall.
+  \task! Hvorfor snur vi ulikhetstegnet når vi deler med et negativt tall? Forklar med to tall.
+\end{tasks}
+\end{sjekk}
+
+% ---------------------------------------------------------------------
+
+\del{2}{Andregradsulikheter med fortegnslinje}
+
+\begin{ordliste}
+fortegnslinje & Figur som viser hvor et uttrykk er positivt (heltrukket) og negativt (stiplet). & \mittsprak\\
+faktor & Et uttrykk som ganges med noe annet. I $(x+1)(x-3)$ er $x+1$ og $x-3$ faktorer. & \mittsprak\\
+nullpunkt & En verdi av $x$ som gjør uttrykket lik 0. & \mittsprak\\
+andregradsulikhet & En ulikhet der den høyeste potensen av $x$ er 2. & \mittsprak\\
+union & $A \cup B$ betyr «A eller B»: tallene som er med i minst ett av intervallene. & \mittsprak\\
+\end{ordliste}
+
+\begin{mustkunne}
+\textbf{Metode.} (1) Flytt alt over på én side, slik at den andre siden er 0. (2) Faktoriser (se 2.3).
+(3) Tegn en fortegnslinje for hver faktor. (4) Tegn linja for produktet og les av der ulikheten er sann.
+
+\textbf{Hvorfor virker det?} Et produkt kan bare skifte fortegn der en faktor er 0. To like fortegn gir pluss, to ulike gir minus.
+
+\medskip
+\begin{minipage}[t]{0.56\linewidth}
+\vspace{0pt}
+\begin{tikzpicture}[font=\small,pos/.style={line width=1.1pt},neg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
+  \draw[graa,thin] (1.40,0.40) -- (1.40,-1.95);
+  \draw[graa,thin] (3.30,0.40) -- (3.30,-1.95);
+  \node[anchor=east] at (-0.15,-0.00) {$x+1$};
+  \draw[neg] (0.00,-0.00) -- (1.40,-0.00);
+  \draw[pos] (1.40,-0.00) -- (3.30,-0.00);
+  \draw[pos] (3.30,-0.00) -- (4.70,-0.00);
+  \node[fill=white,inner sep=1.5pt] at (1.40,-0.00) {$0$};
+  \node[anchor=east] at (-0.15,-0.70) {$x-3$};
+  \draw[neg] (0.00,-0.70) -- (1.40,-0.70);
+  \draw[neg] (1.40,-0.70) -- (3.30,-0.70);
+  \draw[pos] (3.30,-0.70) -- (4.70,-0.70);
+  \node[fill=white,inner sep=1.5pt] at (3.30,-0.70) {$0$};
+  \node[anchor=east] at (-0.15,-1.55) {$(x+1)(x-3)$};
+  \draw[pos,hoved] (0.00,-1.55) -- (1.40,-1.55);
+  \draw[neg,hoved] (1.40,-1.55) -- (3.30,-1.55);
+  \draw[pos,hoved] (3.30,-1.55) -- (4.70,-1.55);
+  \node[fill=white,inner sep=1.5pt] at (1.40,-1.55) {$0$};
+  \node[fill=white,inner sep=1.5pt] at (3.30,-1.55) {$0$};
+  \node[below] at (1.40,-1.95) {$-1$};
+  \node[below] at (3.30,-1.95) {$3$};
+\end{tikzpicture}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.42\linewidth}
+\vspace{0pt}
+\begin{tikzpicture}
+\begin{axis}[width=6.2cm,height=4.6cm,axis lines=middle,xmin=-2,xmax=4.4,ymin=-5,ymax=5.5,
+  xtick={-1,3},ytick=\empty,xlabel={$x$},ylabel={$y$},font=\small,
+  every axis x label/.style={at={(current axis.right of origin)},anchor=west},
+  every axis y label/.style={at={(current axis.above origin)},anchor=south}]
+  \addplot[domain=-1.8:3.8,samples=40,hoved,thick]{x^2-2*x-3};
+  \addplot[domain=-1:3,samples=40,niv3,very thick]{x^2-2*x-3};
+  \addplot[only marks,mark=*,mark size=1.5pt] coordinates {(-1,0) (3,0)};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+
+\smallskip
+$(x+1)(x-3) < 0$ der produktlinja er stiplet: $\langle -1, 3\rangle$. Grafen til $y = x^2 - 2x - 3$ ligger under $x$-aksen (rødt) i samme intervall.
+\end{mustkunne}
+
+\begin{eksempel}[1 — fortegnslinje]
+Løs $x^2 - 2x - 3 < 0$.
+
+\begin{stegtabell}
+$(x+1)(x-3) < 0$ & Faktoriser: to tall med produkt $-3$ og sum $-2$ er $1$ og $-3$.\\
+$x = -1$ og $x = 3$ & Nullpunktene. Tegn fortegnslinjene.\\
+\end{stegtabell}
+
+\smallskip
+\begin{center}
+\begin{tikzpicture}[font=\small,pos/.style={line width=1.1pt},neg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
+  \draw[graa,thin] (1.40,0.40) -- (1.40,-1.95);
+  \draw[graa,thin] (3.30,0.40) -- (3.30,-1.95);
+  \node[anchor=east] at (-0.15,-0.00) {$x+1$};
+  \draw[neg] (0.00,-0.00) -- (1.40,-0.00);
+  \draw[pos] (1.40,-0.00) -- (3.30,-0.00);
+  \draw[pos] (3.30,-0.00) -- (4.70,-0.00);
+  \node[fill=white,inner sep=1.5pt] at (1.40,-0.00) {$0$};
+  \node[anchor=east] at (-0.15,-0.70) {$x-3$};
+  \draw[neg] (0.00,-0.70) -- (1.40,-0.70);
+  \draw[neg] (1.40,-0.70) -- (3.30,-0.70);
+  \draw[pos] (3.30,-0.70) -- (4.70,-0.70);
+  \node[fill=white,inner sep=1.5pt] at (3.30,-0.70) {$0$};
+  \node[anchor=east] at (-0.15,-1.55) {$(x+1)(x-3)$};
+  \draw[pos,hoved] (0.00,-1.55) -- (1.40,-1.55);
+  \draw[neg,hoved] (1.40,-1.55) -- (3.30,-1.55);
+  \draw[pos,hoved] (3.30,-1.55) -- (4.70,-1.55);
+  \node[fill=white,inner sep=1.5pt] at (1.40,-1.55) {$0$};
+  \node[fill=white,inner sep=1.5pt] at (3.30,-1.55) {$0$};
+  \node[below] at (1.40,-1.95) {$-1$};
+  \node[below] at (3.30,-1.95) {$3$};
+\end{tikzpicture}
+\end{center}
+
+\begin{stegtabell}
+$\langle -1, 3\rangle$ & Produktet er negativt (stiplet) mellom nullpunktene. Tegnet er $<$, så endepunktene er ikke med.\\
+Kontroll: & $x = 0$ gir $-3 < 0$, som stemmer. $x = 4$ gir $16 - 8 - 3 = 5$, som ikke er negativt.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{eksempel}[2 — ikke del på $x$]
+Løs $2x^2 \ge 8x$.
+
+\begin{stegtabell}
+$2x^2 - 8x \ge 0$ & Flytt alt over. Ikke del på $x$: vi vet ikke om $x$ er positiv eller negativ.\\
+$2x(x - 4) \ge 0$ & Sett utenfor felles faktor $2x$. Faktoren 2 er positiv og endrer ikke fortegnet.\\
+\end{stegtabell}
+
+\smallskip
+\begin{center}
+\begin{tikzpicture}[font=\small,pos/.style={line width=1.1pt},neg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
+  \draw[graa,thin] (1.40,0.40) -- (1.40,-1.95);
+  \draw[graa,thin] (3.30,0.40) -- (3.30,-1.95);
+  \node[anchor=east] at (-0.15,-0.00) {$x$};
+  \draw[neg] (0.00,-0.00) -- (1.40,-0.00);
+  \draw[pos] (1.40,-0.00) -- (3.30,-0.00);
+  \draw[pos] (3.30,-0.00) -- (4.70,-0.00);
+  \node[fill=white,inner sep=1.5pt] at (1.40,-0.00) {$0$};
+  \node[anchor=east] at (-0.15,-0.70) {$x-4$};
+  \draw[neg] (0.00,-0.70) -- (1.40,-0.70);
+  \draw[neg] (1.40,-0.70) -- (3.30,-0.70);
+  \draw[pos] (3.30,-0.70) -- (4.70,-0.70);
+  \node[fill=white,inner sep=1.5pt] at (3.30,-0.70) {$0$};
+  \node[anchor=east] at (-0.15,-1.55) {$2x(x-4)$};
+  \draw[pos,hoved] (0.00,-1.55) -- (1.40,-1.55);
+  \draw[neg,hoved] (1.40,-1.55) -- (3.30,-1.55);
+  \draw[pos,hoved] (3.30,-1.55) -- (4.70,-1.55);
+  \node[fill=white,inner sep=1.5pt] at (1.40,-1.55) {$0$};
+  \node[fill=white,inner sep=1.5pt] at (3.30,-1.55) {$0$};
+  \node[below] at (1.40,-1.95) {$0$};
+  \node[below] at (3.30,-1.95) {$4$};
+\end{tikzpicture}
+\end{center}
+
+\begin{stegtabell}
+$x \le 0$ eller $x \ge 4$ & Produktet er positivt (heltrukket) utenfor nullpunktene. Tegnet er $\ge$, så endepunktene er med.\\
+$\langle\leftarrow, 0] \cup [4, \rightarrow\rangle$ & To intervaller skrives med $\cup$ («eller»).\\
+Kontroll: & $x = -1$ gir $2 \ge -8$, som stemmer. $x = 2$ gir $8 \ge 16$, som er usant.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{eksempel}[3 — når det ikke finnes nullpunkter]
+Løs $x^2 - 4x + 5 > 0$.
+
+\begin{stegtabell}
+$D = (-4)^2 - 4 \cdot 1 \cdot 5 = -4$ & $D < 0$: ingen nullpunkter. Parabelen krysser ikke $x$-aksen.\\
+$a = 1 > 0$ & Parabelen åpner oppover, så den ligger over $x$-aksen for alle $x$.\\
+$\langle\leftarrow, \rightarrow\rangle$ & Svar: alle tall. Kontroll: $x^2 - 4x + 5 = (x-2)^2 + 1$, og en kvadrat er aldri negativ.\\
+\end{stegtabell}
+
+\medskip
+En fullstendig kvadrat er alltid $\ge 0$. Derfor er:
+$(x-2)^2 \ge 0$ sann for alle $x$,\;
+$(x-2)^2 > 0$ sann for alle $x \neq 2$,\;
+$(x-2)^2 \le 0$ sann bare for $x = 2$,\;
+$(x-2)^2 < 0$ aldri sann.
+\end{eksempel}
+
+\begin{vanligfeil}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
+  \item $x^2 > 4$, så $x > 2$ er feil. Også $x = -3$ virker. Riktig er $x < -2$ eller $x > 2$. Og $x^2 < 4$ gir $-2 < x < 2$.
+  \item «$(x+1)(x-3) < 0$ betyr $x + 1 < 0$ eller $x - 3 < 0$» er feil. For $x = -2$ er begge faktorene negative, men produktet er $(-1)(-5) = 5 > 0$. Bruk fortegnslinje.
+  \item $x^2 \ge 5x$, del på $x$, $x \ge 5$ er feil. Vi mister $x \le 0$. Riktig er $x(x - 5) \ge 0$, som gir $x \le 0$ eller $x \ge 5$.
+\end{itemize}
+\end{vanligfeil}
+
+\nivaahode{1}
+
+\oppg{2.1}{1}{\uh}
+Vi skal løse $x^2 - 6x + 8 \le 0$. Fortegnslinjene til faktorene er tegnet. Produktlinja mangler.
+
+\begin{center}
+\begin{tikzpicture}[font=\small,pos/.style={line width=1.1pt},neg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
+  \draw[graa,thin] (1.40,0.40) -- (1.40,-1.95);
+  \draw[graa,thin] (3.30,0.40) -- (3.30,-1.95);
+  \node[anchor=east] at (-0.15,-0.00) {$x-2$};
+  \draw[neg] (0.00,-0.00) -- (1.40,-0.00);
+  \draw[pos] (1.40,-0.00) -- (3.30,-0.00);
+  \draw[pos] (3.30,-0.00) -- (4.70,-0.00);
+  \node[fill=white,inner sep=1.5pt] at (1.40,-0.00) {$0$};
+  \node[anchor=east] at (-0.15,-0.70) {$x-4$};
+  \draw[neg] (0.00,-0.70) -- (1.40,-0.70);
+  \draw[neg] (1.40,-0.70) -- (3.30,-0.70);
+  \draw[pos] (3.30,-0.70) -- (4.70,-0.70);
+  \node[fill=white,inner sep=1.5pt] at (3.30,-0.70) {$0$};
+  \node[anchor=east] at (-0.15,-1.55) {$(x-2)(x-4)$};
+  \node[below] at (1.40,-1.95) {$2$};
+  \node[below] at (3.30,-1.95) {$4$};
+\end{tikzpicture}
+\end{center}
+\begin{tasks}(1)
+  \task Vis at $(x-2)(x-4) = x^2 - 6x + 8$.
+  \task Tegn av figuren og fyll inn produktlinja.
+  \task Løs ulikheten. Svar som ulikhet og som intervall.
+\end{tasks}
+
+\oppg{2.2}{1}{\uh}
+Løs ulikhetene med fortegnslinje. Svar som intervall.
+\begin{tasks}(3)
+  \task $(x - 1)(x + 5) > 0$
+  \task $(x + 2)(x - 5) \le 0$
+  \task $x(x - 3) < 0$
+\end{tasks}
+
+\oppg{2.3}{1}{\uh}
+Faktoriser og løs ulikhetene.
+\begin{tasks}(3)
+  \task $x^2 + 2x - 8 < 0$
+  \task $x^2 - 7x + 10 \ge 0$
+  \task $x^2 \le 9$
+\end{tasks}
+
+\nivaahode{2}
+
+\oppg{2.4}{2}{\uh}
+Flytt alt over på én side og løs ulikhetene.
+\begin{tasks}(1)
+  \task $x^2 > 3x + 10$
+  \task $x^2 + 12 \le 7x$
+  \task $2x^2 - 2x - 12 < 0$
+\end{tasks}
+
+\oppg{2.5}{2}{\uh}
+Løs ulikhetene. Avgjør først om uttrykket har nullpunkter.
+\begin{tasks}(2)
+  \task $x^2 + 2x + 5 > 0$
+  \task $(x + 3)^2 \le 0$
+  \task $x^2 - 8x + 16 > 0$
+  \task $x^2 + 6x + 10 \le 0$
+\end{tasks}
+
+\oppg{2.6}{2}{\uh}
+Finn \textbf{den første feilen}. Løs riktig.
+\[ x^2 - x > 12 \;\longrightarrow\; x^2 - x - 12 > 0 \;\longrightarrow\; (x - 4)(x + 3) > 0 \;\longrightarrow\; -3 < x < 4 \]
+
+\nivaahode{3}
+
+\oppg{2.7}{3}{\uh}
+Er påstanden alltid, noen ganger eller aldri sann for et reelt tall $x$? Begrunn svaret.
+\begin{tasks}(2)
+  \task $x^2 > x$
+  \task $(x - 3)^2 \ge 0$
+  \task $x^2 + 1 < 0$
+  \task $-x^2 \le 0$
+\end{tasks}
+
+\oppg{2.8}{3}{\uh}
+Lag selv en andregradsulikhet med løsningsmengde $[-2, 5]$.
+Lag også en med løsningsmengde «alle tall unntatt 3». Forklar hvorfor ulikhetene dine virker.
+
+\oppg{2.9}{3}{\uh}
+For hvilke verdier av $k$ er $x^2 + kx + 4 > 0$ for alle $x$? Begrunn svaret.
+\hint{Hva må gjelde for antall nullpunkter hvis parabelen skal ligge over $x$-aksen?}
+
+\begin{sjekk}
+\begin{tasks}(2)
+  \task Løs $x^2 + x - 12 \ge 0$.
+  \task Løs $x^2 + 9 < 0$.
+  \task! Hvorfor kan vi ikke dele på $x$ når vi løser $x^2 \ge 7x$? Forklar.
+\end{tasks}
+\end{sjekk}
