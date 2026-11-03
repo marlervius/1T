@@ -41,17 +41,15 @@ Generelt er $P(x) = (x - a)\cdot Q(x) + r$.\par
 Regn ut $(x^3 - 2x^2 - 5x + 6) : (x - 1)$.
 
 \begin{stegtabell}
-$x^3 : x = x^2$ & Første ledd i kvotienten: ledende ledd delt på ledende ledd.\\
-$x^2(x - 1) = x^3 - x^2$ & Gang $x^2$ med divisoren.\\
-$-x^3 + x^2$ & Skriv produktet med motsatt fortegn under og legg sammen. Det er det samme som å trekke fra. Da blir det $-x^2$ igjen.\\
-Flytt ned $-5x$ & Neste runde starter med $-x^2 : x = -x$.\\
+$x^3 : x = x^2$ og $x^2(x - 1) = x^3 - x^2$ & Første ledd i kvotienten. Gang det med divisoren.\\
+$-x^3 + x^2$ & Skriv produktet med motsatt fortegn under og legg sammen. Det er det samme som å trekke fra. Flytt ned $-5x$.\\
 \end{stegtabell}
 
 \polylongdiv{x^3-2x^2-5x+6}{x-1}
 
 \begin{stegtabell}
 Kvotient $x^2 - x - 6$, rest $0$ & Kvotienten står til høyre for likhetstegnet. Resten står nederst.\\
-$(x-1)(x^2 - x - 6) = x^3 - 2x^2 - 5x + 6$ & Kontroll: gang ut divisor $\cdot$ kvotient. Det er polynomet vi startet med.\\
+$(x-1)(x^2 - x - 6) = x^3 - 2x^2 - 5x + 6$ & Kontroll: divisor $\cdot$ kvotient gir polynomet vi startet med.\\
 \end{stegtabell}
 \end{eksempel}
 
@@ -66,8 +64,7 @@ Leddet $x^2$ mangler & Sett av en tom kolonne til det (tenk $0x^2$).\\
 \polylongdiv{x^3+0x^2-7x+6}{x-1}
 
 \begin{stegtabell}
-$P(x) = (x - 1)(x^2 + x - 6)$ & Kvotienten er $x^2 + x - 6$.\\
-$x^2 + x - 6 = (x - 2)(x + 3)$ & Faktoriser andregradsuttrykket: tall med produkt $-6$ og sum $1$ er $-2$ og $3$.\\
+$P(x) = (x - 1)(x^2 + x - 6)$ & Kvotienten er $x^2 + x - 6$. Faktoriser den: produkt $-6$ og sum $1$ gir $-2$ og $3$.\\
 $P(x) = (x - 1)(x - 2)(x + 3)$ & Svar.\\
 \end{stegtabell}
 \end{eksempel}
@@ -95,10 +92,7 @@ Her er begynnelsen på divisjonen $(x^3 + 2x^2 - 5x - 6) : (x - 2)$.
 
 \polylongdiv[stage=4]{x^3+2x^2-5x-6}{x-2}
 
-\begin{tasks}(1)
-  \task Fullfør divisjonen. Kvotienten er \skrivlinje[4cm] og resten er \rute.
-  \task Kontroller ved å gange ut $(x - 2) \cdot$ kvotienten.
-\end{tasks}
+Fullfør divisjonen. Kvotienten er \skrivlinje[4cm] og resten er \rute. Kontroller med divisor $\cdot$ kvotient $+$ rest.
 
 \oppg{1.3}{1}{\uh}
 La $P(x) = x^3 - 4x^2 + x + 6$. Regn ut $P(a)$ og avgjør om uttrykket er en faktor i $P(x)$.
@@ -137,11 +131,7 @@ Mia skal faktorisere $P(x) = x^3 - 5x^2 + 2x + 8$. Finn \textbf{den første feil
 \end{aligned} \]
 
 \oppg{1.7}{2}{\uh}
-Se på divisjonen i 1.4d, $(x^3 + x^2 + x + 4) : (x - 1)$, og på $157 : 12$.
-\begin{tasks}(1)
-  \task Hva i $157 : 12$ svarer til kvotienten og resten i 1.4d?
-  \task Hvorfor stopper du når resten har lavere grad enn divisoren?
-\end{tasks}
+Sammenlign 1.4d med $157 : 12$. Hva svarer til kvotient og rest? Hvorfor stopper du når resten har lavere grad enn divisoren?
 
 \nivaahode{3}
 
@@ -154,14 +144,10 @@ Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret.
 \end{tasks}
 
 \oppg{1.9}{3}{\uh}
-Gitt $P(x) = x^3 + kx^2 - 4x + 4$.
-\begin{tasks}(1)
-  \task Finn $k$ slik at $(x - 2)$ er en faktor i $P(x)$.
-  \task Faktoriser $P(x)$ fullstendig med denne verdien av $k$.
-\end{tasks}
+Gitt $P(x) = x^3 + kx^2 - 4x + 4$. Finn $k$ slik at $(x - 2)$ er en faktor i $P(x)$. Faktoriser deretter $P(x)$ fullstendig.
 
 \oppg{1.10}{3}{\uh}
-Lag selv et tredjegradspolynom som gir resten $5$ når det deles på $(x - 2)$. Forklar hvordan du vet at resten blir $5$. Finnes det flere slike polynomer?
+Lag et tredjegradspolynom som gir resten $5$ når det deles på $(x - 2)$. Forklar hvordan du vet det. Finnes det flere?
 
 \begin{sjekk}
 \begin{tasks}(2)
@@ -187,7 +173,7 @@ dobbelt nullpunkt & Et nullpunkt der faktoren $(x - p)$ står i andre potens. & 
 \begin{minipage}[t]{0.57\linewidth}
 \vspace{0pt}\textbf{Forløp.} For store $|x|$ er ledende ledd størst. Med $x = 100$ er $x^3 = 1\,000\,000$, mens $5x^2 = 50\,000$. Grafen ligner derfor på $a_nx^n$ langt ute. Grafen til en polynomfunksjon er sammenhengende, uten brudd.\par\smallskip
 \renewcommand{\arraystretch}{1.4}
-\begin{tabular}[t]{@{}p{1.2cm} p{3.3cm} p{3.3cm}@{}}
+\begin{tabular}[t]{@{}p{1.7cm} >{\raggedright\arraybackslash}p{3.0cm} >{\raggedright\arraybackslash}p{3.0cm}@{}}
  & $a_n > 0$ & $a_n < 0$\\
 $n$ oddetall & ned til venstre, opp til høyre & opp til venstre, ned til høyre\\
 $n$ partall & opp på begge sider & ned på begge sider\\
