@@ -1,0 +1,67 @@
+% =====================================================================
+%  5.1 Sinus, cosinus og tangens — ekstra utfordring
+% =====================================================================
+
+\begin{infoboks}{Velg metode selv}
+Arket bygger på 5.1. Tegn en skisse når det er en figur i oppgaven. Vis regning og begrunnelse.
+Bruk eksakte verdier der det er mulig. Kontroller svaret ved å regne på en annen måte.
+\end{infoboks}
+
+\nivaahode{2}
+
+\oppg{U1}{2}{\mh}
+En rampe skal løfte en rullestol $1,5$ m opp. Rampen kan ha en vinkel på høyst $8^\circ$ med bakken.
+Finn lengden av rampen og avstanden langs bakken når vinkelen er $8^\circ$. Svar med én desimal.
+
+\oppg{U2}{2}{\uh}
+Regn ut eksakt uten hjelpemidler.
+\begin{tasks}(3)
+  \task $\cos^2 30^\circ - \sin^2 30^\circ$
+  \task $2 \sin 45^\circ \cdot \cos 45^\circ$
+  \task $\sin 135^\circ \cdot \cos 135^\circ$
+\end{tasks}
+
+\oppg{U3}{2}{\uh}
+En likesidet trekant har side 8.
+\begin{tasks}(1)
+  \task Finn høyden og arealet eksakt.
+  \task Vis at arealet av en likesidet trekant med side $s$ er $\dfrac{\sqrt3}{4}s^2$.
+\end{tasks}
+
+\oppg{U4}{2}{\prog}
+Programmet lager en tabell over sinus og cosinus.
+\begin{kode}
+import math
+for v in range(0, 181, 15):
+    s = round(math.sin(math.radians(v)), 3)
+    c = round(math.cos(math.radians(v)), 3)
+    print(v, s, c)
+\end{kode}
+\begin{tasks}(1)
+  \task Hvorfor trengs \lstinline[style=laereverk,numbers=none,frame=none]|math.radians|? Hva skjer uten?
+  \task Finn alle par av vinkler i tabellen som har lik sinusverdi. Hva er felles for parene? Forklar med enhetssirkelen.
+  \task Finnes det par med lik cosinusverdi? Begrunn.
+\end{tasks}
+
+\nivaahode{3}
+
+\oppg{U5}{3}{\mh}
+Mari står på bakken og ser toppen av et tre under en vinkel på $50^\circ$.
+Hun går $20$ m rett bort fra treet og ser nå toppen under $30^\circ$.
+Finn høyden av treet. Svar med én desimal. Se bort fra Maris høyde.
+
+\oppg{U6}{3}{\uh}
+Vis at $\sin^2 v + \cos^2 v = 1$ også når $v$ er en stump vinkel. Gjør det på to måter.
+\begin{tasks}(1)
+  \task Bruk at punktet $(\cos v,\ \sin v)$ ligger på enhetssirkelen.
+  \task Bruk at $180^\circ - v$ er spiss.
+\end{tasks}
+
+\oppg{U7}{3}{\uh}
+Begrunn at $\sin v < \tan v$ for alle spisse vinkler $v$. Lag så en tilsvarende påstand om $\cos v$ og $\tan v$ for spisse vinkler, og avgjør om den er sann.
+
+\begin{oppsummering}
+Sinus, cosinus og tangens er forhold mellom sider, og de avhenger bare av vinkelen.
+Enhetssirkelen gir oss sinus og cosinus også for stumpe vinkler, og to vinkler $v$ og $180^\circ - v$ har samme sinus.
+Kalkulatoren må stå i grader.
+\end{oppsummering}
