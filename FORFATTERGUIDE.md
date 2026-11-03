@@ -57,8 +57,10 @@ Ingen preamble, ingen `\documentclass`, ingen `\usepackage`. Byggeskriptet lager
 - `\begin{infoboks}{Tittel} … \end{infoboks}`, `\begin{oppsummering} … \end{oppsummering}`
 - `\begin{kode} … \end{kode}` — Python-kode. Ikke inni `tasks`.
 - `\polylongdiv{x^3-2x^2-5x+6}{x-1}` — polynomdivisjon med norsk oppstilling. Pakken regner selv
-  (også rest). `\polylongdiv[stage=3]{…}{…}` viser bare de første stegene — fint til «fullfør»-oppgaver.
-  Skriv polynomene uten mellomrom og med `^` (ikke `\cdot`). Kontroller svaret i `verifiser.py` med `div()`.
+  (også rest, som vises som brøk: $x + 3 + \frac{1}{x+2}$ betyr rest 1). Delvis oppstilling til «fullfør»-oppgaver:
+  `[stage=4]` viser første ledd i kvotienten ferdig regnet, `[stage=7]` to ledd (hvert ledd = 3 steg).
+  Skriv polynomene uten mellomrom og med `^` (ikke `\cdot`). Kontroller i `verifiser.py` med sympy:
+  `kvotient, rest = div(P, D, x)` (`div` følger med `from kontroll import *`).
 - **Fortegnslinjer og tallinjer lages ALLTID med `verktoy/figurer.py`** (fortegnene regnes av sympy):
   `python3 verktoy/figurer.py fortegn "x+1" "x-3"` · med nevner: `… fortegn "x-1" "/x+2" --navn "\dfrac{x-1}{x+2}"`
   · tallinje: `python3 verktoy/figurer.py tallinje "[-1,3>" "<5,->" --fra -3 --til 7`. Lim utskriften inn som den er.
