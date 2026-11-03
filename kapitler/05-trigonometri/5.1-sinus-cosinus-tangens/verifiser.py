@@ -116,6 +116,13 @@ sant("1.7 pil 1", abs(num(C_(40)) * 14 - 14 * num(C_(40))) < 1e-12, "cos 40 = x/
 chk("1.7 radianer", avr(cos(40), 3), -0.667)
 chk("1.7 riktig", avr(14 * C_(40), 1), 10.7)
 chk("1.7 feil svar", avr(14 * cos(40), 1), -9.3)
+# 1.3e
+chk("1.3e", avr(invsin(Rational(4, 10)), 1), 23.6)
+sant("1.3e feil", abs(num(1 / sin(Rational(4, 10))) - invsin(Rational(4, 10))) > 1, "1/sin(0,4) er ikke 23,6")
+# VF 1d: trekant 3, 4, 6, v overfor 4
+cosv = Rational(3**2 + 6**2 - 4**2, 2 * 3 * 6)
+chk("VF 1d v", avr(invcos(cosv), 1), 36.3)
+chk("VF 1d sin", [avr(sqrt(1 - cosv**2), 3), avr(Rational(4, 6), 3)], [0.593, 0.667])
 # 1.8
 sant("1.8a", all(num(S_(v)) < 1 for v in range(1, 90)), "sin v < 1 for spisse v")
 sant("1.8b", num(Rational(3, 4)) < 1 < num(Rational(4, 3)), "tan v < 1 noen ganger")
@@ -124,6 +131,10 @@ sant("1.8c ulikhet", (3 + 4) > 5 and (5 + 12) > 13, "a + b > c")
 # 1.9
 a_, b_, c_ = symbols("a_ b_ c_", positive=True)
 chk("1.9", simplify((a_ / c_) / (b_ / c_) - a_ / b_), 0)
+# 1.11
+chk("1.11a", [Rational(6, 10), Rational(9, 15)], [Rational(3, 5), Rational(3, 5)])
+chk("1.11 pytagoras", [6**2 + 8**2, 9**2 + 12**2], [10**2, 15**2])
+aapen("1.11b", "Formlike trekanter, vinklene v, 90 og 90 - v.")
 # 1.10 tan v = 7/24, hypotenus 50
 k_ = Rational(50, 25)
 chk("1.10 sider", [7 * k_, 24 * k_], [14, 48])
@@ -176,18 +187,18 @@ chk("2.7 feil v", avr(invcos(Rational(15, 17)), 1), 28.1)
 sant("2.8a", C_(60) > 0 and C_(120) < 0, "cos v > 0 noen ganger")
 chk("2.8b", [S_(45), C_(45)], [sqrt(2) / 2, sqrt(2) / 2])
 sant("2.8b bare 45", [v for v in range(0, 181) if abs(num(S_(v)) - num(C_(v))) < 1e-12] == [45], "kun v = 45")
-sant("2.8c", len({round(num(C_(v)), 12) for v in range(0, 181)}) == 181, "cosinus er forskjellig for alle hele grader")
+sant("2.8c", all(round(num(C_(v)), 12) != round(num(C_(u)), 12) for v in range(0, 181) for u in range(0, 181) if u != v), "ingen u != v med cos u = cos v")
 # 2.9
 sant("2.9", all(not (v1 + (180 - v1) < 180) for v1 in range(1, 180)), "v1 + (180 - v1) = 180, ikke mulig i en trekant")
 sant("2.9 b", all(abs(num(S_(v)) - num(S_(180 - v))) < 1e-12 for v in range(0, 181)), "sin v = sin(180 - v)")
 # Sjekk 2
 chk("Sjekk 2a", T_(60), sqrt(3))
 los("Sjekk 2b", Eq(sin(x), sqrt(3) / 2), [pi_ / 3, 2 * pi_ / 3], var=x, domene=Interval(0, pi_))
-chk("Sjekk 2c", simplify(S_(100) ** 2 + C_(100) ** 2), 1)
+chk("Sjekk 2c", sqrt(1 - Rational(-6, 10) ** 2), Rational(8, 10))
 
 # =============== UTFORDRING ===============
-chk("U1a", avr(Rational(15, 10) / S_(8), 1), 10.8)
-chk("U1b", avr(Rational(15, 10) / T_(8), 1), 10.7)
+chk("U1a", avr(Rational(15, 10) / S_(3), 1), 28.7)
+chk("U1b", avr(Rational(15, 10) / T_(3), 1), 28.6)
 chk("U2a", C_(30) ** 2 - S_(30) ** 2, Rational(1, 2))
 chk("U2b", 2 * S_(45) * C_(45), 1)
 chk("U2c", S_(135) * C_(135), -Rational(1, 2))
@@ -208,7 +219,7 @@ for v in tabell:
 chk("U4a", len(tabell), 13)
 sant("U4b", paar == [(0, 180), (15, 165), (30, 150), (45, 135), (60, 120), (75, 105)], "seks par")
 sant("U4b sum", all(v + w == 180 for v, w in paar), "parene summerer til 180")
-sant("U4 cos", len({tabell[v][1] for v in tabell}) == 13, "cos aldri lik for to vinkler")
+sant("U4c", 1e-16 < math.sin(math.radians(180)) < 2e-16 and round(math.sin(math.radians(180)), 3) == 0, "1,2e-16")
 chk("U4 rad", round(math.sin(30), 3), -0.988)
 # U5: tre
 h_ = symbols("h_", positive=True)
@@ -223,4 +234,6 @@ sant("U7", all(num(S_(v)) < num(T_(v)) for v in range(1, 90)), "sin v < tan v fo
 chk("U7 omskriving", simplify(tan(x) - sin(x) / cos(x)), 0)
 aapen("U7b", "Begrunnelse: tan v = sin v / cos v og 0 < cos v < 1.")
 
+# U8
+los("U8", Eq(sin(x) + cos(x), 1), [0, pi_ / 2], var=x, domene=Interval(0, pi_))
 rapport()

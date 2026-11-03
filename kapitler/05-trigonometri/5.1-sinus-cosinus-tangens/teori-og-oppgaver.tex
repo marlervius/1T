@@ -19,7 +19,7 @@ sinus, cosinus, tangens & Tre forhold mellom sidene i en rettvinklet trekant. De
 \cos v &= \frac{\text{hosliggende}}{\text{hypotenus}}\\[2pt]
 \tan v &= \frac{\text{motstående}}{\text{hosliggende}}
 \end{aligned} \]
-\textbf{Hvorfor bare vinkelen betyr noe.} To rettvinklede trekanter med samme vinkel $v$ er formlike. Da er forholdet mellom to sider likt i begge: $\frac{1,5}{2,5} = \frac{3}{5}$ i figuren.
+\textbf{Hvorfor bare vinkelen betyr noe.} To rettvinklede trekanter med samme $v$ har vinklene $v$, $90^\circ$ og $90^\circ - v$. Da er de formlike, og forholdet mellom to sider er likt i begge: $\frac{1,5}{2,5} = \frac{3}{5}$ i figuren.
 Derfor kan kalkulatoren gi $\sin v$ ut fra $v$ alene.\par
 \textbf{Kalkulatoren} må stå i grader (DEG), ikke radianer (RAD).
 Finn vinkelen med $\sin^{-1}$, $\cos^{-1}$ eller $\tan^{-1}$.
@@ -31,14 +31,14 @@ Finn vinkelen med $\sin^{-1}$, $\cos^{-1}$ eller $\tan^{-1}$.
   \draw[dashed] (2,0)--(2,1.5);
   \draw (3.7,0)--(3.7,0.3)--(4,0.3);
   \draw (1.8,0)--(1.8,0.2)--(2,0.2);
-  \draw (0.9,0) arc (0:36.87:0.9);
-  \node at (1.25,0.27) {$v$};
-  \node[below] at (1,0) {$2$};
-  \node[below] at (3,0) {hosliggende $4$};
-  \node[right] at (4,1.5) {motstående $3$};
-  \node[sloped,above] at (3,2.25) {hypotenus $5$};
-  \node[sloped,above] at (1,0.75) {$2,5$};
-  \node[right] at (2.02,0.6) {$1,5$};
+  \draw (0.6,0) arc (0:36.87:0.6);
+  \node at (0.85,0.17) {\scriptsize$v$};
+  \draw[|-|] (0,-0.4)--(4,-0.4) node[midway,below] {hosliggende $4$};
+  \draw (4,0)--(4,3) node[midway,right] {motstående $3$};
+  \path (0,0)--(4,3) node[pos=0.78,above,sloped] {hypotenus $5$};
+  \path (0,0)--(2,1.5) node[midway,below,sloped] {\scriptsize$2,5$};
+  \path (2,0)--(2,1.5) node[midway,left] {\scriptsize$1,5$};
+  \path (0,0)--(2,0) node[midway,above] {\scriptsize$2$};
 \end{tikzpicture}
 \end{minipage}
 \end{mustkunne}
@@ -70,7 +70,7 @@ Kontroll: & $\tan 35,5^\circ \approx 0,71$ og $\frac{5,0}{7,0} \approx 0,71$. De
   \item $\cos v = \frac{\text{hypotenus}}{\text{hosliggende}}$ er feil. Hypotenusen står alltid nederst for $\sin v$ og $\cos v$: $\cos v = \frac{\text{hosliggende}}{\text{hypotenus}}$.
   \item Kalkulatoren står i RAD. Da gir $\sin 30$ svaret $-0,988$ og ikke $0,5$. Sjekk at det står DEG.
   \item $\sin^{-1} x = \frac{1}{\sin x}$ er feil. $\sin^{-1}$ finner vinkelen: $\sin^{-1}(0,5) = 30^\circ$, mens $\frac{1}{\sin 30^\circ} = 2$.
-  \item Definisjonene gjelder ikke generelt i en trekant uten rett vinkel. Det finnes ingen hypotenus der.
+  \item Definisjonene gjelder ikke generelt i en trekant uten rett vinkel. I en trekant med sidene $3$, $4$ og $6$ er $v \approx 36,3^\circ$ overfor siden $4$. Da er $\sin v \approx 0,593$, men $\frac{4}{6} \approx 0,667$.
 \end{itemize}
 \end{vanligfeil}
 
@@ -108,6 +108,7 @@ Sett kalkulatoren i DEG. Regn ut.
   \task $\cos 64^\circ$ (tre desimaler)
   \task $\tan 55^\circ$ (tre desimaler)
   \task $v$ når $\tan v = 2$ (én desimal)
+  \task! Marte regner $\sin^{-1}(0,4)$ som $\dfrac{1}{\sin 0,4}$. Forklar hva som er feil. Finn riktig svar med én desimal.
 \end{tasks}
 
 \nivaahode{2}
@@ -154,6 +155,13 @@ Vis at $\tan v = \dfrac{\sin v}{\cos v}$ i en rettvinklet trekant. Forklar hver 
 \oppg{1.10}{3}{\uh}
 Finn sidene i en rettvinklet trekant der $\tan v = \dfrac{7}{24}$ og hypotenusen er $50$. Forklar hvorfor det finnes bare én slik trekant.
 
+\oppg{1.11}{3}{\uh}
+Per mener at $\sin v$ blir større når trekanten blir større. To rettvinklede trekanter har sider $6$, $8$, $10$ og $9$, $12$, $15$. Vinkelen $v$ ligger rett overfor den korteste kateten i begge.
+\begin{tasks}(1)
+  \task Regn ut $\sin v$ i begge trekantene.
+  \task Forklar hvorfor Per tar feil.
+\end{tasks}
+
 \begin{sjekk}
 \begin{tasks}(2)
   \task En rettvinklet trekant har motstående katet $7$ og hypotenus $25$. Finn $\cos v$.
@@ -177,7 +185,7 @@ stump vinkel & En vinkel mellom $90^\circ$ og $180^\circ$. & \mittsprak\\
 \begin{minipage}[t]{0.50\linewidth}
 \textbf{Eksakte verdier.} Et halvt kvadrat med side 1 har diagonal $\sqrt2$. Da er $\sin 45^\circ = \frac{1}{\sqrt2} = \frac{\sqrt2}{2}$ (utvid med $\sqrt2$).
 \par\smallskip
-\renewcommand{\arraystretch}{2.7}
+\renewcommand{\arraystretch}{2.2}
 \begin{tabular}[t]{@{}c|c c c@{}}
 $v$ & $30^\circ$ & $45^\circ$ & $60^\circ$\\\hline
 $\sin v$ & $\dfrac{1}{2}$ & $\dfrac{\sqrt2}{2}$ & $\dfrac{\sqrt3}{2}$\\
@@ -189,27 +197,31 @@ $\tan v$ & $\dfrac{\sqrt3}{3}$ & $1$ & $\sqrt3$\\
 \[ \sin^2 v + \cos^2 v = 1 \]
 \end{minipage}\hfill
 \begin{minipage}[t]{0.46\linewidth}
-\textbf{Enhetssirkelen.} For $0^\circ \le v \le 180^\circ$ er $(\cos v,\ \sin v)$ koordinatene til punktet $P$ på sirkelen. Trekanten inni sirkelen har hypotenus 1, så for spisse $v$ gir det samme svar som før.
+\textbf{Enhetssirkelen.} Radien som danner vinkelen $v$ med den positive $x$-aksen, treffer sirkelen i punktet $P$. Trekanten inni har hypotenus 1:
+\[ \sin v = \frac{y}{1} = y \qquad \cos v = \frac{x}{1} = x \]
+Så $P = (\cos v,\ \sin v)$. For spisse $v$ gir det samme svar som før. Vi bruker det samme for $0^\circ \le v \le 180^\circ$.
 \par\smallskip
 \centering
 \begin{tikzpicture}[baseline=(current bounding box.north),scale=2.3,font=\small]
   \draw[->] (-1.25,0)--(1.25,0);
   \draw[->] (0,0)--(0,1.25);
   \draw (1,0) arc (0:180:1);
-  \draw[thick] (0,0)--(0.643,0.766);
-  \draw[thick] (0,0)--(-0.643,0.766);
-  \draw[dashed] (0.643,0)--(0.643,0.766);
-  \draw[dashed] (-0.643,0)--(-0.643,0.766);
-  \fill (0.643,0.766) circle (0.8pt) node[above right] {$P$};
-  \fill (-0.643,0.766) circle (0.8pt) node[above left] {$Q$};
-  \draw (0.3,0) arc (0:50:0.3);
-  \node at (0.4,0.12) {\footnotesize$v$};
-  \draw (-0.3,0) arc (180:130:0.3);
-  \node at (-0.4,0.12) {\footnotesize$v$};
-  \node[below] at (0.643,0) {\footnotesize$\cos v$};
-  \node[below] at (-0.643,0) {\footnotesize$-\cos v$};
-  \node[left] at (0.643,0.4) {\footnotesize$\sin v$};
-  \node[below right] at (1,0) {\footnotesize$1$};
+  \draw[thick] (0,0)--(0.766,0.643) node[pos=0.7,below,sloped] {\scriptsize$1$};
+  \draw[thick] (0,0)--(-0.766,0.643);
+  \draw[dashed] (0.766,0)--(0.766,0.643) node[midway,left] {\scriptsize$\sin v$};
+  \draw[dashed] (-0.766,0)--(-0.766,0.643);
+  \draw (0.686,0)--(0.686,0.08)--(0.766,0.08);
+  \draw (-0.686,0)--(-0.686,0.08)--(-0.766,0.08);
+  \fill (0.766,0.643) circle (0.8pt) node[above right] {$P$};
+  \fill (-0.766,0.643) circle (0.8pt) node[above left] {$Q$};
+  \draw (0.3,0) arc (0:40:0.3);
+  \node at (0.43,0.08) {\scriptsize$v$};
+  \draw (-0.3,0) arc (180:140:0.3);
+  \node at (-0.43,0.08) {\scriptsize$v$};
+  \draw[dashed] (0.55,0) arc (0:140:0.55);
+  \node[above left,inner sep=1pt] at (0,0.53) {\scriptsize$180^\circ - v$};
+  \node[below] at (0.766,0) {\footnotesize$\cos v$};
+  \node[below] at (-0.766,0) {\footnotesize$-\cos v$};
 \end{tikzpicture}
 \par\smallskip
 \raggedright
@@ -219,25 +231,28 @@ Symmetri om $y$-aksen gir for stumpe vinkler ($Q$ har vinkel $180^\circ - v$):
 \end{mustkunne}
 
 \begin{eksempel}[1 — utled $\sin 60^\circ$]
-Utled $\sin 60^\circ$ fra en likesidet trekant med side 2. Alle vinklene er $60^\circ$. Vi halverer trekanten med en høyde $h$. Da får vi en rettvinklet trekant med hypotenus $2$, kortkatet $1$ og vinkel $60^\circ$.
+Utled $\sin 60^\circ$ fra en likesidet trekant med side 2. Alle vinklene er $60^\circ$. Vi halverer trekanten med en høyde $h$. Da får vi en rettvinklet trekant med hypotenus $2$, den korte kateten $1$ og vinkel $60^\circ$.
 
 \begin{minipage}[t]{0.66\linewidth}
 \begin{stegtabell}
 $h^2 + 1^2 = 2^2$ & Pytagoras. Høyden deler grunnlinjen i to like deler.\\
 $h = \sqrt3$ & Høyden er den ukjente kateten.\\
 $\sin 60^\circ = \dfrac{h}{2} = \dfrac{\sqrt3}{2}$ & Motstående katet delt på hypotenus.\\
+Kontroll: $\sin^2 60^\circ + \cos^2 60^\circ = \dfrac34 + \dfrac14 = 1$ & Med $\cos 60^\circ = \frac12$.\\
 \end{stegtabell}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.30\linewidth}
 \centering
-\begin{tikzpicture}[baseline=(current bounding box.north),scale=1.5,font=\small]
+\begin{tikzpicture}[baseline=(current bounding box.north),scale=2,font=\small]
   \draw[thick] (0,0)--(1,0)--(1,1.732)--cycle;
-  \draw (0.85,0)--(0.85,0.15)--(1,0.15);
-  \node at (1.3,1.6) {\scriptsize$30^\circ$};
-  \node at (0.45,0.13) {\scriptsize$60^\circ$};
-  \node[below] at (0.5,0) {$1$};
-  \node[right] at (1,0.87) {$h$};
-  \node[sloped,above] at (0.5,0.87) {$2$};
+  \draw (0.9,0)--(0.9,0.1)--(1,0.1);
+  \draw (0.35,0) arc (0:60:0.35);
+  \node at (0.55,0.3) {\scriptsize$60^\circ$};
+  \draw (1,1.732)++(240:0.5) arc (240:270:0.5);
+  \node at (0.8,0.95) {\scriptsize$30^\circ$};
+  \path (0,0)--(1,0) node[midway,below] {$1$};
+  \path (1,0)--(1,1.732) node[midway,right] {$h$};
+  \path (0,0)--(1,1.732) node[midway,above,sloped] {$2$};
 \end{tikzpicture}
 \end{minipage}
 \end{eksempel}
@@ -257,7 +272,7 @@ Kontroll: $\left(\frac12\right)^2 + \left(-\frac{\sqrt3}{2}\right)^2 = \frac14 +
 \begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
   \item $\sin(2v) = 2\sin v$ gjelder ikke generelt. For $v = 30^\circ$ er $\sin 60^\circ = \frac{\sqrt3}{2}$, men $2 \sin 30^\circ = 1$.
   \item $\sin v = 0,5$ har bare løsningen $30^\circ$ er feil. Mellom $0^\circ$ og $180^\circ$ er både $30^\circ$ og $150^\circ$ løsninger.
-  \item $\cos(180^\circ - v) = \cos v$ er feil. Riktig er $\cos(180^\circ - v) = -\cos v$. For eksempel er $\cos 150^\circ$ negativ.
+  \item $\cos(180^\circ - v) = \cos v$ gjelder ikke generelt. Riktig er $\cos(180^\circ - v) = -\cos v$. For $v = 30^\circ$ er $\cos 150^\circ = -\frac{\sqrt3}{2}$, men $\cos 30^\circ = \frac{\sqrt3}{2}$. (Likheten stemmer bare når $\cos v = 0$, altså for $v = 90^\circ$.)
 \end{itemize}
 \end{vanligfeil}
 
@@ -276,7 +291,7 @@ Bruk tabellen. Svar eksakt.
 I en rettvinklet trekant er $v = 30^\circ$ og hypotenusen er $14$. Finn begge katetene eksakt.
 
 \oppg{2.3}{1}{\uh}
-Bruk enhetssirkelen. Hva er
+Finn verdien. Bruk enhetssirkelen.
 \begin{tasks}(4)
   \task $\cos 0^\circ$
   \task $\sin 90^\circ$
@@ -314,9 +329,9 @@ Marit påstår at $\sin(2v) = 2\sin v$.
 Vinkelen $v$ er stump og $\sin v = \dfrac{8}{17}$. Eleven regner slik:
 \begin{align*}
 &\sin^2 v + \cos^2 v = 1\\
-&\cos^2 v = 1 - \left(\tfrac{8}{17}\right)^2 = \tfrac{225}{289}\\
-&\cos v = \tfrac{15}{17}\\
-&v = \cos^{-1}\!\left(\tfrac{15}{17}\right) \approx 28,1^\circ
+&\cos^2 v = 1 - \left(\dfrac{8}{17}\right)^2 = \dfrac{225}{289}\\[4pt]
+&\cos v = \dfrac{15}{17}\\[4pt]
+&v = \cos^{-1}\!\left(\dfrac{15}{17}\right) \approx 28,1^\circ
 \end{align*}
 Finn \textbf{den første feilen}. Finn riktig $\cos v$ og riktig $v$ (én desimal).
 
@@ -327,7 +342,7 @@ Anta at $0^\circ \le v \le 180^\circ$. Er påstanden alltid, noen ganger eller a
 \begin{tasks}(1)
   \task $\cos v > 0$
   \task $\sin v = \cos v$
-  \task To ulike vinkler mellom $0^\circ$ og $180^\circ$ har samme cosinusverdi.
+  \task Det finnes en vinkel $u \neq v$ mellom $0^\circ$ og $180^\circ$ med $\cos u = \cos v$.
 \end{tasks}
 
 \oppg{2.9}{3}{\uh}
@@ -336,7 +351,7 @@ To vinkler $v_1$ og $v_2$ i samme trekant har $\sin v_1 = \sin v_2$. Hva kan du 
 \begin{sjekk}
 \begin{tasks}(2)
   \task Skriv $\tan 60^\circ$ eksakt.
-  \task Finn alle $v$ mellom $0^\circ$ og $180^\circ$ med $\sin v = \frac{\sqrt3}{2}$.
-  \task! Hvorfor er $\sin^2 100^\circ + \cos^2 100^\circ = 1$? Forklar med enhetssirkelen.
+  \task Finn alle $v$ mellom $0^\circ$ og $180^\circ$ med $\sin v = \dfrac{\sqrt3}{2}$.
+  \task! Punktet $P$ på enhetssirkelen har $x$-koordinat $-0,6$ og $y > 0$. Finn $\sin v$ og forklar hvordan du fant det.
 \end{tasks}
 \end{sjekk}

@@ -10,8 +10,8 @@ Bruk eksakte verdier der det er mulig. Kontroller svaret ved å regne på en ann
 \nivaahode{2}
 
 \oppg{U1}{2}{\mh}
-En rampe skal løfte en rullestol $1,5$ m opp. Rampen kan ha en vinkel på høyst $8^\circ$ med bakken.
-Finn lengden av rampen og avstanden langs bakken når vinkelen er $8^\circ$. Svar med én desimal.
+En rampe skal løfte en rullestol $1,5$ m opp. Rampen har en vinkel på $3^\circ$ med bakken.
+Finn lengden av rampen og avstanden langs bakken. Svar med én desimal.
 
 \oppg{U2}{2}{\uh}
 Regn ut eksakt uten hjelpemidler.
@@ -40,7 +40,7 @@ for v in range(0, 181, 15):
 \begin{tasks}(1)
   \task Hvorfor trengs \lstinline[style=laereverk,numbers=none,frame=none]|math.radians|? Hva skjer uten?
   \task Finn alle par av vinkler i tabellen som har lik sinusverdi. Hva er felles for parene? Forklar med enhetssirkelen.
-  \task Finnes det par med lik cosinusverdi? Begrunn.
+  \task Uten \lstinline[style=laereverk,numbers=none,frame=none]|round| skriver programmet en svært liten verdi og ikke $0$ for $180^\circ$. Hvorfor?
 \end{tasks}
 
 \nivaahode{3}
@@ -59,6 +59,10 @@ Vis at $\sin^2 v + \cos^2 v = 1$ også når $v$ er en stump vinkel. Gjør det p�
 
 \oppg{U7}{3}{\uh}
 Begrunn at $\sin v < \tan v$ for alle spisse vinkler $v$. Lag så en tilsvarende påstand om $\cos v$ og $\tan v$ for spisse vinkler, og avgjør om den er sann.
+
+\oppg{U8}{3}{\uh}
+Er påstanden alltid, noen ganger eller aldri sann for $0^\circ \le v \le 180^\circ$? Begrunn med enhetssirkelen.
+\[ \sin v + \cos v = 1 \]
 
 \begin{oppsummering}
 Sinus, cosinus og tangens er forhold mellom sider, og de avhenger bare av vinkelen.

@@ -242,24 +242,24 @@ Kontroll: $\frac12 \cdot 8 \cdot 5 \cdot \sin 120^\circ = 20 \cdot \frac{\sqrt3}
 
 \begin{eksempel}[2 — areal av en firkant]
 I firkant $ABCD$ er diagonalen $AC = 10$ cm, $AB = 8$ cm, $AD = 7$ cm, $\angle BAC = 40^\circ$ og $\angle CAD = 55^\circ$. Finn arealet med én desimal.\par\smallskip
-\begin{minipage}[t]{0.32\linewidth}
-\begin{tikzpicture}[baseline=(current bounding box.north),scale=0.55,font=\small]
+\begin{minipage}[t]{0.36\linewidth}
+\begin{tikzpicture}[baseline=(current bounding box.north),scale=0.75,font=\small]
   \coordinate (A) at (0,0); \coordinate (C) at (4.5,0);
   \coordinate (B) at (2.76,-2.31); \coordinate (D) at (1.81,2.58);
   \draw[thick] (A)--(B)--(C)--(D)--cycle;
   \draw[dashed] (A)--(C);
   \draw (0.8,0) arc (0:-40:0.8);
   \draw (0.6,0) arc (0:55:0.6);
-  \node at (1.15,-0.33) {\scriptsize $40^\circ$};
-  \node at (0.95,0.5) {\scriptsize $55^\circ$};
+  \node at (1.45,-0.45) {\scriptsize $40^\circ$};
+  \node at (1.3,0.5) {\scriptsize $55^\circ$};
   \node[left] at (A) {$A$}; \node[right] at (C) {$C$};
   \node[below] at (B) {$B$}; \node[above] at (D) {$D$};
-  \path (A) -- (B) node[midway,below,sloped] {$8$};
-  \path (A) -- (D) node[midway,above,sloped] {$7$};
-  \path (A) -- (C) node[midway,above] {$10$};
+  \node[below left] at (1.38,-1.15) {$8$};
+  \node[left] at (0.9,1.29) {$7$};
+  \path (A) -- (C) node[midway,above,xshift=6mm] {$10$};
 \end{tikzpicture}
 \end{minipage}\hfill
-\begin{minipage}[t]{0.64\linewidth}
+\begin{minipage}[t]{0.60\linewidth}
 Diagonalen deler firkanten i trekantene $ABC$ og $ACD$. I begge kjenner vi to sider og vinkelen mellom dem, så vi kan bruke arealsetningen på hver av dem.
 \end{minipage}
 
