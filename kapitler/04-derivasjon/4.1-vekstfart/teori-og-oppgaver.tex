@@ -92,7 +92,7 @@ La $g(x) = x^2 + x$. Finn gjennomsnittlig vekstfart på intervallet.
 La $h(x) = x^2 - 6x$. Finn gjennomsnittlig vekstfart på $[1, 3]$. Fullfør.
 \begin{tasks}(1)
   \task $h(1) =$ \skrivlinje[2cm] \quad og \quad $h(3) =$ \skrivlinje[2cm]
-  \task $\dfrac{h(3) - h(1)}{3 - 1} = \dfrac{\rute - (\rute)}{\rute} =$ \skrivlinje[2cm]
+  \task Sett inn og regn ut: \quad $\dfrac{h(3) - h(1)}{3 - 1} = \dfrac{\ \rute\ -\ (\ \rute\ )}{\ \rute\ } =$ \skrivlinje[2cm]
 \end{tasks}
 
 \oppg{1.3}{1}{\uh}
@@ -134,7 +134,7 @@ Avrund til nærmeste hundre kroner.
 \begin{tasks}(1)
   \task Finn gjennomsnittlig vekstfart fra $t = 0$ til $t = 3$. Husk enhet.
   \task Finn gjennomsnittlig vekstfart fra $t = 3$ til $t = 5$.
-  \task Svaret i b) er mindre enn svaret i a) uten fortegn. Forklar hvorfor, selv om bilen taper $20\,\%$ hvert år.
+  \task Verdien synker mindre per år i b) enn i a). Forklar hvorfor, selv om bilen taper $20\,\%$ hvert år.
 \end{tasks}
 
 \oppg{1.6}{2}{\uh}
@@ -221,7 +221,7 @@ $0,001$ & $9,006001$ & $0,006001$ & $6,001$\\
 
 \begin{stegtabell}
 $7;\ 6,1;\ 6,01;\ 6,001$ & Tallene blir mindre og nærmer seg $6$.\\
-Momentan vekstfart i $x = 3$ er $6$. & Sekantene nærmer seg tangenten når $h \to$ liten.\\
+Momentan vekstfart i $x = 3$ er $6$. & Sekantene nærmer seg tangenten når $h$ blir liten.\\
 \end{stegtabell}
 \end{eksempel}
 
@@ -230,7 +230,7 @@ Grafen viser $g(x) = \dfrac{x^2}{4}$ med tangent i punktet $(2, 1)$. Finn vekstf
 
 \begin{center}
 \begin{tikzpicture}
-\begin{axis}[width=6cm, height=4cm, axis lines=middle, xmin=-1, xmax=5.2, ymin=-1.6, ymax=4.2,
+\begin{axis}[width=5.6cm, height=3.4cm, axis lines=middle, xmin=-1, xmax=5.2, ymin=-1.6, ymax=4.2,
   xtick={0,1,2,3,4}, ytick={-1,1,2,3}, grid=both, grid style={black!10},
   tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$}, label style={font=\small}]
 \addplot[domain=-0.8:4.5, thick, hoved, samples=40] {x^2/4};
@@ -269,15 +269,13 @@ $0,1$ & \rute & \rute & \rute\\
 $0,01$ & \rute & \rute & \rute\\
 \end{tabular}
 \end{center}
-\begin{tasks}(1)
-  \task Hvilket tall nærmer stigningstallene seg?
-\end{tasks}
+Hvilket tall nærmer stigningstallene seg?
 
 \oppg{2.2}{1}{\uh}
 Grafen viser $f(x) = x^2 - 4x + 5$ og tangenten i punktet $(3, 2)$.
 \begin{center}
 \begin{tikzpicture}
-\begin{axis}[width=6cm, height=4.2cm, axis lines=middle, xmin=-0.5, xmax=5.3, ymin=-0.8, ymax=5.6,
+\begin{axis}[width=5.6cm, height=3.6cm, axis lines=middle, xmin=-0.5, xmax=5.3, ymin=-0.8, ymax=5.6,
   xtick={0,1,2,3,4,5}, ytick={1,2,3,4,5}, grid=both, grid style={black!10},
   tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$}, label style={font=\small}]
 \addplot[domain=0.2:4.4, thick, hoved, samples=40] {x^2 - 4*x + 5};
@@ -340,13 +338,13 @@ La $f(x) = x^2$. Vi undersøker et mønster.
 \end{tasks}
 
 \oppg{2.8}{3}{\mh}
-For en funksjon $f$ er sekantens stigningstall mellom $x = 2$ og $x = 2 + h$ lik $5$ for $h = 1$, $4,1$ for $h = 0,1$ og $4,01$ for $h = 0,01$.
+Vi regner sekantens stigningstall for en funksjon $f$ mellom $x = 2$ og $x = 2 + h$. Vi får $5$ for $h = 1$, $4,1$ for $h = 0,1$ og $4,01$ for $h = 0,01$.
 \begin{tasks}(1)
   \task Anslå vekstfarten i $x = 2$.
   \task Kan vekstfarten i $x = 2$ være $4,5$? Begrunn.
   \task Finn en enkel funksjon som passer med tabellen. Kontroller med regning.
-  \hint{Regn sekantens stigningstall for noen enkle funksjoner i $x = 2$.}
 \end{tasks}
+\hint{Regn sekantens stigningstall for noen enkle funksjoner i $x = 2$.}
 
 \begin{sjekk}
 \begin{tasks}(2)

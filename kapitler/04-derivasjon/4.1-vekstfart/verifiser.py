@@ -71,6 +71,7 @@ chk("1.5a eksakt", (V(3) - V(0)) / 3, R(-39040))
 chk("1.5b", round(float((V(5) - V(3)) / 2), -2), -22100.0)
 chk("1.5b eksakt", float((V(5) - V(3)) / 2), -22118.4, tol=1e-6)
 
+aapen("1.5c", "Tapet er 20 % av en mindre verdi, så færre kroner per år.")
 f6 = x**2 - 3 * x
 chk("1.6 f(2)", f6.subs(x, 2), -2)
 chk("1.6 f(6)", f6.subs(x, 6), 18)

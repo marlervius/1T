@@ -5,9 +5,9 @@
 \del{1}{Asymptoter og hull}
 
 \begin{ordliste}
-rasjonal funksjon & En funksjon som er en brøk av to polynomer, for eksempel $f(x) = \dfrac{2x+1}{x-1}$. & \mittsprak\\
+rasjonal funksjon & En funksjon som er en brøk av to polynomer, for eksempel $f(x) = \frac{2x+1}{x-1}$. & \mittsprak\\
 vertikal asymptote & En loddrett linje $x = k$ som grafen nærmer seg uten å nå. & \mittsprak\\
-horisontal asymptote & En vannrett linje $y = k$ som grafen nærmer seg når $x$ blir veldig stor eller veldig liten. & \mittsprak\\
+horisontal asymptote & En vannrett linje $y = k$ som grafen nærmer seg når $x$ blir stor positiv eller stor negativ. & \mittsprak\\
 hull i grafen & Et enkelt punkt som mangler i grafen. Tegnes som en åpen ring. & \mittsprak\\
 \end{ordliste}
 
@@ -34,7 +34,7 @@ Altså er $f(x) = 2 + \dfrac{3}{x-1}$.
 \draw[dashed, red!70!black] (axis cs:1,-6) -- (axis cs:1,8);
 \draw[dashed, red!70!black] (axis cs:-4,2) -- (axis cs:6,2);
 \node[font=\scriptsize, red!70!black, anchor=west] at (axis cs:1.1,-4.8) {$x=1$};
-\node[font=\scriptsize, red!70!black, anchor=south east] at (axis cs:6,2.1) {$y=2$};
+\node[font=\scriptsize, red!70!black, anchor=north east] at (axis cs:6,1.9) {$y=2$};
 \end{axis}
 \end{tikzpicture}
 \end{minipage}
@@ -76,7 +76,7 @@ Kontroll: & $g(3) = \frac{5}{1} = 5 = 3 + 2$.\\
 \begin{axis}[width=\linewidth, height=0.9\linewidth, axis lines=middle, xmin=-3, xmax=5, ymin=-2, ymax=7,
   xtick={2}, ytick={4}, tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$}, label style={font=\small}]
 \addplot[domain=-3:5, thick, hoved] {x + 2};
-\addplot[only marks, mark=*, mark size=2pt, hoved, fill=white] coordinates {(2,4)};
+\addplot[only marks, mark=*, mark size=2.5pt, hoved, fill=white] coordinates {(2,4)};
 \end{axis}
 \end{tikzpicture}
 \end{minipage}
@@ -102,9 +102,10 @@ Finn den vertikale og den horisontale asymptoten.
 
 \oppg{1.2}{1}{\uh}
 Vi skal skrive $f(x) = \dfrac{3x+7}{x+1}$ på en annen form.
-\begin{tasks}(1)
+\begin{tasks}(2)
   \task Fullfør: $3x + 7 = 3(x+1) + $\skrivlinje[1.5cm]
-  \task Da er $f(x) = 3 + \dfrac{4}{x+1}$. Hva nærmer $\dfrac{4}{x+1}$ seg når $x$ blir veldig stor?
+  \task Bruk a) og skriv $f(x)$ som et tall pluss en brøk.
+  \task Hva nærmer brøken seg når $x$ er stor?
   \task Hva er den horisontale asymptoten?
 \end{tasks}
 
@@ -120,8 +121,8 @@ La $f(x) = \dfrac{2x-6}{x+4}$.
 
 \oppg{1.4}{2}{\uh}
 La $f(x) = \dfrac{5x-2}{x-3}$.
-\begin{tasks}(1)
-  \task Bruk polynomdivisjon og skriv $f(x)$ som et tall pluss en brøk.
+\begin{tasks}(2)
+  \task Bruk polynomdivisjon: skriv $f(x)$ som tall pluss brøk.
   \task Finn begge asymptotene.
   \task Finn nullpunktet og skjæringspunktet med $y$-aksen.
   \task Skisser grafen med asymptotene stiplet.
@@ -144,15 +145,15 @@ f(x) = \frac{2x-8}{x^2-16} &\longrightarrow \frac{2(x-4)}{(x-4)(x+4)} \longright
 \nivaahode{3}
 
 \oppg{1.7}{3}{\uh}
-Lag en funksjon $f(x) = \dfrac{ax+b}{cx+d}$ med vertikal asymptote $x = 3$, horisontal asymptote $y = -2$ og nullpunkt $x = 1$.
+Lag en funksjon $f(x) = \frac{ax+b}{cx+d}$ med vertikal asymptote $x = 3$, horisontal asymptote $y = -2$ og nullpunkt $x = 1$.
 Kontroller at funksjonen din virker.
 
 \oppg{1.8}{3}{\uh}
 Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret.
 \begin{tasks}(1)
   \task $f(x) = \dfrac{ax+b}{cx+d}$ med $c \neq 0$ har en vertikal asymptote.
-  \task Grafen til $f(x) = \dfrac{ax+b}{cx+d}$ med $c \neq 0$ og $ad \neq bc$ krysser den horisontale asymptoten $y = \dfrac{a}{c}$.
-  \task Vis at grafen til $h(x) = \dfrac{3x^2 + x}{x^2+1}$ krysser linjen $y = 3$. Funksjonen nærmer seg 3 når $x$ blir stor. Hva sier det om påstanden «en graf krysser aldri sin horisontale asymptote»?
+  \task Grafen til $f(x) = \dfrac{ax+b}{cx+d}$ med $c \neq 0$, som ikke kan forkortes, krysser asymptoten $y = \frac{a}{c}$.
+  \task Påstand: «En graf kan krysse sin horisontale asymptote.» La $h(x) = \frac{3x^2 + x}{x^2+1}$, med asymptote $y = 3$. Fullfør: $3x^2 + x = 3(x^2+1) + $\skrivlinje[1.3cm], så $h(x) = 3 + $\skrivlinje[1.8cm]. Avgjør påstanden.
 \end{tasks}
 
 \oppg{1.9}{3}{\uh}
@@ -171,8 +172,8 @@ Lag en rasjonal funksjon med vertikal asymptote $x = 4$ og hull i $(-1, 3)$. Vis
 \del{2}{Rasjonale likninger og ulikheter}
 
 \begin{ordliste}
-rasjonal likning & En likning med $x$ i nevneren, for eksempel $\dfrac{2x+1}{x-1} = 3$. & \mittsprak\\
-rasjonal ulikhet & En ulikhet med $x$ i nevneren, for eksempel $\dfrac{x+3}{x-2} \le 1$. & \mittsprak\\
+rasjonal likning & En likning med $x$ i nevneren, for eksempel $\frac{2x+1}{x-1} = 3$. & \mittsprak\\
+rasjonal ulikhet & En ulikhet med $x$ i nevneren, for eksempel $\frac{x+3}{x-2} \le 1$. & \mittsprak\\
 vilkår & Det som må gjelde for at uttrykket er definert. Nevneren er ikke 0. & \mittsprak\\
 fortegnslinje & Figur som viser hvor et uttrykk er positivt (heltrukket) og negativt (stiplet). & \mittsprak\\
 \end{ordliste}
@@ -222,9 +223,9 @@ Kontroll: & $4 \neq 1$, så $x = 4$ er lov. $\frac{2\cdot 4 + 1}{4 - 1} = \frac{
   restrict y to domain=-5:9, unbounded coords=jump]
 \addplot[domain=-3:0.78, samples=60, thick, hoved] {(2*x+1)/(x-1)};
 \addplot[domain=1.22:7, samples=60, thick, hoved] {(2*x+1)/(x-1)};
-\draw[dashed, red!70!black] (axis cs:-3,3) -- (axis cs:7,3);
+\draw[thick, green!45!black] (axis cs:-3,3) -- (axis cs:7,3) node[pos=0.1, above, font=\scriptsize] {$y=3$};
 \draw[dashed, graa] (axis cs:4,0) -- (axis cs:4,3);
-\addplot[only marks, mark=*, mark size=1.6pt, red!70!black] coordinates {(4,3)};
+\addplot[only marks, mark=*, mark size=1.6pt, green!45!black] coordinates {(4,3)};
 \end{axis}
 \end{tikzpicture}
 \end{minipage}
@@ -233,7 +234,7 @@ Kontroll: & $4 \neq 1$, så $x = 4$ er lov. $\frac{2\cdot 4 + 1}{4 - 1} = \frac{
 \begin{eksempel}[2 — rasjonal ulikhet]
 Løs $\dfrac{x+3}{x-2} \le 1$.
 
-\textbf{Gal metode:} gang med $x - 2$. Vi får $x + 3 \le x - 2$, altså $3 \le -2$. Det er usant, så «ingen løsning». \textbf{Feil!} For $x = 0$ er $\frac{3}{-2} = -\frac{3}{2} \le 1$, og det er sant.
+\textbf{Gal metode:} gang med $x - 2$. Vi får $x + 3 \le x - 2$, altså $3 \le -2$. Det er usant, så «ingen løsning». Det er feil: for $x = 0$ er $\frac{3}{-2} = -\frac{3}{2} \le 1$, og det er sant.
 
 \textbf{Riktig metode:}
 \begin{stegtabell}
@@ -325,7 +326,7 @@ Vi skal løse $\dfrac{x-1}{x+3} > 0$. Fortegnslinjene for teller og nevner er te
 
 \oppg{2.4}{2}{\uh}
 Løs likningene. Kontroller svarene mot vilkåret.
-\begin{tasks}(1)
+\begin{tasks}(3)
   \task $\dfrac{2x}{x-3} = 1 + \dfrac{6}{x-3}$
   \task $\dfrac{1}{x} + \dfrac{1}{x+2} = \dfrac{3}{4}$
   \task $\dfrac{2}{x-1} = \dfrac{x}{x+2}$
@@ -333,15 +334,22 @@ Løs likningene. Kontroller svarene mot vilkåret.
 
 \oppg{2.5}{2}{\uh}
 Løs ulikhetene med fortegnslinje. Svar som intervall.
-\begin{tasks}(1)
+\begin{tasks}(3)
   \task $\dfrac{x-4}{x+1} \ge 0$
   \task $\dfrac{2x-1}{x-3} < 1$
   \task $\dfrac{3}{x+2} \le 1$
 \end{tasks}
 
 \oppg{2.6}{2}{\uh}
-Finn \textbf{den første feilen}. Løs ulikheten riktig.
-\[ \frac{x+5}{x-1} \ge 2 \;\longrightarrow\; \frac{x+5}{x-1} - 2 \ge 0 \;\longrightarrow\; \frac{x+5-2x-2}{x-1} \ge 0 \;\longrightarrow\; \frac{3-x}{x-1} \ge 0 \;\longrightarrow\; 1 < x \le 3 \]
+Ola løser en ulikhet. Finn \textbf{den første feilen}.
+\begin{tasks}(1)
+  \task Hvilket steg er det første som er feil? Hva er riktig løsning?
+  \task For hvilke $x$ stemmer svaret til Ola likevel?
+\end{tasks}
+\begin{align*}
+\frac{x+5}{x-1} \ge 2 &\longrightarrow x + 5 \ge 2(x-1) \longrightarrow x + 5 \ge 2x - 2\\
+&\longrightarrow 7 \ge x \longrightarrow x \le 7
+\end{align*}
 
 \nivaahode{3}
 

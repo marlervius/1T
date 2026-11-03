@@ -1,0 +1,80 @@
+% =====================================================================
+%  4.1 Gjennomsnittlig og momentan vekstfart — ekstra utfordring
+% =====================================================================
+
+\begin{infoboks}{Velg metode selv}
+Arket bygger på 4.1. Vis regning og begrunnelse. Husk enhet når oppgaven har en kontekst.
+Bruk tabell, formel eller program, slik at du får svar du kan stole på.
+\end{infoboks}
+
+\nivaahode{2}
+
+\oppg{U1}{2}{\uh}
+La $f(x) = 2x^2 - 3x + 1$.
+\begin{tasks}(1)
+  \task Finn gjennomsnittlig vekstfart på $[1, 3]$ og på $[-1, 2]$.
+  \task Finn $b$ slik at gjennomsnittlig vekstfart på $[0, b]$ er $5$.
+\end{tasks}
+
+\oppg{U2}{2}{\uh}
+La $f(x) = 2^x$.
+\begin{tasks}(1)
+  \task Finn gjennomsnittlig vekstfart på $[0, 2]$, $[2, 4]$ og $[4, 6]$.
+  \task Hva ser du? Forklar hvorfor, ved å skrive $2^{x+2}$ som $4 \cdot 2^x$.
+\end{tasks}
+
+\oppg{U3}{2}{\mh}
+En kopp kaffe avkjøles. Temperaturen etter $t$ minutter er $T(t) = 20 + 60 \cdot 0,9^t$ grader Celsius.
+\begin{tasks}(1)
+  \task Finn gjennomsnittlig vekstfart fra $t = 0$ til $t = 5$ og fra $t = 5$ til $t = 10$. Avrund til én desimal.
+  \task Anslå vekstfarten ved $t = 5$ med $h = 0,01$ og $h = 0,001$. Avrund til to desimaler.
+  \task Hvorfor avkjøles kaffen saktere etter hvert?
+\end{tasks}
+
+\oppg{U4}{2}{\prog}
+Programmet anslår vekstfarten til $f(x) = 2^x$ i $x = 0$.
+\begin{kode}
+def f(x):
+    return 2**x
+
+for k in range(9):
+    h = 10**(-k)
+    print(h, (f(0 + h) - f(0)) / h)
+\end{kode}
+\begin{tasks}(1)
+  \task Kjør programmet. Hva er tallet til venstre og tallet til høyre i hver linje?
+  \task Hvilket tall nærmer tallene til høyre seg?
+  \task Endre programmet slik at det regner i $x = 3$. Hvordan henger resultatet sammen med svaret i $x = 0$? Prøv å forklare.
+\end{tasks}
+
+\nivaahode{3}
+
+\oppg{U5}{3}{\uh}
+La $f(x) = ax^2 + bx + c$.
+\begin{tasks}(1)
+  \task Vis at gjennomsnittlig vekstfart på $[x_1, x_2]$ er $a(x_1 + x_2) + b$.
+  \task Bruk a) til å forklare hvorfor tallene i eksempel 1 i del 2 ble $6 + h$.
+\end{tasks}
+
+\oppg{U6}{3}{\uh}
+La $f(x) = -x^2 + 6x$.
+\begin{tasks}(1)
+  \task Finn $b > 1$ slik at gjennomsnittlig vekstfart på $[1, b]$ er $0$.
+  \task Hvor mange intervall $[p, q]$ finnes med gjennomsnittlig vekstfart $0$? Begrunn.
+  \task Hva forteller dette om grafen til $f$?
+  \task Lag selv en funksjon som ikke er konstant, men har gjennomsnittlig vekstfart $0$ på $[0, 4]$.
+\end{tasks}
+
+\oppg{U7}{3}{\prog}
+Endre \lstinline[style=laereverk,numbers=none,frame=none]|range(9)| til \lstinline[style=laereverk,numbers=none,frame=none]|range(17)| i programmet i U4.
+\begin{tasks}(1)
+  \task Se på tallene for de minste $h$. Hva skjer? Hvilken $h$ gir best tilnærming?
+  \task Forklar hvorfor en mindre $h$ ikke alltid gir et bedre svar.
+\end{tasks}
+\hint{Hvor mange siffer kan en datamaskin lagre i et desimaltall?}
+
+\begin{oppsummering}
+Gjennomsnittlig vekstfart er stigningstallet til en sekant og gjelder et intervall.
+Momentan vekstfart er stigningstallet til tangenten og gjelder ett punkt.
+Vi anslår den ved å la intervallet bli mindre og mindre.
+\end{oppsummering}

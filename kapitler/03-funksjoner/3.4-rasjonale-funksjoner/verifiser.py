@@ -95,28 +95,32 @@ chk("1.5b horiz", horiz(q22), 1)
 
 # 2.3: finn den første feilen
 f23 = (2 * x - 8) / (x**2 - 16)
-sant("1.6 pil 1 (faktorisert)", simplify(f23 - 2 * (x - 4) / ((x - 4) * (x + 4))) == 0, "ok")
-sant("1.6 pil 2 (forkortet)", cancel(f23) == 2 / (x + 4), "ok")
+sant("1.6 pil 1 (faktorisert)", simplify(f23 - 2 * (x - 4) / ((x - 4) * (x + 4))) == 0, "faktorisering stemmer")
+sant("1.6 pil 2 (forkortet)", cancel(f23) == 2 / (x + 4), "forkorting stemmer")
+chk("1.6 pil 3 feil: x=4 er hull, ikke asymptote", vert(f23), [-4])
+chk("1.6 pil 4 riktig: horisontal y=0", horiz(2 / (x + 4)), 0)
 chk("1.6 riktig vert", vert(f23), [-4])
 sant("1.6 riktig hull", hull(2 * x - 8, x**2 - 16) == [[4, Rational(1, 4)]], "hull i (4, 1/4)")
 chk("1.6 riktig horiz", horiz(f23), 0)
 
-# 3.1: lag selv f = (ax+b)/(cx+d); vertikal x=3, horisontal y=-2, nullpunkt x=1
+# 1.7: lag selv f = (ax+b)/(cx+d); vertikal x=3, horisontal y=-2, nullpunkt x=1
 f31 = (-2 * x + 2) / (x - 3)
 chk("1.7 vert", vert(f31), [3])
 chk("1.7 horiz", horiz(f31), -2)
 chk("1.7 null", solve(-2 * x + 2, x), [1])
 f31b = (-4 * x + 4) / (2 * x - 6)
 chk("1.7 alt", simplify(f31b - f31), 0)
-# 3.2
+# 1.8
 chk("1.8a ad=bc gir konstant", cancel((a * x + b) / (c * x + d)).subs({b: a * d / c}), a / c)
 chk("1.8a ad=bc eksempel", cancel((2 * x + 4) / (x + 2)), 2)
 chk("1.8b likning", simplify((a * x + b) / (c * x + d) - a / c - (b * c - a * d) / (c * (c * x + d))), 0)
-sant("1.8b aldri lik", (b * c - a * d) != 0, "teller i differansen er konstant og ikke 0")
+chk("1.8b c(ax+b)=a(cx+d) gir bc=ad", expand(c * (a * x + b) - a * (c * x + d)), b * c - a * d)
 h32 = (3 * x**2 + x) / (x**2 + 1)
 los("1.8c", Eq(h32, 3), [3])
 chk("1.8c horiz", horiz(h32), 3)
-# 3.3: hull i (-1, 3) og vertikal asymptote x = 4
+chk("1.8c stillas", expand(3 * (x**2 + 1) + (x - 3)), 3 * x**2 + x)
+chk("1.8c omskriving", h32 - (3 + (x - 3) / (x**2 + 1)), 0)
+# 1.9: hull i (-1, 3) og vertikal asymptote x = 4
 f33 = 15 * x * (x + 1) / ((x + 1) * (x - 4))
 sant("1.9 hull", hull(15 * x * (x + 1), (x + 1) * (x - 4)) == [[-1, 3]], "hull i (-1, 3)")
 chk("1.9 vert", vert(f33), [4])
@@ -138,7 +142,6 @@ ulikhet("Eks 2.2 ulikhet", (x + 3) / (x - 2) <= 1, Interval.open(-oo, 2))
 sant("Eks 2.2 gal metode gir tull", not (3 <= -2), "3 <= -2 er usant")
 sant("Eks 2.2 men x=0 virker", Rational(0 + 3, 0 - 2) <= 1, "-3/2 <= 1")
 chk("Eks 2.2 differanse", simplify((x + 3) / (x - 2) - 1 - 5 / (x - 2)), 0)
-chk("Eks 2.2 kontroll x=0", Rational(3, -2), Rational(-3, 2))
 
 # Vanlige feil del 2
 ulikhet("VF 2a", 1 / (x - 3) < 1, Union(Interval.open(-oo, 3), Interval.open(4, oo)))
@@ -170,17 +173,21 @@ ulikhet("2.5c", 3 / (x + 2) <= 1, Union(Interval.open(-oo, -2), Interval(1, oo))
 chk("2.5c omskrevet", simplify(3 / (x + 2) - 1 - (1 - x) / (x + 2)), 0)
 
 # 2.6: finn den første feilen
-ulikhet("2.6 riktig", (x + 5) / (x - 1) >= 2, Interval.Lopen(1, 7))
-sant("2.6 pil 1", simplify((x + 5) / (x - 1) - 2 - ((x + 5) / (x - 1) - 2)) == 0, "samme ulikhet")
-sant("2.6 pil 2 er feil", simplify((x + 5) / (x - 1) - 2 - (x + 5 - 2 * x - 2) / (x - 1)) != 0, "fortegnsfeil: -2(x-1) = -2x+2")
+ulikhet("2.6a riktig", (x + 5) / (x - 1) >= 2, Interval.Lopen(1, 7))
+# Ola: pil 1 (gange med x-1) er feil: gir ikke samme løsningsmengde. Pil 2-4 er riktige regneskritt.
+ulikhet("2.6 pil 1 gir en annen mengde", x + 5 >= 2 * (x - 1), Interval(-oo, 7))
+sant("2.6 pil 1 er feil", Interval.Lopen(1, 7) != Interval(-oo, 7), "x <= 7 er ikke det samme som 1 < x <= 7")
+sant("2.6 pil 1 feil for x=0", not (Rational(0 + 5, 0 - 1) >= 2) and (0 + 5 >= 2 * (0 - 1)), "x=0 gir -5 >= 2 (usant), men 5 >= -2 (sant)")
+chk("2.6 pil 2", expand(2 * (x - 1)), 2 * x - 2)
+ulikhet("2.6 pil 3", x + 5 >= 2 * x - 2, Interval(-oo, 7))
+ulikhet("2.6 pil 4", 7 >= x, Interval(-oo, 7))
 chk("2.6 riktig teller", expand(x + 5 - 2 * (x - 1)), 7 - x)
 chk("2.6 kontroll x=7", Rational(7 + 5, 7 - 1), 2)
-sant("2.6 kontroll x=3 gir ikke løsning", Rational(3 + 5, 3 - 1) >= 2 and True, "x=3 er med i begge, x=5 skiller")
-sant("2.6 skiller: x=5", Rational(5 + 5, 5 - 1) >= 2, "5/2 >= 2 sant, men 5 > 3")
+sant("2.6b stemmer for x>1", all((Rational(t_) + 5) / (Rational(t_) - 1) >= 2 for t_ in [Rational(3, 2), 2, 5, 7]), "x i <1, 7]")
 
 # 3.1 baklengs
 ulikhet("2.7", (x - 3) / (x + 2) >= 0, Union(Interval.open(-oo, -2), Interval(3, oo)))
-# 3.2
+# 1.8
 ulikhet("2.8a", (x - 1) ** 2 / (x + 3) > 0, Union(Interval.open(-3, 1), Interval.open(1, oo)))
 ulikhet("2.8b", (x - 1) ** 2 / (x + 3) >= 0, Interval.open(-3, oo))
 # 3.3 parameter k
