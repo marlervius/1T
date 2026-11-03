@@ -9,7 +9,7 @@ grenseverdi & Tallet et uttrykk kommer så nær vi vil når $h$ er nær nok 0. S
 den deriverte & Grenseverdien av sekantenes stigningstall. Den er vekstfarten i ett punkt. & \mittsprak\\
 derivere & Finne den deriverte til en funksjon. & \mittsprak\\
 definisjon & En presis forklaring av hva et begrep betyr. Alt annet bygger på den. & \mittsprak\\
-tangent & En rett linje som berører grafen i ett punkt. Stigningstallet er $f'(a)$. & \mittsprak\\
+tangent & En rett linje som så vidt berører grafen i ett punkt. Stigningstallet er $f'(a)$. & \mittsprak\\
 \end{ordliste}
 
 \begin{mustkunne}
@@ -100,13 +100,14 @@ En sykkel ruller nedover en bakke. Etter $t$ sekunder har den rullet $s(t) = 2t^
 
 \oppg{1.6}{2}{\uh}
 La $f(x) = x^2 - 3x$. Vi finner $f'(4)$ og har $f(4) = 4$. Finn \textbf{den første feilen}. Regn riktig.
-\[ \frac{(4 + h)^2 - 3(4 + h) - 4}{h} \ \longrightarrow\ \frac{16 + 8h + h^2 - 12 - 3h - 4}{h} \ \longrightarrow\ \frac{11h + h^2}{h} \ \longrightarrow\ 11 + h \ \longrightarrow\ 11 \]
+\[ \frac{(4 + h)^2 - 3(4 + h) - 4}{h} \ \longrightarrow\ \frac{16 + h^2 - 12 - 3h - 4}{h} \ \longrightarrow\ \frac{h^2 - 3h}{h} \ \longrightarrow\ h - 3 \ \longrightarrow\ \text{Når } h \to 0:\ -3 \]
 
-\oppg{1.7}{2}{\mh}
-La $f(x) = 2x^2 - 5x$.
+\oppg{1.7}{2}{\uh}
+En elev skriver $f'(3) = \dfrac{f(3 + 0) - f(3)}{0} = \dfrac{0}{0} = 0$.
 \begin{tasks}(1)
-  \task Finn $f'(3)$ fra definisjonen. Regn for hånd.
-  \task Bruk CAS. Skriv inn $\dfrac{f(3 + h) - f(3)}{h}$ og forenkle. Finn grenseverdien når $h \to 0$. Stemmer det med a)?
+  \task Forklar hva som er galt.
+  \task Forklar hva hver del av definisjonen $f'(a) = \lim\limits_{h \to 0} \dfrac{f(a + h) - f(a)}{h}$ betyr.
+  \task Hva forteller tallet $f'(3)$ om grafen til $f$?
 \end{tasks}
 
 \nivaahode{3}
@@ -164,9 +165,7 @@ $(f + g)' = f' + g'$ & Eksempel 2\\
 \begin{minipage}[t]{0.47\linewidth}
 \textbf{Mønsteret.} $(x)' = 1,\ (x^2)' = 2x,\ (x^3)' = 3x^2$. Vi gjetter
 \[ (x^n)' = n \cdot x^{n-1} \]
-Dette er \emph{ikke bevist} for alle $n$. Tre tilfeller er et mønster, ikke et bevis. Beviset trenger binomialformelen, og vi tar $n = 4$ på utfordringsarket.\par
-\smallskip
-Det gjelder også $(k \cdot f)' = k \cdot f'$. Beviset ligner på det for summen.
+Dette er \emph{ikke bevist} for alle positive hele $n$. Tre tilfeller er et mønster, ikke et bevis. Beviset trenger binomialformelen, og vi tar $n = 4$ på utfordringsarket.
 \end{minipage}
 \end{mustkunne}
 
@@ -235,24 +234,24 @@ Bruk $(x^2)' = 2x$ og $(x^3)' = 3x^2$.
 Vis fra definisjonen at $g(x) = 2x^2 + 5x$ har $g'(x) = 4x + 5$.
 
 \oppg{2.5}{2}{\uh}
-En stein faller. Etter $t$ sekunder har den falt $s(t) = 5t^2$ meter.
+En vogn ruller nedover en stadig brattere bakke. Etter $t$ sekunder har den rullet $s(t) = t^3 + t^2$ meter.
 \begin{tasks}(1)
-  \task Finn $s'(t)$ fra definisjonen.
-  \task Finn farten etter 2 sekunder. Husk enhet.
+  \task Finn $s'(t)$ med sumregelen og mønsteret.
+  \task Kontroller $s'(2)$ fra definisjonen. Husk enhet.
 \end{tasks}
 
 \oppg{2.6}{2}{\uh}
 La $f(x) = x^3 + 4x$. Finn \textbf{den første feilen}. Regn riktig.
 \[ \begin{aligned}
 &\frac{(x + h)^3 + 4(x + h) - x^3 - 4x}{h} \ \to\ \frac{x^3 + 3x^2h + 3xh^2 + h^3 + 4x + 4h - x^3 - 4x}{h}\\
-&\to\ \frac{3x^2h + 3xh^2 + h^3 + 4h}{h} \ \to\ 3x^2 + 3xh + h^2 + 4h \ \to\ 3x^2
+&\to\ \frac{3x^2h + 3xh^2 + h^3 + 4h}{h} \ \to\ 3x^2 + 3xh + h^2 + 4h \ \to\ \text{Når } h \to 0:\ 3x^2
 \end{aligned} \]
 
 \oppg{2.7}{2}{\mh}
-Vi undersøker $f(x) = x^5$ med CAS.
+Vi undersøker $f(x) = x^7$ med CAS.
 \begin{tasks}(1)
-  \task Skriv inn $(x + h)^5$ og utvid. Hvilke ledd står der?
-  \task Finn $\lim\limits_{h \to 0} \dfrac{(x + h)^5 - x^5}{h}$.
+  \task Skriv inn $(x + h)^7$ og utvid. Hvilke ledd står der?
+  \task Finn $\lim\limits_{h \to 0} \dfrac{(x + h)^7 - x^7}{h}$.
   \task Stemmer svaret med mønsteret $(x^n)' = nx^{n-1}$? Er mønsteret dermed bevist for alle $n$?
 \end{tasks}
 
@@ -265,7 +264,7 @@ Vis fra definisjonen at $(k \cdot f)' = k \cdot f'$, der $k$ er en konstant.
 Er påstanden alltid, noen ganger eller aldri sann? Begrunn.
 \begin{tasks}(1)
   \task $(f \cdot g)' = f' \cdot g'$.
-  \task Hvis $f(x) = g(x) + 5$ for alle $x$, er $f'(x) = g'(x)$.
+  \task Hvis $f'(x) = g'(x)$ for alle $x$, er $f(x) = g(x)$.
 \end{tasks}
 
 \oppg{2.10}{3}{\uh}
@@ -274,7 +273,7 @@ Finn en funksjon $f$ der $f'(x) = 2x + 3$ og $f(0) = 1$. Kontroller svaret. Hvor
 \begin{sjekk}
 \begin{tasks}(2)
   \task Bruk mønsteret på $(x^6)'$.
-  \task Finn $f'(x)$ når $f(x) = x^2 + 9$.
+  \task Finn $f'(x)$ når $f(x) = x^2 + 9$. Hvilken regel bruker du, og hvorfor stemmer den?
   \task! Vis med $x = 2$ og $h = 1$ at $(x + h)^3 \neq x^3 + h^3$.
 \end{tasks}
 \end{sjekk}

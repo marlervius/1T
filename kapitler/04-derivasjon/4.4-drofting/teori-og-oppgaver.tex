@@ -1,0 +1,354 @@
+% =====================================================================
+%  4.4 Drøfting av funksjoner — teori og oppgaver
+% =====================================================================
+
+\del{1}{Fortegnslinje for $f'$ og ekstremalpunkter}
+
+\begin{ordliste}
+voksende & $f$ er voksende på et intervall når grafen stiger fra venstre mot høyre. & \mittsprak\\
+avtagende & $f$ er avtagende på et intervall når grafen synker fra venstre mot høyre. & \mittsprak\\
+ekstremalpunkt & Et topp- eller bunnpunkt. Oppgis som koordinater $(x, f(x))$. & \mittsprak\\
+terrassepunkt & Et punkt med $f'(a) = 0$ der $f'$ ikke skifter fortegn. Grafen flater ut og fortsetter samme vei. & \mittsprak\\
+drøfte & Finne ut hvordan en funksjon oppfører seg: nullpunkter, voksende og avtagende, ekstremalpunkter. & \mittsprak\\
+\end{ordliste}
+
+\begin{mustkunne}
+\begin{minipage}[t]{0.50\linewidth}
+\textbf{Hvorfor:} Tangenten i $x = a$ har stigningstall $f'(a)$. Er $f'(a) > 0$, stiger tangenten, og grafen stiger. Er $f'(a) < 0$, synker grafen. Fortegnet til $f'$ sier altså hvilken vei $f$ går.\par\smallskip
+\textbf{Drøfting i fem steg:}
+\begin{enumerate}[leftmargin=1.4em,itemsep=0pt,topsep=2pt]
+  \item Deriver og faktoriser $f'(x)$.
+  \item Løs $f'(x) = 0$.
+  \item Lag fortegnslinje for $f'$ (ikke for $f$).
+  \item Sett $x$-verdiene inn i $f$ og oppgi punktene.
+  \item Finn nullpunktene og skisser grafen.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.47\linewidth}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}[t]{@{}l l@{}}
+$f'(x) > 0$ & $f$ er voksende\\
+$f'(x) < 0$ & $f$ er avtagende\\
+$f'$ går fra $+$ til $-$ & toppunkt\\
+$f'$ går fra $-$ til $+$ & bunnpunkt\\
+$f'(a) = 0$, samme fortegn & terrassepunkt\\
+\end{tabular}\par\smallskip
+Ved et ekstremalpunkt er tangenten vannrett, så $f'(a) = 0$.
+\end{minipage}
+\end{mustkunne}
+
+\begin{eksempel}[1 — full drøfting]
+Drøft $f(x) = x^3 - 3x^2$.
+
+\begin{stegtabell}
+$f'(x) = 3x^2 - 6x = 3x(x - 2)$ & Deriver ledd for ledd. Sett $3x$ utenfor.\\
+$f'(x) = 0$ for $x = 0$ og $x = 2$ & Nullproduktregelen.\\
+Fortegnslinje for $f'$ & Faktorene $x$ og $x - 2$ gir $+, -, +$ (se figur). Tallet $3$ er positivt.\\
+$f$ voksende på $\langle\leftarrow, 0]$ og $[2, \rightarrow\rangle$, avtagende på $[0, 2]$ & $f' > 0$ gir voksende, $f' < 0$ gir avtagende.\\
+$f(0) = 0$ og $f(2) = 8 - 12 = -4$ & Sett inn i $f$, ikke i $f'$. Toppunkt $(0, 0)$ ($+$ til $-$). Bunnpunkt $(2, -4)$ ($-$ til $+$).\\
+$x^2(x - 3) = 0$ gir $x = 0$ og $x = 3$ & Faktoriser $f$. Nullpunktene er $(0, 0)$ og $(3, 0)$.\\
+Kontroll: $f(1) = -2$ & Mellom toppunktet ($0$) og bunnpunktet ($-4$), som grafen skal.\\
+\end{stegtabell}
+
+\medskip
+\begin{center}
+\begin{tikzpicture}[font=\small,fpos/.style={line width=1.1pt},fneg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
+\begin{axis}[name=graf, at={(0,0)}, anchor=south west, scale only axis, width=5.4cm, height=3.4cm,
+  axis lines=middle, xmin=-1.0769, xmax=3.0769, ymin=-5, ymax=1.8, enlargelimits=false,
+  xtick={0,2,3}, ytick={-4}, tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$}, label style={font=\small}]
+\addplot[domain=-1.07:3.07, thick, hoved, samples=60] {x^3-3*x^2};
+\addplot[only marks, mark=*, mark size=1.6pt, hoved] coordinates {(0,0) (2,-4)};
+\node[font=\scriptsize, anchor=south west] at (axis cs:0.1,0.1) {topp};
+\node[font=\scriptsize, anchor=north west] at (axis cs:2.1,-4.0) {bunn};
+\end{axis}
+\begin{scope}[shift={(0,-1.2)}]
+  \draw[graa,thin] (1.40,0.40) -- (1.40,-1.95);
+  \draw[graa,thin] (4.00,0.40) -- (4.00,-1.95);
+  \node[anchor=east] at (-0.15,-0.00) {$x$};
+  \draw[fneg] (0.00,-0.00) -- (1.40,-0.00);
+  \draw[fpos] (1.40,-0.00) -- (4.00,-0.00);
+  \draw[fpos] (4.00,-0.00) -- (5.40,-0.00);
+  \node[fill=white,inner sep=1.5pt] at (1.40,-0.00) {$0$};
+  \node[anchor=east] at (-0.15,-0.70) {$x - 2$};
+  \draw[fneg] (0.00,-0.70) -- (1.40,-0.70);
+  \draw[fneg] (1.40,-0.70) -- (4.00,-0.70);
+  \draw[fpos] (4.00,-0.70) -- (5.40,-0.70);
+  \node[fill=white,inner sep=1.5pt] at (4.00,-0.70) {$0$};
+  \node[anchor=east] at (-0.15,-1.55) {$f'(x)$};
+  \draw[fpos,hoved] (0.00,-1.55) -- (1.40,-1.55);
+  \draw[fneg,hoved] (1.40,-1.55) -- (4.00,-1.55);
+  \draw[fpos,hoved] (4.00,-1.55) -- (5.40,-1.55);
+  \node[fill=white,inner sep=1.5pt] at (1.40,-1.55) {$0$};
+  \node[fill=white,inner sep=1.5pt] at (4.00,-1.55) {$0$};
+  \node[below] at (1.40,-1.95) {$0$};
+  \node[below] at (4.00,-1.95) {$2$};
+\end{scope}
+\end{tikzpicture}
+\end{center}
+\end{eksempel}
+
+\begin{eksempel}[2 — terrassepunkt]
+Drøft $g(x) = x^3 - 6x^2 + 12x$.
+
+\begin{stegtabell}
+$g'(x) = 3x^2 - 12x + 12 = 3(x - 2)^2$ & Deriver, sett $3$ utenfor og bruk kvadratsetningen.\\
+$g'(x) = 0$ for $x = 2$ & Bare ett nullpunkt for $g'$.\\
+$(x - 2)^2 \ge 0$, så $g'(x) \ge 0$ overalt & Et kvadrat er aldri negativt. Ingen fortegnsskifte i $x = 2$.\\
+$g(2) = 8 - 24 + 24 = 8$ & Terrassepunkt $(2, 8)$. Ikke topp eller bunn.\\
+$g$ er voksende for alle $x$ & Grafen flater ut i $(2, 8)$ og stiger videre.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{vanligfeil}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
+  \item «$f'(a) = 0$ gir alltid topp eller bunn» gjelder ikke generelt. For $g(x) = x^3 - 6x^2 + 12x$ er $g'(2) = 0$, men $g'$ er positiv på begge sider, så det er et terrassepunkt.
+  \item Fortegnslinje for $f$ i stedet for $f'$ er feil. Fortegnene til $f'(x) = 3x(x-2)$ gir $+, -, +$. Det sier hvilken vei $f$ går, ikke om $f$ er positiv.
+  \item «Toppunktet er $x = 0$» er ikke ferdig. Et punkt har to koordinater: $(0, f(0)) = (0, 0)$ for $f(x) = x^3 - 3x^2$.
+  \item Å sette $x$-verdien inn i $f'$ for å finne $y$ er feil. Bruk $f$: $y = f(2)$, ikke $f'(2)$.
+\end{itemize}
+\end{vanligfeil}
+
+\nivaahode{1}
+
+\oppg{1.1}{1}{\uh}
+La $f(x) = 2x^3 - 6x$. Fullfør.
+\begin{tasks}(1)
+  \task $f'(x) = \ \rute\, x^2 - \ \rute$
+  \task $f'(x) = 6(x - \ \rute\,)(x + \ \rute\,)$
+  \task $f'(x) = 0$ for $x = $ \skrivlinje[2cm] og $x = $ \skrivlinje[2cm]
+\end{tasks}
+
+\oppg{1.2}{1}{\uh}
+Fortegnslinjen for $f'(x) = (x + 2)(x - 1)$ er tegnet.
+\begin{center}
+\begin{tikzpicture}[font=\small,fpos/.style={line width=1.1pt},fneg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
+  \draw[graa,thin] (1.40,0.40) -- (1.40,-1.95);
+  \draw[graa,thin] (3.30,0.40) -- (3.30,-1.95);
+  \node[anchor=east] at (-0.15,-0.00) {$x + 2$};
+  \draw[fneg] (0.00,-0.00) -- (1.40,-0.00);
+  \draw[fpos] (1.40,-0.00) -- (3.30,-0.00);
+  \draw[fpos] (3.30,-0.00) -- (4.70,-0.00);
+  \node[fill=white,inner sep=1.5pt] at (1.40,-0.00) {$0$};
+  \node[anchor=east] at (-0.15,-0.70) {$x - 1$};
+  \draw[fneg] (0.00,-0.70) -- (1.40,-0.70);
+  \draw[fneg] (1.40,-0.70) -- (3.30,-0.70);
+  \draw[fpos] (3.30,-0.70) -- (4.70,-0.70);
+  \node[fill=white,inner sep=1.5pt] at (3.30,-0.70) {$0$};
+  \node[anchor=east] at (-0.15,-1.55) {$f'(x)$};
+  \draw[fpos,hoved] (0.00,-1.55) -- (1.40,-1.55);
+  \draw[fneg,hoved] (1.40,-1.55) -- (3.30,-1.55);
+  \draw[fpos,hoved] (3.30,-1.55) -- (4.70,-1.55);
+  \node[fill=white,inner sep=1.5pt] at (1.40,-1.55) {$0$};
+  \node[fill=white,inner sep=1.5pt] at (3.30,-1.55) {$0$};
+  \node[below] at (1.40,-1.95) {$-2$};
+  \node[below] at (3.30,-1.95) {$1$};
+\end{tikzpicture}
+\end{center}
+\begin{tasks}(1)
+  \task Skriv intervallene der $f$ er voksende og der $f$ er avtagende.
+  \task For hvilke $x$-verdier har $f$ toppunkt og bunnpunkt? Forklar med fortegnet til $f'$.
+\end{tasks}
+
+\oppg{1.3}{1}{\uh}
+La $f(x) = x^2 - 6x + 5$. Fullfør.
+\begin{tasks}(1)
+  \task $f'(x) = \ \rute\, x - \ \rute$, så $f'(x) = 0$ gir $x = $ \skrivlinje[2cm]
+  \task $f'$ skifter fra \skrivlinje[1.5cm] til \skrivlinje[1.5cm] i dette punktet. Grafen har et \skrivlinje[2.5cm].
+  \task $f(\ \rute\,) = $ \skrivlinje[2cm], så punktet er $(\ \rute\,,\ \rute\,)$
+\end{tasks}
+
+\nivaahode{2}
+
+\oppg{1.4}{2}{\uh}
+La $f(x) = x^3 + 3x^2 - 9x$.
+\begin{tasks}(1)
+  \task Finn $f'(x)$ og faktoriser. Lag fortegnslinje for $f'$.
+  \task Skriv intervallene der $f$ er voksende og avtagende.
+  \task Finn ekstremalpunktene og oppgi dem som koordinater.
+\end{tasks}
+
+\oppg{1.5}{2}{\uh}
+La $g(x) = x^3 - 3x^2 - 9x + 11$.
+\begin{tasks}(1)
+  \task Vis at $x = 1$ er et nullpunkt. Del $g(x)$ på $x - 1$ med polynomdivisjon. Finn alle nullpunktene eksakt.
+  \task Finn ekstremalpunktene med fortegnslinje for $g'$.
+  \task Skisser grafen. Marker nullpunkter, ekstremalpunkter og skjæring med $y$-aksen.
+\end{tasks}
+
+\oppg{1.6}{2}{\uh}
+Finn \textbf{den første feilen}. Løs riktig.
+\[ f(x) = x^3 - 3x^2 - 24x \ \longrightarrow\ f'(x) = 3x^2 - 6x - 24 \ \longrightarrow\ f'(x) = 3(x - 4)(x + 2) \ \longrightarrow\ x = 4 \text{ eller } x = -2 \]
+\[ \longrightarrow\ f' \text{ er negativ for } x < -2,\ \text{positiv for } -2 < x < 4,\ \text{negativ for } x > 4 \ \longrightarrow\ \text{bunnpunkt } (-2,\, 28),\ \text{toppunkt } (4,\, -80) \]
+
+\nivaahode{3}
+
+\oppg{1.7}{3}{\uh}
+Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret.
+\begin{tasks}(1)
+  \task Hvis $f$ er voksende på et intervall, er $f'(x) > 0$ for alle $x$ i intervallet.
+  \task Hvis $f$ har et toppunkt i $x = a$, er $f'(a) = 0$.
+  \task Hvis $f$ og $g$ har samme fortegnslinje for den deriverte, er $f(x) = g(x)$.
+\end{tasks}
+
+\oppg{1.8}{3}{\uh}
+Lag selv et polynom $f$ med toppunkt i $x = -1$ og bunnpunkt i $x = 2$.
+\begin{tasks}(1)
+  \task Skriv $f$ og vis at det virker.
+  \task Hvor mange slike polynomer finnes? Forklar.
+\end{tasks}
+\hint{For hvilke $x$ må $f'$ være null?}
+
+\begin{sjekk}
+\begin{tasks}(2)
+  \task Finn bunnpunktet til $f(x) = x^2 - 8x + 3$.
+  \task $f'$ skifter fra $+$ til $-$ i $x = 3$. Hva slags punkt har $f$ der?
+  \task! Hvorfor viser $f'(x) > 0$ at grafen til $f$ stiger? Forklar med tangenter.
+\end{tasks}
+\end{sjekk}
+
+% ---------------------------------------------------------------------
+
+\del{2}{Største og minste verdi, optimering}
+
+\begin{ordliste}
+største verdi & Det høyeste $y$-tallet grafen har på intervallet. & \mittsprak\\
+minste verdi & Det laveste $y$-tallet grafen har på intervallet. & \mittsprak\\
+endepunkt & Intervallets ytterpunkter. På $[a, b]$ er $a$ og $b$ endepunkter. & \mittsprak\\
+optimering & Å finne den beste verdien, for eksempel størst volum eller minst kostnad. & \mittsprak\\
+\end{ordliste}
+
+\begin{mustkunne}
+\begin{minipage}[t]{0.57\linewidth}
+\textbf{På et lukket intervall $[a, b]$} ligger største og minste verdi enten der $f'(x) = 0$ eller i et endepunkt. Hvorfor: Der $f' \ne 0$ stiger eller synker grafen, så det finnes en høyere eller lavere verdi like ved. Bare i vannrette punkter og ved endene stopper grafen.\par\smallskip
+\textbf{Metode:} Regn ut $f$ i endepunktene og i alle $x$ med $f'(x) = 0$ inni intervallet. Sammenlign tallene.\par\smallskip
+\textbf{Optimering i fire steg}
+\begin{enumerate}[leftmargin=1.4em,itemsep=0pt,topsep=2pt]
+  \item Velg variabel og finn definisjonsmengden.
+  \item Sett opp funksjonen.
+  \item Deriver og finn kandidatene.
+  \item Sammenlign og svar i en setning med enhet.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.40\linewidth}
+\vspace{0pt}\centering
+\begin{tikzpicture}[baseline=(current bounding box.north)]
+\begin{axis}[width=\linewidth, height=1.15\linewidth, axis lines=middle, xmin=-0.5, xmax=5.8, ymin=-3, ymax=24,
+  xtick={0,5}, ytick={4,20}, tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$}, label style={font=\small}]
+\addplot[domain=0:5, thick, hoved, samples=60] {x^3-6*x^2+9*x};
+\addplot[only marks, mark=*, mark size=1.6pt, hoved] coordinates {(0,0) (1,4) (3,0) (5,20)};
+\node[font=\scriptsize, anchor=south] at (axis cs:1,5.5) {lokalt topp};
+\node[font=\scriptsize, anchor=south east] at (axis cs:5.0,21.5) {største verdi};
+\node[font=\scriptsize, anchor=north] at (axis cs:3,-1.2) {bunn};
+\end{axis}
+\end{tikzpicture}\par
+{\footnotesize Største verdi på $[0, 5]$ ligger i endepunktet.}
+\end{minipage}
+\end{mustkunne}
+
+\begin{eksempel}[1 — største og minste verdi]
+Finn største og minste verdi til $f(x) = x^3 - 3x^2$ på $[-1, 4]$.
+
+\begin{stegtabell}
+$f'(x) = 3x(x - 2) = 0$ for $x = 0$ og $x = 2$ & Begge ligger inni $[-1, 4]$. Det er kandidatene.\\
+$f(-1) = -1 - 3 = -4$ & Endepunkt.\\
+$f(0) = 0$ & Toppunkt.\\
+$f(2) = 8 - 12 = -4$ & Bunnpunkt.\\
+$f(4) = 64 - 48 = 16$ & Endepunkt.\\
+Største verdi er $16$ (i $x = 4$). Minste verdi er $-4$ (i både $x = -1$ og $x = 2$) & Sammenlign de fire tallene. Topp- og bunnpunktet er ikke alltid ytterst. Minste verdi kan nås to steder.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{eksempel}[2 — optimering: esken fra 3.3]
+Nå kan vi løse det vi lovte i 3.3. En eske lages av et papp på $20$ cm $\times$ $30$ cm. Vi klipper bort kvadrater med side $x$ cm i hjørnene og bretter opp sidene. Finn $x$ som gir størst volum. Bruk hjelpemidler.
+
+\begin{stegtabell}
+1. Variabel: $x$ cm. Kortsiden gir $20 - 2x \ge 0$, så $0 \le x \le 10$ & Definisjonsmengden er $[0, 10]$.\\
+2. $V(x) = x(20 - 2x)(30 - 2x) = 4x^3 - 100x^2 + 600x$ & Lengde $\cdot$ bredde $\cdot$ høyde, utmultiplisert.\\
+3. $V'(x) = 12x^2 - 200x + 600 = 0$ & Deriver. Del på $4$: $3x^2 - 50x + 150 = 0$.\\
+$x = \dfrac{50 \pm \sqrt{700}}{6}$, så $x \approx 3,92$ eller $x \approx 12,74$ & Andregradsformelen. Verdien $12,74$ ligger utenfor $[0, 10]$ og forkastes.\\
+4. $V(0) = 0$, $V(10) = 0$, $V(3,92) \approx 1056$ & Sammenlign kandidatene.\\
+\end{stegtabell}
+\textbf{Svar:} Esken får størst volum, ca. $1056$ cm$^3$, når hjørnene er ca. $3,92$ cm.
+\end{eksempel}
+
+\begin{vanligfeil}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
+  \item «Største verdi er alltid i et toppunkt» gjelder ikke generelt. Et toppunkt er bare lokalt størst. Grafen i boksen over har toppunkt $(1, 4)$, men største verdi $20$ på $[0, 5]$.
+  \item Å glemme endepunktene er feil. For $f(x) = x^2$ på $[1, 3]$ gir $f'(x) = 0$ bare $x = 0$, utenfor intervallet. Største verdi $f(3) = 9$ finnes bare ved å sjekke endepunktet.
+  \item Å bruke en løsning av $f'(x) = 0$ utenfor intervallet er feil. I eskeoppgaven er $x \approx 12,74$ umulig, siden pappet bare er $20$ cm bredt.
+  \item Å svare «$x = 3,92$» på «finn størst volum» er ikke nok. Svar på det som spørres om: volum med enhet.
+\end{itemize}
+\end{vanligfeil}
+
+\nivaahode{1}
+
+\oppg{2.1}{1}{\uh}
+Finn største og minste verdi til $f(x) = x^2 - 4x$ på $[0, 5]$. Fullfør.
+\begin{tasks}(1)
+  \task $f'(x) = \ \rute\, x - \ \rute$, så $f'(x) = 0$ for $x = $ \skrivlinje[2cm]
+  \task $f(0) = $ \skrivlinje[1.5cm] \quad $f(\ \rute\,) = $ \skrivlinje[1.5cm] \quad $f(5) = $ \skrivlinje[1.5cm]
+  \task Største verdi er \skrivlinje[1.5cm] og minste verdi er \skrivlinje[1.5cm].
+\end{tasks}
+
+\oppg{2.2}{1}{\uh}
+Finn største og minste verdi.
+\begin{tasks}(1)
+  \task $f(x) = x^3 - 12x$ på $[-3, 3]$
+  \task $g(x) = -x^2 + 4x$ på $[3, 6]$
+\end{tasks}
+
+\oppg{2.3}{1}{\uh}
+Du har $40$ m gjerde og skal lage en rektangulær innhegning mot en husvegg. Det trengs gjerde på tre sider. De to sidene vinkelrett på veggen er $x$ m. Fullfør de fire stegene.
+\begin{tasks}(1)
+  \task Siden langs veggen er $40 - 2x$ m. Definisjonsmengde: $0 \le x \le$ \skrivlinje[1.5cm]
+  \task $A(x) = x(40 - 2x) = $ \skrivlinje[4cm]
+  \task $A'(x) = $ \skrivlinje[3cm] $= 0$ gir $x = $ \skrivlinje[1.5cm]
+  \task Regn ut $A(0)$, $A(\ \rute\,)$ og $A(20)$. Svar i en setning med enhet.
+\end{tasks}
+
+\nivaahode{2}
+
+\oppg{2.4}{2}{\uh}
+En åpen eske uten lokk har kvadratisk bunn med side $x$ cm og høyde $h$ cm. Hele overflaten er $300$ cm$^2$. Bruk de fire stegene til å finne største volum.
+\begin{tasks}(1)
+  \task Vis at $h = \dfrac{300 - x^2}{4x}$ og at $V(x) = 75x - \dfrac{x^3}{4}$. Finn definisjonsmengden.
+  \task Finn $V'(x)$ og løs $V'(x) = 0$.
+  \task Vis med fortegnslinje for $V'$ at du har funnet et toppunkt. Svar i en setning med enhet.
+\end{tasks}
+
+\oppg{2.5}{2}{\uh}
+Finn \textbf{den første feilen}. Løs riktig.
+\[ \text{Største og minste verdi til } f(x) = 2x^3 - 9x^2 + 12x \text{ på } [0, 4]: \]
+\[ f'(x) = 6x^2 - 18x + 12 \ \longrightarrow\ f'(x) = 6(x - 1)(x - 2) \ \longrightarrow\ x = 1 \text{ eller } x = 2 \ \longrightarrow\ f(1) = 5 \text{ og } f(2) = 4 \ \longrightarrow\ \text{største verdi } 5,\ \text{minste verdi } 4 \]
+
+\oppg{2.6}{2}{\uh}
+Konsentrasjonen av et legemiddel i blodet er $K(t) = -0,5t^3 + 4,5t^2$ mg/L etter $t$ timer, for $0 \le t \le 8$ (tenkt modell).
+\begin{tasks}(1)
+  \task Finn $K'(t)$. Når er konsentrasjonen størst, og hva er den da? Svar med enhet.
+  \task Finn minste verdi til $K$ på intervallet. Hvorfor ligger den i et endepunkt?
+  \task I hvilket tidsrom avtar konsentrasjonen?
+\end{tasks}
+
+\nivaahode{3}
+
+\oppg{2.7}{3}{\uh}
+Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret og gi eksempler.
+\begin{tasks}(1)
+  \task Den største verdien til $f$ på $[a, b]$ ligger i et toppunkt.
+  \task Hvis $f$ er voksende på $[a, b]$, er $f(b)$ den største verdien til $f$ på $[a, b]$.
+\end{tasks}
+
+\oppg{2.8}{3}{\uh}
+La $f(x) = x^3 - 27x + k$ på $[0, 6]$, der $k$ er et tall.
+\begin{tasks}(1)
+  \task Forklar hvorfor $x$-verdiene der $f$ har størst og minst verdi ikke avhenger av $k$.
+  \task Finn $k$ slik at største verdi er $100$. Hva er minste verdi da?
+\end{tasks}
+
+\begin{sjekk}
+\begin{tasks}(2)
+  \task Finn største og minste verdi til $f(x) = x^2 - 6x$ på $[1, 5]$.
+  \task Et rektangel har sidene $x$ og $12 - x$. Skriv arealfunksjonen og definisjonsmengden.
+  \task! Hvorfor må vi regne ut $f$ i endepunktene, selv om $f'(x) \ne 0$ der?
+\end{tasks}
+\end{sjekk}

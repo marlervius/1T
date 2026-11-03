@@ -1,0 +1,76 @@
+% =====================================================================
+%  4.4 Drøfting av funksjoner — ekstra utfordring
+% =====================================================================
+
+\begin{infoboks}{Velg metode selv}
+Arket bygger på 4.4. Vis regning og begrunnelse. Bruk eksakte svar når oppgaven ikke ber om avrunding.
+Ved optimering bruker du de fire stegene og svarer med en setning og enhet.
+\end{infoboks}
+
+\nivaahode{2}
+
+\oppg{U1}{2}{\uh}
+La $f(x) = x^3 - 3x + 2$.
+\begin{tasks}(1)
+  \task Vis at $x = 1$ er et nullpunkt. Bruk polynomdivisjon og skriv $f$ på faktorisert form.
+  \task Drøft $f$: fortegnslinje for $f'$, ekstremalpunkter og skisse.
+  \task Nullpunktet $x = 1$ er et dobbelt nullpunkt. Hva forteller det om grafen der? Sammenlign med ekstremalpunktene.
+\end{tasks}
+
+\oppg{U2}{2}{\mh}
+En bedrift selger $x$ enheter. Fortjenesten er $F(x) = -0,02x^2 + 40x - 8000$ kroner, for $0 \le x \le 1500$ (tenkt modell).
+\begin{tasks}(1)
+  \task Bruk de fire stegene til å finne hvor mange enheter som gir størst fortjeneste. Svar i en setning med enhet.
+  \task Vurder modellen: Er det realistisk at $F$ er en andregradsfunksjon? Hva kan gå galt for store $x$?
+\end{tasks}
+
+\oppg{U3}{2}{\uh}
+Et rektangel har to hjørner på $x$-aksen og to hjørner på parabelen $y = 12 - x^2$, symmetrisk om $y$-aksen. Rektangelet har bredde $2x$.
+Bruk de fire stegene til å finne størst mulig areal. Oppgi sidene i rektangelet.
+
+\oppg{U4}{2}{\prog}
+Programmet prøver $x$-verdier med steg $0,01$ og finner størst volum for esken fra eksempel 2.
+\begin{kode}
+def V(x):
+    return x * (20 - 2 * x) * (30 - 2 * x)
+
+beste_x = 0
+beste_V = 0
+for i in range(0, 1001):
+    x = i / 100
+    if V(x) > beste_V:
+        beste_V = V(x)
+        beste_x = x
+print(round(beste_x, 2), round(beste_V, 2))
+\end{kode}
+\begin{tasks}(1)
+  \task Kjør programmet. Hva skriver det ut? Hvorfor går \texttt{i} fra $0$ til $1000$?
+  \task Sammenlign med det eksakte svaret fra $V'(x) = 0$. Hvor mange desimaler stemmer for $x$ og for $V$? Forklar hvorfor $V$ stemmer bedre.
+  \task Endre programmet til steg $0,001$. Hva skriver det ut nå?
+\end{tasks}
+
+\nivaahode{3}
+
+\oppg{U5}{3}{\uh}
+La $f(x) = x^3 + ax$, der $a$ er et tall.
+\begin{tasks}(1)
+  \task For hvilke $a$ har $f$ ingen topp- eller bunnpunkt? Begrunn med $f'$.
+  \task For hvilken $a$ har $f$ et terrassepunkt? Hvor ligger det?
+\end{tasks}
+
+\oppg{U6}{3}{\uh}
+Bevis at et tredjegradspolynom $f(x) = px^3 + qx^2 + rx + s$ ($p \ne 0$) har enten $0$ eller $2$ ekstremalpunkter.
+\hint{Se på $f'$ og antall nullpunkter. Hva avgjør om fortegnet skifter?}
+
+\oppg{U7}{3}{\uh}
+Lag selv en funksjon med toppunkt i $x = 1$ og bunnpunkt i $x = 3$.
+\begin{tasks}(1)
+  \task Skriv funksjonen og vis at den virker.
+  \task Hvor mange slike funksjoner finnes? Beskriv alle tredjegradspolynomene.
+\end{tasks}
+
+\begin{oppsummering}
+Fortegnslinjen for $f'$ forteller hvor $f$ stiger og synker. Et nullpunkt for $f'$ er bare en kandidat.
+Største og minste verdi på et lukket intervall finnes ved å sammenligne endepunkter og kandidater.
+Optimering gjøres i fire steg og avsluttes med en setning med enhet.
+\end{oppsummering}
