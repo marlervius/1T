@@ -1,0 +1,68 @@
+% =====================================================================
+%  3.4 Rasjonale funksjoner — ekstra utfordring
+% =====================================================================
+
+\begin{infoboks}{Velg metode selv}
+Arket bygger på 3.4 Rasjonale funksjoner. Vis regning og begrunnelse. Bruk eksakte svar.
+Kontroller svaret ved å sette inn tall eller regne på en annen måte.
+\end{infoboks}
+
+\nivaahode{2}
+
+\oppg{U1}{2}{\uh}
+Se på $f(x) = \dfrac{x^2+1}{x-1}$.
+\begin{tasks}(1)
+  \task Bruk polynomdivisjon og skriv $f(x)$ som et polynom pluss en brøk.
+  \task Hva skjer med brøkdelen når $x$ blir veldig stor? Hvilken linje nærmer grafen seg da?
+  \task Finn den vertikale asymptoten. Har grafen en horisontal asymptote? Forklar.
+\end{tasks}
+
+\oppg{U2}{2}{\mh}
+En bedrift har faste kostnader på 5000 kr og 20 kr i kostnad per enhet. Kostnaden per enhet når bedriften lager $x$ enheter, er
+\[ K(x) = \frac{5000 + 20x}{x} \]
+\begin{tasks}(1)
+  \task Skriv $K(x)$ som et tall pluss en brøk. Hva betyr den horisontale asymptoten for bedriften?
+  \task Hvor mange enheter må lages for at kostnaden per enhet skal bli under 25 kr?
+  \task Kan $x$ være 0 i modellen? Vurder hvor godt modellen passer for veldig store $x$.
+\end{tasks}
+
+\oppg{U3}{2}{\prog}
+Programmet skal vise hva som skjer med $f(x) = \dfrac{2x+1}{x-1}$. Linjen med \texttt{return} er ikke ferdig.
+\begin{kode}
+def f(x):
+    return ...
+
+for x in [1.1, 1.01, 1.001, 10, 100, 1000]:
+    print(x, round(f(x), 3))
+\end{kode}
+\begin{tasks}(1)
+  \task Skriv linjen med \texttt{return}. Hva skriver programmet ut?
+  \task Hva viser tabellen om de to asymptotene?
+  \task Hvorfor kan ikke programmet regne ut $f(1)$? Hva gjør Python?
+\end{tasks}
+
+\oppg{U4}{2}{\uh}
+Løs ulikheten $\dfrac{1}{x-1} \ge \dfrac{1}{x+2}$. Svar som intervall.
+
+\nivaahode{3}
+
+\oppg{U5}{3}{\uh}
+La $f(x) = \dfrac{3x+1}{x-2}$.
+\begin{tasks}(1)
+  \task Vis at $f(x)$ aldri er lik 3. Bruk en omskriving.
+  \task La $y = f(x)$. Løs for $x$ og skriv $x$ uttrykt ved $y$. For hvilke $y$ finnes en $x$?
+  \task Hva er verdimengden til $f$? Generaliser: hva er verdimengden til $\dfrac{ax+b}{cx+d}$ når $ad \neq bc$?
+\end{tasks}
+
+\oppg{U6}{3}{\uh}
+For hvilke heltall $x$ er $\dfrac{x+7}{x-1}$ et helt tall? Begrunn at du har funnet alle.
+
+\oppg{U7}{3}{\uh}
+Lag en rasjonal funksjon som har to vertikale asymptoter $x = -1$ og $x = 2$, horisontal asymptote $y = 0$ og et hull for $x = 3$.
+Finn $y$-koordinaten til hullet. Flere svar er riktige.
+
+\begin{oppsummering}
+Polynomdivisjon viser asymptotene: en brøk pluss et tall, der brøken går mot 0.
+Et hull oppstår når teller og nevner har felles faktor.
+I en ulikhet med brøk samler vi alt på én side og bruker fortegnslinje.
+\end{oppsummering}
