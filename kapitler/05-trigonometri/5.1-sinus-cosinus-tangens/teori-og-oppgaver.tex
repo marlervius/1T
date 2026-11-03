@@ -14,9 +14,11 @@ sinus, cosinus, tangens & Tre forhold mellom sidene i en rettvinklet trekant. De
 \begin{mustkunne}
 \begin{minipage}[t]{0.50\linewidth}
 \textbf{Definisjon.} For en spiss vinkel $v$ i en rettvinklet trekant er
-\[ \sin v = \frac{\text{motstående}}{\text{hypotenus}} \qquad
-   \cos v = \frac{\text{hosliggende}}{\text{hypotenus}} \qquad
-   \tan v = \frac{\text{motstående}}{\text{hosliggende}} \]
+\[ \begin{aligned}
+\sin v &= \frac{\text{motstående}}{\text{hypotenus}}\\[2pt]
+\cos v &= \frac{\text{hosliggende}}{\text{hypotenus}}\\[2pt]
+\tan v &= \frac{\text{motstående}}{\text{hosliggende}}
+\end{aligned} \]
 \textbf{Hvorfor bare vinkelen betyr noe.} To rettvinklede trekanter med samme vinkel $v$ er formlike. Da er forholdet mellom to sider likt i begge: $\frac{1,5}{2,5} = \frac{3}{5}$ i figuren.
 Derfor kan kalkulatoren gi $\sin v$ ut fra $v$ alene.\par
 \textbf{Kalkulatoren} må stå i grader (DEG), ikke radianer (RAD).
@@ -24,7 +26,7 @@ Finn vinkelen med $\sin^{-1}$, $\cos^{-1}$ eller $\tan^{-1}$.
 \end{minipage}\hfill
 \begin{minipage}[t]{0.46\linewidth}
 \centering
-\begin{tikzpicture}[baseline=(current bounding box.north),scale=0.85,font=\small]
+\begin{tikzpicture}[baseline=(current bounding box.north),scale=0.95,font=\small]
   \draw[thick] (0,0)--(4,0)--(4,3)--cycle;
   \draw[dashed] (2,0)--(2,1.5);
   \draw (3.7,0)--(3.7,0.3)--(4,0.3);
@@ -34,8 +36,8 @@ Finn vinkelen med $\sin^{-1}$, $\cos^{-1}$ eller $\tan^{-1}$.
   \node[below] at (1,0) {$2$};
   \node[below] at (3,0) {hosliggende $4$};
   \node[right] at (4,1.5) {motstående $3$};
-  \node[sloped,above] at (2.1,1.6) {hypotenus $5$};
-  \node[sloped,below] at (1,0.75) {$2,5$};
+  \node[sloped,above] at (3,2.25) {hypotenus $5$};
+  \node[sloped,above] at (1,0.75) {$2,5$};
   \node[right] at (2.02,0.6) {$1,5$};
 \end{tikzpicture}
 \end{minipage}
@@ -175,12 +177,12 @@ stump vinkel & En vinkel mellom $90^\circ$ og $180^\circ$. & \mittsprak\\
 \begin{minipage}[t]{0.50\linewidth}
 \textbf{Eksakte verdier.} Et halvt kvadrat med side 1 har diagonal $\sqrt2$. Da er $\sin 45^\circ = \frac{1}{\sqrt2} = \frac{\sqrt2}{2}$ (utvid med $\sqrt2$).
 \par\smallskip
-\renewcommand{\arraystretch}{1.4}
+\renewcommand{\arraystretch}{2.7}
 \begin{tabular}[t]{@{}c|c c c@{}}
 $v$ & $30^\circ$ & $45^\circ$ & $60^\circ$\\\hline
-$\sin v$ & $\frac{1}{2}$ & $\frac{\sqrt2}{2}$ & $\frac{\sqrt3}{2}$\\
-$\cos v$ & $\frac{\sqrt3}{2}$ & $\frac{\sqrt2}{2}$ & $\frac{1}{2}$\\
-$\tan v$ & $\frac{\sqrt3}{3}$ & $1$ & $\sqrt3$\\
+$\sin v$ & $\dfrac{1}{2}$ & $\dfrac{\sqrt2}{2}$ & $\dfrac{\sqrt3}{2}$\\
+$\cos v$ & $\dfrac{\sqrt3}{2}$ & $\dfrac{\sqrt2}{2}$ & $\dfrac{1}{2}$\\
+$\tan v$ & $\dfrac{\sqrt3}{3}$ & $1$ & $\sqrt3$\\
 \end{tabular}
 \par\smallskip
 \textbf{Pytagoras gir} $a^2 + b^2 = c^2$. Del med $c^2$:
@@ -190,38 +192,38 @@ $\tan v$ & $\frac{\sqrt3}{3}$ & $1$ & $\sqrt3$\\
 \textbf{Enhetssirkelen.} For $0^\circ \le v \le 180^\circ$ er $(\cos v,\ \sin v)$ koordinatene til punktet $P$ på sirkelen. Trekanten inni sirkelen har hypotenus 1, så for spisse $v$ gir det samme svar som før.
 \par\smallskip
 \centering
-\begin{tikzpicture}[baseline=(current bounding box.north),scale=1.05,font=\small]
-  \draw[->] (-1.4,0)--(1.4,0);
-  \draw[->] (0,0)--(0,1.4);
+\begin{tikzpicture}[baseline=(current bounding box.north),scale=2.3,font=\small]
+  \draw[->] (-1.25,0)--(1.25,0);
+  \draw[->] (0,0)--(0,1.25);
   \draw (1,0) arc (0:180:1);
   \draw[thick] (0,0)--(0.643,0.766);
   \draw[thick] (0,0)--(-0.643,0.766);
   \draw[dashed] (0.643,0)--(0.643,0.766);
   \draw[dashed] (-0.643,0)--(-0.643,0.766);
-  \fill (0.643,0.766) circle (1.2pt) node[above right] {$P$};
-  \fill (-0.643,0.766) circle (1.2pt) node[above left] {$Q$};
-  \draw (0.35,0) arc (0:50:0.35);
-  \node at (0.5,0.17) {$v$};
-  \draw (-0.35,0) arc (180:130:0.35);
-  \node at (-0.5,0.17) {$v$};
-  \node[below] at (0.643,0) {$\cos v$};
-  \node[below] at (-0.643,0) {$-\cos v$};
-  \node[right] at (0.643,0.38) {$\sin v$};
+  \fill (0.643,0.766) circle (0.8pt) node[above right] {$P$};
+  \fill (-0.643,0.766) circle (0.8pt) node[above left] {$Q$};
+  \draw (0.3,0) arc (0:50:0.3);
+  \node at (0.4,0.12) {\footnotesize$v$};
+  \draw (-0.3,0) arc (180:130:0.3);
+  \node at (-0.4,0.12) {\footnotesize$v$};
+  \node[below] at (0.643,0) {\footnotesize$\cos v$};
+  \node[below] at (-0.643,0) {\footnotesize$-\cos v$};
+  \node[left] at (0.643,0.4) {\footnotesize$\sin v$};
+  \node[below right] at (1,0) {\footnotesize$1$};
 \end{tikzpicture}
 \par\smallskip
 \raggedright
 Symmetri om $y$-aksen gir for stumpe vinkler ($Q$ har vinkel $180^\circ - v$):
-\[ \sin(180^\circ - v) = \sin v \qquad \cos(180^\circ - v) = -\cos v \]
+\[ \begin{aligned} \sin(180^\circ - v) &= \sin v\\ \cos(180^\circ - v) &= -\cos v \end{aligned} \]
 \end{minipage}
 \end{mustkunne}
 
 \begin{eksempel}[1 — utled $\sin 60^\circ$]
-Utled $\sin 60^\circ$ fra en likesidet trekant med side 2. Alle vinklene er $60^\circ$. Vi halverer trekanten med en høyde $h$.
+Utled $\sin 60^\circ$ fra en likesidet trekant med side 2. Alle vinklene er $60^\circ$. Vi halverer trekanten med en høyde $h$. Da får vi en rettvinklet trekant med hypotenus $2$, kortkatet $1$ og vinkel $60^\circ$.
 
 \begin{minipage}[t]{0.66\linewidth}
 \begin{stegtabell}
-Rettvinklet trekant med hypotenus $2$, kortkatet $1$ og vinkel $60^\circ$. & Høyden deler grunnlinjen i to like deler.\\
-$h^2 + 1^2 = 2^2$ & Pytagoras.\\
+$h^2 + 1^2 = 2^2$ & Pytagoras. Høyden deler grunnlinjen i to like deler.\\
 $h = \sqrt3$ & Høyden er den ukjente kateten.\\
 $\sin 60^\circ = \dfrac{h}{2} = \dfrac{\sqrt3}{2}$ & Motstående katet delt på hypotenus.\\
 \end{stegtabell}
@@ -231,9 +233,8 @@ $\sin 60^\circ = \dfrac{h}{2} = \dfrac{\sqrt3}{2}$ & Motstående katet delt på 
 \begin{tikzpicture}[baseline=(current bounding box.north),scale=1.5,font=\small]
   \draw[thick] (0,0)--(1,0)--(1,1.732)--cycle;
   \draw (0.85,0)--(0.85,0.15)--(1,0.15);
-  \draw (1,1.732) ++(250:0.3) arc (250:270:0.3);
-  \node at (0.88,1.4) {\scriptsize$30^\circ$};
-  \node at (0.18,0.12) {\scriptsize$60^\circ$};
+  \node at (1.3,1.6) {\scriptsize$30^\circ$};
+  \node at (0.45,0.13) {\scriptsize$60^\circ$};
   \node[below] at (0.5,0) {$1$};
   \node[right] at (1,0.87) {$h$};
   \node[sloped,above] at (0.5,0.87) {$2$};
