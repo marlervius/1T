@@ -199,6 +199,8 @@ chk("Sjekk 2c", sqrt(1 - Rational(-6, 10) ** 2), Rational(8, 10))
 # =============== UTFORDRING ===============
 chk("U1a", avr(Rational(15, 10) / S_(3), 1), 28.7)
 chk("U1b", avr(Rational(15, 10) / T_(3), 1), 28.6)
+chk("U1c", [avr(Rational(15, 10) / Rational(52, 1000), 1), avr(Rational(15, 10) / Rational(5, 100), 1)], [28.8, 30.0])
+chk("Eks 1.2 avrundet", avr(invtan(Rational(71, 100)), 1), 35.4)
 chk("U2a", C_(30) ** 2 - S_(30) ** 2, Rational(1, 2))
 chk("U2b", 2 * S_(45) * C_(45), 1)
 chk("U2c", S_(135) * C_(135), -Rational(1, 2))
