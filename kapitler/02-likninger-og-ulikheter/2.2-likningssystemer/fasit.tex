@@ -34,14 +34,7 @@ Svaret $(3, 1)$ passer i andre likning, men ikke i første: $18 - 3 = 15 \neq 9$
 \fo{U3} Gang første med 6: $3x + 2y = 24$. Sett $x = y + 3$: $5y + 9 = 24$, så $y = 3$ og $x = 6$. Kontroll: $3 + 1 = 4$ og $6 - 3 = 3$.
 \fo{U4} a) $aex + bey = ce$ og $bdx + bey = bf$. Trekk fra: $(ae - bd)x = ce - bf$. Del på $ae - bd \neq 0$. \ b) Gang første med $d$ og andre med $a$, og trekk fra: $y = \dfrac{af - cd}{ae - bd}$.
 c) Da finnes ikke noen entydig løsning. Stigningstallene $-\frac{a}{b}$ og $-\frac{d}{e}$ er like. Linjene er parallelle eller sammenfallende, så ingen eller uendelig mange løsninger.
-\fo{U5} a) Eksempel på kode:
-\begin{kode}
-def los(a, b, c, d, e, f):
-    D = a*e - b*d
-    if D == 0:
-        return "ingen eller uendelig mange løsninger"
-    return ((c*e - b*f)/D, (a*f - c*d)/D)
-\end{kode}
+\fo{U5} a) Regn ut $D = ae - bd$ først. Er $D = 0$, skriv teksten. Ellers returner $\left(\frac{ce - bf}{D},\ \frac{af - cd}{D}\right)$.
 Første test gir $(3, 2)$, skrevet som desimaltall. Andre test gir teksten om ingen eller uendelig mange løsninger.
 b) Fordel: enkelt og krever ingen algebra. Ulempe: finner bare heltall i et lite område, og bare for systemer med én løsning.
 \fo{U6} a) $x^2 = 2x - 1$ gir $(x - 1)^2 = 0$, så $x = 1$ og $y = 1$. Ett skjæringspunkt. \ b) Eksempel: $y = x + 6$ gir $x^2 - x - 6 = 0$ med løsning $x = -2$ eller $x = 3$. Linjen $y = -1$ har ingen. \ c) Nei. Innsetting gir en andregradslikning, som høyst har to løsninger. Skissen viser det samme: en rett linje kan krysse parabelen høyst to ganger.
