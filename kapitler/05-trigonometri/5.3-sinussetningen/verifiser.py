@@ -24,7 +24,7 @@ def tvetydig(A_, a_, b_):
     if s > 1 + 1e-12:
         return []
     B1 = float(invs(min(s, 1)))
-    res = [B1]
+    res = [B1] if A_ + B1 < 180 - 1e-9 else []
     B2 = 180 - B1
     if A_ + B2 < 180 - 1e-9 and abs(B2 - B1) > 1e-9:
         res.append(B2)
@@ -142,13 +142,14 @@ chk("2.5c antall", len(tvetydig(110, 10, 7)), 1)
 avrund("2.5c B", invs(sB5c), 1, 41.1)
 sant("2.5c sum", 110 + (180 - 41.1) > 180, "B2 gir sum over 180")
 
-sB6 = 8 * S_(25) / 5
-avrund("2.6 sinB", sB6, 3, 0.676)
-avrund("2.6 B1", invs(sB6), 1, 42.5)
-avrund("2.6 B2", 180 - invs(sB6), 1, 137.5)
-avrund("2.6 AB1", 5 * sin(rad(155) - asin(sB6)) / S_(25), 1, 10.9)
-avrund("2.6 AB2", 5 * sin(rad(155) - (pi - asin(sB6))) / S_(25), 1, 3.6)
-chk("2.6 antall", len(tvetydig(25, 5, 8)), 2)
+sB6 = 8 * S_(25) / 6
+avrund("2.6 sinB", sB6, 2, 0.56)
+avrund("2.6 B1", invs(sB6), 1, 34.3)
+avrund("2.6 B2", 180 - invs(sB6), 1, 145.7)
+sant("2.6 sum", 25 + 145.7 < 180, "begge")
+avrund("2.6 AB1", 6 * sin(rad(155) - asin(sB6)) / S_(25), 1, 12.2)
+avrund("2.6 AB2", 6 * sin(rad(155) - (pi - asin(sB6))) / S_(25), 1, 2.3)
+chk("2.6 antall", len(tvetydig(25, 6, 8)), 2)
 
 sB7 = 9 * S_(48) / 7
 avrund("2.7 B1", invs(sB7), 1, 72.8)
@@ -158,20 +159,24 @@ avrund("2.7 c1", 7 * sin(rad(132) - asin(sB7)) / S_(48), 1, 8.1)
 avrund("2.7 c2", 7 * sin(rad(132) - (pi - asin(sB7))) / S_(48), 1, 4.0)
 chk("2.7 antall", len(tvetydig(48, 7, 9)), 2)
 
-# 2.8: b = 10, A = 30: h = 5
-chk("2.8 h", 10 * S_(30), 5)
-chk("2.8 a=4", len(tvetydig(30, 4, 10)), 0)
-chk("2.8 a=5", len(tvetydig(30, 5, 10)), 1)
-chk("2.8 a=7", len(tvetydig(30, 7, 10)), 2)
-chk("2.8 a=9.9", len(tvetydig(30, 9.9, 10)), 2)
-chk("2.8 a=10", len(tvetydig(30, 10, 10)), 1)
-chk("2.8 a=14", len(tvetydig(30, 14, 10)), 1)
+# 2.8: a = 6, b = 9, A varierer. sin B = 1,5 sin A. Grense: sin A = 2/3
+avrund("2.8 grense", asin(Rational(2, 3)) * 180 / pi, 1, 41.8)
+chk("2.8 sinB", 9 * S_(30) / 6, Rational(3, 4))
+chk("2.8 A=30", len(tvetydig(30, 6, 9)), 2)
+chk("2.8 A=41", len(tvetydig(41, 6, 9)), 2)
+chk("2.8 A=42", len(tvetydig(42, 6, 9)), 0)
+chk("2.8 A=150", len(tvetydig(150, 6, 9)), 0)
 sant("2.8 alle",
-     all(len(tvetydig(30, av / 10, 10)) == (0 if av < 50 else 1 if av == 50 or av >= 100 else 2) for av in range(1, 300)),
-     "a<5:0, a=5:1, 5<a<10:2, a>=10:1")
+     all(len(tvetydig(Av / 2, 6, 9)) == (2 if Av / 2 < 41.81 else 0) for Av in range(1, 359)),
+     "A<41,8: to; ellers ingen")
+sant("2.8 stump", all(float(S_(Av)) * 1.5 < 1 and len(tvetydig(Av, 6, 9)) == 0 for Av in range(139, 180)), "stump A: ingen")
 sant("2.9a", all(len(tvetydig(Av, av / 4, 8)) <= 1 for Av in range(91, 180) for av in range(1, 80)), "A stump: høyst én")
+avrund("2.7 C1", 180 - 48 - invs(sB7), 1, 59.2)
+avrund("2.7 C2", 180 - 48 - (180 - invs(sB7)), 1, 24.8)
+avrund("2.5c C", 180 - 110 - invs(sB5c), 1, 28.9)
+avrund("2.5c c", 10 * sin(rad(70) - asin(sB5c)) / S_(110), 1, 5.1)
 chk("2.9a eks", len(tvetydig(120, 10, 7)), 1)
-sant("2.9b", len(tvetydig(30, 7, 10)) == 2 and len(tvetydig(30, 12, 10)) == 1, "sin B=k<1: noen ganger to")
+sant("2.9b", len(tvetydig(30, 7, 10)) == 2 and len(tvetydig(30, 3, 10)) == 0 and 3 < 10, "a<b: noen ganger to, noen ganger ingen")
 chk("2.10 to", len(tvetydig(30, 7, 10)), 2)
 chk("2.10 én", len(tvetydig(30, 12, 10)), 1)
 aapen("2.10", "Lag selv; eksempel i fasit")
@@ -202,10 +207,10 @@ def ssv(a, b, A):
     if s > 1:
         return 0, []
     B1 = round(math.degrees(math.asin(s)), 1)
-    B2 = round(180 - B1, 1)
-    vinkler = [B1]
-    if A + B2 < 180 and B2 != B1:
-        vinkler.append(B2)
+    vinkler = []
+    for B in [B1, round(180 - B1, 1)]:
+        if A + B < 180 and B not in vinkler:
+            vinkler.append(B)
     return len(vinkler), vinkler
 
 for a in [2, 3, 4, 8]:

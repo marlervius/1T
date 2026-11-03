@@ -26,19 +26,19 @@ Finn vinkelen med $\sin^{-1}$, $\cos^{-1}$ eller $\tan^{-1}$.
 \end{minipage}\hfill
 \begin{minipage}[t]{0.46\linewidth}
 \centering
-\begin{tikzpicture}[baseline=(current bounding box.north),scale=0.95,font=\small]
+\begin{tikzpicture}[baseline=(current bounding box.north),scale=1.1,font=\small]
   \draw[thick] (0,0)--(4,0)--(4,3)--cycle;
   \draw[dashed] (2,0)--(2,1.5);
   \draw (3.7,0)--(3.7,0.3)--(4,0.3);
   \draw (1.8,0)--(1.8,0.2)--(2,0.2);
-  \draw (0.6,0) arc (0:36.87:0.6);
-  \node at (0.85,0.17) {\scriptsize$v$};
+  \draw (0.5,0) arc (0:36.87:0.5);
+  \node at (0.72,0.15) {\scriptsize$v$};
   \draw[|-|] (0,-0.4)--(4,-0.4) node[midway,below] {hosliggende $4$};
   \draw (4,0)--(4,3) node[midway,right] {motstående $3$};
   \path (0,0)--(4,3) node[pos=0.78,above,sloped] {hypotenus $5$};
-  \path (0,0)--(2,1.5) node[midway,below,sloped] {\scriptsize$2,5$};
-  \path (2,0)--(2,1.5) node[midway,left] {\scriptsize$1,5$};
-  \path (0,0)--(2,0) node[midway,above] {\scriptsize$2$};
+  \path (0,0)--(2,1.5) node[pos=0.7,below,sloped] {\scriptsize$2,5$};
+  \path (2,0)--(2,1.5) node[midway,right] {\scriptsize$1,5$};
+  \path (0.9,0)--(2,0) node[midway,above] {\scriptsize$2$};
 \end{tikzpicture}
 \end{minipage}
 \end{mustkunne}
@@ -87,9 +87,9 @@ Figuren viser en rettvinklet trekant. Skriv $\sin v$, $\cos v$ og $\tan v$ som b
   \draw (11,0)--(11,1)--(12,1);
   \draw (3,0) arc (0:22.6:3);
   \node at (4.2,0.9) {$v$};
-  \node[below] at (6,0) {$12$};
-  \node[right] at (12,2.5) {$5$};
-  \node[sloped,above] at (6,2.5) {$13$};
+  \path (0,0)--(12,0) node[midway,below] {$12$};
+  \path (12,0)--(12,5) node[midway,right] {$5$};
+  \path (0,0)--(12,5) node[midway,above,sloped] {$13$};
 \end{tikzpicture}
 \end{minipage}
 
@@ -208,7 +208,7 @@ Så $P = (\cos v,\ \sin v)$. For spisse $v$ gir det samme svar som før. Vi bruk
   \draw (1,0) arc (0:180:1);
   \draw[thick] (0,0)--(0.766,0.643) node[pos=0.7,below,sloped] {\scriptsize$1$};
   \draw[thick] (0,0)--(-0.766,0.643);
-  \draw[dashed] (0.766,0)--(0.766,0.643) node[midway,left] {\scriptsize$\sin v$};
+  \draw[dashed] (0.766,0)--(0.766,0.643) node[midway,below,sloped] {\scriptsize$\sin v$};
   \draw[dashed] (-0.766,0)--(-0.766,0.643);
   \draw (0.686,0)--(0.686,0.08)--(0.766,0.08);
   \draw (-0.686,0)--(-0.686,0.08)--(-0.766,0.08);
@@ -238,21 +238,21 @@ Utled $\sin 60^\circ$ fra en likesidet trekant med side 2. Alle vinklene er $60^
 $h^2 + 1^2 = 2^2$ & Pytagoras. Høyden deler grunnlinjen i to like deler.\\
 $h = \sqrt3$ & Høyden er den ukjente kateten.\\
 $\sin 60^\circ = \dfrac{h}{2} = \dfrac{\sqrt3}{2}$ & Motstående katet delt på hypotenus.\\
-Kontroll: $\sin^2 60^\circ + \cos^2 60^\circ = \dfrac34 + \dfrac14 = 1$ & Med $\cos 60^\circ = \frac12$.\\
+Kontroll: $\frac34 + \frac14 = 1$ & $\sin^2 60^\circ + \cos^2 60^\circ$ med $\cos 60^\circ = \frac12$.\\
 \end{stegtabell}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.30\linewidth}
 \centering
-\begin{tikzpicture}[baseline=(current bounding box.north),scale=2,font=\small]
+\begin{tikzpicture}[baseline=(current bounding box.north),scale=1.6,font=\small]
   \draw[thick] (0,0)--(1,0)--(1,1.732)--cycle;
   \draw (0.9,0)--(0.9,0.1)--(1,0.1);
   \draw (0.35,0) arc (0:60:0.35);
   \node at (0.55,0.3) {\scriptsize$60^\circ$};
   \draw (1,1.732)++(240:0.5) arc (240:270:0.5);
-  \node at (0.8,0.95) {\scriptsize$30^\circ$};
+  \node at (0.78,1.0) {\scriptsize$30^\circ$};
   \path (0,0)--(1,0) node[midway,below] {$1$};
   \path (1,0)--(1,1.732) node[midway,right] {$h$};
-  \path (0,0)--(1,1.732) node[midway,above,sloped] {$2$};
+  \path (0,0)--(1,1.732) node[midway,left] {$2$};
 \end{tikzpicture}
 \end{minipage}
 \end{eksempel}

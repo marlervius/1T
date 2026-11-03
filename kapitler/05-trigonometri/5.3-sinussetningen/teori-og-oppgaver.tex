@@ -1,0 +1,289 @@
+% =====================================================================
+%  5.3 Sinussetningen — teori og oppgaver
+% =====================================================================
+
+\del{1}{Sinussetningen og beviset}
+
+\begin{ordliste}
+sinussetningen & Sammenhengen $\frac{\sin A}{a} = \frac{\sin B}{b} = \frac{\sin C}{c}$ i en trekant. & \mittsprak\\
+motstående side & Siden som ligger rett overfor en vinkel. Side $a$ er motstående til vinkel $A$. & \mittsprak\\
+vinkelsum & Summen av de tre vinklene i en trekant. Den er alltid $180^\circ$. & \mittsprak\\
+\end{ordliste}
+
+\begin{mustkunne}
+\begin{minipage}[t]{0.58\linewidth}
+\textbf{Sinussetningen.} I trekant $ABC$ står $a$ overfor $A$, $b$ overfor $B$ og $c$ overfor $C$. Da er
+\[ \frac{\sin A}{a} = \frac{\sin B}{b} = \frac{\sin C}{c} \qquad\text{eller}\qquad \frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C} \]
+Hver vinkel hører sammen med siden overfor.\par
+\textbf{Slik bruker du den} når to vinkler og én side er kjent: (1) Finn tredje vinkel med $180^\circ$. (2) Bruk et kjent par (vinkel og motstående side) og den ukjente siden.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.38\linewidth}
+\centering
+\begin{tikzpicture}[baseline=(current bounding box.north),scale=0.85,font=\small]
+  \coordinate (A) at (0,0); \coordinate (B) at (4,0); \coordinate (C) at (1.4,2.3);
+  \draw[thick] (A) -- (B) node[midway,below] {$c$};
+  \draw[thick] (B) -- (C) node[midway,right] {$a$};
+  \draw[thick] (C) -- (A) node[midway,left] {$b$};
+  \pic[draw, angle radius=7mm] {angle = B--A--C};
+  \pic[draw, angle radius=6mm] {angle = C--B--A};
+  \pic[draw, angle radius=5mm] {angle = A--C--B};
+  \node[below left] at (A) {$A$}; \node[below right] at (B) {$B$}; \node[above] at (C) {$C$};
+\end{tikzpicture}
+\end{minipage}\par\medskip
+\textbf{Beviset.} Arealsetningen (5.2) gir arealet tre ganger, med to sider og vinkelen mellom dem:
+\[ T = \tfrac12\, bc \sin A = \tfrac12\, ac \sin B = \tfrac12\, ab \sin C \]
+Del alle tre uttrykkene på $\tfrac12\, abc$. Nesten alt forkortes bort:
+\[ \frac{\sin A}{a} = \frac{\sin B}{b} = \frac{\sin C}{c} \]
+Arealsetningen gjelder også for stumpe vinkler. Derfor gjelder sinussetningen i alle trekanter.
+\end{mustkunne}
+
+\begin{eksempel}[1 — eksakt]
+I trekant $ABC$ er $A = 30^\circ$, $B = 45^\circ$ og $a = 4$. Finn $b$ eksakt.
+
+\begin{stegtabell}
+$\dfrac{b}{\sin 45^\circ} = \dfrac{4}{\sin 30^\circ}$ & Sinussetningen. $b$ står overfor $B$ og $4$ overfor $A$.\\
+$b = \dfrac{4 \cdot \sin 45^\circ}{\sin 30^\circ}$ & Gang med $\sin 45^\circ$ på begge sider.\\
+$b = 4 \cdot \dfrac{\sqrt2}{2} \cdot 2$ & Sett inn $\sin 45^\circ = \frac{\sqrt2}{2}$. Å dele på $\sin 30^\circ = \frac12$ er det samme som å gange med $2$.\\
+$b = 4\sqrt2$ & Forenkle.\\
+Kontroll: & $4\sqrt2 \approx 5,7 > 4$. Vinkel $B$ er større enn $A$, så $b$ skal være større enn $a$. Det stemmer.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{eksempel}[2 — med kalkulator]
+I trekant $ABC$ er $A = 40^\circ$, $B = 75^\circ$ og $a = 8,0$. Finn $C$, $b$ og $c$. Svar med én desimal.
+
+\begin{stegtabell}
+$C = 180^\circ - 40^\circ - 75^\circ = 65^\circ$ & Vinkelsummen.\\
+$b = \dfrac{8,0 \cdot \sin 75^\circ}{\sin 40^\circ}$ & Sinussetningen med paret $A$ og $a$.\\
+$b \approx 12,0$ & Kalkulatoren står i DEG.\\
+$c = \dfrac{8,0 \cdot \sin 65^\circ}{\sin 40^\circ} \approx 11,3$ & Samme par, nå med $C$.\\
+Kontroll: & Den største vinkelen ($75^\circ$) står overfor den lengste siden ($b$). Det stemmer.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{vanligfeil}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
+  \item $\frac{\sin A}{b} = \frac{\sin B}{a}$ er feil. Vinkelen må stå sammen med siden overfor: $\frac{\sin A}{a} = \frac{\sin B}{b}$.
+  \item Å sette $C$ inn uten å regne den ut er feil. Finn først $C = 180^\circ - A - B$.
+  \item Sinussetningen trenger et kjent par av vinkel og motstående side. Med bare tre sider, eller to sider og vinkelen mellom dem, har vi ikke det. Da trengs cosinussetningen (5.4).
+\end{itemize}
+\end{vanligfeil}
+
+\nivaahode{1}
+
+\oppg{1.1}{1}{\uh}
+Finn den tredje vinkelen i trekant $ABC$.
+\begin{tasks}(2)
+  \task $A = 50^\circ$ og $B = 70^\circ$
+  \task $A = 35^\circ$ og $B = 95^\circ$
+  \task $B = 90^\circ$ og $C = 37^\circ$
+  \task $A = B = 65^\circ$
+\end{tasks}
+
+\oppg{1.2}{1}{\uh}
+I trekant $ABC$ er $A = 60^\circ$, $B = 30^\circ$ og $a = 6\sqrt3$. Fullfør.
+\begin{tasks}(1)
+  \task Fyll inn: $\dfrac{b}{\sin \skrivlinje[1.5cm]} = \dfrac{6\sqrt3}{\sin \skrivlinje[1.5cm]}$
+  \task Bruk $\sin 30^\circ = \frac12$ og $\sin 60^\circ = \frac{\sqrt3}{2}$ og finn $b$.
+\end{tasks}
+
+\oppg{1.3}{1}{\mh}
+I trekant $ABC$ er $A = 50^\circ$, $B = 60^\circ$ og $a = 7,0$. Finn $C$, $b$ og $c$. Svar med én desimal.
+
+\nivaahode{2}
+
+\oppg{1.4}{2}{\mh}
+Finn den ukjente siden. Svar med én desimal.
+\begin{tasks}(1)
+  \task $A = 35^\circ$, $B = 80^\circ$ og $a = 12,0$. Finn $b$.
+  \task $B = 48^\circ$, $C = 71^\circ$ og $c = 9,5$. Finn $a$.
+  \task $A = 112^\circ$, $B = 28^\circ$ og $b = 5,0$. Finn $a$.
+\end{tasks}
+
+\oppg{1.5}{2}{\uh}
+I trekant $ABC$ er $A = 120^\circ$, $B = 45^\circ$ og $b = 6\sqrt2$. Finn $a$ eksakt og $C$.
+
+\oppg{1.6}{2}{\mh}
+To observatører, $P$ og $Q$, står $500$ m fra hverandre på flat mark. En drone $D$ svever over bakken mellom dem, sett fra siden.
+Vinkelen opp til dronen er $62^\circ$ fra $P$ og $71^\circ$ fra $Q$. Tegn en skisse.
+\begin{tasks}(1)
+  \task Finn vinkelen ved $D$.
+  \task Finn avstanden fra $P$ til dronen og fra $Q$ til dronen. Svar med én desimal.
+  \task Finn høyden til dronen over bakken. Svar i hele meter.
+\end{tasks}
+
+\oppg{1.7}{2}{\mh}
+I trekant $ABC$ er $A = 40^\circ$, $B = 65^\circ$ og $a = 9,0$. Eleven skal finne $c$. Finn \textbf{den første feilen}. Løs riktig.
+\[ C = 75^\circ \quad\longrightarrow\quad \frac{\sin 75^\circ}{c} = \frac{\sin 40^\circ}{9,0} \quad\longrightarrow\quad c = \frac{9,0 \cdot \sin 40^\circ}{\sin 75^\circ} \quad\longrightarrow\quad c \approx 6,0 \]
+
+\nivaahode{3}
+
+\oppg{1.8}{3}{\uh}
+Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret.
+\begin{tasks}(1)
+  \task Er $A = B$ i en trekant, er $a = b$.
+  \task Sinussetningen gjelder bare i trekanter der alle vinklene er spisse.
+  \task Kjenner vi to vinkler og siden mellom dem, kan vi finne de to andre sidene med sinussetningen.
+\end{tasks}
+
+\oppg{1.9}{3}{\uh}
+I en trekant er $A = 90^\circ$. Sett inn i sinussetningen og vis at $\sin B = \dfrac{b}{a}$.
+Forklar hvorfor dette stemmer med definisjonen av sinus i 5.1.
+
+\oppg{1.10}{3}{\uh}
+Lag selv en trekant der $b = \sqrt3 \cdot a$. Oppgi $A$, $B$ og $C$, og vis at sinussetningen gir riktig forhold mellom sidene.
+Flere svar er riktige.
+
+\begin{sjekk}
+\begin{tasks}(2)
+  \task Finn $C$ når $A = 75^\circ$ og $B = 45^\circ$.
+  \task Finn $b$ når $A = 30^\circ$, $B = 90^\circ$ og $a = 3$.
+  \task! Hvorfor må vi finne den tredje vinkelen først når vi kjenner to vinkler og én side?
+\end{tasks}
+\end{sjekk}
+
+% ---------------------------------------------------------------------
+
+\del{2}{Det tvetydige tilfellet}
+
+\begin{ordliste}
+SSV & To sider og en vinkel som \emph{ikke} ligger mellom dem. Vi kjenner for eksempel $A$, $a$ og $b$. & \mittsprak\\
+tvetydig & Kan tolkes på to måter. Her: opplysningene passer med to ulike trekanter. & \mittsprak\\
+svingarm & Siden $a$ tenkt som en arm som festes i $C$ og svinger ned mot grunnlinja. & \mittsprak\\
+\end{ordliste}
+
+\begin{mustkunne}
+\begin{minipage}[t]{0.52\linewidth}
+\textbf{SSV.} Vi kjenner $A$, $a$ og $b$. Sinussetningen gir
+\[ \sin B = \frac{b \sin A}{a} = k \]
+Da finnes to vinkler mellom $0^\circ$ og $180^\circ$ med $\sin B = k$ (5.1): $B$ og $180^\circ - B$. Begge er gyldige bare hvis vinkelsummen er under $180^\circ$:
+\[ A + B < 180^\circ \]
+\textbf{Svingarmen.} $A$ og $b$ ligger fast. Avstanden fra $C$ til grunnlinja er $h = b \sin A$. Armen $a$ svinger fra $C$.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.44\linewidth}
+\centering
+\begin{tikzpicture}[baseline=(current bounding box.north),scale=1.0,font=\small]
+  \coordinate (A) at (0,0); \coordinate (C) at (2.77,1.6);
+  \coordinate (B1) at (1.57,0); \coordinate (B2) at (3.97,0); \coordinate (H) at (2.77,0);
+  \draw (A) -- (4.6,0);
+  \draw[thick] (A) -- (C) node[midway,above left] {$b$};
+  \draw[thick] (C) -- (B1) node[pos=0.35,left] {$a$};
+  \draw[thick] (C) -- (B2) node[pos=0.35,right] {$a$};
+  \draw[dashed] (C) -- (H);
+  \draw (2.57,0)--(2.57,0.2)--(2.77,0.2);
+  \node[right] at (2.8,0.45) {$h$};
+  \pic[draw, angle radius=7mm] {angle = H--A--C};
+  \node[left] at (A) {$A$}; \node[above] at (C) {$C$};
+  \node[below] at (B1) {$B_1$}; \node[below] at (B2) {$B_2$};
+\end{tikzpicture}
+\end{minipage}\par\medskip
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{@{}l l l@{}}
+$a < h$ & ($k > 1$) & ingen trekant, armen når ikke ned.\\
+$a = h$ & ($k = 1$) & én trekant, $B = 90^\circ$.\\
+$h < a < b$ & ($k < 1$) & to trekanter: $B$ og $180^\circ - B$.\\
+$a \ge b$ & & én trekant. Da er $A + (180^\circ - B) \ge 180^\circ$.\\
+\end{tabular}
+\end{mustkunne}
+
+\begin{eksempel}[— to trekanter]
+I trekant $ABC$ er $A = 30^\circ$, $a = 5$ og $b = 8$. Finn alle mulige trekanter.
+
+\begin{stegtabell}
+$\sin B = \dfrac{8 \cdot \sin 30^\circ}{5} = 0,8$ & Sinussetningen. $h = 8 \sin 30^\circ = 4 < 5 < 8$, så vi venter to trekanter.\\
+$B_1 \approx 53,1^\circ$ og $B_2 \approx 126,9^\circ$ & $\sin^{-1}(0,8)$ og $180^\circ - 53,1^\circ$.\\
+$30^\circ + 126,9^\circ = 156,9^\circ < 180^\circ$ & Vinkelsummen tillater begge.\\
+$C_1 \approx 96,9^\circ$ og $C_2 \approx 23,1^\circ$ & $C = 180^\circ - 30^\circ - B$.\\
+$c_1 = \dfrac{5 \sin 96,9^\circ}{\sin 30^\circ} \approx 9,9$ & Sinussetningen med paret $A$ og $a$.\\
+$c_2 = \dfrac{5 \sin 23,1^\circ}{\sin 30^\circ} \approx 3,9$ & Samme regning for den andre trekanten.\\
+\end{stegtabell}
+Kontroll: $c_1 = 4\sqrt3 + 3 \approx 9,9$ og $c_2 = 4\sqrt3 - 3 \approx 3,9$ langs grunnlinja i figuren.
+\end{eksempel}
+
+\begin{vanligfeil}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
+  \item Å regne ut bare $B = \sin^{-1}(k)$ er feil når $a < b$. Kalkulatoren gir bare den spisse vinkelen. Den stumpe er $180^\circ - B$.
+  \item Å godta begge vinklene uten å sjekke er feil. Er $a \ge b$, blir $A + (180^\circ - B) \ge 180^\circ$, og da finnes bare én trekant.
+  \item $\sin B > 1$ betyr ikke at du har regnet feil. Det betyr at det ikke finnes noen trekant.
+\end{itemize}
+\end{vanligfeil}
+
+\nivaahode{1}
+
+\oppg{2.1}{1}{\uh}
+Finn alle vinkler $v$ mellom $0^\circ$ og $180^\circ$ med
+\begin{tasks}(4)
+  \task $\sin v = \frac12$
+  \task $\sin v = 1$
+  \task $\sin v = 2$
+  \task $\sin v = \frac{\sqrt3}{2}$
+\end{tasks}
+
+\oppg{2.2}{1}{\uh}
+I trekant $ABC$ er $A = 30^\circ$, $a = 6$ og $b = 6\sqrt3$. Fullfør.
+\begin{tasks}(1)
+  \task $\sin B = \dfrac{\skrivlinje[2cm] \cdot \sin 30^\circ}{\skrivlinje[1cm]} = \skrivlinje[2cm]$
+  \task Finn de to mulige vinklene $B$.
+  \task Sjekk at begge gir en trekant. Finn $C$ og $c$ i hver trekant.
+\end{tasks}
+
+\oppg{2.3}{1}{\mh}
+I trekant $ABC$ er $A = 40^\circ$, $a = 6,0$ og $b = 7,0$.
+\begin{tasks}(1)
+  \task Finn $\sin B$ med to desimaler.
+  \task Finn begge mulige vinkler $B$. Svar med én desimal.
+  \task Gir begge vinklene en trekant? Vis vinkelsummen.
+\end{tasks}
+
+\nivaahode{2}
+
+\oppg{2.4}{2}{\mh}
+I trekant $ABC$ er $A = 35^\circ$, $a = 7,0$ og $b = 9,0$. Finn alle trekanter som passer.
+Finn $B$, $C$ og $c$ i hver. Svar med én desimal.
+
+\oppg{2.5}{2}{\mh}
+Hvor mange trekanter $ABC$ finnes? Finn $B$ der det finnes trekanter.
+\begin{tasks}(1)
+  \task $A = 62^\circ$, $a = 9,0$ og $b = 6,0$. Finn også $C$ og $c$.
+  \task $A = 40^\circ$, $a = 3,0$ og $b = 7,0$
+  \task $A = 110^\circ$, $a = 10$ og $b = 7,0$. Finn også $C$ og $c$.
+\end{tasks}
+
+\oppg{2.6}{2}{\mh}
+Fra en havn $A$ går en rett kystlinje. Et fyrtårn $C$ står $8,0$ km fra $A$, og linja $AC$ danner $25^\circ$ med kysten.
+En båt $B$ ligger ved kysten og er $6,0$ km fra fyrtårnet.
+\begin{tasks}(1)
+  \task Tegn en skisse som viser at det er to mulige plasseringer av båten.
+  \task Finn avstanden fra havna til båten i begge tilfellene. Svar med én desimal.
+\end{tasks}
+
+\oppg{2.7}{2}{\mh}
+Eleven skal finne alle trekanter $ABC$ med $A = 48^\circ$, $a = 7,0$ og $b = 9,0$. Finn \textbf{den første feilen}. Løs riktig.
+\[ \frac{\sin B}{9,0} = \frac{\sin 48^\circ}{7,0} \;\longrightarrow\; \sin B \approx 0,955 \;\longrightarrow\; B \approx 72,8^\circ \text{ (eneste løsning)} \;\longrightarrow\; C \approx 59,2^\circ \;\longrightarrow\; c \approx 8,1 \]
+
+\nivaahode{3}
+
+\oppg{2.8}{3}{\mh}
+I en trekant er $a = 6,0$ og $b = 9,0$. Vinkelen $A$ kan variere.
+For hvilke verdier av $A$ finnes det to trekanter, én trekant og ingen trekant?
+Begrunn svaret med $\sin B$ og vinkelsummen.
+
+\oppg{2.9}{3}{\uh}
+Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret.
+\begin{tasks}(1)
+  \task Er $A$ stump, finnes det høyst én trekant med gitt $A$, $a$ og $b$.
+  \task Er $a < b$, finnes det to trekanter med gitt $A$, $a$ og $b$.
+\end{tasks}
+
+\oppg{2.10}{3}{\uh}
+Velg selv en vinkel $A$ og to sider $a$ og $b$.
+Lag ett sett som gir nøyaktig to trekanter og ett som gir nøyaktig én trekant.
+Vis med regning at det stemmer. Flere svar er riktige.
+
+\begin{sjekk}
+\begin{tasks}(2)
+  \task Finn begge vinklene $v$ mellom $0^\circ$ og $180^\circ$ med $\sin v = 0,6$.
+  \task Hvor mange trekanter finnes når $A = 30^\circ$, $b = 6$ og $a = 2$?
+  \task! Hvorfor må vi sjekke at $A + (180^\circ - B) < 180^\circ$ før vi godtar den stumpe vinkelen?
+\end{tasks}
+\end{sjekk}
