@@ -7,26 +7,26 @@
 %  Nederste rad (blå) er produktet. Nullpunktene står under figuren.
 %  I en nevner brukes $\times$ i stedet for $0$ (ikke definert).
 %  Endre bare etikettene, x-posisjonene (1,40 + 1,90 cm per nullpunkt) og
-%  hvilke strekene som er heltrukket (pos) og stiplet (neg).
+%  hvilke strekene som er heltrukket (fpos) og stiplet (fneg).
 %  Eksempel: (x+1)(x-3), nullpunkt -1 og 3:
 %
-%  \begin{tikzpicture}[font=\small,pos/.style={line width=1.1pt},neg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
+%  \begin{tikzpicture}[font=\small,fpos/.style={line width=1.1pt},fneg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
 %    \draw[graa,thin] (1.40,0.40) -- (1.40,-1.95);
 %    \draw[graa,thin] (3.30,0.40) -- (3.30,-1.95);
 %    \node[anchor=east] at (-0.15,-0.00) {$x+1$};
-%    \draw[neg] (0.00,-0.00) -- (1.40,-0.00);
-%    \draw[pos] (1.40,-0.00) -- (3.30,-0.00);
-%    \draw[pos] (3.30,-0.00) -- (4.70,-0.00);
+%    \draw[fneg] (0.00,-0.00) -- (1.40,-0.00);
+%    \draw[fpos] (1.40,-0.00) -- (3.30,-0.00);
+%    \draw[fpos] (3.30,-0.00) -- (4.70,-0.00);
 %    \node[fill=white,inner sep=1.5pt] at (1.40,-0.00) {$0$};
 %    \node[anchor=east] at (-0.15,-0.70) {$x-3$};
-%    \draw[neg] (0.00,-0.70) -- (1.40,-0.70);
-%    \draw[neg] (1.40,-0.70) -- (3.30,-0.70);
-%    \draw[pos] (3.30,-0.70) -- (4.70,-0.70);
+%    \draw[fneg] (0.00,-0.70) -- (1.40,-0.70);
+%    \draw[fneg] (1.40,-0.70) -- (3.30,-0.70);
+%    \draw[fpos] (3.30,-0.70) -- (4.70,-0.70);
 %    \node[fill=white,inner sep=1.5pt] at (3.30,-0.70) {$0$};
 %    \node[anchor=east] at (-0.15,-1.55) {$(x+1)(x-3)$};
-%    \draw[pos,hoved] (0.00,-1.55) -- (1.40,-1.55);
-%    \draw[neg,hoved] (1.40,-1.55) -- (3.30,-1.55);
-%    \draw[pos,hoved] (3.30,-1.55) -- (4.70,-1.55);
+%    \draw[fpos,hoved] (0.00,-1.55) -- (1.40,-1.55);
+%    \draw[fneg,hoved] (1.40,-1.55) -- (3.30,-1.55);
+%    \draw[fpos,hoved] (3.30,-1.55) -- (4.70,-1.55);
 %    \node[fill=white,inner sep=1.5pt] at (1.40,-1.55) {$0$};
 %    \node[fill=white,inner sep=1.5pt] at (3.30,-1.55) {$0$};
 %    \node[below] at (1.40,-1.95) {$-1$};
@@ -59,15 +59,15 @@ intervall & Alle tallene mellom to endepunkter, for eksempel $\langle 1, 4]$. & 
 \textbf{Hvorfor snur vi tegnet?} Vi vet at $2 < 3$. Gang med $-1$. Tallene speiles om 0, og rekkefølgen blir motsatt: $-2 > -3$.
 
 \medskip
-\begin{tikzpicture}[x=0.55cm,font=\small]
+\begin{tikzpicture}[x=0.6cm,font=\small]
   \draw[-{Stealth[length=2mm]}] (-4.6,0) -- (4.6,0);
   \foreach \i in {-4,...,4} \draw (\i,0.07) -- (\i,-0.07) node[below,font=\scriptsize,inner sep=2pt] {$\i$};
   \fill[hoved] (2,0) circle (2.5pt);
   \fill[hoved] (3,0) circle (2.5pt);
   \fill[niv3] (-2,0) circle (2.5pt);
   \fill[niv3] (-3,0) circle (2.5pt);
-  \draw[->,graa] (2,0.2) to[bend left=50] (-2,0.2);
-  \draw[->,graa] (3,0.2) to[bend left=50] (-3,0.2);
+  \draw[->,graa] (2,0.2) to[bend right=60] (-2,0.2);
+  \draw[->,graa] (3,0.2) to[bend right=60] (-3,0.2);
 \end{tikzpicture}
 \end{minipage}
 
@@ -326,23 +326,23 @@ union & $A \cup B$ betyr «A eller B»: tallene som er med i minst ett av interv
 \medskip
 \begin{minipage}[t]{0.56\linewidth}
 \vspace{0pt}
-\begin{tikzpicture}[font=\small,pos/.style={line width=1.1pt},neg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
+\begin{tikzpicture}[font=\small,fpos/.style={line width=1.1pt},fneg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
   \draw[graa,thin] (1.40,0.40) -- (1.40,-1.95);
   \draw[graa,thin] (3.30,0.40) -- (3.30,-1.95);
   \node[anchor=east] at (-0.15,-0.00) {$x+1$};
-  \draw[neg] (0.00,-0.00) -- (1.40,-0.00);
-  \draw[pos] (1.40,-0.00) -- (3.30,-0.00);
-  \draw[pos] (3.30,-0.00) -- (4.70,-0.00);
+  \draw[fneg] (0.00,-0.00) -- (1.40,-0.00);
+  \draw[fpos] (1.40,-0.00) -- (3.30,-0.00);
+  \draw[fpos] (3.30,-0.00) -- (4.70,-0.00);
   \node[fill=white,inner sep=1.5pt] at (1.40,-0.00) {$0$};
   \node[anchor=east] at (-0.15,-0.70) {$x-3$};
-  \draw[neg] (0.00,-0.70) -- (1.40,-0.70);
-  \draw[neg] (1.40,-0.70) -- (3.30,-0.70);
-  \draw[pos] (3.30,-0.70) -- (4.70,-0.70);
+  \draw[fneg] (0.00,-0.70) -- (1.40,-0.70);
+  \draw[fneg] (1.40,-0.70) -- (3.30,-0.70);
+  \draw[fpos] (3.30,-0.70) -- (4.70,-0.70);
   \node[fill=white,inner sep=1.5pt] at (3.30,-0.70) {$0$};
   \node[anchor=east] at (-0.15,-1.55) {$(x+1)(x-3)$};
-  \draw[pos,hoved] (0.00,-1.55) -- (1.40,-1.55);
-  \draw[neg,hoved] (1.40,-1.55) -- (3.30,-1.55);
-  \draw[pos,hoved] (3.30,-1.55) -- (4.70,-1.55);
+  \draw[fpos,hoved] (0.00,-1.55) -- (1.40,-1.55);
+  \draw[fneg,hoved] (1.40,-1.55) -- (3.30,-1.55);
+  \draw[fpos,hoved] (3.30,-1.55) -- (4.70,-1.55);
   \node[fill=white,inner sep=1.5pt] at (1.40,-1.55) {$0$};
   \node[fill=white,inner sep=1.5pt] at (3.30,-1.55) {$0$};
   \node[below] at (1.40,-1.95) {$-1$};
@@ -377,23 +377,23 @@ $x = -1$ og $x = 3$ & Nullpunktene. Tegn fortegnslinjene.\\
 
 \smallskip
 \begin{center}
-\begin{tikzpicture}[font=\small,pos/.style={line width=1.1pt},neg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
+\begin{tikzpicture}[font=\small,fpos/.style={line width=1.1pt},fneg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
   \draw[graa,thin] (1.40,0.40) -- (1.40,-1.95);
   \draw[graa,thin] (3.30,0.40) -- (3.30,-1.95);
   \node[anchor=east] at (-0.15,-0.00) {$x+1$};
-  \draw[neg] (0.00,-0.00) -- (1.40,-0.00);
-  \draw[pos] (1.40,-0.00) -- (3.30,-0.00);
-  \draw[pos] (3.30,-0.00) -- (4.70,-0.00);
+  \draw[fneg] (0.00,-0.00) -- (1.40,-0.00);
+  \draw[fpos] (1.40,-0.00) -- (3.30,-0.00);
+  \draw[fpos] (3.30,-0.00) -- (4.70,-0.00);
   \node[fill=white,inner sep=1.5pt] at (1.40,-0.00) {$0$};
   \node[anchor=east] at (-0.15,-0.70) {$x-3$};
-  \draw[neg] (0.00,-0.70) -- (1.40,-0.70);
-  \draw[neg] (1.40,-0.70) -- (3.30,-0.70);
-  \draw[pos] (3.30,-0.70) -- (4.70,-0.70);
+  \draw[fneg] (0.00,-0.70) -- (1.40,-0.70);
+  \draw[fneg] (1.40,-0.70) -- (3.30,-0.70);
+  \draw[fpos] (3.30,-0.70) -- (4.70,-0.70);
   \node[fill=white,inner sep=1.5pt] at (3.30,-0.70) {$0$};
   \node[anchor=east] at (-0.15,-1.55) {$(x+1)(x-3)$};
-  \draw[pos,hoved] (0.00,-1.55) -- (1.40,-1.55);
-  \draw[neg,hoved] (1.40,-1.55) -- (3.30,-1.55);
-  \draw[pos,hoved] (3.30,-1.55) -- (4.70,-1.55);
+  \draw[fpos,hoved] (0.00,-1.55) -- (1.40,-1.55);
+  \draw[fneg,hoved] (1.40,-1.55) -- (3.30,-1.55);
+  \draw[fpos,hoved] (3.30,-1.55) -- (4.70,-1.55);
   \node[fill=white,inner sep=1.5pt] at (1.40,-1.55) {$0$};
   \node[fill=white,inner sep=1.5pt] at (3.30,-1.55) {$0$};
   \node[below] at (1.40,-1.95) {$-1$};
@@ -417,23 +417,23 @@ $2x(x - 4) \ge 0$ & Sett utenfor felles faktor $2x$. Faktoren 2 er positiv og en
 
 \smallskip
 \begin{center}
-\begin{tikzpicture}[font=\small,pos/.style={line width=1.1pt},neg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
+\begin{tikzpicture}[font=\small,fpos/.style={line width=1.1pt},fneg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
   \draw[graa,thin] (1.40,0.40) -- (1.40,-1.95);
   \draw[graa,thin] (3.30,0.40) -- (3.30,-1.95);
   \node[anchor=east] at (-0.15,-0.00) {$x$};
-  \draw[neg] (0.00,-0.00) -- (1.40,-0.00);
-  \draw[pos] (1.40,-0.00) -- (3.30,-0.00);
-  \draw[pos] (3.30,-0.00) -- (4.70,-0.00);
+  \draw[fneg] (0.00,-0.00) -- (1.40,-0.00);
+  \draw[fpos] (1.40,-0.00) -- (3.30,-0.00);
+  \draw[fpos] (3.30,-0.00) -- (4.70,-0.00);
   \node[fill=white,inner sep=1.5pt] at (1.40,-0.00) {$0$};
   \node[anchor=east] at (-0.15,-0.70) {$x-4$};
-  \draw[neg] (0.00,-0.70) -- (1.40,-0.70);
-  \draw[neg] (1.40,-0.70) -- (3.30,-0.70);
-  \draw[pos] (3.30,-0.70) -- (4.70,-0.70);
+  \draw[fneg] (0.00,-0.70) -- (1.40,-0.70);
+  \draw[fneg] (1.40,-0.70) -- (3.30,-0.70);
+  \draw[fpos] (3.30,-0.70) -- (4.70,-0.70);
   \node[fill=white,inner sep=1.5pt] at (3.30,-0.70) {$0$};
   \node[anchor=east] at (-0.15,-1.55) {$2x(x-4)$};
-  \draw[pos,hoved] (0.00,-1.55) -- (1.40,-1.55);
-  \draw[neg,hoved] (1.40,-1.55) -- (3.30,-1.55);
-  \draw[pos,hoved] (3.30,-1.55) -- (4.70,-1.55);
+  \draw[fpos,hoved] (0.00,-1.55) -- (1.40,-1.55);
+  \draw[fneg,hoved] (1.40,-1.55) -- (3.30,-1.55);
+  \draw[fpos,hoved] (3.30,-1.55) -- (4.70,-1.55);
   \node[fill=white,inner sep=1.5pt] at (1.40,-1.55) {$0$};
   \node[fill=white,inner sep=1.5pt] at (3.30,-1.55) {$0$};
   \node[below] at (1.40,-1.95) {$0$};
@@ -479,18 +479,18 @@ $(x-2)^2 < 0$ aldri sann.
 Vi skal løse $x^2 - 6x + 8 \le 0$. Fortegnslinjene til faktorene er tegnet. Produktlinja mangler.
 
 \begin{center}
-\begin{tikzpicture}[font=\small,pos/.style={line width=1.1pt},neg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
+\begin{tikzpicture}[font=\small,fpos/.style={line width=1.1pt},fneg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
   \draw[graa,thin] (1.40,0.40) -- (1.40,-1.95);
   \draw[graa,thin] (3.30,0.40) -- (3.30,-1.95);
   \node[anchor=east] at (-0.15,-0.00) {$x-2$};
-  \draw[neg] (0.00,-0.00) -- (1.40,-0.00);
-  \draw[pos] (1.40,-0.00) -- (3.30,-0.00);
-  \draw[pos] (3.30,-0.00) -- (4.70,-0.00);
+  \draw[fneg] (0.00,-0.00) -- (1.40,-0.00);
+  \draw[fpos] (1.40,-0.00) -- (3.30,-0.00);
+  \draw[fpos] (3.30,-0.00) -- (4.70,-0.00);
   \node[fill=white,inner sep=1.5pt] at (1.40,-0.00) {$0$};
   \node[anchor=east] at (-0.15,-0.70) {$x-4$};
-  \draw[neg] (0.00,-0.70) -- (1.40,-0.70);
-  \draw[neg] (1.40,-0.70) -- (3.30,-0.70);
-  \draw[pos] (3.30,-0.70) -- (4.70,-0.70);
+  \draw[fneg] (0.00,-0.70) -- (1.40,-0.70);
+  \draw[fneg] (1.40,-0.70) -- (3.30,-0.70);
+  \draw[fpos] (3.30,-0.70) -- (4.70,-0.70);
   \node[fill=white,inner sep=1.5pt] at (3.30,-0.70) {$0$};
   \node[anchor=east] at (-0.15,-1.55) {$(x-2)(x-4)$};
   \node[below] at (1.40,-1.95) {$2$};

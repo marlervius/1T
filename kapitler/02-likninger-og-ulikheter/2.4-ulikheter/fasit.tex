@@ -20,23 +20,23 @@
 \fo{2.1} a) $(x-2)(x-4) = x^2 - 4x - 2x + 8 = x^2 - 6x + 8$. b) Se figuren. c) $2 \le x \le 4$, $[2, 4]$.
 
 \begin{center}
-\begin{tikzpicture}[font=\small,pos/.style={line width=1.1pt},neg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
+\begin{tikzpicture}[font=\small,fpos/.style={line width=1.1pt},fneg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
   \draw[graa,thin] (1.40,0.40) -- (1.40,-1.95);
   \draw[graa,thin] (3.30,0.40) -- (3.30,-1.95);
   \node[anchor=east] at (-0.15,-0.00) {$x-2$};
-  \draw[neg] (0.00,-0.00) -- (1.40,-0.00);
-  \draw[pos] (1.40,-0.00) -- (3.30,-0.00);
-  \draw[pos] (3.30,-0.00) -- (4.70,-0.00);
+  \draw[fneg] (0.00,-0.00) -- (1.40,-0.00);
+  \draw[fpos] (1.40,-0.00) -- (3.30,-0.00);
+  \draw[fpos] (3.30,-0.00) -- (4.70,-0.00);
   \node[fill=white,inner sep=1.5pt] at (1.40,-0.00) {$0$};
   \node[anchor=east] at (-0.15,-0.70) {$x-4$};
-  \draw[neg] (0.00,-0.70) -- (1.40,-0.70);
-  \draw[neg] (1.40,-0.70) -- (3.30,-0.70);
-  \draw[pos] (3.30,-0.70) -- (4.70,-0.70);
+  \draw[fneg] (0.00,-0.70) -- (1.40,-0.70);
+  \draw[fneg] (1.40,-0.70) -- (3.30,-0.70);
+  \draw[fpos] (3.30,-0.70) -- (4.70,-0.70);
   \node[fill=white,inner sep=1.5pt] at (3.30,-0.70) {$0$};
   \node[anchor=east] at (-0.15,-1.55) {$(x-2)(x-4)$};
-  \draw[pos,hoved] (0.00,-1.55) -- (1.40,-1.55);
-  \draw[neg,hoved] (1.40,-1.55) -- (3.30,-1.55);
-  \draw[pos,hoved] (3.30,-1.55) -- (4.70,-1.55);
+  \draw[fpos,hoved] (0.00,-1.55) -- (1.40,-1.55);
+  \draw[fneg,hoved] (1.40,-1.55) -- (3.30,-1.55);
+  \draw[fpos,hoved] (3.30,-1.55) -- (4.70,-1.55);
   \node[fill=white,inner sep=1.5pt] at (1.40,-1.55) {$0$};
   \node[fill=white,inner sep=1.5pt] at (3.30,-1.55) {$0$};
   \node[below] at (1.40,-1.95) {$2$};
@@ -48,23 +48,23 @@
 \fo{2.4} a) $(x-5)(x+2) > 0$: $x < -2$ eller $x > 5$, $\langle\leftarrow, -2\rangle \cup \langle 5, \rightarrow\rangle$
 
 \begin{center}
-\begin{tikzpicture}[font=\small,pos/.style={line width=1.1pt},neg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
+\begin{tikzpicture}[font=\small,fpos/.style={line width=1.1pt},fneg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
   \draw[graa,thin] (1.40,0.40) -- (1.40,-1.95);
   \draw[graa,thin] (3.30,0.40) -- (3.30,-1.95);
   \node[anchor=east] at (-0.15,-0.00) {$x-5$};
-  \draw[neg] (0.00,-0.00) -- (1.40,-0.00);
-  \draw[neg] (1.40,-0.00) -- (3.30,-0.00);
-  \draw[pos] (3.30,-0.00) -- (4.70,-0.00);
+  \draw[fneg] (0.00,-0.00) -- (1.40,-0.00);
+  \draw[fneg] (1.40,-0.00) -- (3.30,-0.00);
+  \draw[fpos] (3.30,-0.00) -- (4.70,-0.00);
   \node[fill=white,inner sep=1.5pt] at (3.30,-0.00) {$0$};
   \node[anchor=east] at (-0.15,-0.70) {$x+2$};
-  \draw[neg] (0.00,-0.70) -- (1.40,-0.70);
-  \draw[pos] (1.40,-0.70) -- (3.30,-0.70);
-  \draw[pos] (3.30,-0.70) -- (4.70,-0.70);
+  \draw[fneg] (0.00,-0.70) -- (1.40,-0.70);
+  \draw[fpos] (1.40,-0.70) -- (3.30,-0.70);
+  \draw[fpos] (3.30,-0.70) -- (4.70,-0.70);
   \node[fill=white,inner sep=1.5pt] at (1.40,-0.70) {$0$};
   \node[anchor=east] at (-0.15,-1.55) {$(x-5)(x+2)$};
-  \draw[pos,hoved] (0.00,-1.55) -- (1.40,-1.55);
-  \draw[neg,hoved] (1.40,-1.55) -- (3.30,-1.55);
-  \draw[pos,hoved] (3.30,-1.55) -- (4.70,-1.55);
+  \draw[fpos,hoved] (0.00,-1.55) -- (1.40,-1.55);
+  \draw[fneg,hoved] (1.40,-1.55) -- (3.30,-1.55);
+  \draw[fpos,hoved] (3.30,-1.55) -- (4.70,-1.55);
   \node[fill=white,inner sep=1.5pt] at (1.40,-1.55) {$0$};
   \node[fill=white,inner sep=1.5pt] at (3.30,-1.55) {$0$};
   \node[below] at (1.40,-1.95) {$-2$};
@@ -83,33 +83,33 @@ b) $(x-3)(x-4) \le 0$: $3 \le x \le 4$, $[3, 4]$ \ c) $2(x-3)(x+2) < 0$: $-2 < x
 \fo{U1} $x(x-2)(x+2) \ge 0$. Løsning: $[-2, 0] \cup [2, \rightarrow\rangle$.
 
 \begin{center}
-\begin{tikzpicture}[font=\small,pos/.style={line width=1.1pt},neg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
+\begin{tikzpicture}[font=\small,fpos/.style={line width=1.1pt},fneg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
   \draw[graa,thin] (1.40,0.40) -- (1.40,-2.65);
   \draw[graa,thin] (3.30,0.40) -- (3.30,-2.65);
   \draw[graa,thin] (5.20,0.40) -- (5.20,-2.65);
   \node[anchor=east] at (-0.15,-0.00) {$x$};
-  \draw[neg] (0.00,-0.00) -- (1.40,-0.00);
-  \draw[neg] (1.40,-0.00) -- (3.30,-0.00);
-  \draw[pos] (3.30,-0.00) -- (5.20,-0.00);
-  \draw[pos] (5.20,-0.00) -- (6.60,-0.00);
+  \draw[fneg] (0.00,-0.00) -- (1.40,-0.00);
+  \draw[fneg] (1.40,-0.00) -- (3.30,-0.00);
+  \draw[fpos] (3.30,-0.00) -- (5.20,-0.00);
+  \draw[fpos] (5.20,-0.00) -- (6.60,-0.00);
   \node[fill=white,inner sep=1.5pt] at (3.30,-0.00) {$0$};
   \node[anchor=east] at (-0.15,-0.70) {$x-2$};
-  \draw[neg] (0.00,-0.70) -- (1.40,-0.70);
-  \draw[neg] (1.40,-0.70) -- (3.30,-0.70);
-  \draw[neg] (3.30,-0.70) -- (5.20,-0.70);
-  \draw[pos] (5.20,-0.70) -- (6.60,-0.70);
+  \draw[fneg] (0.00,-0.70) -- (1.40,-0.70);
+  \draw[fneg] (1.40,-0.70) -- (3.30,-0.70);
+  \draw[fneg] (3.30,-0.70) -- (5.20,-0.70);
+  \draw[fpos] (5.20,-0.70) -- (6.60,-0.70);
   \node[fill=white,inner sep=1.5pt] at (5.20,-0.70) {$0$};
   \node[anchor=east] at (-0.15,-1.40) {$x+2$};
-  \draw[neg] (0.00,-1.40) -- (1.40,-1.40);
-  \draw[pos] (1.40,-1.40) -- (3.30,-1.40);
-  \draw[pos] (3.30,-1.40) -- (5.20,-1.40);
-  \draw[pos] (5.20,-1.40) -- (6.60,-1.40);
+  \draw[fneg] (0.00,-1.40) -- (1.40,-1.40);
+  \draw[fpos] (1.40,-1.40) -- (3.30,-1.40);
+  \draw[fpos] (3.30,-1.40) -- (5.20,-1.40);
+  \draw[fpos] (5.20,-1.40) -- (6.60,-1.40);
   \node[fill=white,inner sep=1.5pt] at (1.40,-1.40) {$0$};
   \node[anchor=east] at (-0.15,-2.25) {$x(x-2)(x+2)$};
-  \draw[neg,hoved] (0.00,-2.25) -- (1.40,-2.25);
-  \draw[pos,hoved] (1.40,-2.25) -- (3.30,-2.25);
-  \draw[neg,hoved] (3.30,-2.25) -- (5.20,-2.25);
-  \draw[pos,hoved] (5.20,-2.25) -- (6.60,-2.25);
+  \draw[fneg,hoved] (0.00,-2.25) -- (1.40,-2.25);
+  \draw[fpos,hoved] (1.40,-2.25) -- (3.30,-2.25);
+  \draw[fneg,hoved] (3.30,-2.25) -- (5.20,-2.25);
+  \draw[fpos,hoved] (5.20,-2.25) -- (6.60,-2.25);
   \node[fill=white,inner sep=1.5pt] at (1.40,-2.25) {$0$};
   \node[fill=white,inner sep=1.5pt] at (3.30,-2.25) {$0$};
   \node[fill=white,inner sep=1.5pt] at (5.20,-2.25) {$0$};
@@ -124,23 +124,23 @@ b) $(x-3)(x-4) \le 0$: $3 \le x \le 4$, $[3, 4]$ \ c) $2(x-3)(x+2) < 0$: $-2 < x
 \fo{U5} Nevneren $x + 2$ får × i $x = -2$ (ikke definert). Linja for kvotienten er positiv for $x < -2$ og $x > 1$.
 
 \begin{center}
-\begin{tikzpicture}[font=\small,pos/.style={line width=1.1pt},neg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
+\begin{tikzpicture}[font=\small,fpos/.style={line width=1.1pt},fneg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
   \draw[graa,thin] (1.40,0.40) -- (1.40,-1.95);
   \draw[graa,thin] (3.30,0.40) -- (3.30,-1.95);
   \node[anchor=east] at (-0.15,-0.00) {$x-1$};
-  \draw[neg] (0.00,-0.00) -- (1.40,-0.00);
-  \draw[neg] (1.40,-0.00) -- (3.30,-0.00);
-  \draw[pos] (3.30,-0.00) -- (4.70,-0.00);
+  \draw[fneg] (0.00,-0.00) -- (1.40,-0.00);
+  \draw[fneg] (1.40,-0.00) -- (3.30,-0.00);
+  \draw[fpos] (3.30,-0.00) -- (4.70,-0.00);
   \node[fill=white,inner sep=1.5pt] at (3.30,-0.00) {$0$};
   \node[anchor=east] at (-0.15,-0.70) {$x+2$};
-  \draw[neg] (0.00,-0.70) -- (1.40,-0.70);
-  \draw[pos] (1.40,-0.70) -- (3.30,-0.70);
-  \draw[pos] (3.30,-0.70) -- (4.70,-0.70);
+  \draw[fneg] (0.00,-0.70) -- (1.40,-0.70);
+  \draw[fpos] (1.40,-0.70) -- (3.30,-0.70);
+  \draw[fpos] (3.30,-0.70) -- (4.70,-0.70);
   \node[fill=white,inner sep=1.5pt] at (1.40,-0.70) {$\times$};
   \node[anchor=east] at (-0.15,-1.55) {$\frac{x-1}{x+2}$};
-  \draw[pos,hoved] (0.00,-1.55) -- (1.40,-1.55);
-  \draw[neg,hoved] (1.40,-1.55) -- (3.30,-1.55);
-  \draw[pos,hoved] (3.30,-1.55) -- (4.70,-1.55);
+  \draw[fpos,hoved] (0.00,-1.55) -- (1.40,-1.55);
+  \draw[fneg,hoved] (1.40,-1.55) -- (3.30,-1.55);
+  \draw[fpos,hoved] (3.30,-1.55) -- (4.70,-1.55);
   \node[fill=white,inner sep=1.5pt] at (1.40,-1.55) {$\times$};
   \node[fill=white,inner sep=1.5pt] at (3.30,-1.55) {$0$};
   \node[below] at (1.40,-1.95) {$-2$};
