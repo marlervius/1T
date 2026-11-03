@@ -25,7 +25,7 @@ Vinkelen $C$ må ligge \emph{mellom} sidene $a$ og $b$. Samme formel gjelder for
   \draw[dashed] (A)--(D);
   \draw (1.0,0)--(1.0,0.2)--(1.2,0.2);
   \draw (0.5,0) arc (0:61.4:0.5);
-  \node at (0.8,0.22) {\scriptsize $C$};
+  \node at (0.66,0.2) {\scriptsize $C$};
   \node[left] at (C) {$C$}; \node[right] at (B) {$B$}; \node[above] at (A) {$A$};
   \path (C) -- (B) node[midway,below,sloped] {$a$};
   \path (C) -- (A) node[midway,above,sloped] {$b$};
@@ -33,25 +33,26 @@ Vinkelen $C$ må ligge \emph{mellom} sidene $a$ og $b$. Samme formel gjelder for
   \path (A) -- (D) node[midway,right] {$h$};
 \end{tikzpicture}\par\smallskip
 \raggedright
-\textbf{Spiss $C$.} Høyden $h$ fra $A$ gir en rettvinklet trekant med hypotenus $b$. Da er $\sin C = \frac{h}{b}$, altså $h = b\sin C$. Grunnlinjen er $a$, så
+\textbf{Spiss $C$.} Høyden $h$ fra $A$ gir en rettvinklet trekant med hypotenus $b$. Da er $\sin C = \frac{h}{b}$, altså $h = b\sin C$. Grunnlinjen er fortsatt $a$, så
 $T = \frac12 a h = \frac12 ab\sin C$.
 \end{minipage}\hfill
 \begin{minipage}[t]{0.50\linewidth}
 \centering
 \begin{tikzpicture}[baseline=(current bounding box.north),scale=0.8,font=\small]
-  \coordinate (C) at (0,0); \coordinate (B) at (-3.0,0);
-  \coordinate (A) at (1.8,2.2); \coordinate (D) at (1.8,0);
+  \coordinate (C) at (0,0); \coordinate (B) at (-2.6,0);
+  \coordinate (A) at (2.4,2.2); \coordinate (D) at (2.4,0);
   \draw[thick] (C)--(B)--(A)--cycle;
   \draw[dashed] (A)--(D); \draw[dashed] (C)--(D);
-  \draw (1.6,0)--(1.6,0.2)--(1.8,0.2);
-  \draw (-0.45,0) arc (180:50.7:0.45);
-  \node at (-0.45,0.62) {\scriptsize $C$};
+  \draw (2.2,0)--(2.2,0.2)--(2.4,0.2);
+  \draw (-0.45,0) arc (180:42.5:0.45);
+  \draw (0.4,0) arc (0:42.5:0.4);
+  \node at (-0.5,0.68) {\scriptsize $C$};
   \node[below left] at (C) {$C$}; \node[left] at (B) {$B$}; \node[above] at (A) {$A$};
   \path (B) -- (C) node[midway,below,sloped] {$a$};
   \path (B) -- (A) node[midway,above,sloped] {$c$};
-  \path (C) -- (A) node[midway,above,sloped] {$b$};
+  \path (C) -- (A) node[midway,below,sloped] {$b$};
   \path (A) -- (D) node[midway,right] {$h$};
-  \node[below,font=\scriptsize] at (1.0,0) {$180^\circ-C$};
+  \node[font=\scriptsize] at (1.35,0.4) {$180^\circ-C$};
 \end{tikzpicture}\par\smallskip
 \raggedright
 \textbf{Stump $C$.} Høyden faller utenfor trekanten. I den rettvinklede trekanten er vinkelen ved $C$ lik $180^\circ - C$, så $h = b\sin(180^\circ - C) = b\sin C$. Dermed er $T = \frac12 ab\sin C$ også her.
@@ -72,7 +73,7 @@ Arealet blir det samme, fordi de to vinklene har samme sinus og dermed gir samme
 
 \begin{vanligfeil}
 \begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
-  \item $T = \frac12 ab\sin A$ er feil. Vinkelen må ligge mellom de to sidene: $\frac12 ab\sin C$, $\frac12 bc\sin A$ eller $\frac12 ac\sin B$.
+  \item $T = \frac12 ab\sin A$ gjelder ikke generelt. Vinkelen må ligge mellom de to sidene: $\frac12 ab\sin C$, $\frac12 bc\sin A$ eller $\frac12 ac\sin B$. Formelen med $A$ gir bare riktig svar i spesialtilfeller, for eksempel når $a = c$.
   \item $T = ab\sin C$ er feil. Du glemmer $\frac12$. Rett vinkel gir $T = \frac12 ab$, ikke $ab$.
   \item «Formelen gjelder bare for spisse vinkler» er feil. For stump $C$ er $\sin C = \sin(180^\circ - C)$, og beviset over virker like godt.
 \end{itemize}
@@ -90,7 +91,7 @@ Finn arealet av trekanten. Svar eksakt.
 \end{tasks}
 
 \oppg{1.2}{1}{\uh}
-Se på figuren.
+Se på figuren.\par
 \begin{minipage}[t]{0.40\linewidth}
 \begin{tikzpicture}[baseline=(current bounding box.north),scale=0.8,font=\small]
   \coordinate (B) at (0,0); \coordinate (C) at (3,0); \coordinate (A) at (3.46,2.0);
@@ -100,7 +101,7 @@ Se på figuren.
   \node[below left] at (B) {$B$}; \node[below right] at (C) {$C$}; \node[above] at (A) {$A$};
   \path (B) -- (C) node[midway,below,sloped] {$a = 6$};
   \path (B) -- (A) node[midway,above,sloped] {$c = 8$};
-  \path (C) -- (A) node[midway,below,sloped] {$b$};
+  \path (C) -- (A) node[midway,right] {$b$};
 \end{tikzpicture}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.56\linewidth}
@@ -121,15 +122,16 @@ Finn arealet. Svar med én desimal.
 
 \oppg{1.4}{2}{\uh}
 Finn arealet av trekant $ABC$. Svar eksakt. Avgjør først hvilken vinkel som ligger mellom sidene.
-\begin{tasks}(3)
+\begin{tasks}(2)
   \task $a = 12$, $b = 9$ og $C = 120^\circ$
   \task $b = 8$, $c = 5$ og $A = 135^\circ$
   \task $a = 10$, $c = 6$ og $B = 60^\circ$
+  \task $b = 4\sqrt3$, $c = 8$, $A = 30^\circ$ og $B = 60^\circ$
 \end{tasks}
 
 \oppg{1.5}{2}{\uh}
-I trekant $ABC$ er $a = 6$, $c = 8$ og $B = 120^\circ$. Finn \textbf{den første feilen}. Finn riktig areal.
-\[ T = \tfrac12 ac\sin B \;\to\; \tfrac12\cdot 6\cdot 8\cdot\sin 120^\circ \;\to\; 24\cdot\sin 120^\circ \;\to\; 24\cdot\bigl(-\tfrac{\sqrt3}{2}\bigr) \;\to\; -12\sqrt3 \]
+I trekant $ABC$ er $a = 5$, $c = 12$ og $B = 120^\circ$. Finn \textbf{den første feilen}. Finn riktig areal.
+\[ T = \tfrac12 ac\sin B \;\to\; \tfrac12\cdot 5\cdot 12\cdot\sin 120^\circ \;\to\; 30\cdot\sin 120^\circ \;\to\; 30\cdot\bigl(-\tfrac{\sqrt3}{2}\bigr) \;\to\; -15\sqrt3 \]
 
 \oppg{1.6}{2}{\mh}
 Et trekantet seil har to sider på $4{,}2$ m og $3{,}5$ m. Vinkelen mellom dem er $75^\circ$.
@@ -139,7 +141,7 @@ Et trekantet seil har to sider på $4{,}2$ m og $3{,}5$ m. Vinkelen mellom dem e
 \end{tasks}
 
 \oppg{1.7}{2}{\uh}
-Trekant $ABC$ har stump vinkel $B$. Høyden $h$ fra $C$ treffer forlengelsen av $AB$ i punktet $D$. Vi skal begrunne at $T = \frac12 ac\sin B$.
+Trekant $ABC$ har stump vinkel $B$. Høyden $h$ fra $C$ treffer forlengelsen av $AB$ i punktet $D$. Vi skal begrunne at $T = \frac12 ac\sin B$.\par
 \begin{minipage}[t]{0.38\linewidth}
 \begin{tikzpicture}[baseline=(current bounding box.north),scale=0.8,font=\small]
   \coordinate (A) at (-2.6,0); \coordinate (B) at (0,0);
@@ -171,7 +173,7 @@ Trekant $ABC$ har stump vinkel $B$. Høyden $h$ fra $C$ treffer forlengelsen av 
 Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret.
 \begin{tasks}(1)
   \task To trekanter som begge har sidene $a = 5$ og $b = 8$, har samme areal.
-  \task Blir vinkelen $C$ mellom to sider av faste lengder større, blir arealet større.
+  \task Vinkelen $C$ mellom $a = 5$ og $b = 8$ blir større. Da blir arealet større. Gi ett eksempel der det stemmer og ett der det ikke stemmer.
 \end{tasks}
 
 \oppg{1.9}{3}{\uh}
@@ -179,11 +181,8 @@ Mia påstår: «Dobler vi vinkelen mellom to sider, dobles arealet.»
 Vis med et moteksempel med eksakte verdier at dette ikke gjelder generelt.
 
 \oppg{1.10}{3}{\uh}
-En likesidet trekant har side $s$.
-\begin{tasks}(1)
-  \task Vis at arealet er $T = \dfrac{\sqrt3}{4}s^2$.
-  \task Finn $s$ når arealet er $16\sqrt3$.
-\end{tasks}
+Vis at en likebeint trekant med bein $s$ og toppvinkel $120^\circ$ har samme areal som den likesidede trekanten med side $s$.
+Forklar uten å regne ut arealet.
 
 \begin{sjekk}
 \begin{tasks}(2)
@@ -199,7 +198,7 @@ En likesidet trekant har side $s$.
 
 \begin{ordliste}
 mellomliggende vinkel & Vinkelen mellom to gitte sider. I arealsetningen er det $C$ mellom $a$ og $b$. & \mittsprak\\
-to løsninger & Likningen $\sin v = k$ har både en spiss og en stump løsning for $0 < k < 1$. & \mittsprak\\
+to løsninger & Likningen $\sin v = k$ har to løsninger mellom $0^\circ$ og $180^\circ$ når $0 < k < 1$: en spiss og en stump. & \mittsprak\\
 supplementvinkel & Vinkelen $180^\circ - v$. Den har samme sinus som $v$. & \mittsprak\\
 \end{ordliste}
 
@@ -219,11 +218,14 @@ supplementvinkel & Vinkelen $180^\circ - v$. Den har samme sinus som $v$. & \mit
   \draw[thick,dotted] (C)--(E)--(B);
   \draw[dashed] (E)--(A);
   \draw (0.7,0) arc (0:60:0.7);
-  \node at (0.95,0.35) {\scriptsize $60^\circ$};
+  \draw (0.4,0) arc (0:120:0.4);
+  \node at (0.98,0.3) {\scriptsize $60^\circ$};
+  \node at (-0.85,0.2) {\scriptsize $120^\circ$};
   \node[below left] at (C) {$C$}; \node[right] at (B) {$B$};
   \node[above right] at (A) {$A$}; \node[above left] at (E) {$A'$};
   \path (C) -- (B) node[midway,below,sloped] {$a$};
-  \path (A) -- (B) node[midway,above,sloped] {$c$};
+  \path (C) -- (A) node[midway,below,sloped] {$b$};
+  \path (E) -- (C) node[midway,below,sloped] {$b$};
 \end{tikzpicture}
 \end{minipage}
 \end{mustkunne}
@@ -242,8 +244,8 @@ Kontroll: $\frac12 \cdot 8 \cdot 5 \cdot \sin 120^\circ = 20 \cdot \frac{\sqrt3}
 
 \begin{eksempel}[2 — areal av en firkant]
 I firkant $ABCD$ er diagonalen $AC = 10$ cm, $AB = 8$ cm, $AD = 7$ cm, $\angle BAC = 40^\circ$ og $\angle CAD = 55^\circ$. Finn arealet med én desimal.\par\smallskip
-\begin{minipage}[t]{0.36\linewidth}
-\begin{tikzpicture}[baseline=(current bounding box.north),scale=0.75,font=\small]
+\begin{minipage}[t]{0.26\linewidth}
+\begin{tikzpicture}[baseline=(current bounding box.north),scale=0.6,font=\small]
   \coordinate (A) at (0,0); \coordinate (C) at (4.5,0);
   \coordinate (B) at (2.76,-2.31); \coordinate (D) at (1.81,2.58);
   \draw[thick] (A)--(B)--(C)--(D)--cycle;
@@ -259,15 +261,15 @@ I firkant $ABCD$ er diagonalen $AC = 10$ cm, $AB = 8$ cm, $AD = 7$ cm, $\angle B
   \path (A) -- (C) node[midway,above,xshift=6mm] {$10$};
 \end{tikzpicture}
 \end{minipage}\hfill
-\begin{minipage}[t]{0.60\linewidth}
-Diagonalen deler firkanten i trekantene $ABC$ og $ACD$. I begge kjenner vi to sider og vinkelen mellom dem, så vi kan bruke arealsetningen på hver av dem.
-\end{minipage}
-
+\hfill
+\begin{minipage}[t]{0.70\linewidth}
+Diagonalen deler firkanten i trekantene $ABC$ og $ACD$. I begge kjenner vi to sider og vinkelen mellom dem.
 \begin{stegtabell}
-$T_{ABC} = \frac12 \cdot 8 \cdot 10 \cdot \sin 40^\circ \approx 25{,}7$ & Sidene $AB$ og $AC$ med vinkelen $A$ mellom.\\
-$T_{ACD} = \frac12 \cdot 10 \cdot 7 \cdot \sin 55^\circ \approx 28{,}7$ & Sidene $AC$ og $AD$ med vinkelen $55^\circ$ mellom.\\
-$T = 25{,}7 + 28{,}7 = 54{,}4$ & Legg sammen. Arealet er $54{,}4$ cm$^2$.\\
+$\frac12 \cdot 8 \cdot 10 \cdot \sin 40^\circ \approx 25{,}7$ & $T_{ABC}$: sidene $AB$ og $AC$ med $40^\circ$ mellom.\\
+$\frac12 \cdot 10 \cdot 7 \cdot \sin 55^\circ \approx 28{,}7$ & $T_{ACD}$: sidene $AC$ og $AD$ med $55^\circ$ mellom.\\
+$25{,}7 + 28{,}7 = 54{,}4$ & Legg sammen: $54{,}4$ cm$^2$.\\
 \end{stegtabell}
+\end{minipage}
 \end{eksempel}
 
 \begin{vanligfeil}
@@ -313,20 +315,20 @@ En trekant har $a = 9{,}0$, $b = 7{,}0$ og arealet $28$.
 \end{tasks}
 
 \oppg{2.5}{2}{\uh}
-Finn alle mulige vinkler $C$ mellom $a$ og $b$. Svar eksakt. Hvis det ikke finnes noen trekant, forklar hvorfor.
+Finn alle mulige vinkler $C$ mellom $a$ og $b$. Svar eksakt. Hvor mange trekanter finnes?
 \begin{tasks}(1)
-  \task $a = 6$, $b = 8$ og $T = 12\sqrt2$
+  \task $a = 6$, $b = 10$ og $T = 15\sqrt2$
   \task $a = 7$, $b = 4$ og $T = 14$
   \task $a = 6$, $b = 4$ og $T = 15$
 \end{tasks}
 
 \oppg{2.6}{2}{\mh}
-En firkantet tomt $ABCD$ har diagonalen $AC = 12$ m, $AB = 9$ m, $AD = 8$ m, $\angle BAC = 35^\circ$ og $\angle CAD = 50^\circ$.
+En firkantet tomt $ABCD$ har diagonalen $AC = 12$ m, $AB = 9$ m, $CD = 7$ m, $\angle BAC = 35^\circ$ og $\angle ACD = 48^\circ$.
 Finn arealet av tomten. Svar med én desimal.
 
 \oppg{2.7}{2}{\uh}
-En trekant har $a = 6$, $b = 8$ og arealet $12\sqrt3$. Finn $C$. Finn \textbf{den første feilen} og løs riktig.
-\[ \tfrac12\cdot 6\cdot 8\cdot\sin C = 12\sqrt3 \;\to\; 24\sin C = 12\sqrt3 \;\to\; \sin C = \tfrac{\sqrt3}{2} \;\to\; C = 60^\circ,\ \text{og det finnes bare én slik trekant} \]
+En trekant har $a = 3$, $b = 10$ og arealet $15$. Finn $C$. Finn \textbf{den første feilen} og løs riktig.
+\[ \tfrac12\cdot 3\cdot 10\cdot\sin C = 15 \;\to\; 30\sin C = 15 \;\to\; \sin C = \tfrac12 \;\to\; C = 30^\circ \text{ eller } C = 150^\circ \]
 
 \nivaahode{3}
 
@@ -335,17 +337,15 @@ Lag en trekant $ABC$ med arealet $12$ der vinkelen $C$ mellom sidene $a$ og $b$ 
 \begin{tasks}(1)
   \task Velg verdier for $a$ og $b$ og vis at arealet blir $12$.
   \task Hvor mange ulike slike trekanter finnes? Begrunn.
-  \task Nå er $a = 3$, $b = 8$ og arealet $12$. Hvor mange trekanter finnes da?
 \end{tasks}
 
 \oppg{2.9}{3}{\uh}
-En trekant har $a = 6$ og $b = 10$, og $C$ ligger mellom dem. Arealet er $T$.
-For hvilke verdier av $T$ finnes to, én eller ingen slike trekanter? Begrunn.
+Diagonalene $e$ og $f$ i en firkant skjærer hverandre med vinkelen $v$. Vis at arealet av firkanten er $T = \frac12 ef\sin v$.
 
 \begin{sjekk}
 \begin{tasks}(2)
   \task Finn $a$ når $T = 18$, $b = 9$ og $C = 30^\circ$.
   \task Finn begge vinklene $v$ med $\sin v = 0{,}3$. Én desimal.
-  \task! Hvorfor gir $v$ og $180^\circ - v$ samme areal når $a$ og $b$ er like?
+  \task! Hvorfor gir $v$ og $180^\circ - v$ samme areal når sidene $a$ og $b$ er de samme?
 \end{tasks}
 \end{sjekk}
