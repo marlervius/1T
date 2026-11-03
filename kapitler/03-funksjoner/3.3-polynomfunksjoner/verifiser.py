@@ -83,11 +83,14 @@ chk("1.6 svar", factor(P16), (x - 2) * (x - 4) * (x + 1))
 
 # 1.7 alltid / noen ganger / aldri
 sant("1.7a noen", len(nullp(x**3 - x)) == 3 and len(nullp(x**3 + 2*x)) == 1, "x^3 - x har 3, x^3 + 2x har 1")
-sant("1.7b aldri", (x**3 - 4*x**2 + x + 6).subs(x, 2) == 0 and dv(x**3 - 4*x**2 + x + 6, x + 2)[1] != 0,
-     "P(2) = 0 gir faktor (x-2), ikke (x+2)")
-Pk = x**3 + 5*x**2 - 4*x - 20
-sant("1.7c alltid", all(dv(Pk * 0 + x**4 + 3*x**3 - 7*x, x)[1] == 0 for _ in [0]), "konstantledd 0 gir P(0)=0")
-chk("1.7c P(0)", (x**4 + 3*x**3 - 7*x).subs(x, 0), 0)
+sant("1.7b noen", dv(x**3 - 4*x, x - 1)[1] == -3 and len(nullp(x**3 - 4*x)) == 3
+     and dv(x**2 + 1, x - 1)[1] == 2 and len(nullp(x**2 + 1)) == 0,
+     "rest != 0 ved x-1, men x^3 - 4x har nullpunkter; x^2+1 har ingen")
+sant("1.7c alltid", dv(x**3 - 4*x**2 + x + 6, expand((x - 2) * (x - 3)))[1] == 0
+     and dv(x**3 - 4*x**2 + x + 6, expand((x - 2) * (x - 3)))[0] == x + 1,
+     "P(2) = P(3) = 0 gir faktoren (x-2)(x-3)")
+chk("1.7c P(2)", (x**3 - 4*x**2 + x + 6).subs(x, 2), 0)
+chk("1.7c P(3)", (x**3 - 4*x**2 + x + 6).subs(x, 3), 0)
 
 # 1.8 finn k
 kk = solve(Eq((x**3 + k*x**2 - 4*x + 4).subs(x, 2), 0), k)

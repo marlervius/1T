@@ -31,7 +31,7 @@ Formelen inneholder ikke $c$. Å endre $c$ flytter parabelen opp eller ned, og s
 \addplot[domain=-4:0, thick, hoved, samples=40] {x^2 + 4*x + 3};
 \draw[dashed, red!70!black] (axis cs:-2,-2) -- (axis cs:-2,4.3);
 \addplot[only marks, mark=*, mark size=1.5pt] coordinates {(-3,0) (-1,0) (-2,-1) (0,3)};
-\node[font=\scriptsize, anchor=north] at (axis cs:-2,-1.1) {$(-2,-1)$};
+\node[font=\scriptsize, anchor=north west, fill=white, inner sep=1pt] at (axis cs:-1.9,-1.05) {$(-2,-1)$};
 \node[font=\scriptsize, anchor=south west] at (axis cs:0.05,3) {$(0,3)$};
 \end{axis}
 \end{tikzpicture}\par
@@ -65,9 +65,9 @@ Kontroll: & Toppunktet ligger under $x$-aksen, og parabelen vender ned. Da kan d
 
 \begin{vanligfeil}
 \begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
-  \item Symmetrilinjen er $x = \frac{b}{2a}$ gjelder ikke generelt (bare når $b = 0$). Riktig er $x = -\frac{b}{2a}$. For $f(x) = x^2 + 6x$ er $x = -\frac{6}{2} = -3$, ikke $3$.
-  \item $c$ er $y$-verdien til bunnpunktet gjelder ikke generelt (bare når $b = 0$). $c$ er skjæringen med $y$-aksen. For $x^2 - 4x + 7$ er $c = 7$, men bunnpunktet er $(2, 3)$.
-  \item Toppunkt når $a > 0$ er feil. Parabelen vender opp, så ekstremalpunktet er et bunnpunkt.
+  \item «Symmetrilinjen er $x = \frac{b}{2a}$» gjelder ikke generelt (bare når $b = 0$). Riktig er $x = -\frac{b}{2a}$. For $f(x) = x^2 + 6x$ er $x = -\frac{6}{2} = -3$, ikke $3$.
+  \item «$c$ er $y$-verdien til bunnpunktet» gjelder ikke generelt (bare når $b = 0$). $c$ er skjæringen med $y$-aksen. For $x^2 - 4x + 7$ er $c = 7$, men bunnpunktet er $(2, 3)$.
+  \item «Toppunkt når $a > 0$» er feil. Parabelen vender opp, så ekstremalpunktet er et bunnpunkt.
 \end{itemize}
 \end{vanligfeil}
 
@@ -108,32 +108,51 @@ Finn nullpunkter, symmetrilinje og ekstremalpunkt. Si om det er bunnpunkt eller 
 \end{tasks}
 
 \oppg{1.5}{2}{\uh}
-Elin skal finne ekstremalpunktet til $f(x) = 3x^2 + 12x + 5$. Finn \textbf{den første feilen}. Løs riktig.
+Elin skal finne ekstremalpunktet til $f(x) = 3x^2 + 12x + 5$. Hun har gjort to feil. Finn begge, og løs riktig.
 \[ x = -\frac{12}{2\cdot 3} = -2 \;\longrightarrow\; f(-2) = 3\cdot(-2)^2 + 12\cdot(-2) + 5 \;\longrightarrow\; -12 - 24 + 5 \;\longrightarrow\; -31 \]
 \[ \text{Toppunkt } (-2, -31) \]
 
 \oppg{1.6}{2}{\mh}
-Tegn grafene til $f(x) = x^2 + 6x + c$ i GeoGebra for $c = -2$, $c = 3$ og $c = 8$. Bruk gjerne en glider for $c$.
+Tegn grafene til $f(x) = x^2 - 4x + c$ i GeoGebra for $c = -1$, $c = 4$ og $c = 7$. Bruk gjerne en glider for $c$.
 \begin{tasks}(1)
-  \task Hva er likt for de tre parablene, og hva er ulikt?
+  \task Hva er likt for de tre parablene, og hva er ulikt? Hvor mange nullpunkter har hver av dem?
   \task Hvor ligger symmetrilinjen? Finn bunnpunktet uttrykt ved $c$.
+  \task For hvilken $c$ har parabelen ett nullpunkt?
+\end{tasks}
+
+\oppg{1.7}{2}{\uh}
+Figuren viser grafen til en andregradsfunksjon $f$.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=7cm, height=5cm, axis lines=middle, xmin=-1, xmax=7, ymin=-6, ymax=5.5,
+  xtick={1,...,6}, ytick={-5,...,4}, tick label style={font=\tiny}, xlabel={$x$}, ylabel={$y$}, label style={font=\small}]
+\addplot[domain=-0.3:6.3, thick, hoved, samples=50] {-(x-1)*(x-5)};
+\addplot[only marks, mark=*, mark size=1.5pt] coordinates {(1,0) (5,0) (3,4) (0,-5)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\begin{tasks}(2)
+  \task Les av nullpunktene.
+  \task Les av symmetrilinjen.
+  \task Les av toppunktet og skjæringen med $y$-aksen.
+  \task Finn funksjonsuttrykket.
 \end{tasks}
 
 \nivaahode{3}
 
-\oppg{1.7}{3}{\uh}
+\oppg{1.8}{3}{\uh}
 Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret.
 \begin{tasks}(1)
   \task Parabelen til $f(x) = ax^2 + bx + c$ med $a > 0$ har to nullpunkter.
-  \task Bunnpunktet til $f(x) = x^2 + bx + c$ har $y$-verdi $c$.
-  \task En parabel med $a > 0$ har et toppunkt.
+  \task Har $a$ og $c$ motsatt fortegn, har parabelen to nullpunkter.
+  \task Har $a > 0$ og $c > 0$, har parabelen ingen nullpunkter.
 \end{tasks}
 
-\oppg{1.8}{3}{\uh}
+\oppg{1.9}{3}{\uh}
 En parabel $f(x) = x^2 + bx + c$ har symmetrilinje $x = -1$ og nullpunkt $x = 2$.
 \begin{tasks}(1)
+  \task Finn det andre nullpunktet uten å regne ut $b$ og $c$. Forklar.
   \task Finn $b$ og $c$.
-  \task Forklar hvorfor det andre nullpunktet må være $x = -4$. Bruk ikke abc-formelen.
 \end{tasks}
 
 \begin{sjekk}
@@ -149,7 +168,7 @@ En parabel $f(x) = x^2 + bx + c$ har symmetrilinje $x = -1$ og nullpunkt $x = 2$
 \del{2}{Fullstendige kvadraters metode og toppunktform}
 
 \begin{ordliste}
-fullstendig kvadrat & Et uttrykk på formen $(x + p)^2$. Gange ut gir $x^2 + 2px + p^2$. & \mittsprak\\
+fullstendig kvadrat & Et uttrykk på formen $(x + s)^2$. Gange ut gir $x^2 + 2sx + s^2$. & \mittsprak\\
 toppunktform & Funksjonen skrevet som $f(x) = a(x - p)^2 + q$. Ekstremalpunktet er $(p, q)$. & \mittsprak\\
 verdimengde & Alle verdiene $f(x)$ kan få. Skrives $V_f$. & \mittsprak\\
 maksimum og minimum & Den største og den minste verdien funksjonen har. & \mittsprak\\
@@ -159,7 +178,7 @@ maksimum og minimum & Den største og den minste verdien funksjonen har. & \mitt
 \begin{minipage}[t]{0.50\linewidth}
 \textbf{Hvorfor toppunktformen virker.}\par
 Et kvadrat er aldri negativt: $(x - p)^2 \ge 0$, og lik 0 bare for $x = p$.\par
-Når $a > 0$, er $f(x) = a(x - p)^2 + q \ge q$. Likhet gir $x = p$. Altså er $(p, q)$ bunnpunktet.\par
+Når $a > 0$, er $f(x) = a(x - p)^2 + q \ge q$. Vi har $f(x) = q$ bare når $x = p$. Altså er $(p, q)$ bunnpunktet.\par
 Når $a < 0$, snur ulikheten: $f(x) \le q$, og $(p, q)$ er toppunktet.\medskip\par
 \textbf{Verdimengde:}\par
 $a > 0$: $V_f = [q, \rightarrow\rangle$\par
@@ -202,7 +221,7 @@ Bunnpunkt $(-2, -5)$, $V_f = [-5, \rightarrow\rangle$ & $a = 2 > 0$.\\
 \begin{vanligfeil}
 \begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
   \item $f(x) = 2(x + 3)^2 - 1$ har bunnpunkt $(3, -1)$ er feil. Faktoren er $x - (-3)$, så bunnpunktet er $(-3, -1)$.
-  \item $V_f = \langle -1, \rightarrow\rangle$ er feil når $q = -1$ er med. Riktig er $V_f = [-1, \rightarrow\rangle$.
+  \item For $2(x + 3)^2 - 1$ er $V_f = [-1, \rightarrow\rangle$, ikke $\langle -1, \rightarrow\rangle$. Verdien $-1$ er med, fordi $f(-3) = -1$.
   \item $2x^2 + 8x + 3 = 2(x + 2)^2 - 4 + 3$ er feil. Faktoren 2 må også ganges med $-4$: det gir $2(x + 2)^2 - 8 + 3$.
 \end{itemize}
 \end{vanligfeil}
@@ -210,7 +229,7 @@ Bunnpunkt $(-2, -5)$, $V_f = [-5, \rightarrow\rangle$ & $a = 2 > 0$.\\
 \nivaahode{1}
 
 \oppg{2.1}{1}{\uh}
-Skriv på formen $(x + p)^2 + q$.
+Skriv på formen $(x - p)^2 + q$. Tallet $p$ kan være negativt.
 \begin{tasks}(3)
   \task $x^2 + 2x + 5$
   \task $x^2 - 10x + 30$
@@ -233,7 +252,7 @@ Bunnpunktet er $(\rute, \rute)$.
 \nivaahode{2}
 
 \oppg{2.4}{2}{\uh}
-Skriv på toppunktform. Finn ekstremalpunktet.
+Skriv på toppunktform. Finn ekstremalpunktet og verdimengden.
 \begin{tasks}(3)
   \task $2x^2 + 12x + 7$
   \task $3x^2 - 6x + 5$
@@ -242,7 +261,7 @@ Skriv på toppunktform. Finn ekstremalpunktet.
 
 \oppg{2.5}{2}{\uh}
 Finn \textbf{den første feilen}. Skriv $f(x) = 2x^2 - 12x + 5$ riktig på toppunktform.
-\[ 2x^2 - 12x + 5 \;\longrightarrow\; 2(x^2 - 6x) + 5 \;\longrightarrow\; 2\big((x - 3)^2 - 9\big) + 5 \;\longrightarrow\; 2(x - 3)^2 - 18 + 5 \;\longrightarrow\; 2(x - 3)^2 - 23 \]
+\[ 2x^2 - 12x + 5 \;\longrightarrow\; 2(x^2 - 6x) + 5 \;\longrightarrow\; 2\big((x - 3)^2 - 9\big) + 5 \;\longrightarrow\; 2(x - 3)^2 - 9 + 5 \;\longrightarrow\; 2(x - 3)^2 - 4 \]
 
 \oppg{2.6}{2}{\uh}
 En ball kastes oppover. Høyden over bakken er $h(t) = -5t^2 + 10t + 2$ meter etter $t$ sekunder.
@@ -263,6 +282,16 @@ Parabelen til en andregradsfunksjon har bunnpunkt $(2, -3)$ og går gjennom $(0,
 
 \oppg{2.8}{3}{\uh}
 Du har 40 m gjerde og skal lage en rektangulær hage inntil en vegg. Gjerde trengs på tre sider. Bredden vinkelrett på veggen er $x$ meter.
+\begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\draw[very thick, gray] (-0.5,2) -- (4,2);
+\node[font=\small, gray, anchor=south] at (1.75,2.05) {vegg};
+\draw[thick, hoved] (0,2) -- (0,0) -- (3.5,0) -- (3.5,2);
+\node[font=\small, anchor=east] at (-0.1,1) {$x$};
+\node[font=\small, anchor=west] at (3.6,1) {$x$};
+\node[font=\small, anchor=north] at (1.75,-0.1) {$40 - 2x$};
+\end{tikzpicture}
+\end{center}
 \begin{tasks}(1)
   \task Vis at arealet er $A(x) = -2x^2 + 40x$.
   \task Finn største areal og målene på hagen.

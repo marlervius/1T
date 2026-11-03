@@ -1,0 +1,71 @@
+% =====================================================================
+%  3.3 Polynomfunksjoner — ekstra utfordring
+% =====================================================================
+
+\begin{infoboks}{Velg metode selv}
+Arket bygger på 3.3 Polynomfunksjoner. Vis regning og begrunnelse. Bruk eksakte svar når det går.
+Kontroller svaret ved å sette inn tall eller regne på en annen måte.
+\end{infoboks}
+
+\nivaahode{2}
+
+\oppg{U1}{2}{\uh}
+Divisjonen $(x^3 + 2) : (x - 1)$ går ikke opp. Skriv $\dfrac{x^3 + 2}{x - 1}$ som et polynom pluss en brøk. Kontroller med $x = 3$.
+
+\oppg{U2}{2}{\mh}
+En eske lages av en papp på $20$ cm $\times$ $30$ cm. Vi klipper bort et kvadrat med side $x$ cm i hvert hjørne og brettet opp sidene. Volumet er
+\[ V(x) = x(20 - 2x)(30 - 2x) \text{ cm}^3. \]
+\begin{tasks}(1)
+  \task Hvilke verdier av $x$ gir en eske? Oppgi definisjonsmengden.
+  \task For hvilke $x$ er volumet $1000$ cm$^3$? Bruk GeoGebra. Hvorfor passer ikke alle løsningene av likningen?
+\end{tasks}
+Det største volumet finner vi i kapittel 4.4.
+
+\oppg{U3}{2}{\uh}
+Løs likningen $x^4 - 5x^2 + 4 = 0$ ved å faktorisere med polynomdivisjon. Husk leddene som mangler.
+
+\oppg{U4}{2}{\prog}
+Programmet prøver heltall fra $-|d|$ til $|d|$ som nullpunkter. Her er $d$ konstantleddet.
+\begin{kode}
+def P(x):
+    return x**3 - x**2 - 10*x - 8
+
+d = -8
+for a in range(-abs(d), abs(d) + 1):
+    if a != 0 and d % a == 0 and P(a) == 0:
+        print(a)
+\end{kode}
+\begin{tasks}(1)
+  \task Hva skriver programmet ut? Forklar uten å kjøre det.
+  \task Endre programmet slik at det finner heltallige nullpunkter til $x^4 - 5x^2 + 4$. Hva skrives ut?
+\end{tasks}
+
+\nivaahode{3}
+
+\oppg{U5}{3}{\uh}
+Anta at $a$ er et heltall og et nullpunkt i $x^3 + bx^2 + cx + d$, der $b$, $c$ og $d$ er heltall.
+\begin{tasks}(1)
+  \task Vis at $a$ går opp i $d$.
+  \task Bruk a) til å forklare hvorfor det i U4 er nok å prøve tall som går opp i $d$.
+  \task Gjelder det omvendte? Hvis $a$ går opp i $d$, er $a$ da et nullpunkt? Begrunn.
+\end{tasks}
+
+\oppg{U6}{3}{\uh}
+Polynomet $P(x) = x^3 + ax + b$ gir resten $5$ når det deles på $(x - 1)$, og resten $-1$ når det deles på $(x + 1)$.
+\begin{tasks}(1)
+  \task Finn $a$ og $b$.
+  \task Finn resten når $P(x)$ deles på $(x - 2)$ uten å utføre divisjonen.
+\end{tasks}
+
+\oppg{U7}{3}{\mh}
+Tegn grafene til $f(x) = (x - 1)^n$ i GeoGebra for $n = 1, 2, 3, 4, 5, 6$.
+\begin{tasks}(1)
+  \task Hva skjer ved $x = 1$ når $n$ er partall, og når $n$ er oddetall?
+  \task Forklar hvorfor.
+  \task Lag selv en polynomfunksjon av grad 5 som skjærer $x$-aksen i $x = -2$ og berører den i $x = 1$. Skisser grafen.
+\end{tasks}
+
+\begin{oppsummering}
+Faktorsetningen sier at $P(a)$ er resten ved divisjon med $(x - a)$. Prøv derfor heltall som går opp i konstantleddet, og divider.
+Et dobbelt nullpunkt gir en graf som berører $x$-aksen uten å skifte fortegn.
+\end{oppsummering}

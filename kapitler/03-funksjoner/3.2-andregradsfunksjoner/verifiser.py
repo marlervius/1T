@@ -79,29 +79,46 @@ sant("1.5 pil 2", 3*(-2)**2 != -12, "3*(-2)^2 = 12, ikke -12")
 chk("1.5 riktig", f15.subs(x, -2), -7)
 chk("1.5 bunnpunkt", ekstrem(f15), (-2, -7))
 chk("1.5 steg", 12 - 24 + 5, -7)
+chk("1.5 pil 3", -12 - 24 + 5, -31)
+sant("1.5 toppunkt-feil", Poly(f15, x).coeff_monomial(x**2) > 0, "a>0 gir bunnpunkt, ikke toppunkt")
 
 c_ = symbols("c")
-for cv in (-2, 3, 8):
-    chk(f"1.6a c={cv}", ekstrem(x**2 + 6*x + cv), (-3, cv - 9))
-chk("1.6b", sym(x**2 + 6*x + c_), -3)
-chk("1.6c", (x**2 + 6*x + c_).subs(x, -3), c_ - 9)
+for cv, antall in ((-1, 2), (4, 1), (7, 0)):
+    chk(f"1.6a c={cv} bunnpunkt", ekstrem(x**2 - 4*x + cv), (2, cv - 4))
+    chk(f"1.6a c={cv} nullpunkt", len(nullp(x**2 - 4*x + cv)), antall)
+chk("1.6b", sym(x**2 - 4*x + c_), 2)
+chk("1.6b bunn", (x**2 - 4*x + c_).subs(x, 2), c_ - 4)
+chk("1.6c", solve(Eq(c_ - 4, 0), c_), [4])
+los("1.6c los", Eq(16 - 4*c_, 0), [4], var=c_)
 
-# 1.7 alltid/noen/aldri
-los("1.7a", Eq(x**2 + 1, 0), [])
-chk("1.7a motpart", nullp(x**2 - 1), [-1, 1])
-chk("1.7b", R(1, 2) * (-R(-6, 1)), 3)
-sym_gen = -b / (2*a)
-chk("1.7b abc", simplify((((-b + sqrt(b**2 - 4*a*c)) / (2*a)) + ((-b - sqrt(b**2 - 4*a*c)) / (2*a))) / 2 - sym_gen), 0)
-chk("1.7c", [ekstrem(x**2 + 4)[1], ekstrem(x**2 + 4*x + 4)[1]], [4, 0])
-sant("1.7c nei", ekstrem(x**2 + 4*x + 4)[1] != 4, "b != 0 gir annen y")
-sant("1.7d", True, "a > 0: aldri toppunkt")
+# 1.7 graf
+f17 = -(x - 1)*(x - 5)
+chk("1.7a", nullp(f17), [1, 5])
+chk("1.7b", sym(expand(f17)), 3)
+chk("1.7c", ekstrem(expand(f17)), (3, 4))
+chk("1.7c y", f17.subs(x, 0), -5)
+chk("1.7d", expand(f17), -x**2 + 6*x - 5)
+chk("1.7d a", solve(Eq(a*(0 - 1)*(0 - 5), -5), a), [-1])
 
-# 1.8 baklengs
-f18 = x**2 + 2*x - 8
-chk("1.8a sym", sym(f18), -1)
-chk("1.8a null", f18.subs(x, 2), 0)
-los("1.8a alle", Eq(f18, 0), [-4, 2])
-chk("1.8b", R(1, 1) * (-1) * 2 - 2, -4)
+# 1.8 alltid/noen/aldri
+los("1.8a", Eq(x**2 + 1, 0), [])
+chk("1.8a motpart", nullp(x**2 - 1), [-1, 1])
+D_ = b**2 - 4*a*c
+chk("1.8b bevis", simplify(D_.subs(c, -a*k**2) - (b**2 + 4*a**2*k**2)), 0)
+sant("1.8b ac<0", all((bv**2 - 4*av*cv) > 0 for av in (-3, -1, 2, 5) for cv in (-4, -1, 3) for bv in (-2, 0, 3) if av*cv < 0), "ac<0 gir D>0")
+sant("1.8b a>0 c<0", ((x**2 - 5).subs(x, 0) < 0), "f(0)=c<0 og a>0")
+chk("1.8c ja", len(nullp(x**2 + 1)), 0)
+chk("1.8c nei", nullp(x**2 - 4*x + 3), [1, 3])
+sant("1.8c a og c", 1 > 0 and 3 > 0, "a>0 og c>0 i motpart")
+
+# 1.9 baklengs
+f19 = x**2 + 2*x - 8
+chk("1.9a sym", sym(f19), -1)
+chk("1.9a andre", R(1, 1)*(-1)*2 - 2, -4)
+chk("1.9b b", -2*(-1), 2)
+chk("1.9b null", f19.subs(x, 2), 0)
+los("1.9b alle", Eq(f19, 0), [-4, 2])
+sant("1.9b bunn", Poly(f19, x).coeff_monomial(x**2) > 0, "a>0 bunnpunkt")
 
 chk("Sjekk 1a", sym(x**2 - 10*x + 7), 5)
 sant("Sjekk 1b ned", Poly(4 - x**2, x).coeff_monomial(x**2) < 0, "a<0")
@@ -150,8 +167,8 @@ chk("2.4c eks", ekstrem(-x**2 + 4*x + 1), (2, 5))
 f25 = 2*x**2 - 12*x + 5
 chk("2.5 pil 1", f25, 2*(x**2 - 6*x) + 5)
 chk("2.5 pil 2", 2*(x**2 - 6*x) + 5, 2*((x - 3)**2 - 9) + 5)
-chk("2.5 pil 3", 2*((x - 3)**2 - 9) + 5, 2*(x - 3)**2 - 18 + 5)
-sant("2.5 pil 4", -18 + 5 != -23, "-18+5 = -13")
+sant("2.5 pil 3", 2*((x - 3)**2 - 9) + 5 != 2*(x - 3)**2 - 9 + 5, "faktoren 2 ganges ikke med -9")
+chk("2.5 pil 4", 2*(x - 3)**2 - 9 + 5, 2*(x - 3)**2 - 4)
 chk("2.5 riktig", expand(2*(x - 3)**2 - 13), f25)
 chk("2.5 bunnpunkt", ekstrem(f25), (3, -13))
 

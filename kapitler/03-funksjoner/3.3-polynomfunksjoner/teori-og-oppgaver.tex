@@ -1,0 +1,431 @@
+% =====================================================================
+%  3.3 Polynomfunksjoner — teori og oppgaver
+% =====================================================================
+
+\del{1}{Polynomdivisjon og faktorisering}
+
+\begin{ordliste}
+polynom & Et uttrykk av typen $x^3 - 2x^2 + 5$, med ledd som er potenser av $x$ ganget med tall. & \mittsprak\\
+grad & Den høyeste eksponenten i polynomet. $x^3 - 2x^2 + 5$ har grad 3. & \mittsprak\\
+divisor og kvotient & I $P : D = Q$ er $D$ divisoren og $Q$ kvotienten. & \mittsprak\\
+rest & Det som blir til overs. Resten har lavere grad enn divisoren. & \mittsprak\\
+faktorsetningen & $(x - a)$ er en faktor i $P(x)$ nøyaktig når $P(a) = 0$. & \mittsprak\\
+\end{ordliste}
+
+\begin{mustkunne}
+\textbf{Divisjon med rest.} Tall og polynomer virker likt:\medskip
+
+\begin{minipage}[t]{0.40\linewidth}
+\vspace{0pt}
+$157 : 12 = 13$ rest $1$\par\smallskip
+Kontroll:\par
+$157 = 12 \cdot 13 + 1$
+\end{minipage}\hfill
+\begin{minipage}[t]{0.56\linewidth}
+\vspace{0pt}
+\polylongdiv{x^2+5x+7}{x+2}
+\smallskip
+
+Kontroll: $x^2 + 5x + 7 = (x+2)(x+3) + 1$
+\end{minipage}
+
+\medskip
+I hvert steg deler du ledende ledd på ledende ledd, ganger svaret med divisoren og trekker fra. Du stopper når resten har lavere grad enn divisoren.
+Generelt er $P(x) = (x - a)\cdot Q(x) + r$.\par
+\textbf{Faktorsetningen.} Sett inn $x = a$: $P(a) = 0 \cdot Q(a) + r = r$. Resten er altså $P(a)$. Er $P(a) = 0$, går divisjonen opp, og $(x - a)$ er en faktor.
+\end{mustkunne}
+
+\begin{eksempel}[1 — polynomdivisjon]
+Regn ut $(x^3 - 2x^2 - 5x + 6) : (x - 1)$.
+
+\polylongdiv{x^3-2x^2-5x+6}{x-1}
+
+\begin{stegtabell}
+Kvotient $x^2 - x - 6$, rest $0$ & Dette står nederst i oppstillingen.\\
+$(x-1)(x^2 - x - 6) = x^3 - 2x^2 - 5x + 6$ & Kontroll: gang ut divisor $\cdot$ kvotient. Det er polynomet vi startet med.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{eksempel}[2 — faktoriser fullstendig]
+Faktoriser $P(x) = x^3 - 7x + 6$.
+
+\begin{stegtabell}
+$P(1) = 1 - 7 + 6 = 0$ & Prøv heltall som går opp i konstantleddet $6$. Faktorsetningen: $(x - 1)$ er en faktor.\\
+$(x^3 + 0x^2 - 7x + 6) : (x - 1)$ & Leddet $x^2$ mangler. Skriv $0x^2$, ellers blir oppstillingen feil.\\
+\end{stegtabell}
+
+\polylongdiv{x^3+0x^2-7x+6}{x-1}
+
+\begin{stegtabell}
+$P(x) = (x - 1)(x^2 + x - 6)$ & Kvotienten er $x^2 + x - 6$.\\
+$x^2 + x - 6 = (x - 2)(x + 3)$ & Faktoriser andregradsuttrykket: tall med produkt $-6$ og sum $1$ er $-2$ og $3$.\\
+$P(x) = (x - 1)(x - 2)(x + 3)$ & Svar.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{vanligfeil}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
+  \item Å hoppe over $0x^2$ i $x^3 - 7x + 6$ er feil. Skriv $x^3 + 0x^2 - 7x + 6$, ellers havner leddene i feil kolonne.
+  \item $P(2) = 0$ gir faktoren $(x + 2)$ er feil. Faktoren er $(x - 2)$. For $P(x) = x^3 - 2x^2 - x + 2$ er $P(2) = 0$, men $P(-2) = -12$, så $(x+2)$ er ikke en faktor.
+  \item Fortegnsfeil i subtraksjonen: $(x^2 + 3x) - (x^2 - x) = 2x$ er feil. Du trekker fra begge leddene: $3x - (-x) = 4x$.
+\end{itemize}
+\end{vanligfeil}
+
+\nivaahode{1}
+
+\oppg{1.1}{1}{\uh}
+Utfør polynomdivisjon. Kontroller ved å gange ut divisor $\cdot$ kvotient.
+\begin{tasks}(3)
+  \task $(x^2 + 7x + 10) : (x + 2)$
+  \task $(x^2 - x - 12) : (x - 4)$
+  \task $(2x^2 + 5x + 3) : (x + 1)$
+\end{tasks}
+
+\oppg{1.2}{1}{\uh}
+Her er begynnelsen på divisjonen $(x^3 + 2x^2 - 5x - 6) : (x - 2)$.
+
+\polylongdiv[stage=3]{x^3+2x^2-5x-6}{x-2}
+
+\begin{tasks}(1)
+  \task Fullfør divisjonen. Kvotienten er \skrivlinje[4cm] og resten er \rute.
+  \task Kontroller ved å gange ut $(x - 2) \cdot$ kvotienten.
+\end{tasks}
+
+\oppg{1.3}{1}{\uh}
+La $P(x) = x^3 - 4x^2 + x + 6$. Regn ut $P(a)$ og avgjør om faktoren er med.
+\begin{tasks}(3)
+  \task Er $(x - 3)$ en faktor?
+  \task Er $(x + 2)$ en faktor?
+  \task Er $(x + 1)$ en faktor?
+\end{tasks}
+
+\nivaahode{2}
+
+\oppg{1.4}{2}{\uh}
+Utfør polynomdivisjon. Skriv med rest hvis divisjonen ikke går opp.
+\begin{tasks}(2)
+  \task $(x^3 - 13x + 12) : (x - 3)$
+  \task $(x^3 + 8) : (x + 2)$
+  \task $(2x^3 - x^2 - 13x - 6) : (x + 2)$
+  \task $(x^3 + x^2 + x + 4) : (x - 1)$
+\end{tasks}
+
+\oppg{1.5}{2}{\uh}
+Faktoriser fullstendig. Finn først et heltall som gir $P(a) = 0$.
+\begin{tasks}(1)
+  \task $x^3 - 6x^2 + 11x - 6$
+  \task $x^3 + 3x^2 - 4x - 12$
+  \task $x^3 - 3x - 2$
+\end{tasks}
+
+\oppg{1.6}{2}{\uh}
+Mia skal faktorisere $P(x) = x^3 - 5x^2 + 2x + 8$. Finn \textbf{den første feilen}. Faktoriser riktig.
+\[ P(2) = 8 - 20 + 4 + 8 = 0 \;\longrightarrow\; \text{Så } (x+2) \text{ er en faktor} \;\longrightarrow\; P(x) = (x+2)(x^2 - 3x - 4) \;\longrightarrow\; P(x) = (x+2)(x-4)(x+1) \]
+
+\nivaahode{3}
+
+\oppg{1.7}{3}{\uh}
+Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret.
+\begin{tasks}(1)
+  \task Et tredjegradspolynom har tre nullpunkter.
+  \task Når $P(x)$ deles på $(x - a)$ og resten er forskjellig fra $0$, har $P$ ingen nullpunkter.
+  \task Hvis $P(2) = 0$ og $P(3) = 0$, er $(x - 2)(x - 3)$ en faktor i $P(x)$.
+\end{tasks}
+
+\oppg{1.8}{3}{\uh}
+Gitt $P(x) = x^3 + kx^2 - 4x + 4$.
+\begin{tasks}(1)
+  \task Finn $k$ slik at $(x - 2)$ er en faktor i $P(x)$.
+  \task Faktoriser $P(x)$ fullstendig med denne verdien av $k$.
+\end{tasks}
+
+\oppg{1.9}{3}{\uh}
+Lag selv et tredjegradspolynom som gir resten $5$ når det deles på $(x - 2)$. Forklar hvordan du vet at resten blir $5$. Finnes det flere slike polynomer?
+
+\begin{sjekk}
+\begin{tasks}(2)
+  \task Regn ut $(x^2 + 2x - 15) : (x - 3)$.
+  \task Er $(x - 2)$ en faktor i $x^3 - 3x^2 + 4$?
+  \task! Hvorfor kan du kontrollere en polynomdivisjon med divisor $\cdot$ kvotient $+$ rest? Forklar.
+\end{tasks}
+\end{sjekk}
+
+% ---------------------------------------------------------------------
+
+\del{2}{Polynomfunksjoner: nullpunkter og forløp}
+
+\begin{ordliste}
+polynomfunksjon & En funksjon $f(x) = a_nx^n + \ldots + a_1x + a_0$ med $a_n \neq 0$. Graden er $n$. & \mittsprak\\
+ledende ledd & Leddet med høyest grad, $a_nx^n$. & \mittsprak\\
+forløp & Hvordan grafen oppfører seg langt til venstre og langt til høyre. & \mittsprak\\
+nullpunkt & En $x$-verdi der $f(x) = 0$. Grafen skjærer eller berører $x$-aksen. & \mittsprak\\
+dobbelt nullpunkt & Et nullpunkt der faktoren $(x - p)$ står i andre potens. & \mittsprak\\
+\end{ordliste}
+
+\begin{mustkunne}
+\begin{minipage}[t]{0.57\linewidth}
+\vspace{0pt}\textbf{Forløp.} For store $|x|$ er ledende ledd størst. Med $x = 100$ er $x^3 = 1\,000\,000$, mens $5x^2 = 50\,000$. Grafen ligner derfor på $a_nx^n$ langt ute.\par\smallskip
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}[t]{@{}p{1.2cm} p{3.3cm} p{3.3cm}@{}}
+ & $a_n > 0$ & $a_n < 0$\\
+$n$ odde & ned til venstre, opp til høyre & opp til venstre, ned til høyre\\
+$n$ like & opp på begge sider & ned på begge sider\\
+\end{tabular}\par\smallskip
+\textbf{Nullpunkter.} Skriv $f$ på faktorisert form. Hver faktor $(x - p)$ gir et nullpunkt $x = p$. Grad $n$ gir høyst $n$ nullpunkter. Skjæring med $y$-aksen er $f(0)$.\par\smallskip
+\textbf{Dobbelt nullpunkt.} Et kvadrat er aldri negativt, så $(x - p)^2$ skifter ikke fortegn. Grafen \emph{berører} $x$-aksen og snur.\par\smallskip
+\textbf{Løs} $f(x) = 0$ med nullproduktregelen og $f(x) > 0$ med fortegnslinje, begge etter faktorisering.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.40\linewidth}
+\vspace{0pt}\centering
+\begin{tikzpicture}[baseline=(current bounding box.north)]
+\begin{axis}[width=\linewidth, height=1.1\linewidth, axis lines=middle, xmin=-2.3, xmax=3, ymin=-5.5, ymax=12,
+  xtick={-1,2}, ytick={\empty}, tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$}, label style={font=\small}]
+\addplot[domain=-2.1:2.8, thick, hoved, samples=50] {(x+1)^2*(x-2)};
+\addplot[only marks, mark=*, mark size=1.5pt] coordinates {(-1,0) (2,0) (0,-2)};
+\node[font=\scriptsize, anchor=north west] at (axis cs:0.05,-2) {$(0,-2)$};
+\end{axis}
+\end{tikzpicture}\par
+{\footnotesize $g(x) = (x+1)^2(x-2)$. Dobbelt nullpunkt i $x = -1$.}
+\end{minipage}
+\end{mustkunne}
+
+\begin{eksempel}[1 — skisse og fortegnslinje]
+Skisser grafen til $f(x) = (x + 2)(x - 1)(x - 3)$.
+
+\begin{stegtabell}
+Nullpunkter: $x = -2$, $x = 1$, $x = 3$ & Hver faktor er $0$ i ett punkt.\\
+$f(0) = 2 \cdot (-1) \cdot (-3) = 6$ & Skjæring med $y$-aksen: $(0, 6)$.\\
+Ledende ledd er $x^3$ & Utmultiplisert er $f(x) = x^3 - 2x^2 - 5x + 6$. Grad 3 og $a_n > 0$: ned til venstre, opp til høyre.\\
+\end{stegtabell}
+
+\smallskip
+\begin{minipage}[t]{0.56\linewidth}
+\vspace{0pt}
+\begin{tikzpicture}[font=\small,fpos/.style={line width=1.1pt},fneg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
+  \draw[graa,thin] (1.40,0.40) -- (1.40,-2.65);
+  \draw[graa,thin] (3.30,0.40) -- (3.30,-2.65);
+  \draw[graa,thin] (5.20,0.40) -- (5.20,-2.65);
+  \node[anchor=east] at (-0.15,-0.00) {$x + 2$};
+  \draw[fneg] (0.00,-0.00) -- (1.40,-0.00);
+  \draw[fpos] (1.40,-0.00) -- (3.30,-0.00);
+  \draw[fpos] (3.30,-0.00) -- (5.20,-0.00);
+  \draw[fpos] (5.20,-0.00) -- (6.60,-0.00);
+  \node[fill=white,inner sep=1.5pt] at (1.40,-0.00) {$0$};
+  \node[anchor=east] at (-0.15,-0.70) {$x - 1$};
+  \draw[fneg] (0.00,-0.70) -- (1.40,-0.70);
+  \draw[fneg] (1.40,-0.70) -- (3.30,-0.70);
+  \draw[fpos] (3.30,-0.70) -- (5.20,-0.70);
+  \draw[fpos] (5.20,-0.70) -- (6.60,-0.70);
+  \node[fill=white,inner sep=1.5pt] at (3.30,-0.70) {$0$};
+  \node[anchor=east] at (-0.15,-1.40) {$x - 3$};
+  \draw[fneg] (0.00,-1.40) -- (1.40,-1.40);
+  \draw[fneg] (1.40,-1.40) -- (3.30,-1.40);
+  \draw[fneg] (3.30,-1.40) -- (5.20,-1.40);
+  \draw[fpos] (5.20,-1.40) -- (6.60,-1.40);
+  \node[fill=white,inner sep=1.5pt] at (5.20,-1.40) {$0$};
+  \node[anchor=east] at (-0.15,-2.25) {$f(x)$};
+  \draw[fneg,hoved] (0.00,-2.25) -- (1.40,-2.25);
+  \draw[fpos,hoved] (1.40,-2.25) -- (3.30,-2.25);
+  \draw[fneg,hoved] (3.30,-2.25) -- (5.20,-2.25);
+  \draw[fpos,hoved] (5.20,-2.25) -- (6.60,-2.25);
+  \node[fill=white,inner sep=1.5pt] at (1.40,-2.25) {$0$};
+  \node[fill=white,inner sep=1.5pt] at (3.30,-2.25) {$0$};
+  \node[fill=white,inner sep=1.5pt] at (5.20,-2.25) {$0$};
+  \node[below] at (1.40,-2.65) {$-2$};
+  \node[below] at (3.30,-2.65) {$1$};
+  \node[below] at (5.20,-2.65) {$3$};
+\end{tikzpicture}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.40\linewidth}
+\vspace{0pt}\centering
+\begin{tikzpicture}[baseline=(current bounding box.north)]
+\begin{axis}[width=\linewidth, height=1.1\linewidth, axis lines=middle, xmin=-3, xmax=4, ymin=-8, ymax=10,
+  xtick={-2,1,3}, ytick={\empty}, tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$}, label style={font=\small}]
+\addplot[domain=-2.7:3.4, thick, hoved, samples=60] {(x+2)*(x-1)*(x-3)};
+\addplot[only marks, mark=*, mark size=1.5pt] coordinates {(-2,0) (1,0) (3,0) (0,6)};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+
+\smallskip
+Produktlinja er heltrukket (grafen over $x$-aksen) for $x \in \langle -2, 1\rangle$ og $x \in \langle 3, \to\rangle$. Det passer med skissen.
+\end{eksempel}
+
+\begin{eksempel}[2 — polynomulikhet]
+Løs $x^3 - 7x + 6 > 0$. Bruk faktoriseringen fra del 1.
+
+\begin{stegtabell}
+$(x + 3)(x - 1)(x - 2) > 0$ & Fra Eksempel 2 i del 1: $x^3 - 7x + 6 = (x-1)(x-2)(x+3)$.\\
+\end{stegtabell}
+
+\smallskip
+\begin{center}
+\begin{tikzpicture}[font=\small,fpos/.style={line width=1.1pt},fneg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
+  \draw[graa,thin] (1.40,0.40) -- (1.40,-2.65);
+  \draw[graa,thin] (3.30,0.40) -- (3.30,-2.65);
+  \draw[graa,thin] (5.20,0.40) -- (5.20,-2.65);
+  \node[anchor=east] at (-0.15,-0.00) {$x + 3$};
+  \draw[fneg] (0.00,-0.00) -- (1.40,-0.00);
+  \draw[fpos] (1.40,-0.00) -- (3.30,-0.00);
+  \draw[fpos] (3.30,-0.00) -- (5.20,-0.00);
+  \draw[fpos] (5.20,-0.00) -- (6.60,-0.00);
+  \node[fill=white,inner sep=1.5pt] at (1.40,-0.00) {$0$};
+  \node[anchor=east] at (-0.15,-0.70) {$x - 1$};
+  \draw[fneg] (0.00,-0.70) -- (1.40,-0.70);
+  \draw[fneg] (1.40,-0.70) -- (3.30,-0.70);
+  \draw[fpos] (3.30,-0.70) -- (5.20,-0.70);
+  \draw[fpos] (5.20,-0.70) -- (6.60,-0.70);
+  \node[fill=white,inner sep=1.5pt] at (3.30,-0.70) {$0$};
+  \node[anchor=east] at (-0.15,-1.40) {$x - 2$};
+  \draw[fneg] (0.00,-1.40) -- (1.40,-1.40);
+  \draw[fneg] (1.40,-1.40) -- (3.30,-1.40);
+  \draw[fneg] (3.30,-1.40) -- (5.20,-1.40);
+  \draw[fpos] (5.20,-1.40) -- (6.60,-1.40);
+  \node[fill=white,inner sep=1.5pt] at (5.20,-1.40) {$0$};
+  \node[anchor=east] at (-0.15,-2.25) {$(x+3)(x-1)(x-2)$};
+  \draw[fneg,hoved] (0.00,-2.25) -- (1.40,-2.25);
+  \draw[fpos,hoved] (1.40,-2.25) -- (3.30,-2.25);
+  \draw[fneg,hoved] (3.30,-2.25) -- (5.20,-2.25);
+  \draw[fpos,hoved] (5.20,-2.25) -- (6.60,-2.25);
+  \node[fill=white,inner sep=1.5pt] at (1.40,-2.25) {$0$};
+  \node[fill=white,inner sep=1.5pt] at (3.30,-2.25) {$0$};
+  \node[fill=white,inner sep=1.5pt] at (5.20,-2.25) {$0$};
+  \node[below] at (1.40,-2.65) {$-3$};
+  \node[below] at (3.30,-2.65) {$1$};
+  \node[below] at (5.20,-2.65) {$2$};
+\end{tikzpicture}
+\end{center}
+
+\begin{stegtabell}
+$\langle -3, 1\rangle$ og $\langle 2, \to\rangle$ & Produktet er positivt (heltrukket) i disse intervallene. Tegnet er $>$, så nullpunktene er ikke med.\\
+Kontroll: & $x = 0$ gir $6 > 0$. $x = \frac{3}{2}$ gir $-\frac{9}{8}$, som ikke er positivt. Det stemmer.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{vanligfeil}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
+  \item Et tredjegradspolynom har alltid tre nullpunkter gjelder ikke generelt. $x^3 + x = x(x^2 + 1)$ har bare nullpunktet $x = 0$. Grad 3 betyr høyst tre.
+  \item Å dele begge sider på $x$ i $x^3 = 4x$ gir $x^2 = 4$ og mister løsningen $x = 0$. Flytt over og faktoriser: $x(x-2)(x+2) = 0$ gir tre løsninger.
+  \item $(x - 2)^2(x + 1)$ skifter fortegn ved $x = 2$ er feil. For $x = 1$ er verdien $2$, og for $x = 3$ er den $4$. Begge er positive.
+\end{itemize}
+\end{vanligfeil}
+
+\nivaahode{1}
+
+\oppg{2.1}{1}{\uh}
+Finn graden og ledende ledd. Går grafen opp eller ned til høyre? Og til venstre?
+\begin{tasks}(3)
+  \task $f(x) = 2x^3 - 5x + 1$
+  \task $g(x) = -x^4 + 3x^2$
+  \task $h(x) = 4 - x^3$
+\end{tasks}
+
+\oppg{2.2}{1}{\uh}
+Finn nullpunktene og skjæringen med $y$-aksen.
+\begin{tasks}(1)
+  \task $f(x) = (x - 1)(x + 4)(x - 5)$
+  \task $g(x) = x(x + 2)(x - 3)$
+  \task $h(x) = -2(x - 3)(x + 1)(x - 4)$
+\end{tasks}
+
+\oppg{2.3}{1}{\uh}
+Vi skal løse $(x + 1)(x - 2)(x - 4) < 0$. Fortegnslinjene for faktorene er tegnet.
+\begin{center}
+\begin{tikzpicture}[font=\small,fpos/.style={line width=1.1pt},fneg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
+  \draw[graa,thin] (1.40,0.40) -- (1.40,-2.65);
+  \draw[graa,thin] (3.30,0.40) -- (3.30,-2.65);
+  \draw[graa,thin] (5.20,0.40) -- (5.20,-2.65);
+  \node[anchor=east] at (-0.15,-0.00) {$x + 1$};
+  \draw[fneg] (0.00,-0.00) -- (1.40,-0.00);
+  \draw[fpos] (1.40,-0.00) -- (3.30,-0.00);
+  \draw[fpos] (3.30,-0.00) -- (5.20,-0.00);
+  \draw[fpos] (5.20,-0.00) -- (6.60,-0.00);
+  \node[fill=white,inner sep=1.5pt] at (1.40,-0.00) {$0$};
+  \node[anchor=east] at (-0.15,-0.70) {$x - 2$};
+  \draw[fneg] (0.00,-0.70) -- (1.40,-0.70);
+  \draw[fneg] (1.40,-0.70) -- (3.30,-0.70);
+  \draw[fpos] (3.30,-0.70) -- (5.20,-0.70);
+  \draw[fpos] (5.20,-0.70) -- (6.60,-0.70);
+  \node[fill=white,inner sep=1.5pt] at (3.30,-0.70) {$0$};
+  \node[anchor=east] at (-0.15,-1.40) {$x - 4$};
+  \draw[fneg] (0.00,-1.40) -- (1.40,-1.40);
+  \draw[fneg] (1.40,-1.40) -- (3.30,-1.40);
+  \draw[fneg] (3.30,-1.40) -- (5.20,-1.40);
+  \draw[fpos] (5.20,-1.40) -- (6.60,-1.40);
+  \node[fill=white,inner sep=1.5pt] at (5.20,-1.40) {$0$};
+  \node[anchor=east] at (-0.15,-2.25) {$(x + 1) (x - 2) (x - 4)$};
+  \node[below] at (1.40,-2.65) {$-1$};
+  \node[below] at (3.30,-2.65) {$2$};
+  \node[below] at (5.20,-2.65) {$4$};
+\end{tikzpicture}
+\end{center}
+\begin{tasks}(1)
+  \task Tegn produktlinja. Heltrukket er positiv og stiplet er negativ.
+  \task Skriv løsningen som intervaller.
+\end{tasks}
+
+\nivaahode{2}
+
+\oppg{2.4}{2}{\uh}
+Løs likningene.
+\begin{tasks}(3)
+  \task $x^3 - 3x^2 - 10x + 24 = 0$
+  \task $x^3 + 4x^2 + 4x = 0$
+  \task $x^3 = 16x$
+\end{tasks}
+
+\oppg{2.5}{2}{\uh}
+Løs ulikhetene. Svar som intervaller.
+\begin{tasks}(1)
+  \task $x^3 - 4x^2 - 11x + 30 < 0$
+  \task $x^3 - 12x + 16 > 0$
+  \task $x(x - 3)^2 \le 0$
+\end{tasks}
+
+\oppg{2.6}{2}{\uh}
+La $f(x) = -(x + 3)(x - 1)^2$.
+\begin{tasks}(1)
+  \task Finn nullpunktene, skjæringen med $y$-aksen og forløpet.
+  \task Skisser grafen. Merk av nullpunktene.
+\end{tasks}
+
+\oppg{2.7}{2}{\uh}
+Tom skal løse $(x - 1)^2(x + 3) < 0$. Finn \textbf{den første feilen}. Løs riktig.
+\[ \begin{aligned}
+&\text{Nullpunkter: } x = 1 \text{ og } x = -3\\
+\longrightarrow\;&\text{Begge faktorene skifter fortegn}\\
+\longrightarrow\;&\text{Produktet er negativt mellom } -3 \text{ og } 1\\
+\longrightarrow\;&x \in \langle -3, 1\rangle
+\end{aligned} \]
+
+\nivaahode{3}
+
+\oppg{2.8}{3}{\uh}
+Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret.
+\begin{tasks}(1)
+  \task Et tredjegradspolynom har minst ett nullpunkt.
+  \task Et fjerdegradspolynom har minst ett nullpunkt.
+  \task Hvis $f$ har et dobbelt nullpunkt, er $f(x) \ge 0$ for alle $x$.
+\end{tasks}
+
+\oppg{2.9}{3}{\uh}
+Vi vil ha en tredjegradsfunksjon med nullpunktene $-1$, $3$ og $4$ og $f(0) = -24$.
+\begin{tasks}(1)
+  \task Lag en slik funksjon. Hvor mange finnes?
+  \task Finnes det også en fjerdegradsfunksjon med de samme tre nullpunktene og $f(0) = -24$? Lag en eller forklar hvorfor det er umulig.
+\end{tasks}
+
+\oppg{2.10}{3}{\uh}
+Grafen til $f(x) = x^3 + ax^2 + bx$ har et dobbelt nullpunkt i $x = 2$.
+\begin{tasks}(1)
+  \task Finn $a$ og $b$.
+  \task Løs $f(x) \ge 0$. Forklar hvorfor $x = 2$ er med, selv om grafen ikke skifter fortegn der.
+\end{tasks}
+
+\begin{sjekk}
+\begin{tasks}(2)
+  \task Finn grad og ledende ledd til $f(x) = 5 - 2x^4 + x$.
+  \task Finn nullpunktene til $g(x) = x(x - 3)^2$.
+  \task! Hvorfor bestemmer ledende ledd forløpet når $|x|$ er stor? Forklar med et tall.
+\end{tasks}
+\end{sjekk}
