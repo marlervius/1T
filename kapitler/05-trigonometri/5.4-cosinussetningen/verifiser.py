@@ -199,17 +199,17 @@ aapen("Sjekk 2b", "cosinussetningen (SSS)")
 aapen("Sjekk 2c", "cos er entydig")
 
 # ---------- Utfordring ----------
-chk("U1a", 6**2 + 7**2 - 10**2, -15)
-chk("U1b diff", 64 + 81 - 144, 1)
-chk("U1c diff", 400 + 441 - 841, 0)
-aapen("U1d", "Forklaring: b^2+c^2-a^2 har samme fortegn som cos A")
+chk("U2a", 6**2 + 7**2 - 10**2, -15)
+chk("U2b diff", 64 + 81 - 144, 1)
+chk("U2c diff", 400 + 441 - 841, 0)
+aapen("U2d", "Forklaring: b^2+c^2-a^2 har samme fortegn som cos A")
 
-# U1 tomt
+# U3 tomt
 B2 = vink(60, 35, 48)
 D2 = vink(60, 42, 52)
-avrund("U1a B", B2, 1, 91.2)
-avrund("U1a D", D2, 1, 78.5)
-avrund("U1b areal", 0.5 * 35 * 48 * math.sin(math.radians(B2)) + 0.5 * 42 * 52 * math.sin(math.radians(D2)), 0, 1910)
+avrund("U3a B", B2, 1, 91.2)
+avrund("U3a D", D2, 1, 78.5)
+avrund("U3b areal", 0.5 * 35 * 48 * math.sin(math.radians(B2)) + 0.5 * 42 * 52 * math.sin(math.radians(D2)), 0, 1910)
 
 # U1 programmet: koden slik den står i oppgaven, med hullet fylt inn
 kode = '''
