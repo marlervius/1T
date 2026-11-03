@@ -157,6 +157,9 @@ Les målene i briefen i `laereplan/kompetansemaal-1T.md`. Se på verbene. Står 
   Unntak: differansekvotienter ($\dfrac{f(a+h)-f(a)}{h}$) i fasiten kan ha `\dfrac`. Brøk i brøk og lange kjeder settes på egen linje med `\[ … \]`.
 - Ingen utropstegn, heller ikke «Feil!» i eksempler. Skriv «Det er feil:».
 - **Brøk i eksponent: alltid `\tfrac`**, for eksempel `8^{\tfrac{2}{3}}`. `\frac` i en eksponent blir for lite til å lese i OneNote.
+- **Etiketter på sider i trekanter:** `\draw (A) -- (B) node[midway, below, sloped] {$c$};` eller
+  `node[midway, left]` osv. `sloped` virker bare på noder *på en sti*, ikke på `\node at (…)`. Etiketter
+  skal aldri krysse en linje. Rett vinkel markeres med et lite kvadrat, vinkler med bue (`pic {angle = …}`).
 - Formler med brøk inni brøk (som $\frac{x + 2/x}{2}$) settes på egen linje med `\[ … \]`.
 - Sentrert matematikk: `\[ … \]`. Aldri `$$`.
 - Enheter: `$3,0 \cdot 10^8$ m/s` (enheten utenfor `$`), eller `\text{ m}` inni.
