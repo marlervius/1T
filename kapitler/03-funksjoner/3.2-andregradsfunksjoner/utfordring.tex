@@ -1,0 +1,62 @@
+% =====================================================================
+%  3.2 Andregradsfunksjoner — ekstra utfordring
+% =====================================================================
+
+\begin{infoboks}{Velg metode selv}
+Arket bygger på 3.2 Andregradsfunksjoner. Vis regning og begrunnelse. Bruk eksakte svar.
+Kontroller svaret ved å sette inn, eller ved å regne på en annen måte.
+\end{infoboks}
+
+\nivaahode{2}
+
+\oppg{U1}{2}{\uh}
+En parabel har nullpunktene $x = -1$ og $x = 5$ og går gjennom $(0, -10)$. Finn funksjonsuttrykket og toppunktet.
+
+\oppg{U2}{2}{\uh}
+En butikk selger $400 - 20p$ enheter av en vare når prisen er $p$ kroner. Inntekten er pris ganger antall solgte.
+\begin{tasks}(1)
+  \task Skriv inntekten $I(p)$ på toppunktform. Hvilken pris gir størst inntekt, og hva blir inntekten?
+  \task Modellen gir $I(25) = -2\,500$. Vurder om modellen gir mening for store $p$.
+\end{tasks}
+
+\oppg{U3}{2}{\prog}
+Programmet leter etter den minste verdien av $f(x) = x^2 - 4x + 1$ for $x$ fra $-5$ til $5$ med steg $0{,}1$.
+\begin{kode}
+def f(x):
+    return x**2 - 4*x + 1
+
+minst = f(-5)
+for i in range(-50, 51):
+    x = i / 10
+    if f(x) < minst:
+        minst = f(x)
+print(round(minst, 4))
+\end{kode}
+\begin{tasks}(1)
+  \task Hva skriver programmet ut? Sammenlign med bunnpunktet fra toppunktformen.
+  \task Bytt ut funksjonen med $f(x) = x^2 - 0{,}15x$ og kjør programmet. Finn det eksakte minimet og forklar hvorfor programmet bommer.
+\end{tasks}
+
+\nivaahode{3}
+
+\oppg{U4}{3}{\uh}
+Hvor mange nullpunkter har $f(x) = x^2 - 2x + c$? Svar avhengig av $c$. Begrunn med toppunktformen.
+
+\oppg{U5}{3}{\uh}
+Vis at $ax^2 + bx + c = a\left(x + \dfrac{b}{2a}\right)^2 + c - \dfrac{b^2}{4a}$.
+\begin{tasks}(1)
+  \task Hva er symmetrilinjen og $q$ ifølge denne formen?
+  \task Vis at $q = -\dfrac{D}{4a}$. Bruk dette til å forklare hvorfor $D < 0$ og $a > 0$ gir ingen nullpunkter.
+\end{tasks}
+
+\oppg{U6}{3}{\mh}
+For hver verdi av $b$ har $f(x) = x^2 + bx$ et bunnpunkt.
+\begin{tasks}(1)
+  \task Finn bunnpunktet for $b = -4, -2, 0, 2, 4$. Tegn punktene i GeoGebra.
+  \task Hvilken kurve ligger punktene på? Bevis at det gjelder for alle $b$.
+\end{tasks}
+
+\begin{oppsummering}
+Symmetrilinjen er $x = -\frac{b}{2a}$. Toppunktformen $a(x - p)^2 + q$ gir ekstremalpunktet $(p, q)$ direkte.
+Fullstendige kvadraters metode viser hvorfor, og løser maksimeringsproblemer uten derivasjon.
+\end{oppsummering}

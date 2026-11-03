@@ -1,0 +1,286 @@
+% =====================================================================
+%  3.2 Andregradsfunksjoner — teori og oppgaver
+% =====================================================================
+
+\del{1}{Graf, nullpunkter og symmetrilinje}
+
+\begin{ordliste}
+andregradsfunksjon & En funksjon $f(x) = ax^2 + bx + c$ med $a \neq 0$. & \mittsprak\\
+parabel & Grafen til en andregradsfunksjon. & \mittsprak\\
+symmetrilinje & Den loddrette linjen som deler parabelen i to like deler. & \mittsprak\\
+bunnpunkt og toppunkt & Det laveste punktet (parabel opp) eller det høyeste punktet (parabel ned). & \mittsprak\\
+ekstremalpunkt & Fellesnavn på bunnpunkt og toppunkt. & \mittsprak\\
+\end{ordliste}
+
+\begin{mustkunne}
+\begin{minipage}[t]{0.57\linewidth}
+\vspace{0pt}\textbf{Grafen til $f(x) = ax^2 + bx + c$.}\par
+$a > 0$: parabelen vender opp (bunnpunkt). $a < 0$: den vender ned (toppunkt).\par
+$f(0) = c$: parabelen skjærer $y$-aksen i $(0, c)$.\par
+Nullpunktene er løsningene av $f(x) = 0$. Antallet følger av $D = b^2 - 4ac$.\medskip\par
+\textbf{Symmetrilinjen.} Nullpunktene er $x_1$ og $x_2$, og $x_1 + x_2 = -\frac{b}{a}$. Symmetrilinjen ligger midt mellom dem:
+\[ x = \frac{x_1 + x_2}{2} = -\frac{b}{2a} \]
+Formelen inneholder ikke $c$. Å endre $c$ flytter parabelen opp eller ned, og symmetrilinjen ligger fast. Derfor gjelder formelen også uten nullpunkter.\par
+\textbf{Ekstremalpunktet:} sett $x = -\frac{b}{2a}$ inn i $f$.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.40\linewidth}
+\vspace{0pt}\centering
+\begin{tikzpicture}
+\begin{axis}[width=\linewidth, height=0.95\linewidth, axis lines=middle, xmin=-4.5, xmax=1, ymin=-2, ymax=4.5,
+  xtick={-3,-1}, ytick={\empty}, tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$}, label style={font=\small}]
+\addplot[domain=-4:0, thick, hoved, samples=40] {x^2 + 4*x + 3};
+\draw[dashed, red!70!black] (axis cs:-2,-2) -- (axis cs:-2,4.3);
+\addplot[only marks, mark=*, mark size=1.5pt] coordinates {(-3,0) (-1,0) (-2,-1) (0,3)};
+\node[font=\scriptsize, anchor=north] at (axis cs:-2,-1.1) {$(-2,-1)$};
+\node[font=\scriptsize, anchor=south west] at (axis cs:0.05,3) {$(0,3)$};
+\end{axis}
+\end{tikzpicture}\par
+{\footnotesize $f(x) = x^2 + 4x + 3$. Stiplet linje: $x = -2$.}
+\end{minipage}
+\end{mustkunne}
+
+\begin{eksempel}[1 — graf med nullpunkter]
+La $f(x) = x^2 - 2x - 3$. Finn nullpunkter, symmetrilinje, ekstremalpunkt og skjæring med $y$-aksen.
+
+\begin{stegtabell}
+$a = 1 > 0$ & Parabelen vender opp, så ekstremalpunktet er et bunnpunkt.\\
+$x^2 - 2x - 3 = 0$, $x = \dfrac{2 \pm \sqrt{16}}{2}$ & Nullpunktene: abc-formelen med $D = 4 + 12 = 16$.\\
+$x = -1$ eller $x = 3$ & Nullpunktene er $(-1, 0)$ og $(3, 0)$.\\
+$x = \dfrac{-1 + 3}{2} = 1$ & Symmetrilinjen ligger midt mellom nullpunktene. Samme svar: $-\frac{-2}{2 \cdot 1} = 1$.\\
+$f(1) = 1 - 2 - 3 = -4$ & Sett symmetrilinjens $x$ inn i $f$. Bunnpunkt $(1, -4)$.\\
+$f(0) = -3$ & Skjæring med $y$-aksen: $(0, -3)$.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{eksempel}[2 — uten nullpunkter]
+La $g(x) = -x^2 + 4x - 5$. Finn symmetrilinje og ekstremalpunkt.
+
+\begin{stegtabell}
+$D = 4^2 - 4\cdot(-1)\cdot(-5) = -4$ & $D < 0$: ingen nullpunkter.\\
+$x = -\dfrac{4}{2\cdot(-1)} = 2$ & Symmetrilinjen finnes likevel.\\
+$g(2) = -4 + 8 - 5 = -1$ & $a = -1 < 0$, så parabelen vender ned. Toppunkt $(2, -1)$.\\
+Kontroll: & Toppunktet ligger under $x$-aksen, og parabelen vender ned. Da kan den ikke treffe aksen.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{vanligfeil}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
+  \item Symmetrilinjen er $x = \frac{b}{2a}$ er feil. For $f(x) = x^2 + 6x$ er $x = -\frac{6}{2} = -3$, ikke $3$.
+  \item $c$ er $y$-verdien til bunnpunktet er feil. $c$ er skjæringen med $y$-aksen. For $x^2 - 4x + 7$ er $c = 7$, men bunnpunktet er $(2, 3)$.
+  \item Toppunkt når $a > 0$ er feil. Parabelen vender opp, så ekstremalpunktet er et bunnpunkt.
+\end{itemize}
+\end{vanligfeil}
+
+\nivaahode{1}
+
+\oppg{1.1}{1}{\uh}
+Vender parabelen opp eller ned? Hvor skjærer den $y$-aksen?
+\begin{tasks}(3)
+  \task $f(x) = x^2 - 5x + 4$
+  \task $g(x) = -2x^2 + 3x + 7$
+  \task $h(x) = 3 - x^2$
+\end{tasks}
+
+\oppg{1.2}{1}{\uh}
+Finn symmetrilinjen.
+\begin{tasks}(3)
+  \task $f(x) = x^2 - 8x + 3$
+  \task $g(x) = 2x^2 + 6x - 1$
+  \task $h(x) = -x^2 + 10x$
+\end{tasks}
+
+\oppg{1.3}{1}{\uh}
+La $f(x) = x^2 - 4x - 5$. Fullfør.
+\begin{tasks}(1)
+  \task Løs $f(x) = 0$. Nullpunktene er $x = \rute$ og $x = \rute$.
+  \task Symmetrilinjen er $x = \dfrac{\rute + \rute}{2} = \rute$.
+  \task Bunnpunktet er $(\rute, f(\rute)) = (\rute, \rute)$.
+\end{tasks}
+
+\nivaahode{2}
+
+\oppg{1.4}{2}{\uh}
+Finn nullpunkter, symmetrilinje og ekstremalpunkt. Si om det er bunnpunkt eller toppunkt.
+\begin{tasks}(1)
+  \task $f(x) = x^2 + 2x - 15$
+  \task $g(x) = -x^2 + 6x - 8$
+  \task $h(x) = 2x^2 - 4x + 5$
+\end{tasks}
+
+\oppg{1.5}{2}{\uh}
+Elin skal finne ekstremalpunktet til $f(x) = 3x^2 + 12x + 5$. Finn \textbf{den første feilen}. Løs riktig.
+\[ x = -\frac{12}{2\cdot 3} = -2 \;\longrightarrow\; f(-2) = 3\cdot(-2)^2 + 12\cdot(-2) + 5 \;\longrightarrow\; -12 - 24 + 5 \;\longrightarrow\; -31 \]
+\[ \text{Toppunkt } (-2, -31) \]
+
+\oppg{1.6}{2}{\mh}
+Tegn grafene til $f(x) = x^2 + 6x + c$ i GeoGebra for $c = -2$, $c = 3$ og $c = 8$. Bruk gjerne en glider for $c$.
+\begin{tasks}(1)
+  \task Hva er likt for de tre parablene, og hva er ulikt?
+  \task Hvor ligger symmetrilinjen? Finn bunnpunktet uttrykt ved $c$.
+\end{tasks}
+
+\nivaahode{3}
+
+\oppg{1.7}{3}{\uh}
+Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret.
+\begin{tasks}(1)
+  \task Parabelen til $f(x) = ax^2 + bx + c$ med $a > 0$ har to nullpunkter.
+  \task Bunnpunktet til $f(x) = x^2 + bx + c$ har $y$-verdi $c$.
+  \task En parabel med $a > 0$ har et toppunkt.
+\end{tasks}
+
+\oppg{1.8}{3}{\uh}
+En parabel $f(x) = x^2 + bx + c$ har symmetrilinje $x = -1$ og nullpunkt $x = 2$.
+\begin{tasks}(1)
+  \task Finn $b$ og $c$.
+  \task Forklar hvorfor det andre nullpunktet må være $x = -4$. Bruk ikke abc-formelen.
+\end{tasks}
+
+\begin{sjekk}
+\begin{tasks}(2)
+  \task Finn symmetrilinjen til $f(x) = x^2 - 10x + 7$.
+  \task Vender $f(x) = 4 - x^2$ opp eller ned? Hvor skjærer den $y$-aksen?
+  \task! Forklar hvorfor symmetrilinjen ligger midt mellom nullpunktene.
+\end{tasks}
+\end{sjekk}
+
+% ---------------------------------------------------------------------
+
+\del{2}{Fullstendige kvadraters metode og toppunktform}
+
+\begin{ordliste}
+fullstendig kvadrat & Et uttrykk på formen $(x + p)^2$. Gange ut gir $x^2 + 2px + p^2$. & \mittsprak\\
+toppunktform & Funksjonen skrevet som $f(x) = a(x - p)^2 + q$. Ekstremalpunktet er $(p, q)$. & \mittsprak\\
+verdimengde & Alle verdiene $f(x)$ kan få. Skrives $V_f$. & \mittsprak\\
+maksimum og minimum & Den største og den minste verdien funksjonen har. & \mittsprak\\
+\end{ordliste}
+
+\begin{mustkunne}
+\begin{minipage}[t]{0.50\linewidth}
+\textbf{Hvorfor toppunktformen virker.}\par
+Et kvadrat er aldri negativt: $(x - p)^2 \ge 0$, og lik 0 bare for $x = p$.\par
+Når $a > 0$, er $f(x) = a(x - p)^2 + q \ge q$. Likhet gir $x = p$. Altså er $(p, q)$ bunnpunktet.\par
+Når $a < 0$, snur ulikheten: $f(x) \le q$, og $(p, q)$ er toppunktet.\medskip\par
+\textbf{Verdimengde:}\par
+$a > 0$: $V_f = [q, \rightarrow\rangle$\par
+$a < 0$: $V_f = \langle\leftarrow, q]$
+\end{minipage}\hfill
+\begin{minipage}[t]{0.47\linewidth}
+\textbf{Fullstendige kvadraters metode.}\par
+Fra 1.2: $(x + s)^2 = x^2 + 2sx + s^2$. Halvparten av tallet foran $x$ er $s$:
+\[ x^2 + bx = \left(x + \tfrac{b}{2}\right)^2 - \left(\tfrac{b}{2}\right)^2 \]
+Vi legger til $s^2$ og trekker det fra igjen. Da endres ikke verdien.\par
+Er $a \neq 1$: sett $a$ utenfor først.
+\end{minipage}
+\end{mustkunne}
+
+\begin{eksempel}[1 — når $a = 1$]
+Skriv $f(x) = x^2 - 6x + 5$ på toppunktform. Finn bunnpunkt og verdimengde.
+
+\begin{stegtabell}
+$f(x) = x^2 - 6x + 9 - 9 + 5$ & Halvparten av $-6$ er $-3$, og $(-3)^2 = 9$. Legg til og trekk fra 9.\\
+$f(x) = (x - 3)^2 - 4$ & $x^2 - 6x + 9 = (x - 3)^2$. Og $-9 + 5 = -4$.\\
+Kontroll: & $(x-3)^2 - 4 = x^2 - 6x + 9 - 4 = x^2 - 6x + 5$. Det stemmer.\\
+Bunnpunkt $(3, -4)$ & $a = 1 > 0$. Avlest som $(p, q)$.\\
+$V_f = [-4, \rightarrow\rangle$ & Funksjonen er aldri mindre enn $-4$, og verdien $-4$ er med.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{eksempel}[2 — når $a \neq 1$]
+Skriv $f(x) = 2x^2 + 8x + 3$ på toppunktform.
+
+\begin{stegtabell}
+$f(x) = 2(x^2 + 4x) + 3$ & Sett 2 utenfor de to første leddene.\\
+$f(x) = 2\big((x + 2)^2 - 4\big) + 3$ & Inni parentesen: halvparten av 4 er 2, og $2^2 = 4$.\\
+$f(x) = 2(x + 2)^2 - 8 + 3$ & Gang inn faktoren 2 med $-4$.\\
+$f(x) = 2(x + 2)^2 - 5$ & $-8 + 3 = -5$.\\
+Kontroll: & $2(x^2 + 4x + 4) - 5 = 2x^2 + 8x + 8 - 5 = 2x^2 + 8x + 3$. Det stemmer.\\
+Bunnpunkt $(-2, -5)$, $V_f = [-5, \rightarrow\rangle$ & $a = 2 > 0$.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{vanligfeil}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
+  \item $f(x) = 2(x + 3)^2 - 1$ har bunnpunkt $(3, -1)$ er feil. Faktoren er $x - (-3)$, så bunnpunktet er $(-3, -1)$.
+  \item $V_f = \langle -1, \rightarrow\rangle$ er feil når $q = -1$ er med. Riktig er $V_f = [-1, \rightarrow\rangle$.
+  \item $2x^2 + 8x + 3 = 2(x + 2)^2 - 4 + 3$ er feil. Faktoren 2 må også ganges med $-4$: det gir $2(x + 2)^2 - 8 + 3$.
+\end{itemize}
+\end{vanligfeil}
+
+\nivaahode{1}
+
+\oppg{2.1}{1}{\uh}
+Skriv på formen $(x + p)^2 + q$.
+\begin{tasks}(3)
+  \task $x^2 + 2x + 5$
+  \task $x^2 - 10x + 30$
+  \task $x^2 - 8x + 9$
+\end{tasks}
+
+\oppg{2.2}{1}{\uh}
+Les av ekstremalpunktet. Si om det er bunnpunkt eller toppunkt, og skriv verdimengden.
+\begin{tasks}(3)
+  \task $f(x) = (x - 2)^2 + 7$
+  \task $g(x) = -(x + 1)^2 + 4$
+  \task $h(x) = 3(x + 4)^2 - 2$
+\end{tasks}
+
+\oppg{2.3}{1}{\uh}
+Fullfør utregningen av $f(x) = x^2 + 16x + 60$.
+\[ f(x) = x^2 + 16x + \rute - \rute + 60 = (x + \rute)^2 - \rute \]
+Bunnpunktet er $(\rute, \rute)$.
+
+\nivaahode{2}
+
+\oppg{2.4}{2}{\uh}
+Skriv på toppunktform. Finn ekstremalpunktet.
+\begin{tasks}(3)
+  \task $2x^2 + 12x + 7$
+  \task $3x^2 - 6x + 5$
+  \task $-x^2 + 4x + 1$
+\end{tasks}
+
+\oppg{2.5}{2}{\uh}
+Finn \textbf{den første feilen}. Skriv $f(x) = 2x^2 - 12x + 5$ riktig på toppunktform.
+\[ 2x^2 - 12x + 5 \;\longrightarrow\; 2(x^2 - 6x) + 5 \;\longrightarrow\; 2\big((x - 3)^2 - 9\big) + 5 \;\longrightarrow\; 2(x - 3)^2 - 18 + 5 \;\longrightarrow\; 2(x - 3)^2 - 23 \]
+
+\oppg{2.6}{2}{\uh}
+En ball kastes oppover. Høyden over bakken er $h(t) = -5t^2 + 10t + 2$ meter etter $t$ sekunder.
+\begin{tasks}(1)
+  \task Skriv $h(t)$ på toppunktform.
+  \task Hvor høyt kommer ballen, og når skjer det?
+  \task Fra hvilken høyde kastes ballen?
+\end{tasks}
+
+\nivaahode{3}
+
+\oppg{2.7}{3}{\uh}
+Parabelen til en andregradsfunksjon har bunnpunkt $(2, -3)$ og går gjennom $(0, 5)$.
+\begin{tasks}(1)
+  \task Finn funksjonsuttrykket.
+  \task Hvor mange nullpunkter har parabelen? Forklar uten abc-formelen.
+\end{tasks}
+
+\oppg{2.8}{3}{\uh}
+Du har 40 m gjerde og skal lage en rektangulær hage inntil en vegg. Gjerde trengs på tre sider. Bredden vinkelrett på veggen er $x$ meter.
+\begin{tasks}(1)
+  \task Vis at arealet er $A(x) = -2x^2 + 40x$.
+  \task Finn største areal og målene på hagen.
+  \task Forklar hvorfor $x = 25$ ikke er en mulig bredde, selv om $A(25)$ kan regnes ut.
+\end{tasks}
+
+\oppg{2.9}{3}{\uh}
+Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret.
+\begin{tasks}(1)
+  \task Når $a < 0$, er $q$ den største verdien til $f(x) = a(x - p)^2 + q$.
+  \task Grafen til $f(x) = a(x - p)^2 + q$ skjærer $x$-aksen.
+  \task To andregradsfunksjoner med samme bunnpunkt er like.
+\end{tasks}
+
+\begin{sjekk}
+\begin{tasks}(2)
+  \task Skriv $x^2 - 12x + 40$ på formen $(x - p)^2 + q$.
+  \task Finn bunnpunkt og verdimengde til $g(x) = 2(x + 1)^2 - 6$.
+  \task! Forklar hvorfor $f(x) \ge q$ for $f(x) = a(x - p)^2 + q$ når $a > 0$.
+\end{tasks}
+\end{sjekk}
