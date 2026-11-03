@@ -82,6 +82,11 @@ Ingen preamble, ingen `\documentclass`, ingen `\usepackage`. Byggeskriptet lager
 | 3 Utfordring | 2–3 | Begrunn og forklar. «Alltid, noen ganger eller aldri sant?». Baklengs (gitt svaret, finn oppgaven). Parameter. Generaliser. |
 
 **Nivå 3 er dypere, ikke lengre.** Større tall eller flere ledd er *ikke* nivå 3.
+**Krav per del:** nivå 3 skal ha minst én oppgave av typen «alltid / noen ganger / aldri», «baklengs»
+(gitt svaret, finn oppgaven) eller «lag selv», og minst én som ber eleven *begrunne* eller *forklare*.
+En flerstegs teknikkoppgave (faktoriser og forkort, løs en lang likning) hører hjemme på nivå 2.
+Hint på nivå 3 skal ikke fortelle hvilken metode som skal brukes.
+Sjekk dette for **hver** del — kontrollene har vist at del 2 ofte får svakere nivå 3 enn del 1.
 
 ### Utfordringsarket
 - 5–8 oppgaver, U1, U2 … Starter med `\nivaahode{2}` (Fordypning), så `\nivaahode{3}` (Ekstra utfordring).
