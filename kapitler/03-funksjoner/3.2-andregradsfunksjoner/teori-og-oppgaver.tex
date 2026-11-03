@@ -25,7 +25,7 @@ Formelen inneholder ikke $c$. Å endre $c$ flytter parabelen opp eller ned, og s
 \end{minipage}\hfill
 \begin{minipage}[t]{0.40\linewidth}
 \vspace{0pt}\centering
-\begin{tikzpicture}
+\begin{tikzpicture}[baseline=(current bounding box.north)]
 \begin{axis}[width=\linewidth, height=0.95\linewidth, axis lines=middle, xmin=-4.5, xmax=1, ymin=-2, ymax=4.5,
   xtick={-3,-1}, ytick={\empty}, tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$}, label style={font=\small}]
 \addplot[domain=-4:0, thick, hoved, samples=40] {x^2 + 4*x + 3};
@@ -65,8 +65,8 @@ Kontroll: & Toppunktet ligger under $x$-aksen, og parabelen vender ned. Da kan d
 
 \begin{vanligfeil}
 \begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
-  \item Symmetrilinjen er $x = \frac{b}{2a}$ er feil. For $f(x) = x^2 + 6x$ er $x = -\frac{6}{2} = -3$, ikke $3$.
-  \item $c$ er $y$-verdien til bunnpunktet er feil. $c$ er skjæringen med $y$-aksen. For $x^2 - 4x + 7$ er $c = 7$, men bunnpunktet er $(2, 3)$.
+  \item Symmetrilinjen er $x = \frac{b}{2a}$ gjelder ikke generelt (bare når $b = 0$). Riktig er $x = -\frac{b}{2a}$. For $f(x) = x^2 + 6x$ er $x = -\frac{6}{2} = -3$, ikke $3$.
+  \item $c$ er $y$-verdien til bunnpunktet gjelder ikke generelt (bare når $b = 0$). $c$ er skjæringen med $y$-aksen. For $x^2 - 4x + 7$ er $c = 7$, men bunnpunktet er $(2, 3)$.
   \item Toppunkt når $a > 0$ er feil. Parabelen vender opp, så ekstremalpunktet er et bunnpunkt.
 \end{itemize}
 \end{vanligfeil}
@@ -272,7 +272,7 @@ Du har 40 m gjerde og skal lage en rektangulær hage inntil en vegg. Gjerde tren
 \oppg{2.9}{3}{\uh}
 Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret.
 \begin{tasks}(1)
-  \task Når $a < 0$, er $q$ den største verdien til $f(x) = a(x - p)^2 + q$.
+  \task Når $a < 0$ og $q < 0$, skjærer grafen til $f(x) = a(x - p)^2 + q$ $x$-aksen.
   \task Grafen til $f(x) = a(x - p)^2 + q$ skjærer $x$-aksen.
   \task To andregradsfunksjoner med samme bunnpunkt er like.
 \end{tasks}
