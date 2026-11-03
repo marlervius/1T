@@ -1,0 +1,81 @@
+% =====================================================================
+%  3.1 Funksjonsbegrepet og lineære funksjoner — ekstra utfordring
+% =====================================================================
+
+\begin{infoboks}{Velg metode selv}
+Arket bygger på 3.1. Vis regning og begrunnelse. Bruk eksakte svar.
+Tallene i tekstoppgavene er tenkte eksempler, ikke faktiske priser.
+\end{infoboks}
+
+\nivaahode{2}
+
+\oppg{U1}{2}{\uh}
+Et parkeringshus tar 20 kr per time de to første timene. Deretter koster det 35 kr per time. Vi lar $f(x)$ være prisen for $x$ timer, og regner forholdsmessig for deler av en time.
+\begin{tasks}(1)
+  \task Finn $f(x)$ for $0 \le x \le 2$ og for $x > 2$.
+  \task Skisser grafen. Hva skjer med grafen i $x = 2$?
+  \task Hva koster det å parkere i 5 timer?
+\end{tasks}
+
+\oppg{U2}{2}{\mh}
+Les teksten.
+\begin{quote}
+Nordtaxi tar 65 kroner når turen starter, og 19 kroner for hver kilometer. Bytaxi tar 100 kroner i startpris og 14 kroner per kilometer.
+Bytaxi skriver i reklamen: «Hos oss betaler du alltid minst.»
+\end{quote}
+\begin{tasks}(1)
+  \task Sett opp en funksjon for prisen hos hvert selskap. La $x$ være antall kilometer.
+  \task Finn prisen hos begge for 4 km og for 10 km.
+  \task Vurder påstanden i reklamen. Bruk likning eller graf.
+\end{tasks}
+
+\oppg{U3}{2}{\prog}
+Programmet skal avgjøre om en tabell kan komme fra en lineær funksjon. Linjen med $b$ er ikke ferdig.
+\begin{kode}
+from fractions import Fraction
+
+def sjekk(x, y):
+    a = Fraction(y[1] - y[0], x[1] - x[0])
+    for i in range(1, len(x) - 1):
+        if Fraction(y[i + 1] - y[i], x[i + 1] - x[i]) != a:
+            print("Nei")
+            return
+    b = ...
+    print("Ja: a =", a, "og b =", b)
+
+sjekk([0, 1, 3, 4], [2, 5, 11, 14])
+sjekk([0, 1, 2, 3], [1, 2, 4, 8])
+\end{kode}
+\begin{tasks}(1)
+  \task Skriv linjen som regner ut $b$.
+  \task Hva skriver programmet ut for de to testene? Forklar uten å kjøre det.
+  \task Hvorfor bruker vi \lstinline[style=laereverk,numbers=none,frame=none]|Fraction| i stedet for vanlig divisjon? Tenk på hva som skjer med desimaltall.
+\end{tasks}
+
+\nivaahode{3}
+
+\oppg{U4}{3}{\uh}
+\begin{tasks}(1)
+  \task Vis at punktene $(1, 2)$, $(3, 8)$ og $(-2, -7)$ ligger på samme linje.
+  \task Finn funksjonsuttrykket til linjen.
+  \task Hva må gjelde for tre punkter $(x_1, y_1)$, $(x_2, y_2)$ og $(x_3, y_3)$ for at de skal ligge på samme linje? Begrunn.
+\end{tasks}
+
+\oppg{U5}{3}{\uh}
+Punktene $(2, 1)$ og $(2, 5)$ har samme $x$-verdi.
+\begin{tasks}(1)
+  \task Hva går galt når du prøver å regne ut stigningstallet?
+  \task Forklar hvorfor linjen gjennom de to punktene ikke er grafen til en funksjon.
+\end{tasks}
+
+\oppg{U6}{3}{\uh}
+\begin{tasks}(1)
+  \task Lag en funksjon med $D_f = \langle\leftarrow, 2] \cup [5, \rightarrow\rangle$.
+  \task Lag en funksjon som er definert for alle tall unntatt $-1$ og $6$.
+  \task Er det bare ett riktig svar på a)? Forklar.
+\end{tasks}
+
+\begin{oppsummering}
+En funksjon gir nøyaktig én verdi for hver $x$ i definisjonsmengden. Stigningstallet $\frac{\Delta y}{\Delta x}$ er det samme mellom alle punkt på en linje.
+Tolk alltid $a$ og $b$ med enhet, og sjekk om $x = 0$ gir mening.
+\end{oppsummering}

@@ -1,0 +1,355 @@
+% =====================================================================
+%  3.1 Funksjonsbegrepet og lineære funksjoner — teori og oppgaver
+% =====================================================================
+
+\del{1}{Hva er en funksjon?}
+
+\begin{ordliste}
+funksjon & En regel som gir nøyaktig én verdi ut for hver tillatte verdi av $x$. & \mittsprak\\
+funksjonsverdi & Verdien $f(x)$ du får når du setter inn en bestemt $x$. & \mittsprak\\
+definisjonsmengde & Alle $x$-verdiene vi får lov å sette inn. Skrives $D_f$. & \mittsprak\\
+verdimengde & Alle verdiene $f(x)$ kan få. Skrives $V_f$. & \mittsprak\\
+graf & Alle punkt $(x, f(x))$ tegnet i et koordinatsystem. & \mittsprak\\
+\end{ordliste}
+
+\begin{mustkunne}
+\textbf{Definisjon.} En funksjon $f$ gir \emph{nøyaktig én} verdi $f(x)$ for hver $x$ i definisjonsmengden $D_f$.
+Verdimengden $V_f$ er alle verdiene $f(x)$ kan få. Én funksjon kan vises på fire måter:
+\medskip
+
+\begin{minipage}[t]{0.23\linewidth}
+\textbf{Formel}\par
+$f(x) = 2x + 1$
+\end{minipage}\hfill
+\begin{minipage}[t]{0.23\linewidth}
+\textbf{Tabell}\par
+\small
+\begin{tabular}[t]{@{}c|ccc@{}}
+$x$ & 0 & 1 & 2\\ \hline
+$f(x)$ & 1 & 3 & 5\\
+\end{tabular}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.23\linewidth}
+\textbf{Graf}\par
+
+\begin{tikzpicture}
+\begin{axis}[width=3.4cm, height=3cm, axis lines=middle, xmin=-1, xmax=3, ymin=-1, ymax=6,
+  xtick={1,2}, ytick={1,3,5}, tick label style={font=\tiny}, xlabel={$x$}, ylabel={$y$}, label style={font=\tiny}]
+\addplot[domain=-1:2.4, thick, hoved] {2*x + 1};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.23\linewidth}
+\textbf{Tekst}\par
+\small «Doble tallet og legg til 1.»
+\end{minipage}
+
+\medskip
+\textbf{Hvorfor «nøyaktig én»?} Regelen må være entydig. Da kan vi alltid si hva $f(x)$ er. Derfor er en graf bare grafen til en funksjon
+hvis hver loddrette linje treffer den \emph{høyst én gang}.
+
+\smallskip
+\begin{minipage}[t]{0.60\linewidth}
+\textbf{Naturlig definisjonsmengde.} Vi tar med alle $x$ som gir mening:\par
+\smallskip
+Nevner: $\dfrac{1}{x-3}$ krever $x \neq 3$, for vi kan ikke dele på 0.\par
+Rot: $\sqrt{x+2}$ krever $x + 2 \ge 0$, altså $x \ge -2$, for roten av et negativt tall finnes ikke.\par
+Skriv med intervall: $[-2, \rightarrow\rangle$ og $\langle\leftarrow, 3\rangle \cup \langle 3, \rightarrow\rangle$.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.37\linewidth}
+\centering
+\begin{tikzpicture}
+\begin{axis}[width=3.6cm, height=3.6cm, axis lines=middle, xmin=-1.6, xmax=1.6, ymin=-1.6, ymax=1.6,
+  xtick={-1,1}, ytick={-1,1}, tick label style={font=\tiny}, xlabel={$x$}, ylabel={$y$}, label style={font=\tiny}]
+\addplot[domain=0:360, samples=60, thick, hoved] ({cos(x)}, {sin(x)});
+\draw[dashed, red!70!black] (axis cs:0.6,-1.5) -- (axis cs:0.6,1.5);
+\addplot[only marks, mark=*, mark size=1.2pt, red!70!black] coordinates {(0.6,0.8) (0.6,-0.8)};
+\end{axis}
+\end{tikzpicture}\par
+{\footnotesize En sirkel er ikke en funksjon.}
+\end{minipage}
+
+\medskip
+\textbf{Funksjon, uttrykk og likning.} $2x + 1$ er et uttrykk. $f(x) = 2x + 1$ er en funksjon: en regel som gir en verdi for hver $x$.
+$2x + 1 = 7$ er en likning: den spør \emph{hvilken $x$} som gir funksjonsverdien 7.
+\end{mustkunne}
+
+\begin{eksempel}[1 — funksjonsverdier]
+La $f(x) = x^2 - 3x$. Finn $f(-2)$, $f(a)$ og $f(a+1)$. Er $f(a+1) = f(a) + 1$?
+
+\begin{stegtabell}
+$f(-2) = (-2)^2 - 3\cdot(-2) = 4 + 6 = 10$ & Sett inn $-2$ for $x$ og regn.\\
+$f(a) = a^2 - 3a$ & Sett inn $a$ for $x$.\\
+$f(a+1) = (a+1)^2 - 3(a+1)$ & Sett inn $a + 1$ i parentes for hver $x$.\\
+$\phantom{f(a+1)} = a^2 + 2a + 1 - 3a - 3 = a^2 - a - 2$ & Første kvadratsetning, så gang ut parentesen.\\
+$f(a) + 1 = a^2 - 3a + 1$ & Dette er noe annet enn $f(a+1)$.\\
+Kontroll med $a = 0$: & $f(1) = -2$, men $f(0) + 1 = 1$. Nei, $f(a+1) \neq f(a) + 1$.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{eksempel}[2 — definisjonsmengde]
+Finn den naturlige definisjonsmengden til $g(x) = \dfrac{\sqrt{x}}{x - 4}$.
+
+\begin{stegtabell}
+$x \ge 0$ & Roten krever at det under rottegnet ikke er negativt.\\
+$x - 4 \neq 0$, altså $x \neq 4$ & Nevneren må ikke være 0.\\
+$D_g = [0, 4\rangle \cup \langle 4, \rightarrow\rangle$ & Begge kravene må gjelde samtidig.\\
+Kontroll: & $g(9) = \frac{3}{5}$ finnes. $g(4)$ og $g(-1)$ finnes ikke.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{vanligfeil}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
+  \item $f(x+1) = f(x) + 1$ er feil. For $f(x) = x^2$ er $f(2+1) = 9$, men $f(2) + 1 = 5$.
+  \item $f(2x) = 2f(x)$ er feil. For $f(x) = x^2$ er $f(2x) = 4x^2$, men $2f(x) = 2x^2$.
+  \item Verdimengden er ikke $x$-verdiene. $V_f$ er verdiene $f(x)$. For $f(x) = x^2$ er $V_f = [0, \rightarrow\rangle$.
+  \item Ikke enhver kurve er en funksjon. Sirkelen $x^2 + y^2 = 1$ gir både $y = 1$ og $y = -1$ for $x = 0$.
+\end{itemize}
+\end{vanligfeil}
+
+\nivaahode{1}
+
+\oppg{1.1}{1}{\uh}
+La $f(x) = 3x - 5$. Regn ut.
+\begin{tasks}(3)
+  \task $f(0)$
+  \task $f(4)$
+  \task $f(-2)$
+\end{tasks}
+
+\oppg{1.2}{1}{\uh}
+Tabellen viser en funksjon $f$ med $D_f = \{-2, -1, 0, 1, 2\}$.
+\begin{center}
+\begin{tabular}{c|ccccc}
+$x$ & $-2$ & $-1$ & $0$ & $1$ & $2$\\ \hline
+$f(x)$ & $3$ & $0$ & $-1$ & $0$ & $3$\\
+\end{tabular}
+\end{center}
+\begin{tasks}(1)
+  \task Hva er $f(2)$?
+  \task For hvilke $x$ er $f(x) = 0$?
+  \task Skriv opp verdimengden $V_f$.
+\end{tasks}
+
+\oppg{1.3}{1}{\uh}
+Finn den naturlige definisjonsmengden. Svar med intervall eller «alle tall unntatt …».
+\begin{tasks}(3)
+  \task $f(x) = \dfrac{1}{x+5}$
+  \task $g(x) = \sqrt{x - 1}$
+  \task $h(x) = 3x^2 - 2$
+\end{tasks}
+
+\nivaahode{2}
+
+\oppg{1.4}{2}{\uh}
+La $f(x) = 2x^2 - x$.
+\begin{tasks}(1)
+  \task Regn ut $f(-1)$.
+  \task Finn et uttrykk for $f(2a)$.
+  \task Finn et uttrykk for $f(a+2)$.
+  \task Er $f(2a) = 2f(a)$? Begrunn svaret.
+\end{tasks}
+
+\oppg{1.5}{2}{\uh}
+Finn den naturlige definisjonsmengden. Svar med intervall.
+\begin{tasks}(3)
+  \task $g(x) = \sqrt{6 - 2x}$
+  \task $h(x) = \dfrac{x}{x^2 - 9}$
+  \task $k(x) = \dfrac{1}{\sqrt{x+1}}$
+\end{tasks}
+
+\oppg{1.6}{2}{\uh}
+La $f(x) = x^2 - 4x$. Finn \textbf{den første feilen} i utregningen av $f(a-1)$. Regn riktig.
+\[ f(a-1) = (a-1)^2 - 4(a-1) \quad\longrightarrow\quad a^2 - 1 - 4a + 4 \quad\longrightarrow\quad a^2 - 4a + 3 \]
+
+\oppg{1.7}{2}{\uh}
+La $h(x) = 5 - 2x$.
+\begin{tasks}(1)
+  \task Regn ut $h(4)$.
+  \task Løs likningen $h(x) = 9$.
+  \task Forklar forskjellen på oppgave a) og b). Hva er gitt, og hva er ukjent?
+\end{tasks}
+
+\nivaahode{3}
+
+\oppg{1.8}{3}{\uh}
+Er sammenhengen en funksjon? Begrunn hvert svar.
+\begin{tasks}(2)
+  \task Elev $\to$ elevens fødselsdato
+  \task Fødselsdato $\to$ elev
+  \task Tall $x \to$ kvadratet $x^2$
+  \task Tall $x \to$ tall $y$ med $y^2 = x$
+\end{tasks}
+
+\oppg{1.9}{3}{\uh}
+\begin{tasks}(1)
+  \task Lag selv en funksjon $f$ med $D_f = [1, 5]$ og $V_f = [2, 10]$.
+  \task Finnes det flere slike funksjoner?
+  \task Kan en lineær funksjon som synker, ha disse to mengdene? Begrunn.
+\end{tasks}
+
+\oppg{1.10}{3}{\uh}
+Funksjonen $f(x) = \dfrac{\sqrt{x - a}}{x - b}$ har definisjonsmengden $D_f = [3, 7\rangle \cup \langle 7, \rightarrow\rangle$.
+Finn $a$ og $b$. Forklar hvordan du tenker.
+
+\begin{sjekk}
+\begin{tasks}(2)
+  \task La $f(x) = 4 - x$. Regn ut $f(-3)$.
+  \task Finn definisjonsmengden til $\sqrt{x - 6}$.
+  \task! Forklar hvorfor en sirkel ikke er grafen til en funksjon.
+\end{tasks}
+\end{sjekk}
+
+% ---------------------------------------------------------------------
+
+\del{2}{Lineære funksjoner}
+
+\begin{ordliste}
+lineær funksjon & En funksjon på formen $f(x) = ax + b$. Grafen er en rett linje. & \mittsprak\\
+stigningstall & Tallet $a$. Hvor mye $f(x)$ endres når $x$ øker med 1. & \mittsprak\\
+konstantledd & Tallet $b$. Verdien $f(0)$, der linjen skjærer $y$-aksen. & \mittsprak\\
+proporsjonal funksjon & En lineær funksjon med $b = 0$, altså $f(x) = ax$. & \mittsprak\\
+\end{ordliste}
+
+\begin{mustkunne}
+\begin{minipage}[t]{0.52\linewidth}
+\textbf{Stigningstallet.} For $f(x) = ax + b$ er
+\[ a = \frac{\Delta y}{\Delta x} = \frac{y_2 - y_1}{x_2 - x_1} \]
+\textbf{Hvorfor er $a$ det samme overalt?} Når $x$ øker med 1, endres $f(x)$ alltid med
+\[ f(x+1) - f(x) = a(x+1) + b - ax - b = a \]
+Like store steg i $x$ gir like store endringer i $f(x)$. Derfor blir grafen en rett linje, og alle stigningstrekanter gir samme tall $a$.\par
+\smallskip
+\textbf{Finne $f$ gjennom to punkt:} regn ut $a$, sett inn ett punkt og løs for $b$.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.45\linewidth}
+\centering
+\begin{tikzpicture}
+\begin{axis}[width=\linewidth, height=0.8\linewidth, axis lines=middle, xmin=-1, xmax=7, ymin=-1, ymax=5,
+  xtick={2,6}, ytick={1,2,4}, tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$}, label style={font=\small}]
+\addplot[domain=-1:7, thick, hoved] {0.5*x + 1};
+\draw[red!70!black, thick] (axis cs:0,1) -- (axis cs:2,1) node[midway, below, font=\scriptsize] {$\Delta x = 2$} -- (axis cs:2,2) node[midway, right, font=\scriptsize] {$\Delta y = 1$};
+\draw[red!70!black, thick] (axis cs:2,2) -- (axis cs:6,2) node[midway, below, font=\scriptsize] {$\Delta x = 4$} -- (axis cs:6,4) node[midway, right, font=\scriptsize] {$\Delta y = 2$};
+\end{axis}
+\end{tikzpicture}\par
+{\footnotesize Begge trekantene gir $a = \frac{1}{2}$.}
+\end{minipage}
+\end{mustkunne}
+
+\begin{eksempel}[1 — funksjon gjennom to punkt]
+Finn $f(x) = ax + b$ når grafen går gjennom $(-1, 5)$ og $(3, -3)$.
+
+\begin{stegtabell}
+$a = \dfrac{-3 - 5}{3 - (-1)} = \dfrac{-8}{4} = -2$ & Stigningstallet: $\frac{\Delta y}{\Delta x}$.\\
+$5 = -2 \cdot (-1) + b$ & Sett inn punktet $(-1, 5)$ i $f(x) = -2x + b$.\\
+$b = 3$ & Løs likningen $5 = 2 + b$.\\
+$f(x) = -2x + 3$ & Sett $a$ og $b$ inn i funksjonen.\\
+Kontroll: & $f(-1) = 2 + 3 = 5$ og $f(3) = -6 + 3 = -3$. Begge punkt stemmer.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{eksempel}[2 — tolke $a$ og $b$]
+Et treningssenter tar 400 kr i innmelding og 290 kr per måned. Sett opp en funksjon for totalprisen $f(x)$ etter $x$ måneder.
+
+\begin{stegtabell}
+$f(x) = 290x + 400$ & Pris per måned ganger antall måneder, pluss innmelding.\\
+$a = 290$ kr per måned & Stigningstallet: prisen øker med 290 kr for hver måned.\\
+$b = 400$ kr & Konstantleddet er $f(0)$: det du har betalt før første måned. Her gir $x = 0$ mening.\\
+$f(12) = 3\,880$ kr & Totalprisen etter ett år.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{vanligfeil}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
+  \item $a = \dfrac{y_2 - y_1}{x_1 - x_2}$ er feil. Differansene må tas i samme rekkefølge. Punktene $(1, 2)$ og $(3, 6)$ gir $a = \frac{6-2}{3-1} = 2$, ikke $-2$.
+  \item $a = \dfrac{\Delta x}{\Delta y}$ er feil. Stigningstallet er endring i $y$ delt på endring i $x$, så $a = 2$, ikke $\frac{1}{2}$.
+  \item $f(x+1) = f(x) + 1$ gjelder ikke alltid. For $f(x) = 3x + 2$ øker $f(x)$ med 3, ikke 1, når $x$ øker med 1.
+  \item $b$ er ikke alltid en «startverdi». Hvis $x = 0$ ligger utenfor situasjonen, er $b$ bare verdien linjen ville hatt der.
+\end{itemize}
+\end{vanligfeil}
+
+\nivaahode{1}
+
+\oppg{2.1}{1}{\uh}
+Finn stigningstallet til linjen gjennom punktene.
+\begin{tasks}(3)
+  \task $(1, 3)$ og $(3, 9)$
+  \task $(-2, 4)$ og $(2, 0)$
+  \task $(0, 5)$ og $(4, 5)$
+\end{tasks}
+
+\oppg{2.2}{1}{\uh}
+Oppgi stigningstallet og konstantleddet. Hvilken av funksjonene er proporsjonal?
+\begin{tasks}(4)
+  \task $f(x) = 4x - 7$
+  \task $g(x) = -\dfrac{1}{2}x + 3$
+  \task $h(x) = 5x$
+  \task $k(x) = 6 - 3x$
+\end{tasks}
+
+\oppg{2.3}{1}{\uh}
+Linjen går gjennom $(2, 5)$ og $(4, 11)$. Fullfør.
+\begin{tasks}(1)
+  \task $a = \dfrac{11 - \skrivlinje[1cm]}{4 - 2} = \skrivlinje[1cm]$
+  \task Sett inn $(2, 5)$: \ $5 = \skrivlinje[1cm] \cdot 2 + b$, så $b = \skrivlinje[1cm]$
+  \task Skriv funksjonsuttrykket $f(x) = \skrivlinje[3cm]$
+\end{tasks}
+
+\nivaahode{2}
+
+\oppg{2.4}{2}{\uh}
+Finn funksjonsuttrykket til linjen gjennom punktene. Kontroller i begge punkt.
+\begin{tasks}(1)
+  \task $(-2, 9)$ og $(1, -3)$
+  \task $(-2, -4)$ og $(2, 2)$
+  \task $(4, 1)$ og $(10, -2)$
+\end{tasks}
+
+\oppg{2.5}{2}{\mh}
+En vanntank tømmes jevnt. Etter 4 minutter er det 216 liter igjen. Etter 10 minutter er det 180 liter igjen.
+La $f(x)$ være antall liter etter $x$ minutter.
+\begin{tasks}(1)
+  \task Finn $f(x)$.
+  \task Forklar hva $a$ og $b$ betyr i denne situasjonen. Bruk enheter.
+  \task Tegn grafen i GeoGebra. Når er det 90 liter igjen?
+  \task Hvor lenge renner det ut vann? Finn $D_f$ og $V_f$ for situasjonen.
+\end{tasks}
+
+\oppg{2.6}{2}{\uh}
+Linjen går gjennom $(-2, 8)$ og $(2, -4)$. Finn \textbf{den første feilen}. Regn riktig.
+\begin{align*}
+a &= \frac{-4 - 8}{2 - (-2)} = \frac{-12}{4} = -3\\
+8 &= -3 \cdot (-2) + b \quad\longrightarrow\quad 8 = -6 + b \quad\longrightarrow\quad b = 14, \text{ så } f(x) = -3x + 14
+\end{align*}
+
+\nivaahode{3}
+
+\oppg{2.7}{3}{\uh}
+La $f(x) = ax + b$. Er påstanden alltid, noen ganger eller aldri sann? Begrunn.
+\begin{tasks}(1)
+  \task $f(x+1) - f(x)$ har samme verdi for alle $x$.
+  \task $f(2x) = 2f(x)$.
+  \task Grafen til $f$ skjærer $x$-aksen i nøyaktig ett punkt.
+\end{tasks}
+
+\oppg{2.8}{3}{\uh}
+En (tenkt) modell sier at prisen på en leilighet er $P(x) = 60\,000x - 400\,000$ kroner, der $x$ er størrelsen i m$^2$ og $30 \le x \le 120$.
+\begin{tasks}(1)
+  \task Hva forteller stigningstallet? Bruk enhet.
+  \task Regn ut $P(0)$. Har svaret mening i situasjonen? Forklar.
+  \task Finn verdimengden $V_P$.
+\end{tasks}
+
+\oppg{2.9}{3}{\uh}
+Punktene $A(0, -1)$, $B(3, 5)$ og $C(7, k)$ ligger på samme linje.
+\begin{tasks}(1)
+  \task Finn $k$.
+  \task Forklar hvorfor stigningstallet mellom $A$ og $C$ må være det samme som mellom $A$ og $B$.
+\end{tasks}
+
+\begin{sjekk}
+\begin{tasks}(2)
+  \task Finn stigningstallet gjennom $(2, 1)$ og $(6, 9)$.
+  \task Hva er konstantleddet i $f(x) = 7 - 3x$?
+  \task! Hvorfor går grafen til en proporsjonal funksjon gjennom origo?
+\end{tasks}
+\end{sjekk}
