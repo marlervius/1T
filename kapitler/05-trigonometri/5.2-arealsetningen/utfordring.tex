@@ -1,0 +1,60 @@
+% =====================================================================
+%  5.2 Arealsetningen — ekstra utfordring
+% =====================================================================
+
+\begin{infoboks}{Velg metode selv}
+Arket bygger på 5.2 Arealsetningen. Vis regning og begrunnelse. Bruk eksakte svar når oppgaven er uten hjelpemidler.
+Kontroller svaret ved å regne på en annen måte.
+\end{infoboks}
+
+\nivaahode{2}
+
+\oppg{U1}{2}{\uh}
+En regulær sekskant har side $4$. Del den i seks like trekanter fra midtpunktet. Finn arealet av sekskanten eksakt.
+
+\oppg{U2}{2}{\mh}
+Et trekantet beite har to sider på $50$ m og $80$ m og et areal på $1\,600$ m$^2$.
+\begin{tasks}(1)
+  \task Finn vinkelen mellom de to sidene. Svar med én desimal.
+  \task Hvor mange ulike beiter finnes? Tegn en skisse av dem.
+\end{tasks}
+
+\oppg{U3}{2}{\uh}
+Av alle trekanter der to av sidene er $7$ og $12$, hvilken har størst areal? Finn arealet og begrunn.
+
+\nivaahode{3}
+
+\oppg{U4}{3}{\uh}
+Et parallellogram har sidene $a$ og $b$, og vinkelen mellom dem er $v$. Vis at arealet er $ab\sin v$.
+Gjelder det også når $v$ er stump? Forklar.
+
+\oppg{U5}{3}{\uh}
+En regulær $n$-kant er innskrevet i en sirkel med radius $1$. Del den i $n$ trekanter fra sirkelens midtpunkt.
+\begin{tasks}(1)
+  \task Vis at arealet av $n$-kanten er $T_n = \dfrac{n}{2}\sin\dfrac{360^\circ}{n}$.
+  \task Regn ut $T_4$, $T_6$ og $T_{12}$ eksakt.
+\end{tasks}
+
+\oppg{U6}{3}{\prog}
+Se på programmet.
+\begin{kode}
+import math
+
+n = 6
+while n <= 1536:
+    T = n / 2 * math.sin(math.radians(360 / n))
+    print(n, T)
+    n = n * 2
+\end{kode}
+\begin{tasks}(1)
+  \task Hva skriver programmet ut på linjene for $n = 6$ og $n = 12$? Regn eksakt og forklar uten å kjøre det.
+  \task Kjør programmet. Hvilket tall nærmer $T_n$ seg? Sammenlign med \lstinline[style=laereverk,numbers=none,frame=none]|math.pi|.
+  \task Forklar hvorfor $T_n$ nærmer seg akkurat dette tallet.
+  \task Hvorfor trengs \lstinline[style=laereverk,numbers=none,frame=none]|math.radians| i programmet?
+\end{tasks}
+
+\begin{oppsummering}
+Arealsetningen $T = \frac12 ab\sin C$ gjelder for alle trekanter, også med stump vinkel.
+Når arealet er kjent, gir $\sin C$ to vinkler, $v$ og $180^\circ - v$, så sant sinusverdien er mindre enn $1$.
+Kontroller alltid om begge vinklene gir en trekant.
+\end{oppsummering}

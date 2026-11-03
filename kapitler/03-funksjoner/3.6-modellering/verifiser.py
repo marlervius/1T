@@ -1,5 +1,5 @@
 """Regner alle svar i 3.6 Modellering på nytt (numpy for regresjon, sympy for resten).
-R^2 regnes slik et digitalt verktøy gjør det: 1 - SSE/SST på y-verdiene."""
+R^2 regnes her som 1 - SSE/SST på y-verdiene. Verktøy kan regne litt annerledes, særlig for eksponentiell og potens."""
 from kontroll import *
 import numpy as np
 
@@ -73,7 +73,8 @@ chk("Eks 1.1 vekst %", round((Ba - 1) * 100), 44)
 chk("Eks 1.1 R2 eks", round(r2(ya, [Aa * Ba**v for v in xa]), 3), 1.0, tol=0.001)
 a_l, b_l = lin(xa, ya)
 chk("Eks 1.1 R2 lin", round(r2(ya, [a_l * v + b_l for v in xa]), 2), 0.94)
-chk("Eks 1.1 f(5)", round(Aa * Ba**5, 1), 12.8)
+chk("Eks 1.1 f(5) urundet", round(Aa * Ba**5, 1), 12.8)
+chk("Eks 1.1 f(5) avrundet modell", round(2.09 * 1.44**5, 1), 12.9)
 
 # ---------- Eksempel 2: turlag, variabelvalg ----------
 ar = list(range(2010, 2016))
@@ -170,12 +171,6 @@ sant("1.8 lin R2", r2(y8, [l8[0] * v + l8[1] for v in x8]) < 0.96, "lineær R2 u
 chk("1.8 b", round(b8, 2), 1.5)
 aapen("1.8 begrunnelse", "Forklar valget: faktor 1,5 for hvert steg")
 
-# 1.9: x dobles og y dobles, men x øker ikke med 1
-chk("1.9", type_av([1, 2, 4, 8], [6, 12, 24, 48]), "potens")
-sant("1.9 y=6x", all(6 * v == w for v, w in zip([1, 2, 4, 8], [6, 12, 24, 48])), "y = 6x")
-chk("1.9 fra x=1 til 3 med 6x", [6 * 3], [18])
-sant("1.9 eks passer ikke", abs(eks([1, 2, 4, 8], [6, 12, 24, 48])[0] * eks([1, 2, 4, 8], [6, 12, 24, 48])[1] ** 3 - 18) > 3, "eksponentiell modell gir feil verdi for x=3")
-
 # Sjekk 1
 chk("Sjekk 1a", type_av([0, 1, 2, 3], [80, 40, 20, 10]), "eksponentiell")
 chk("Sjekk 1a faktor", Rational(40, 80), Rational(1, 2))
@@ -212,36 +207,37 @@ chk("2.1a", -2 * 4 + 60, 52)
 chk("2.1b", -2 * 35 + 60, -10)
 los("2.1c", Eq(-2 * x + 60, 0), [30])
 aapen("2.2", "tre omskrivinger med forbehold")
-chk("2.3a", r2([1, 2, 3], [1, 2, 3]), 1)
-aapen("2.3b", "R2 = 0,12: modellen passer dårlig")
-aapen("2.3c", "R2 = 0,6: se på punktplott, prøv annen modelltype")
+aapen("2.2d", "R2 = 0,12: modellen passer dårlig")
+sant("2.2d R2 = 1", abs(r2([1, 2, 3], [1, 2, 3]) - 1) < 1e-12, "R2 = 1 betyr at alle punkter ligger på kurven")
 
 # ---------- Nivå 2 ----------
 xb = list(range(8))
 yb = [12, 25, 33, 38, 36, 31, 22, 9]
 cb = kv(xb, yb)
-chk("2.4a a", round(cb[0], 2), -2.19)
-chk("2.4a b", round(cb[1], 1), 14.8)
-chk("2.4a c", round(cb[2], 1), 12.3, tol=0.06)
-chk("2.4a R2", round(r2(yb, np.polyval(cb, xb)), 3), 0.998, tol=0.001)
-chk("2.4b x", round(-cb[1] / (2 * cb[0]), 1), 3.4)
-chk("2.4b y", round(float(np.polyval(cb, -cb[1] / (2 * cb[0]))), 1), 37.3, tol=0.06)
-chk("2.4c f(8)", round(float(np.polyval(cb, 8)), 1), -9.5, tol=0.06)
-chk("2.4d nullpunkt", round(max(np.roots(cb)), 1), 7.5)
+chk("2.3a a", round(cb[0], 2), -2.19)
+chk("2.3a b", round(cb[1], 1), 14.8)
+chk("2.3a c", round(cb[2], 1), 12.3, tol=0.06)
+chk("2.3a R2", round(r2(yb, np.polyval(cb, xb)), 3), 0.998, tol=0.001)
+chk("2.3b x", round(-cb[1] / (2 * cb[0]), 1), 3.4)
+chk("2.3b y", round(float(np.polyval(cb, -cb[1] / (2 * cb[0]))), 1), 37.3, tol=0.06)
+chk("2.3c f(8)", round(float(np.polyval(cb, 8)), 1), -9.5, tol=0.06)
+chk("2.3d nullpunkt", round(max(np.roots(cb)), 1), 7.5)
 
 # 2.5 Fjellvik
-chk("2.5a", [6080 - 5200, Rational(6080 - 5200, 8)], [880, 110])
-chk("2.5b", round((6080 - 5200) / 5200 * 100, 1), 16.9)
-chk("2.5c tre punkter", [5200 + 110 * 4, 5200 + 110 * 8], [5640, 6080])
-chk("2.5c 2040", 5200 + 110 * 25, 7950)
-chk("2.5d", Rational(8500 - 5200, 25), Rational(132))
+chk("2.4a", [6080 - 5200, Rational(6080 - 5200, 8)], [880, 110])
+chk("2.4b", round((6080 - 5200) / 5200 * 100, 1), 16.9)
+chk("2.4c tre punkter", [5200 + 110 * 4, 5200 + 110 * 8], [5640, 6080])
+chk("2.4c 2040", 5200 + 110 * 25, 7950)
+chk("2.4d", Rational(8500 - 5200, 25), Rational(132))
+chk("2.4d eksp 2040", round(5200 * (6080 / 5200) ** (25 / 8)), 8476)
+chk("2.4d tillegg per 4 år", [5640 - 5200, 6080 - 5640], [440, 440])
 
 # 2.6 finn første feil
-los("2.6 pil 1", Eq(Rational(5, 2) * x + 40, 100), [24])
-chk("2.6 pil 2", 100 - 40, 60)
-chk("2.6 pil 3 riktig", Rational(60) / Rational(5, 2), 24)
-sant("2.6 pil 3 feil", Rational(60) / Rational(5, 2) != 25, "60 / 2,5 er 24, ikke 25")
-chk("2.6 år", 2020 + 24, 2044)
+los("2.5 pil 1", Eq(Rational(5, 2) * x + 40, 100), [24])
+chk("2.5 pil 2", 100 - 40, 60)
+chk("2.5 pil 3 riktig", Rational(60) / Rational(5, 2), 24)
+sant("2.5 pil 3 feil", Rational(60) / Rational(5, 2) != 25, "60 / 2,5 er 24, ikke 25")
+chk("2.5 år", 2020 + 24, 2044)
 
 # ---------- Nivå 3 ----------
 # 2.7a: høyest R2 er ikke alltid best for prognose (se bilpris-data i U7: R2 høyest for andregrad)
@@ -249,37 +245,38 @@ xbil = list(range(1, 9))
 ybil = [310, 262, 224, 193, 170, 153, 142, 138]
 cbil = kv(xbil, ybil)
 abil, bbil = eks(xbil, ybil)
-sant("2.7a", r2(ybil, np.polyval(cbil, xbil)) > r2(ybil, [abil * bbil**v for v in xbil]) and np.polyval(cbil, 15) > np.polyval(cbil, 8),
+sant("2.6a nestet", all(r2(ybil, np.polyval(kv(xbil, ybil), xbil)) >= r2(ybil, np.polyval(np.polyfit(xbil, ybil, 1), xbil)) for _ in [0]), "andregrad >= lineær R2")
+sant("2.6a", r2(ybil, np.polyval(cbil, xbil)) > r2(ybil, [abil * bbil**v for v in xbil]) and np.polyval(cbil, 15) > np.polyval(cbil, 8),
      "andregrad har høyere R2, men gir stigende pris etter 8 år")
 # 2.7b: negativt stigningstall gir negative verdier til slutt
-los("2.7b", Eq(-0.5 * x + 20, 0), [40])
+los("2.6b", Eq(-0.5 * x + 20, 0), [40])
 # 2.7c: skift av x endrer a, ikke b
 xs_ar = [2010 + v for v in range(6)]
 ys_e = [100, 111, 124, 137, 152, 168]
 ar_, br_ = eks(range(6), ys_e)
 ar2_, br2_ = eks(xs_ar, ys_e)
-sant("2.7c", abs(br_ - br2_) < 1e-6 and abs(ar2_ - ar_ * br_ ** (-2010)) / ar2_ < 1e-6, "b er lik, a skaleres med b^(-2010)")
+sant("2.6c", abs(br_ - br2_) < 1e-6 and abs(ar2_ - ar_ * br_ ** (-2010)) / ar2_ < 1e-6, "b er lik, a skaleres med b^(-2010)")
 
 # 2.8 fiber
 xf = list(range(6))
 yf = [100, 111, 124, 137, 152, 168]
 alf, blf = lin(xf, yf)
 aef, bef = eks(xf, yf)
-chk("2.8a lin a", round(alf, 1), 13.6)
-chk("2.8a lin b", round(blf), 98)
-chk("2.8a eks a", round(aef), 100)
-chk("2.8a eks b", round(bef, 2), 1.11)
-chk("2.8a R2 lin", round(r2(yf, [alf * v + blf for v in xf]), 3), 0.996, tol=0.001)
-chk("2.8a R2 eks", round(r2(yf, [aef * bef**v for v in xf]), 4), 0.9998, tol=0.0002)
-chk("2.8b lin", round(alf * 15 + blf), 302)
-chk("2.8b eks", float(f"{aef * bef**15:.2g}"), 480)
-chk("2.8b eks avrundet modell", float(f"{100 * 1.11**15:.2g}"), 480)
-aapen("2.8c", "Argumenter ut fra situasjonen: markedet metter seg, vekst i prosent kan ikke fortsette")
+chk("2.7a lin a", round(alf, 1), 13.6)
+chk("2.7a lin b", round(blf), 98)
+chk("2.7a eks a", round(aef), 100)
+chk("2.7a eks b", round(bef, 2), 1.11)
+chk("2.7a R2 lin", round(r2(yf, [alf * v + blf for v in xf]), 3), 0.996, tol=0.001)
+chk("2.7a R2 eks", round(r2(yf, [aef * bef**v for v in xf]), 4), 0.9998, tol=0.0002)
+chk("2.7b lin", round(alf * 15 + blf), 302)
+chk("2.7b eks", float(f"{aef * bef**15:.2g}"), 480)
+chk("2.7b eks avrundet modell", float(f"{100 * 1.11**15:.2g}"), 480)
+aapen("2.7c", "Argumenter ut fra situasjonen: markedet metter seg, vekst i prosent kan ikke fortsette")
 
 # 2.9 befolkning
-chk("2.9a", round(5 * 1.015**200), 98)
-aapen("2.9b", "Ressurser og plass er begrenset")
-aapen("2.9c", "Kurve som flater ut mot en øvre grense")
+chk("2.8a", round(5 * 1.015**200), 98)
+aapen("2.8b", "Ressurser og plass er begrenset")
+aapen("2.8c", "Kurve som flater ut mot en øvre grense")
 
 # Sjekk 2
 los("Sjekk 2a", Eq(-4 * x + 50, 0), [Rational(25, 2)])
@@ -287,31 +284,26 @@ aapen("Sjekk 2b", "Ifølge modellen ...")
 aapen("Sjekk 2c", "Prognose utenfor dataene er usikker")
 
 # ================= UTFORDRING =================
-# U1: modelltype ut fra situasjon
-chk("U1a", type_av(range(5), [1000 * Rational(88, 100) ** i for i in range(5)]), "eksponentiell")
-chk("U1b", type_av(range(5), [30 + 4 * i for i in range(5)]), "lineær")
-chk("U1c", type_av([1, 2, 4, 8], [v**2 for v in [1, 2, 4, 8]]), "potens")
-chk("U1d", type_av(range(5), [3 * 2**i for i in range(5)]), "eksponentiell")
-
 # U2 fisk
 xfi = [10, 15, 20, 30, 40]
 yfi = [12, 40, 95, 320, 760]
-chk("U2a", [round(95 / 12, 1), round(760 / 95, 1)], [7.9, 8.0], tol=0.06)
+chk("U1a", [round(95 / 12, 1), round(760 / 95, 1)], [7.9, 8.0], tol=0.06)
 afi, bfi = pot(xfi, yfi)
-chk("U2b a", round(afi, 4), 0.0121)
-chk("U2b b", round(bfi, 2), 2.99)
-chk("U2c", round(2**bfi), 8)
-chk("U2d", float(f"{afi * 60**bfi:.2g}"), 2600, tol=60)
-chk("U2d avrundet modell", float(f"{0.0121 * 60**2.99:.2g}"), 2500, tol=60)
-chk("U2 R2", round(r2(yfi, [afi * v**bfi for v in xfi]), 3), 1.0, tol=0.001)
+chk("U1b a", round(afi, 4), 0.0121)
+chk("U1b b", round(bfi, 2), 2.99)
+chk("U1c", round(2**bfi), 8)
+chk("U1d", float(f"{afi * 60**bfi:.2g}"), 2600, tol=60)  # 2 500-2 600 g, avhenger av verktøy
+chk("U1d avrundet modell", float(f"{0.0121 * 60**2.99:.2g}"), 2500, tol=60)
+chk("U1 R2", round(r2(yfi, [afi * v**bfi for v in xfi]), 3), 1.0, tol=0.001)
 
 # U3 app-avis
-chk("U3a", [Rational(90000, 50000), Rational(162000, 90000)], [Rational(9, 5), Rational(9, 5)])
-sant("U3 tall", 50000 * 1.8**8 > 5.5e6 and 50000 * 1.8**7 < 5.5e6, "5,5 millioner nås etter 8 år, ikke 7")
-chk("U3c", round(50000 * 1.8**8 / 1e6, 2), 5.51)
-chk("U3b", [round(v, 2) for v in eks([0, 1, 2], [50000, 90000, 162000])], [50000.0, 1.8])
-chk("U3 x når 5,5 mill", round(float(log(110) / log(1.8)), 2), 8.0, tol=0.01)
-aapen("U3d", "Vurder: modellen bygger på tre punkter, 'alle' er urealistisk, vekst må flate ut")
+chk("U2a", [Rational(90000, 50000), Rational(162000, 90000)], [Rational(9, 5), Rational(9, 5)])
+sant("U2 tall", 50000 * 1.8**8 > 5.5e6 and 50000 * 1.8**7 < 5.5e6, "5,5 millioner nås etter 8 år, ikke 7")
+chk("U2c", round(50000 * 1.8**8 / 1e6, 2), 5.51)
+chk("U2b", [round(v, 2) for v in eks([0, 1, 2], [50000, 90000, 162000])], [50000.0, 1.8])
+chk("U2 knivsegg", round(50000 * 1.79**8 / 1e6, 2), 5.27)
+chk("U2 x når 5,5 mill", round(float(log(110) / log(1.8)), 2), 8.0, tol=0.01)
+aapen("U2d", "Vurder: modellen bygger på tre punkter, 'alle' er urealistisk, vekst må flate ut")
 
 # U4 program
 xs_p = [14, 17, 20, 23, 26, 29]
@@ -333,36 +325,49 @@ b = y_snitt - a * x_snitt
 ns = {}
 exec(kode, ns)
 a_np, b_np = lin(xs_p, ys_p)
-chk("U4a", [round(ns["a"], 4), round(ns["b"], 2)], [2.6571, -15.30], tol=0.006)
-chk("U4b", [round(a_np, 4), round(b_np, 2)], [2.6571, -15.30], tol=0.006)
-chk("U4 snitt", [ns["x_snitt"], ns["y_snitt"]], [21.5, 41.8333333], tol=1e-6)
+chk("U3a", [round(ns["a"], 4), round(ns["b"], 2)], [2.6571, -15.30], tol=0.006)
+chk("U3b", [round(a_np, 4), round(b_np, 2)], [2.6571, -15.30], tol=0.006)
+chk("U3 snitt", [ns["x_snitt"], ns["y_snitt"]], [21.5, 41.8333333], tol=1e-6)
 
 # U5 lag selv: potens
 x5 = [1, 2, 4, 8, 16]
 y5 = [2, 6, 17, 50, 150]
 a5, b5 = pot(x5, y5)
-sant("U5 pot", r2(y5, [a5 * v**b5 for v in x5]) > 0.999, "potens R2 over 0,999")
-sant("U5 eks", r2(y5, [eks(x5, y5)[0] * eks(x5, y5)[1] ** v for v in x5]) < 0.7, "eksponentiell passer dårlig")
-chk("U5 forhold", [round(y5[i + 1] / y5[i], 1) for i in range(4)], [3.0, 2.8, 2.9, 3.0], tol=0.06)
-aapen("U5", "Lag selv: x dobles, y ganges med omtrent samme tall")
+sant("U4 pot", r2(y5, [a5 * v**b5 for v in x5]) > 0.999, "potens R2 over 0,999")
+sant("U4 eks", r2(y5, [eks(x5, y5)[0] * eks(x5, y5)[1] ** v for v in x5]) < 0.7, "eksponentiell passer dårlig")
+chk("U4 forhold", [round(y5[i + 1] / y5[i], 1) for i in range(4)], [3.0, 2.8, 2.9, 3.0], tol=0.06)
+aapen("U4", "Lag selv: x dobles, y ganges med omtrent samme tall")
 
 # U6 bevis og tall
 xm, ym, am, bm = symbols("xm ym am bm")
-chk("U6a", (am * xm + (ym - am * xm)) - ym, 0)
-chk("U6b", 20 - 3.0 * 4, 8)
+chk("U5a", (am * xm + (ym - am * xm)) - ym, 0)
+# U5b: forskyv alle x med k. Stigningstallet er uendret, konstantleddet blir b - a*k
+xs_s, ys_s, ks = symbols("xs ys ks")
+xv_ = [Rational(v) for v in [1, 2, 4, 7]]
+yv_ = [Rational(v) for v in [3, 4, 8, 9]]
+def _ab(xl, yl):
+    xm_, ym_ = sum(xl) / len(xl), sum(yl) / len(yl)
+    a_ = sum((p - xm_) * (q - ym_) for p, q in zip(xl, yl)) / sum((p - xm_) ** 2 for p in xl)
+    return a_, ym_ - a_ * xm_
+a_0, b_0 = _ab(xv_, yv_)
+a_k, b_k = _ab([p + 2010 for p in xv_], yv_)
+chk("U5b a uendret", a_k, a_0)
+chk("U5b b", b_k, b_0 - a_0 * 2010)
+chk("U5b eks 1.2", round(float(211.6667 - 17.0 * 2010)), -33958)
 
 # U7 bilpris
-chk("U7a a", round(cbil[0], 2), 3.54)
-chk("U7a b", round(cbil[1], 1), -56.1)
-chk("U7a c", round(cbil[2]), 361)
-chk("U7a R2", round(r2(ybil, np.polyval(cbil, xbil)), 4), 0.9998, tol=0.0002)
-chk("U7b", round(float(np.polyval(cbil, 15))), 315)
-chk("U7b vertex", round(-cbil[1] / (2 * cbil[0]), 1), 7.9)
-chk("U7c a", round(abil), 327)
-chk("U7c b", round(bbil, 2), 0.89)
-chk("U7c R2", round(r2(ybil, [abil * bbil**v for v in xbil]), 2), 0.97)
-chk("U7c 15", round(abil * bbil**15), 55)
-aapen("U7d", "Forklar hvorfor en bruktbil ikke blir dyrere av å bli eldre")
+chk("U6a a", round(cbil[0], 2), 3.54)
+chk("U6a b", round(cbil[1], 1), -56.1)
+chk("U6a c", round(cbil[2]), 361)
+chk("U6a R2", round(r2(ybil, np.polyval(cbil, xbil)), 4), 0.9998, tol=0.0002)
+chk("U6b", round(float(np.polyval(cbil, 15))), 315)
+sant("U6b dyrere enn ett år", np.polyval(cbil, 15) > np.polyval(cbil, 1) and abs(float(np.polyval(cbil, 1)) - 308.75) < 0.01, "f(15)=315,25 > f(1)=308,75")
+chk("U6b vertex", round(-cbil[1] / (2 * cbil[0]), 1), 7.9)
+chk("U6c a", round(abil), 327)
+chk("U6c b", round(bbil, 2), 0.89)
+chk("U6c R2", round(r2(ybil, [abil * bbil**v for v in xbil]), 2), 0.97)
+chk("U6c 15", round(abil * bbil**15), 55)
+aapen("U6d", "Forklar hvorfor en bruktbil ikke blir dyrere av å bli eldre")
 
 print(ns["a"], ns["b"])
 rapport()
