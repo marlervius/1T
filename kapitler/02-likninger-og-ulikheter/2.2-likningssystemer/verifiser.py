@@ -120,7 +120,7 @@ chk("1.9a", solve(Eq(3*2 + a_*5, 21), a_), [3])
 chk("1.9b", solve(Eq(b_*2 - 5, 3), b_), [4])
 
 chkp("Sjekk 1a", [Eq(y, 2*x + 1), Eq(x + y, 7)], (2, 5))
-chk("Sjekk 1b", Poly(5*x - 3*y, y).coeffs()[0], -3)
+chk("Sjekk 1b", Poly(7*x - 4*y, y).coeffs()[0], -4)
 aapen("Sjekk 1c", "Løsningen må passe i begge likninger; et par kan passe i bare én")
 
 # ---------- Del 2 ----------
@@ -158,10 +158,12 @@ chk("2.7b2", sys_a(6, 0), [])
 chk("2.7c", [len(sys_a(av, 7)) for av in (1, 2, 5, -4)], [1, 1, 1, 1])
 chk("2.7c det", 2*3 - a_*1, 6 - a_)
 
-# 2.8 linje og parabel
-chk("2.8a", solve([Eq(y, x**2), Eq(y, 4*x)], [x, y], dict=True), [{x: 0, y: 0}, {x: 4, y: 16}])
-chk("2.8a fakt", factor(x**2 - 4*x), x*(x - 4))
-chk("2.8b", [r for r in solve(Eq(x**2, -4), x) if r.is_real], [])
+# 2.8 innsetting med parabel
+chk("2.8a", solve([Eq(y, x**2 + 2*x), Eq(y, 2*x + 9)], [x, y], dict=True), [{x: -3, y: 3}, {x: 3, y: 15}])
+chk("2.8a kontroll", [(-3)**2 + 2*(-3) == 3, 2*(-3) + 9 == 3, 3**2 + 2*3 == 15, 2*3 + 9 == 15], [True]*4)
+chk("2.8b c>0", sorted(solve(Eq(x**2, 4), x)), [-2, 2])
+chk("2.8b c=0", solve(Eq(x**2, 0), x), [0])
+chk("2.8b c<0", [r for r in solve(Eq(x**2, -4), x) if r.is_real], [])
 
 chk("Sjekk 2a", sys2([Eq(y, -x + 2), Eq(y, -x + 6)]), [])
 aapen("Sjekk 2b", "0 = 0 betyr sammenfallende linjer, uendelig mange løsninger")
@@ -183,25 +185,18 @@ chk("U4c", sys2([Eq(x + 2*y, 3), Eq(2*x + 4*y, 6)]), "alle")
 chk("U4c ingen", sys2([Eq(x + 2*y, 3), Eq(2*x + 4*y, 7)]), [])
 
 
-def los(a, b, c, d, e, f):
-    D = a*e - b*d
-    if D == 0:
-        return "ingen eller uendelig mange løsninger"
-    return ((c*e - b*f)/D, (a*f - c*d)/D)
+import re as _re
+_fasit = open(__file__.replace("verifiser.py", "fasit.tex"), encoding="utf-8").read()
+_kode = _re.search(r"\\begin\{kode\}\n(.*?)\\end\{kode\}", _fasit, _re.S).group(1)
+_ns = {}
+exec(_kode, _ns)
+los = _ns["los"]
 
-
-import builtins
 chk("U5a", los(2, 3, 12, 5, -2, 11), (3.0, 2.0))
 chk("U5b", los(2, -1, 3, -4, 2, 6), "ingen eller uendelig mange løsninger")
 chk("U5b2", los(3, 2, 4, 2, 5, 21), (-2.0, 5.0))
 aapen("U5c", "Fordeler og ulemper ved formel mot prøv-alle")
-treff = [(p, q) for p in range(21) for q in range(21) if 3*p + 2*q == 61 and 2*p + 4*q == 62]
-sant("U5c prøv alle", treff == [(15, 8)], "prøv alle gir ett par")
 
-chk("U6a", solve([Eq(y, x**2), Eq(y, 2*x - 1)], [x, y], dict=True), [{x: 1, y: 1}])
-chk("U6a fakt", factor(x**2 - 2*x + 1), (x - 1)**2)
-chk("U6b ingen", [r for r in solve(Eq(x**2, 2*x - 3), x) if r.is_real], [])
-chk("U6b to", sorted(solve(Eq(x**2, x + 6), x)), [-2, 3])
 
 # ---------- Steg for steg: eksempler og «finn feilen» ----------
 sant("Steg Eks 1.1 a", expand(3*x + (2*x - 1)) == 5*x - 1 and 5*x - 1 - 9 == 5*x - 10, "3x+(2x-1)=9 gir 5x=10")
@@ -219,9 +214,25 @@ sant("Steg 1.6 pil4", 2*2 + 3*y - 13 == 3*y - 9, "3y = 13 - 4 = 9")
 sant("Steg 1.6 pil5 FEIL", 13 + 4 != 13 - 4, "feil: 3y=13+4")
 sant("Steg 1.6 pil6", Rational(17, 3) == Rational(17, 3), "y=17/3 følger av feilen")
 sant("Steg 2.6 pil1", expand(3*(2*x - y)) == 6*x - 3*y and 3*5 == 15, "II gange 3")
-sant("Steg 2.6 pil2", True, "(I)-(II·3) skrevet som venstre minus venstre = 9 - 15")
+sant("Steg 2.6 pil2", expand((6*x - 3*y) - 3*(2*x - y)) == 0 and 9 - 3*5 == -6, "(I) minus 3*(II): venstre 0, høyre -6")
 sant("Steg 2.6 pil3 FEIL", expand((6*x - 3*y) - (6*x - 3*y)) == 0 and 9 - 15 == -6, "venstre side er 0, ikke -6y")
 sant("Steg 2.6 pil4", Rational(-6, -6) == 1 and solve(Eq(2*x - 1, 5), x) == [3], "følger av feilen")
 
-aapen("U6c", "Andregradslikningen x^2 = mx + c har høyst to løsninger")
+chk("U6a", solve([Eq(y, x**2), Eq(y, 2*x - 1)], [x, y], dict=True), [{x: 1, y: 1}])
+chk("U6a fakt", factor(x**2 - 2*x + 1), (x - 1)**2)
+chk("U6b to", solve([Eq(y, x**2), Eq(y, 2*x + 3)], [x, y], dict=True), [{x: -1, y: 1}, {x: 3, y: 9}])
+sant("U6b steg", expand((x - 1)**2 - 4) == x**2 - 2*x - 3 and solve(Eq((x - 1)**2, 4), x) == [-1, 3], "(x-1)^2=4")
+chk("U6b ingen", [r for r in solve(Eq(x**2, -1), x) if r.is_real], [])
+p_, q_, r_ = symbols("p q r")
+chk("U6c stigning", simplify((q_**2 - p_**2)/(q_ - p_)), p_ + q_)
+chk("U6c motsigelse", solve(Eq(p_ + q_, q_ + r_), r_), [p_])
+chk("U6c loddrett", solve([Eq(y, x**2), Eq(x, 2)], [x, y], dict=True), [{x: 2, y: 4}])
+chk("Eks 2.2 par", [1 + 2 == 3, 2*1 + 2*2 == 6], [True, True])
+chk("Eks 2.2 alle", simplify((x + (3 - x)) - 3), 0)
+chk("VF 2c ny", sys2([Eq(y, 3*x + 1), Eq(6*x - 2*y, -2)]), "alle")
+chk("Teoriboks par", innsatt((5, -2), [Eq(x + y, 3), Eq(x - y, 7)]), [True, True])
+sant("Steg Eks 1.1 d", expand(3*x + (2*x - 1)) == 5*x - 1 and Rational(10, 5) == 2, "5x-1=9 deretter 5x=10")
+sant("Steg Eks 1.2 d", 12 - 6 == 6 and 6/3 == 2, "6+3y=12 deretter y=2")
+chk("2.7c steg", expand((2*x + a_*y) - 2*(x + 3*y)), (a_ - 6)*y)
+
 rapport()

@@ -36,7 +36,7 @@ Se på systemet $\begin{cases} ax + by = c\\ dx + ey = f \end{cases}$ der $ae - 
 
 \oppg{U5}{3}{\prog}
 Skriv en funksjon \lstinline[style=laereverk,numbers=none,frame=none]|los(a, b, c, d, e, f)| som bruker formlene fra U4.
-Den skal returnere $(x, y)$. Når $ae - bd = 0$, skal den skrive «ingen eller uendelig mange løsninger».
+Den skal returnere $(x, y)$. Når $ae - bd = 0$, skal den returnere teksten «ingen eller uendelig mange løsninger».
 \begin{tasks}(1)
   \task Test funksjonen på $2x + 3y = 12$ og $5x - 2y = 11$, og på $2x - y = 3$ og $-4x + 2y = 6$.
   \task Et annet program prøver alle heltallspar med $0 \le x, y \le 20$. Nevn en fordel og en ulempe ved den strategien.

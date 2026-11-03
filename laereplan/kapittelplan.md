@@ -26,7 +26,7 @@ Status: `—` ikke startet · `brief` brief skrevet · `utkast` forfatter ferdig
 | Nr | Seksjon | Deler | KM | Status |
 |---|---|---|---|---|
 | 2.1 | Uttrykk, identiteter, likninger og formler | Uttrykk, identitet, likning og funksjon — hva er forskjellen? · Sette opp og snu formler | 5, 3, 4 | ferdig |
-| 2.2 | Likningssystemer | Innsetting og addisjon · Grafisk løsning og antall løsninger | 4 | brief |
+| 2.2 | Likningssystemer | Innsetting og addisjon · Grafisk løsning og antall løsninger | 4 | ferdig |
 | 2.3 | Andregradslikninger | Faktorisering og nullpunkt · abc-formelen og diskriminanten | 6, 4 | brief (forfatter i gang) |
 | 2.4 | Ulikheter | Lineære ulikheter · Andregradsulikheter med fortegnslinje | 4, 6 | brief |
 

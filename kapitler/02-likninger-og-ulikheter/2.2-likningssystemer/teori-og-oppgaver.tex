@@ -17,18 +17,18 @@ addisjonsmetoden & Gang likningene slik at en ukjent får motsatte koeffisienter
 \textbf{Innsetting.} Når en ukjent står alene, setter vi uttrykket inn i den andre likningen. Da får vi én likning med én ukjent.
 
 \medskip
-\textbf{Addisjon.} Hvis $A = B$ og $C = D$, er $A + C = B + D$. Vi legger like store tall til begge sider, så likningen er fortsatt sann. Er koeffisientene motsatte, forsvinner en ukjent.
+\textbf{Addisjon.} Hvis $A = B$ og $C = D$, er $A + C = B + D$. Vi legger like store tall til begge sider, så likningen er fortsatt sann. Er koeffisientene motsatte, forsvinner en ukjent. Å trekke fra er det samme som å gange med $-1$ og legge sammen.
 \end{minipage}\hfill
 \begin{minipage}[t]{0.49\linewidth}
 \textbf{Velg metode}\par
 \renewcommand{\arraystretch}{1.4}
-\begin{tabular}[t]{@{}p{2.4cm} p{4.6cm}@{}}
-Innsetting & en ukjent står alene, for eksempel $y = 2x - 1$\\
-Addisjon & koeffisientene er like, motsatte eller lette å gjøre like\\
+\begin{tabular}[t]{@{}p{2.2cm} p{4.4cm}@{}}
+Innsetting & en ukjent står alene\\
+Addisjon & koeffisientene passer\\
 \end{tabular}
 
 \medskip
-Svaret er et \textbf{tallpar}: $x = 3$ og $y = -1$, eller $(3, -1)$. Kontroller i \emph{begge} de opprinnelige likningene.
+Svaret er et \textbf{tallpar}: $x = 5$ og $y = -2$, eller $(5, -2)$. Kontroller i \emph{begge} de opprinnelige likningene.
 \end{minipage}
 \end{mustkunne}
 
@@ -37,7 +37,8 @@ Løs $\begin{cases} y = 2x - 1 & \text{(I)}\\ 3x + y = 9 & \text{(II)} \end{case
 
 \begin{stegtabell}
 $3x + (2x - 1) = 9$ & Sett $y = 2x - 1$ fra (I) inn i (II).\\
-$5x = 10$, \ $x = 2$ & Slå sammen og løs.\\
+$5x - 1 = 9$ & Fjern parentesen og slå sammen.\\
+$5x = 10$, \ $x = 2$ & Legg til 1 på begge sider og del på 5.\\
 $y = 2 \cdot 2 - 1 = 3$ & Sett $x = 2$ inn i (I).\\
 Kontroll: & (I) $3 = 2 \cdot 2 - 1$ stemmer. (II) $3 \cdot 2 + 3 = 9$ stemmer.\\
 \end{stegtabell}
@@ -51,7 +52,8 @@ Løs $\begin{cases} 2x + 3y = 12 & \text{(I)}\\ 5x - 2y = 11 & \text{(II)} \end{
 $4x + 6y = 24$ & Gang (I) med 2. Gang \emph{alle} ledd.\\
 $15x - 6y = 33$ & Gang (II) med 3. Nå er koeffisientene til $y$ motsatte.\\
 $19x = 57$, \ $x = 3$ & Legg sammen. $y$ forsvinner.\\
-$2 \cdot 3 + 3y = 12$, \ $y = 2$ & Sett $x = 3$ inn i (I).\\
+$2 \cdot 3 + 3y = 12$ & Sett $x = 3$ inn i (I).\\
+$6 + 3y = 12$, \ $y = 2$ & Trekk fra 6 og del på 3.\\
 Kontroll: & (I) $6 + 6 = 12$ stemmer. (II) $15 - 4 = 11$ stemmer.\\
 \end{stegtabell}
 Svar: $x = 3$ og $y = 2$.
@@ -130,7 +132,7 @@ Systemet $\begin{cases} 3x + ay = 21\\ bx - y = 3 \end{cases}$ har løsningen $(
 \begin{sjekk}
 \begin{tasks}(2)
   \task Løs $\begin{cases} y = 2x + 1\\ x + y = 7 \end{cases}$
-  \task Hva er koeffisienten til $y$ i $5x - 3y = 8$?
+  \task Hva er koeffisienten til $y$ i $7x - 4y = 1$?
   \task! Hvorfor må vi kontrollere svaret i begge likningene?
 \end{tasks}
 \end{sjekk}
@@ -209,14 +211,14 @@ Løs $\begin{cases} x + y = 3\\ 2x + 2y = 6 \end{cases}$
 $-2x - 2y = -6$ & Gang første likning med $-2$.\\
 $0 = 0$ & Legg sammen. Alltid sant.\\
 \end{stegtabell}
-De to likningene er samme linje. Alle punkter på linjen er løsninger, så det finnes uendelig mange.
+De to likningene er samme linje. Alle punkter på linjen er løsninger, så det finnes uendelig mange: alle par $(x, 3 - x)$, for eksempel $(1, 2)$.
 \end{eksempel}
 
 \begin{vanligfeil}
 \begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
   \item «$0 = 0$, så $x = 0$ og $y = 0$» er feil. For $\begin{cases} 2x + y = 6\\ 4x + 2y = 12 \end{cases}$ gir addisjon $0 = 0$, og linjene faller sammen.
   \item «$0 = 12$, så jeg har regnet feil» er ikke alltid riktig. Er regningen riktig, betyr det ingen løsning.
-  \item «Like stigningstall betyr ingen løsning» er feil. $y = 3x + 1$ og $y = 3x + 1$ er samme linje.
+  \item «Like stigningstall betyr ingen løsning» er feil. $y = 3x + 1$ og $6x - 2y = -2$ er samme linje.
 \end{itemize}
 \end{vanligfeil}
 
@@ -277,7 +279,7 @@ To sykkelutleiere tar ulik pris. Utleier A tar 50 kr i start og 20 kr per time. 
 \oppg{2.6}{2}{\uh}
 Finn \textbf{den første feilen}. Hva er riktig svar?
 \[ \begin{cases} 6x - 3y = 9\\ 2x - y = 5 \end{cases} \]
-\[ 6x - 3y = 15 \ \to\ (6x - 3y) - (6x - 3y) = 9 - 15 \ \to\ -6y = -6 \ \to\ y = 1 \ \to\ 2x - 1 = 5 \ \to\ x = 3 \]
+\[ \text{(II)}\cdot 3\text{: } 6x - 3y = 15 \ \to\ (6x - 3y) - (6x - 3y) = 9 - 15 \ \to\ -6y = -6 \ \to\ y = 1 \ \to\ 2x - 1 = 5 \ \to\ x = 3 \]
 
 \nivaahode{3}
 
@@ -290,10 +292,10 @@ Se på systemet $\begin{cases} 2x + ay = 4\\ x + 3y = b \end{cases}$, der $a$ og
 \end{tasks}
 
 \oppg{2.8}{3}{\uh}
-Innsetting virker også når en av likningene ikke er en rett linje. Da kan vi få en likning vi løser med felles faktor: $x^2 = 5x$ gir $x(x - 5) = 0$, så $x = 0$ eller $x = 5$.
+Innsetting virker også når en av likningene ikke er en rett linje.
 \begin{tasks}(1)
-  \task Løs $\begin{cases} y = x^2\\ y = 4x \end{cases}$. Svar som tallpar.
-  \task Forklar hvorfor linjen $y = -4$ aldri krysser parabelen $y = x^2$.
+  \task Løs $\begin{cases} y = x^2 + 2x\\ y = 2x + 9 \end{cases}$. Svar som tallpar.
+  \task Se på $y = x^2$ og den vannrette linjen $y = c$. For hvilke verdier av $c$ har systemet to løsninger, én løsning eller ingen løsning? Begrunn.
 \end{tasks}
 
 \begin{sjekk}
