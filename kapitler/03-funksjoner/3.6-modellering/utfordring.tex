@@ -1,0 +1,105 @@
+% =====================================================================
+%  3.6 Modellering — ekstra utfordring
+%  Alle data er tenkte data.
+% =====================================================================
+
+\begin{infoboks}{Velg metode selv}
+Arket bygger på 3.6 Modellering. Bruk regresjon i et digitalt verktøy der oppgaven krever det.
+Skriv svar med enhet og med forbehold («ifølge modellen»). Alle data er tenkte data.
+\end{infoboks}
+
+\nivaahode{2}
+
+\oppg{U1}{2}{\uh}
+Hvilken modelltype passer? Skriv også et funksjonsuttrykk. Begrunn.
+\begin{tasks}(1)
+  \task Vannstanden i en tank er 30 cm og stiger 4 cm hver time.
+  \task En bil har verdi 1\,000 (tusen kr) og faller $12\,\%$ i verdi hvert år.
+  \task Arealet av et kvadrat når sidelengden $s$ varierer.
+  \task En bakteriekultur starter med 3 enheter og dobles hver time.
+\end{tasks}
+
+\oppg{U2}{2}{\mh}
+Tenkte data: vekten $W$ (gram) til en fisk med lengde $L$ (cm).
+
+\smallskip
+\begin{tabular}{@{}c|ccccc@{}}
+$L$ & 10 & 15 & 20 & 30 & 40\\ \hline
+$W$ & 12 & 40 & 95 & 320 & 760\\
+\end{tabular}
+
+\begin{tasks}(1)
+  \task Regn ut $\dfrac{W(20)}{W(10)}$ og $\dfrac{W(40)}{W(20)}$. Hva forteller det?
+  \task Bruk regresjon og skriv modellen.
+  \task Hva skjer med vekten når lengden dobles?
+  \task Anslå vekten til en fisk på 60 cm. Hvor sikkert er svaret?
+\end{tasks}
+
+\oppg{U3}{2}{\mh}
+Tenkt avisutdrag: «Appen Handlehjelp slo an. 1. januar 2023 hadde den 50\,000 brukere. Ett år senere var tallet 90\,000, og 1. januar 2025 hadde 162\,000 lastet den ned.
+– Med denne veksten vil alle i Norge bruke appen innen utgangen av 2030, sier gründeren.» Det bor omtrent 5,5 millioner mennesker i Norge.
+\begin{tasks}(1)
+  \task Sett tallene i en tabell. La $x$ være år etter 2023.
+  \task Velg modelltype og lag en modell.
+  \task Hvor mange brukere gir modellen 1. januar 2031?
+  \task Er påstanden rimelig? Nevn to ting du måtte ha visst for å vurdere den.
+\end{tasks}
+
+\oppg{U4}{2}{\prog}
+Programmet finner den rette linja $y = ax + b$ med minste kvadraters metode:
+\[ a = \frac{\sum (x_i - \bar x)(y_i - \bar y)}{\sum (x_i - \bar x)^2}, \qquad b = \bar y - a\,\bar x \]
+Tenkte data: $x$ er temperatur ($^\circ$C) og $y$ er salg av iskrem (tusen kr).
+\begin{kode}
+x = [14, 17, 20, 23, 26, 29]
+y = [22, 31, 36, 47, 52, 63]
+n = len(x)
+x_snitt = sum(x) / n
+y_snitt = sum(y) / n
+teller = 0
+nevner = 0
+for i in range(n):
+    teller = teller + (x[i] - x_snitt) * (y[i] - y_snitt)
+    nevner = nevner + ______
+a = teller / nevner
+b = ______
+print(a, b)
+\end{kode}
+\begin{tasks}(1)
+  \task Fyll ut de to hullene.
+  \task Kjør programmet. Sammenlign $a$ og $b$ med lineær regresjon i et digitalt verktøy.
+  \task Tolk $a$ og $b$ med enhet. Hva er rart med $b$?
+\end{tasks}
+
+\nivaahode{3}
+
+\oppg{U5}{3}{\mh}
+Lag selv fem punkter med $x = 1, 2, 4, 8, 16$ der en potensmodell $y = a \cdot x^b$ passer mye bedre enn en eksponentiell modell.
+Bruk regresjon for å sjekke. Forklar hvordan du valgte $y$-verdiene.
+
+\oppg{U6}{3}{\uh}
+Regresjonslinja har $b = \bar y - a\,\bar x$.
+\begin{tasks}(1)
+  \task Vis at linja alltid går gjennom punktet $(\bar x, \bar y)$.
+  \task En regresjonslinje har stigningstall $3{,}0$. Gjennomsnittet av $x$-verdiene er 4, og gjennomsnittet av $y$-verdiene er 20. Finn $b$.
+\end{tasks}
+
+\oppg{U7}{3}{\mh}
+Tenkte data: bruktpris $y$ (tusen kr) for en bilmodell etter alder $x$ (år).
+
+\smallskip
+\begin{tabular}{@{}c|cccccccc@{}}
+$x$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8\\ \hline
+$y$ & 310 & 262 & 224 & 193 & 170 & 153 & 142 & 138\\
+\end{tabular}
+
+\begin{tasks}(1)
+  \task Bruk andregradsregresjon. Finn modellen og $R^2$.
+  \task Hva sier modellen om prisen på en 15 år gammel bil?
+  \task Prøv eksponentiell regresjon. Sammenlign $R^2$ og prognosen for 15 år. Hvilken modell bør du velge, og hvorfor?
+\end{tasks}
+
+\begin{oppsummering}
+Velg modelltype ut fra tabellen og situasjonen, ikke bare ut fra $R^2$.
+Bruk modellen innenfor gyldighetsområdet, og skriv «ifølge modellen» om prognoser.
+Tolk alltid konstantene med enhet.
+\end{oppsummering}

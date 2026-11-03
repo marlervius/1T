@@ -1,0 +1,66 @@
+% =====================================================================
+%  4.3 Derivasjonsregler for polynom — ekstra utfordring
+% =====================================================================
+
+\begin{infoboks}{Velg metode selv}
+Arket bygger på 4.3. Vis regning og begrunnelse. Skriv tangenter på formen $y = mx + c$.
+Gang ut produkter før du deriverer. Husk enhet når oppgaven har en kontekst.
+\end{infoboks}
+
+\nivaahode{2}
+
+\oppg{U1}{2}{\mh}
+Kostnaden ved å lage $x$ enheter er $K(x) = 0,01x^2 + 20x + 5000$ kroner (tenkt modell).
+\begin{tasks}(1)
+  \task Finn $K'(x)$ og regn ut $K'(100)$. Forklar hva tallet betyr, med enhet.
+  \task Regn ut $K(101) - K(100)$. Hvorfor er svaret nesten lik $K'(100)$?
+\end{tasks}
+
+\oppg{U2}{2}{\uh}
+Finn tangentene til $f(x) = x^3 - 6x$ som er parallelle med linja $y = 6x - 1$.
+
+\oppg{U3}{2}{\uh}
+La $f(x) = x^2 - 4x + 6$. Tangenten i $x = 1$ danner sammen med de to aksene en trekant.
+Finn arealet av trekanten.
+
+\oppg{U4}{2}{\prog}
+Programmet regner ut stigningstallet til tangenten med en symmetrisk differansekvotient.
+\begin{kode}
+def f(x):
+    return x**4 - x
+
+def derivert(f, a, h=0.0001):
+    return (f(a + h) - f(a - h)) / (2 * h)
+
+a = 1
+m = derivert(f, a)
+c = f(a) - m * a
+print("m =", round(m, 2), "og c =", round(c, 2))
+\end{kode}
+\begin{tasks}(1)
+  \task Kjør programmet. Hva skriver det ut? Hva betyr $m$ og $c$?
+  \task Finn tangenten i $x = 1$ eksakt med derivasjonsreglene. Stemmer svaret med programmet?
+  \task Endre $f$ til $x^3 - 2x$ og $a$ til $2$. Finn tangenten med programmet og kontroller med reglene.
+\end{tasks}
+
+\nivaahode{3}
+
+\oppg{U5}{3}{\uh}
+Ola vil finne $a$ og $b$ slik at $f(x) = ax^2 + bx$ har $f'(1) = 4$ og $f(2) = 10$. Han finner ingen løsning.
+\begin{tasks}(1)
+  \task Forklar hvorfor det ikke finnes noen løsning.
+  \task For hvilken verdi av $f(2)$ ville det fungert? Hvor mange løsninger er det da?
+\end{tasks}
+
+\oppg{U6}{3}{\uh}
+Vis at tangentene til $y = x^2$ i $x = a$ og $x = -a$ ($a \neq 0$) skjærer hverandre på $y$-aksen.
+Finn skjæringspunktet.
+
+\oppg{U7}{3}{\uh}
+Punktet $(1, -3)$ ligger utenfor grafen til $y = x^2$. Finn alle tangenter til grafen som går gjennom punktet.
+\hint{Tangenten må røre grafen et sted. Kall det stedet $a$.}
+
+\begin{oppsummering}
+Gang ut og forkort før du deriverer. Tangenten i $x = a$ bruker tallet $f'(a)$ og punktet $(a, f(a))$.
+Når et krav gir ett stigningstall, løs $f'(x) = k$.
+\end{oppsummering}

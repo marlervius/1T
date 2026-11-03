@@ -136,7 +136,8 @@ chk("1.5b a", round(ap, 2), 2.01)
 chk("1.5b b", round(bp, 2), 0.50)
 chk("1.5c", round(ap * 3**bp, 1), 3.5)
 chk("1.5c avrundet modell", round(2.01 * 3**0.502, 1), 3.5)
-chk("1.5d", round(2**bp, 1), 1.4)
+chk("1.5d", float(f"{(3.0 / ap) ** (1 / bp):.2g}"), 2.2)
+chk("1.5d avrundet modell", float(f"{(3.0 / 2.01) ** (1 / 0.502):.2g}"), 2.2)
 chk("1.5 R2", round(r2(yp, [ap * v**bp for v in xp]), 3), 1.0, tol=0.001)
 
 # 1.6: finn første feil
@@ -307,8 +308,9 @@ chk("U2 R2", round(r2(yfi, [afi * v**bfi for v in xfi]), 3), 1.0, tol=0.001)
 # U3 app-avis
 chk("U3a", [Rational(90000, 50000), Rational(162000, 90000)], [Rational(9, 5), Rational(9, 5)])
 sant("U3 tall", 50000 * 1.8**8 > 5.5e6 and 50000 * 1.8**7 < 5.5e6, "5,5 millioner nås etter 8 år, ikke 7")
-chk("U3c", 2023 + 8, 2031)
-chk("U3 lineær", 50000 + 80000 * 8, 690000)
+chk("U3c", round(50000 * 1.8**8 / 1e6, 2), 5.51)
+chk("U3b", [round(v, 2) for v in eks([0, 1, 2], [50000, 90000, 162000])], [50000.0, 1.8])
+chk("U3 x når 5,5 mill", round(float(log(110) / log(1.8)), 2), 8.0, tol=0.01)
 aapen("U3d", "Vurder: modellen bygger på tre punkter, 'alle' er urealistisk, vekst må flate ut")
 
 # U4 program
@@ -362,4 +364,5 @@ chk("U7c R2", round(r2(ybil, [abil * bbil**v for v in xbil]), 2), 0.97)
 chk("U7c 15", round(abil * bbil**15), 55)
 aapen("U7d", "Forklar hvorfor en bruktbil ikke blir dyrere av å bli eldre")
 
+print(ns["a"], ns["b"])
 rapport()

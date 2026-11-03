@@ -1,0 +1,277 @@
+% =====================================================================
+%  4.2 Den deriverte — teori og oppgaver
+% =====================================================================
+
+\del{1}{Grenseverdi og definisjonen av den deriverte}
+
+\begin{ordliste}
+grenseverdi & Tallet et uttrykk kommer så nær vi vil når $h$ er nær nok 0. Skrives $\lim\limits_{h \to 0}$. & \mittsprak\\
+den deriverte & Grenseverdien av sekantenes stigningstall. Den er vekstfarten i ett punkt. & \mittsprak\\
+derivere & Finne den deriverte til en funksjon. & \mittsprak\\
+definisjon & En presis forklaring av hva et begrep betyr. Alt annet bygger på den. & \mittsprak\\
+tangent & En rett linje som berører grafen i ett punkt. Stigningstallet er $f'(a)$. & \mittsprak\\
+\end{ordliste}
+
+\begin{mustkunne}
+\textbf{Definisjon.} Den deriverte av $f$ i $x = a$ er
+\[ f'(a) = \lim\limits_{h \to 0} \frac{f(a + h) - f(a)}{h} \]
+Les: «grenseverdien når $h$ går mot 0». Dette er tallet fra 4.1 som sekantenes stigningstall nærmet seg. Tabellen ga et anslag. Definisjonen gir tallet eksakt.\par
+\smallskip
+\textbf{Hvorfor ikke bare sette $h = 0$?} Da blir både teller og nevner 0, og $\frac{0}{0}$ har ingen verdi. Vi gjør derfor tre ting:
+\begin{enumerate}[leftmargin=1.5em,itemsep=0pt,topsep=2pt]
+  \item Sett inn og forenkle telleren. Hvert ledd som blir igjen har da faktoren $h$.
+  \item Forkort $h$. Det er lov, for $h$ er nær 0, men ikke lik 0.
+  \item La $h \to 0$ i det som er igjen.
+\end{enumerate}
+\textbf{Notasjon.} $f'(a)$ er et \emph{tall}: stigningstallet til tangenten i $x = a$. $f'(x)$ er en \emph{funksjon}: den gir tallet for hvert valg av $x$.
+\end{mustkunne}
+
+\begin{eksempel}[1 — $f'(3)$ fra definisjonen]
+La $f(x) = x^2$. Finn $f'(3)$.
+
+\begin{stegtabell}
+$\dfrac{f(3 + h) - f(3)}{h} = \dfrac{(3 + h)^2 - 9}{h}$ & Sett inn $f(x) = x^2$ og $f(3) = 9$.\\
+$= \dfrac{9 + 6h + h^2 - 9}{h}$ & Første kvadratsetning: $(3 + h)^2 = 9 + 6h + h^2$.\\
+$= \dfrac{6h + h^2}{h}$ & $9 - 9 = 0$.\\
+$= \dfrac{h(6 + h)}{h} = 6 + h$ & Sett $h$ utenfor parentes og forkort $h$.\\
+Når $h \to 0$: $f'(3) = \lim\limits_{h \to 0} (6 + h) = 6$ & Nå kan vi la $h$ gå mot 0.\\
+Kontroll: & Tabellen i 4.1 ga $7;\ 6,1;\ 6,01;\ \ldots$ Det stemmer med $6$.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{eksempel}[2 — $f'(x)$ som funksjon, og tolkning]
+La $f(x) = x^2 - 4x$. Finn $f'(x)$. Finn deretter $f'(1)$ og forklar hva tallet betyr.
+
+\begin{stegtabell}
+$\dfrac{f(x + h) - f(x)}{h} = \dfrac{(x + h)^2 - 4(x + h) - (x^2 - 4x)}{h}$ & Sett inn. Hele $f(x)$ står i parentes.\\
+$= \dfrac{x^2 + 2xh + h^2 - 4x - 4h - x^2 + 4x}{h}$ & Kvadratsetning, gang ut, og bytt fortegn i parentesen.\\
+$= \dfrac{2xh + h^2 - 4h}{h}$ & $x^2$ og $4x$ forsvinner.\\
+$= 2x + h - 4$ & Del hvert ledd på $h$.\\
+Når $h \to 0$: $f'(x) = 2x - 4$ & Grensen av $2x + h - 4$.\\
+$f'(1) = 2 \cdot 1 - 4 = -2$ & Sett $x = 1$ i funksjonen $f'$.\\
+Tolkning: & Tangenten i $x = 1$ har stigningstall $-2$. Grafen synker der.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{vanligfeil}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
+  \item Å sette $h = 0$ først og svare $0$ er feil. Du får $\frac{0}{0}$, som ikke er 0. Forenkle og forkort $h$ først.
+  \item $(x + h)^2 = x^2 + h^2$ er feil. Riktig er $x^2 + 2xh + h^2$. Med $x = 2$ og $h = 1$ får vi $9$, ikke $5$.
+  \item Å blande $f(a)$ og $f'(a)$ er feil. For $f(x) = x^2 - 4x$ er $f(1) = -3$ (høyden), men $f'(1) = -2$ (stigningstallet).
+  \item Å la $h$ stå igjen i svaret er feil. For $f(x) = x^2$ i $x = 2$ er kvotienten $4 + h$, men $f'(2) = 4$.
+\end{itemize}
+\end{vanligfeil}
+
+\nivaahode{1}
+
+\oppg{1.1}{1}{\uh}
+La $f(x) = x^2$. Finn $f'(5)$ fra definisjonen. Fullfør.
+\begin{tasks}(1)
+  \task $f(5) =$ \skrivlinje[2cm] \quad og \quad $f(5 + h) = (5 + h)^2 =$ \skrivlinje[4cm]
+  \task Forenkle $\dfrac{f(5 + h) - f(5)}{h} =$ \skrivlinje[4cm]
+  \task La $h \to 0$: \quad $f'(5) =$ \skrivlinje[2cm]
+\end{tasks}
+
+\oppg{1.2}{1}{\uh}
+La $f(x) = x^2 + x$. Finn $f'(2)$ fra definisjonen.
+
+\oppg{1.3}{1}{\uh}
+Finn den deriverte fra definisjonen. Hva legger du merke til?
+\begin{tasks}(2)
+  \task $f(x) = 5x - 2$. Finn $f'(4)$.
+  \task $g(x) = 7 - 3x$. Finn $g'(1)$.
+\end{tasks}
+
+\nivaahode{2}
+
+\oppg{1.4}{2}{\uh}
+La $f(x) = x^2 + 6x$.
+\begin{tasks}(1)
+  \task Finn $f'(x)$ fra definisjonen.
+  \task Finn $f'(2)$ og $f'(-1)$.
+\end{tasks}
+
+\oppg{1.5}{2}{\uh}
+En sykkel ruller nedover en bakke. Etter $t$ sekunder har den rullet $s(t) = 2t^2 + t$ meter.
+\begin{tasks}(1)
+  \task Finn $s'(3)$ fra definisjonen.
+  \task Forklar hva svaret betyr. Husk enhet.
+\end{tasks}
+
+\oppg{1.6}{2}{\uh}
+La $f(x) = x^2 - 3x$. Vi finner $f'(4)$ og har $f(4) = 4$. Finn \textbf{den første feilen}. Regn riktig.
+\[ \frac{(4 + h)^2 - 3(4 + h) - 4}{h} \ \longrightarrow\ \frac{16 + 8h + h^2 - 12 - 3h - 4}{h} \ \longrightarrow\ \frac{11h + h^2}{h} \ \longrightarrow\ 11 + h \ \longrightarrow\ 11 \]
+
+\oppg{1.7}{2}{\mh}
+La $f(x) = 2x^2 - 5x$.
+\begin{tasks}(1)
+  \task Finn $f'(3)$ fra definisjonen. Regn for hånd.
+  \task Bruk CAS. Skriv inn $\dfrac{f(3 + h) - f(3)}{h}$ og forenkle. Finn grenseverdien når $h \to 0$. Stemmer det med a)?
+\end{tasks}
+
+\nivaahode{3}
+
+\oppg{1.8}{3}{\uh}
+Er påstanden alltid, noen ganger eller aldri sann? Begrunn med et eksempel eller en utregning.
+\begin{tasks}(1)
+  \task Hvis $f'(a) > 0$, er $f(a) > 0$.
+  \task For $f(x) = kx + m$ er $\dfrac{f(a + h) - f(a)}{h}$ lik $f'(a)$ for alle $h \neq 0$.
+  \task Hvis $f'(a) = 0$, har grafen til $f$ et topp- eller bunnpunkt i $x = a$.
+\end{tasks}
+
+\oppg{1.9}{3}{\uh}
+For en funksjon $f$ er $\dfrac{f(1 + h) - f(1)}{h} = 8 + 3h$ for alle $h \neq 0$.
+\begin{tasks}(1)
+  \task Finn $f'(1)$.
+  \task Finn en funksjon $f$ som passer. Kontroller med utregning.
+  \task Finnes det flere slike funksjoner? Forklar.
+\end{tasks}
+
+\oppg{1.10}{3}{\uh}
+La $f(x) = px^2 - x$, der $p$ er et tall. Vi vet at $f'(2) = 11$. Finn $p$.
+
+\begin{sjekk}
+\begin{tasks}(2)
+  \task La $f(x) = x^2 + 5$. Finn $f'(2)$ fra definisjonen.
+  \task Hva er forskjellen på $f(2)$ og $f'(2)$ for denne funksjonen?
+  \task! Hvorfor kan vi ikke sette $h = 0$ i differansekvotienten med en gang?
+\end{tasks}
+\end{sjekk}
+
+% ---------------------------------------------------------------------
+
+\del{2}{Utlede derivasjonsregler}
+
+\begin{ordliste}
+derivasjonsregel & En regel som gir den deriverte uten at vi må regne fra definisjonen hver gang. & \mittsprak\\
+utlede & Vise hvor en regel kommer fra, steg for steg fra noe vi allerede vet. & \mittsprak\\
+mønster & Noe som gjentar seg, slik at vi kan gjette hva som skjer videre. & \mittsprak\\
+bevis & En begrunnelse som viser at noe stemmer i alle tilfeller, ikke bare i noen. & \mittsprak\\
+\end{ordliste}
+
+\begin{mustkunne}
+\begin{minipage}[t]{0.50\linewidth}
+\textbf{Utledet fra definisjonen:}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}[t]{@{}l l@{}}
+$(k)' = 0$ & $\frac{k - k}{h} = 0$\\
+$(kx)' = k$ & $\frac{kx + kh - kx}{h} = k$\\
+$(x^2)' = 2x$ & $\frac{2xh + h^2}{h} = 2x + h$\\
+$(x^3)' = 3x^2$ & Eksempel 1\\
+$(f + g)' = f' + g'$ & Eksempel 2\\
+\end{tabular}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.47\linewidth}
+\textbf{Mønsteret.} $(x)' = 1,\ (x^2)' = 2x,\ (x^3)' = 3x^2$. Vi gjetter
+\[ (x^n)' = n \cdot x^{n-1} \]
+Dette er \emph{ikke bevist} for alle $n$. Tre tilfeller er et mønster, ikke et bevis. Beviset trenger binomialformelen, og vi tar $n = 4$ på utfordringsarket.\par
+\smallskip
+Det gjelder også $(k \cdot f)' = k \cdot f'$. Beviset ligner på det for summen.
+\end{minipage}
+\end{mustkunne}
+
+\begin{eksempel}[1 — $(x^3)' = 3x^2$ fra definisjonen]
+Vis at den deriverte av $f(x) = x^3$ er $3x^2$.
+
+\begin{stegtabell}
+$(x + h)^3 = (x + h)(x^2 + 2xh + h^2)$ & Skriv $(x + h)^3$ som $(x + h)(x + h)^2$ og bruk kvadratsetningen.\\
+$= x^3 + 3x^2h + 3xh^2 + h^3$ & Gang ut. $x^2h + 2x^2h = 3x^2h$ og $2xh^2 + xh^2 = 3xh^2$.\\
+$\dfrac{(x + h)^3 - x^3}{h} = \dfrac{3x^2h + 3xh^2 + h^3}{h}$ & Sett inn. $x^3 - x^3 = 0$.\\
+$= 3x^2 + 3xh + h^2$ & Del hvert ledd på $h$.\\
+Når $h \to 0$: $(x^3)' = 3x^2$ & Leddene med $h$ går mot 0.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{eksempel}[2 — den deriverte av en sum]
+Vis at $(f + g)' = f' + g'$.
+
+\begin{stegtabell}
+$\dfrac{(f + g)(x + h) - (f + g)(x)}{h} = \dfrac{f(x + h) + g(x + h) - f(x) - g(x)}{h}$ & Sett inn definisjonen av summen.\\
+$= \dfrac{f(x + h) - f(x)}{h} + \dfrac{g(x + h) - g(x)}{h}$ & Flytt leddene og del opp i to brøker.\\
+Når $h \to 0$: $= f'(x) + g'(x)$ & Hver brøk går mot sin deriverte.\\
+Bruk: $(x^3 + x)' = 3x^2 + 1$ & Vi bruker $(x^3)' = 3x^2$ og $(x)' = 1$.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{vanligfeil}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
+  \item $(x + h)^3 = x^3 + h^3$ er feil. Med $x = 1$ og $h = 1$ får vi $8$, ikke $2$. Det mangler leddene $3x^2h + 3xh^2$.
+  \item $(x^4)' = 4x^4$ er feil. Eksponenten minker med én: $(x^4)' = 4x^3$.
+  \item $(5)' = 5$ er feil. En konstant har ingen vekst: $(5)' = 0$.
+  \item At mønsteret stemmer for $n = 1, 2, 3$ betyr ikke at det er bevist for alle $n$. Det er en god gjetning, men ikke et bevis.
+\end{itemize}
+\end{vanligfeil}
+
+\nivaahode{1}
+
+\oppg{2.1}{1}{\uh}
+Bruk mønsteret $(x^n)' = nx^{n-1}$ og regelen for konstanter.
+\begin{tasks}(4)
+  \task $(x^5)'$
+  \task $(x^9)'$
+  \task $(x)'$
+  \task $(12)'$
+\end{tasks}
+
+\oppg{2.2}{1}{\uh}
+La $f(x) = x^3$. Finn $f'(2)$ fra definisjonen. Fullfør.
+\begin{tasks}(1)
+  \task $(2 + h)^3 = 8 +$ \skrivlinje[1.5cm] $h +$ \skrivlinje[1.5cm] $h^2 + h^3$
+  \task $\dfrac{f(2 + h) - f(2)}{h} =$ \skrivlinje[4cm]
+  \task La $h \to 0$: \quad $f'(2) =$ \skrivlinje[2cm]
+\end{tasks}
+
+\oppg{2.3}{1}{\uh}
+Bruk $(x^2)' = 2x$ og $(x^3)' = 3x^2$.
+\begin{tasks}(3)
+  \task Finn $f'(5)$ når $f(x) = x^2$.
+  \task Finn $g'(-1)$ når $g(x) = x^3$.
+  \task For hvilken $x$ er $f'(x) = 8$ når $f(x) = x^2$?
+\end{tasks}
+
+\nivaahode{2}
+
+\oppg{2.4}{2}{\uh}
+Vis fra definisjonen at $g(x) = 2x^2 + 5x$ har $g'(x) = 4x + 5$.
+
+\oppg{2.5}{2}{\uh}
+En stein faller. Etter $t$ sekunder har den falt $s(t) = 5t^2$ meter.
+\begin{tasks}(1)
+  \task Finn $s'(t)$ fra definisjonen.
+  \task Finn farten etter 2 sekunder. Husk enhet.
+\end{tasks}
+
+\oppg{2.6}{2}{\uh}
+La $f(x) = x^3 + 4x$. Finn \textbf{den første feilen}. Regn riktig.
+\[ \frac{(x + h)^3 + 4(x + h) - x^3 - 4x}{h} \ \to\ \frac{x^3 + 3x^2h + 3xh^2 + h^3 + 4x + 4h - x^3 - 4x}{h} \ \to\ \frac{3x^2h + 3xh^2 + h^3 + 4h}{h} \ \to\ 3x^2 + 3xh + h^2 + 4h \ \to\ 3x^2 \]
+
+\oppg{2.7}{2}{\mh}
+Vi undersøker $f(x) = x^5$ med CAS.
+\begin{tasks}(1)
+  \task Skriv inn $(x + h)^5$ og utvid. Hvilke ledd står der?
+  \task Finn $\lim\limits_{h \to 0} \dfrac{(x + h)^5 - x^5}{h}$.
+  \task Stemmer svaret med mønsteret $(x^n)' = nx^{n-1}$? Er mønsteret dermed bevist for alle $n$?
+\end{tasks}
+
+\nivaahode{3}
+
+\oppg{2.8}{3}{\uh}
+Vis fra definisjonen at $(k \cdot f)' = k \cdot f'$, der $k$ er en konstant.
+
+\oppg{2.9}{3}{\uh}
+Er påstanden alltid, noen ganger eller aldri sann? Begrunn.
+\begin{tasks}(1)
+  \task $(f \cdot g)' = f' \cdot g'$.
+  \task Hvis $f(x) = g(x) + 5$ for alle $x$, er $f'(x) = g'(x)$.
+\end{tasks}
+
+\oppg{2.10}{3}{\uh}
+Finn en funksjon $f$ der $f'(x) = 2x + 3$ og $f(0) = 1$. Kontroller svaret. Hvor mange funksjoner har $f'(x) = 2x + 3$ hvis vi dropper kravet $f(0) = 1$? Forklar.
+
+\begin{sjekk}
+\begin{tasks}(2)
+  \task Bruk mønsteret på $(x^6)'$.
+  \task Finn $f'(x)$ når $f(x) = x^2 + 9$.
+  \task! Vis med $x = 2$ og $h = 1$ at $(x + h)^3 \neq x^3 + h^3$.
+\end{tasks}
+\end{sjekk}
