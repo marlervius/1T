@@ -1,0 +1,57 @@
+% =====================================================================
+%  2.2 Likningssystemer — ekstra utfordring
+% =====================================================================
+
+\begin{infoboks}{Velg metode selv}
+Arket bygger på 2.2 Likningssystemer. Vis regning og begrunnelse. Bruk eksakte svar.
+Kontroller svaret ved å sette inn i alle de opprinnelige likningene.
+\end{infoboks}
+
+\nivaahode{2}
+
+\oppg{U1}{2}{\uh}
+Løs systemet med tre ukjente. Reduser først til to ukjente.
+\[ \begin{cases} x + y + z = 6\\ x - y = 1\\ y + z = 4 \end{cases} \]
+
+\oppg{U2}{2}{\mh}
+På kino betaler 3 voksne og 2 barn 610 kr. 2 voksne og 4 barn betaler 620 kr.
+\begin{tasks}(1)
+  \task Sett opp et likningssystem og finn billettprisen for voksne og for barn.
+  \task Tegn linjene i GeoGebra og kontroller skjæringspunktet.
+\end{tasks}
+
+\oppg{U3}{2}{\uh}
+Løs systemet. Fjern brøkene først.
+\[ \begin{cases} \dfrac{x}{2} + \dfrac{y}{3} = 4\\[2mm] x - y = 3 \end{cases} \]
+
+\nivaahode{3}
+
+\oppg{U4}{3}{\uh}
+Se på systemet $\begin{cases} ax + by = c\\ dx + ey = f \end{cases}$ der $ae - bd \neq 0$.
+\begin{tasks}(1)
+  \task Vis at $x = \dfrac{ce - bf}{ae - bd}$. Gang første likning med $e$ og andre med $b$.
+  \task Finn et tilsvarende uttrykk for $y$.
+  \task Hva skjer når $ae - bd = 0$? Knytt svaret til stigningstall og linjer.
+\end{tasks}
+
+\oppg{U5}{3}{\prog}
+Skriv en funksjon \lstinline[style=laereverk,numbers=none,frame=none]|los(a, b, c, d, e, f)| som bruker formlene fra U4.
+Den skal returnere $(x, y)$. Når $ae - bd = 0$, skal den skrive «ingen eller uendelig mange løsninger».
+\begin{tasks}(1)
+  \task Test funksjonen på $2x + 3y = 12$ og $5x - 2y = 11$, og på $2x - y = 3$ og $-4x + 2y = 6$.
+  \task Et annet program prøver alle heltallspar med $0 \le x, y \le 20$. Nevn en fordel og en ulempe ved den strategien.
+\end{tasks}
+
+\oppg{U6}{3}{\uh}
+Undersøk hvor mange skjæringspunkt en rett linje og parabelen $y = x^2$ kan ha.
+\begin{tasks}(1)
+  \task Løs $\begin{cases} y = x^2\\ y = 2x - 1 \end{cases}$. \hint{Flytt alt over på én side. Kjenner du igjen uttrykket?}
+  \task Finn en linje som har to skjæringspunkt med parabelen, og en som ikke har noe. Skriv likningene og lag en skisse.
+  \task Kan en linje ha tre skjæringspunkt med parabelen? Begrunn.
+\end{tasks}
+
+\begin{oppsummering}
+Velg innsetting når en ukjent står alene, og addisjon når koeffisientene passer.
+$0 = 0$ betyr samme linje, og en usann påstand betyr parallelle linjer.
+Kontroller alltid svaret i alle likningene.
+\end{oppsummering}

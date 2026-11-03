@@ -1,0 +1,305 @@
+% =====================================================================
+%  2.2 Likningssystemer — teori og oppgaver
+% =====================================================================
+
+\del{1}{Innsetting og addisjon}
+
+\begin{ordliste}
+likningssystem & To eller flere likninger som skal være sanne samtidig. & \mittsprak\\
+ukjent & Et tall vi ikke kjenner, skrevet som en bokstav, for eksempel $x$ og $y$. & \mittsprak\\
+koeffisient & Tallet foran en ukjent. I $5x - 3y$ er koeffisientene 5 og $-3$. & \mittsprak\\
+innsettingsmetoden & Løs én likning for én ukjent. Sett uttrykket inn i den andre likningen. & \mittsprak\\
+addisjonsmetoden & Gang likningene slik at en ukjent får motsatte koeffisienter. Legg likningene sammen. & \mittsprak\\
+\end{ordliste}
+
+\begin{mustkunne}
+\begin{minipage}[t]{0.47\linewidth}
+\textbf{Innsetting.} Når en ukjent står alene, setter vi uttrykket inn i den andre likningen. Da får vi én likning med én ukjent.
+
+\medskip
+\textbf{Addisjon.} Hvis $A = B$ og $C = D$, er $A + C = B + D$. Vi legger like store tall til begge sider, så likningen er fortsatt sann. Er koeffisientene motsatte, forsvinner en ukjent.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.49\linewidth}
+\textbf{Velg metode}\par
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}[t]{@{}p{2.4cm} p{4.6cm}@{}}
+Innsetting & en ukjent står alene, for eksempel $y = 2x - 1$\\
+Addisjon & koeffisientene er like, motsatte eller lette å gjøre like\\
+\end{tabular}
+
+\medskip
+Svaret er et \textbf{tallpar}: $x = 3$ og $y = -1$, eller $(3, -1)$. Kontroller i \emph{begge} de opprinnelige likningene.
+\end{minipage}
+\end{mustkunne}
+
+\begin{eksempel}[1 — innsetting]
+Løs $\begin{cases} y = 2x - 1 & \text{(I)}\\ 3x + y = 9 & \text{(II)} \end{cases}$
+
+\begin{stegtabell}
+$3x + (2x - 1) = 9$ & Sett $y = 2x - 1$ fra (I) inn i (II).\\
+$5x = 10$, \ $x = 2$ & Slå sammen og løs.\\
+$y = 2 \cdot 2 - 1 = 3$ & Sett $x = 2$ inn i (I).\\
+Kontroll: & (I) $3 = 2 \cdot 2 - 1$ stemmer. (II) $3 \cdot 2 + 3 = 9$ stemmer.\\
+\end{stegtabell}
+Svar: $x = 2$ og $y = 3$.
+\end{eksempel}
+
+\begin{eksempel}[2 — addisjon]
+Løs $\begin{cases} 2x + 3y = 12 & \text{(I)}\\ 5x - 2y = 11 & \text{(II)} \end{cases}$
+
+\begin{stegtabell}
+$4x + 6y = 24$ & Gang (I) med 2. Gang \emph{alle} ledd.\\
+$15x - 6y = 33$ & Gang (II) med 3. Nå er koeffisientene til $y$ motsatte.\\
+$19x = 57$, \ $x = 3$ & Legg sammen. $y$ forsvinner.\\
+$2 \cdot 3 + 3y = 12$, \ $y = 2$ & Sett $x = 3$ inn i (I).\\
+Kontroll: & (I) $6 + 6 = 12$ stemmer. (II) $15 - 4 = 11$ stemmer.\\
+\end{stegtabell}
+Svar: $x = 3$ og $y = 2$.
+\end{eksempel}
+
+\begin{vanligfeil}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
+  \item Du ganger bare ett ledd: $2(x + 3y) = 2x + 3y$ er feil. Alle ledd ganges: $2(x + 3y) = 2x + 6y$.
+  \item Fortegnsfeil ved subtraksjon: $(4x + 3y) - (2x - y) = 2x + 2y$ er feil. Riktig er $2x + 3y + y = 2x + 4y$.
+  \item «$x = 6$, ferdig» er feil. Et system med to ukjente har et tallpar som svar. Finn også $y$.
+  \item Kontroll i bare én likning er ikke nok. Paret $(4, 1)$ passer i $x + y = 5$, men ikke i $x - y = 1$.
+\end{itemize}
+\end{vanligfeil}
+
+\nivaahode{1}
+
+\oppg{1.1}{1}{\uh}
+Sett inn i begge likningene. Er paret en løsning av systemet?
+\begin{tasks}(2)
+  \task $\begin{cases} x + y = 7\\ x - y = 1 \end{cases}$ \ med $(4, 3)$
+  \task $\begin{cases} 2x + y = 9\\ x - y = 1 \end{cases}$ \ med $(3, 3)$
+\end{tasks}
+
+\oppg{1.2}{1}{\uh}
+Løs med innsetting. Svar som tallpar.
+\begin{tasks}(3)
+  \task $\begin{cases} y = x + 2\\ 2x + y = 11 \end{cases}$
+  \task $\begin{cases} x = 3y\\ x + y = 12 \end{cases}$
+  \task $\begin{cases} y = 4 - x\\ 2x + 3y = 9 \end{cases}$
+\end{tasks}
+
+\oppg{1.3}{1}{\uh}
+Vi skal løse $\begin{cases} x + y = 9 & \text{(I)}\\ 2x - y = 6 & \text{(II)} \end{cases}$
+\begin{tasks}(1)
+  \task Legg (I) og (II) sammen. Hvilken ukjent forsvinner?
+  \task Løs systemet.
+  \task Kontroller svaret i begge likningene.
+\end{tasks}
+
+\nivaahode{2}
+
+\oppg{1.4}{2}{\uh}
+Løs med addisjonsmetoden. Du må gange minst én likning.
+\begin{tasks}(3)
+  \task $\begin{cases} 2x + y = 7\\ 3x - 2y = 14 \end{cases}$
+  \task $\begin{cases} 2x + 3y = -5\\ 3x - 2y = 12 \end{cases}$
+  \task $\begin{cases} 3x + 2y = 4\\ 2x + 5y = 21 \end{cases}$
+\end{tasks}
+
+\oppg{1.5}{2}{\uh}
+Løs systemet. Velg selv metode, og forklar kort hvorfor du valgte den.
+\begin{tasks}(3)
+  \task $\begin{cases} x = 2y - 3\\ 3x - 4y = -5 \end{cases}$
+  \task $\begin{cases} 3x + 5y = -4\\ 3x - 2y = -11 \end{cases}$
+  \task $\begin{cases} 6x + 5y = 3\\ -6x + y = 15 \end{cases}$
+\end{tasks}
+
+\oppg{1.6}{2}{\uh}
+Finn \textbf{den første feilen}. Løs riktig.
+\[ \begin{cases} 2x + 3y = 13\\ 5x - 4y = -2 \end{cases} \]
+\[ 8x + 12y = 52 \ \text{og} \ 15x - 12y = -6 \ \to\ 23x = 46 \ \to\ x = 2 \ \to\ 2 \cdot 2 + 3y = 13 \ \to\ 3y = 13 + 4 \ \to\ y = \tfrac{17}{3} \]
+
+\oppg{1.7}{2}{\mh}
+På skolekafeen koster 4 skolebrød og 2 kakao 110 kr. 3 skolebrød og 4 kakao koster 120 kr.
+Sett opp et likningssystem. Finn prisen på ett skolebrød og på én kakao. Kontroller i teksten.
+
+\nivaahode{3}
+
+\oppg{1.8}{3}{\uh}
+Lag et likningssystem som har løsningen $(3, -1)$, og der addisjonsmetoden passer best.
+Forklar hvorfor addisjon passer bedre enn innsetting. Løs systemet ditt for å kontrollere.
+
+\oppg{1.9}{3}{\uh}
+Systemet $\begin{cases} 3x + ay = 21\\ bx - y = 3 \end{cases}$ har løsningen $(2, 5)$. Finn $a$ og $b$. Forklar hvordan du tenker.
+
+\begin{sjekk}
+\begin{tasks}(2)
+  \task Løs $\begin{cases} y = 2x + 1\\ x + y = 7 \end{cases}$
+  \task Hva er koeffisienten til $y$ i $5x - 3y = 8$?
+  \task! Hvorfor må vi kontrollere svaret i begge likningene?
+\end{tasks}
+\end{sjekk}
+
+% ---------------------------------------------------------------------
+
+\del{2}{Grafisk løsning og antall løsninger}
+
+\begin{ordliste}
+skjæringspunkt & Punktet der to linjer krysser hverandre. & \mittsprak\\
+parallelle linjer & Linjer med samme stigningstall som aldri krysser. & \mittsprak\\
+sammenfallende linjer & To likninger som gir nøyaktig samme linje. & \mittsprak\\
+stigningstall & Tallet $a$ i $y = ax + b$. Sier hvor mye $y$ øker når $x$ øker med 1. & \mittsprak\\
+konstantledd & Tallet $b$ i $y = ax + b$. Der linjen krysser $y$-aksen. & \mittsprak\\
+\end{ordliste}
+
+\begin{mustkunne}
+Hver likning med $x$ og $y$ er en rett linje. Et punkt $(x, y)$ på linjen er en løsning av likningen. Løsningen av systemet er punktet som ligger på \emph{begge} linjene.
+
+\medskip
+\begin{minipage}[t]{0.32\linewidth}
+\centering
+\begin{tikzpicture}
+\begin{axis}[width=\linewidth, height=\linewidth, axis lines=middle, xmin=-3, xmax=5, ymin=-3, ymax=5,
+  xtick={-2,2,4}, ytick={-2,2,4}, tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$},
+  label style={font=\small}, title={\small Én løsning}]
+\addplot[domain=-3:5, thick, hoved] {x + 1};
+\addplot[domain=-3:5, thick, red!70!black] {-x + 3};
+\addplot[only marks, mark=*, mark size=1.5pt] coordinates {(1,2)};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\linewidth}
+\centering
+\begin{tikzpicture}
+\begin{axis}[width=\linewidth, height=\linewidth, axis lines=middle, xmin=-3, xmax=5, ymin=-3, ymax=5,
+  xtick={-2,2,4}, ytick={-2,2,4}, tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$},
+  label style={font=\small}, title={\small Ingen løsning}]
+\addplot[domain=-3:5, thick, hoved] {x + 1};
+\addplot[domain=-3:5, thick, red!70!black] {x - 2};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\linewidth}
+\centering
+\begin{tikzpicture}
+\begin{axis}[width=\linewidth, height=\linewidth, axis lines=middle, xmin=-3, xmax=5, ymin=-3, ymax=5,
+  xtick={-2,2,4}, ytick={-2,2,4}, tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$},
+  label style={font=\small}, title={\small Uendelig mange}]
+\addplot[domain=-3:5, thick, hoved] {x + 1};
+\addplot[domain=-3:5, thick, red!70!black, dashed] {x + 1};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+
+\medskip
+\textbf{Addisjon gir:} en løsning $x = \ldots$ \quad|\quad $0 = $ et tall som ikke er 0 \quad|\quad $0 = 0$.
+Ulike stigningstall gir ett skjæringspunkt. Like stigningstall og ulikt konstantledd gir ingen løsning. Like stigningstall og likt konstantledd gir samme linje.
+\end{mustkunne}
+
+\begin{eksempel}[1 — antall løsninger uten å tegne]
+Hvor mange løsninger har $\begin{cases} 2x - y = 3\\ -4x + 2y = 6 \end{cases}$?
+
+\begin{stegtabell}
+$y = 2x - 3$ & Løs første likning for $y$. Stigningstall 2, konstantledd $-3$.\\
+$y = 2x + 3$ & Løs andre likning for $y$. Stigningstall 2, konstantledd 3.\\
+Parallelle linjer & Samme stigningstall, ulikt konstantledd. Ingen løsning.\\
+$0 = 12$ & Kontroll: gang første med 2 og legg sammen. Selvmotsigelse.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{eksempel}[2 — samme linje]
+Løs $\begin{cases} x + y = 3\\ 2x + 2y = 6 \end{cases}$
+
+\begin{stegtabell}
+$-2x - 2y = -6$ & Gang første likning med $-2$.\\
+$0 = 0$ & Legg sammen. Alltid sant.\\
+\end{stegtabell}
+De to likningene er samme linje. Alle punkter på linjen er løsninger, så det finnes uendelig mange.
+\end{eksempel}
+
+\begin{vanligfeil}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
+  \item «$0 = 0$, så $x = 0$ og $y = 0$» er feil. For $\begin{cases} 2x + y = 6\\ 4x + 2y = 12 \end{cases}$ gir addisjon $0 = 0$, og linjene faller sammen.
+  \item «$0 = 12$, så jeg har regnet feil» er ikke alltid riktig. Er regningen riktig, betyr det ingen løsning.
+  \item «Like stigningstall betyr ingen løsning» er feil. $y = 3x + 1$ og $y = 3x + 1$ er samme linje.
+\end{itemize}
+\end{vanligfeil}
+
+\nivaahode{1}
+
+\oppg{2.1}{1}{\uh}
+Figuren viser linjene til $y = x - 1$ og $y = -x + 5$.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=5.4cm, height=5.4cm, axis lines=middle, xmin=-1, xmax=6, ymin=-2, ymax=6,
+  xtick={1,2,3,4,5}, ytick={-1,1,2,3,4,5}, tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$},
+  label style={font=\small}]
+\addplot[domain=-1:6, thick, hoved] {x - 1};
+\addplot[domain=-1:6, thick, red!70!black] {-x + 5};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\begin{tasks}(1)
+  \task Les av skjæringspunktet.
+  \task Skriv løsningen som et tallpar. Kontroller i begge likningene.
+\end{tasks}
+
+\oppg{2.2}{1}{\uh}
+Se på stigningstallene. Har systemet én løsning, ingen løsning eller uendelig mange løsninger?
+\begin{tasks}(3)
+  \task $\begin{cases} y = 3x + 1\\ y = 3x - 4 \end{cases}$
+  \task $\begin{cases} y = 2x - 5\\ y = -x + 4 \end{cases}$
+  \task $\begin{cases} y = 4 - x\\ y = -x + 4 \end{cases}$
+\end{tasks}
+
+\oppg{2.3}{1}{\uh}
+Du legger sammen to likninger og står igjen med dette. Hva sier det om linjene?
+Velg mellom «de krysser», «parallelle» og «sammenfallende».
+\begin{tasks}(3)
+  \task $0 = -4$
+  \task $0 = 0$
+  \task $4y = 12$
+\end{tasks}
+
+\nivaahode{2}
+
+\oppg{2.4}{2}{\uh}
+Skriv likningene på formen $y = ax + b$. Avgjør hvor mange løsninger systemet har. Løs det hvis det har én løsning.
+\begin{tasks}(3)
+  \task $\begin{cases} 2x + y = 5\\ 4x + 2y = 7 \end{cases}$
+  \task $\begin{cases} x - y = 3\\ 2x - 2y = 6 \end{cases}$
+  \task $\begin{cases} 3x + y = 4\\ 6x - y = 5 \end{cases}$
+\end{tasks}
+
+\oppg{2.5}{2}{\mh}
+To sykkelutleiere tar ulik pris. Utleier A tar 50 kr i start og 20 kr per time. Utleier B tar 20 kr i start og 30 kr per time.
+\begin{tasks}(1)
+  \task Sett opp et likningssystem for prisen $y$ etter $x$ timer. Tegn linjene i GeoGebra.
+  \task Etter hvor mange timer koster det like mye? Hva koster det da?
+  \task Hvem er billigst hvis du leier i 5 timer? Forklar med grafen.
+\end{tasks}
+
+\oppg{2.6}{2}{\uh}
+Finn \textbf{den første feilen}. Hva er riktig svar?
+\[ \begin{cases} 6x - 3y = 9\\ 2x - y = 5 \end{cases} \]
+\[ 6x - 3y = 15 \ \to\ (6x - 3y) - (6x - 3y) = 9 - 15 \ \to\ -6y = -6 \ \to\ y = 1 \ \to\ 2x - 1 = 5 \ \to\ x = 3 \]
+
+\nivaahode{3}
+
+\oppg{2.7}{3}{\uh}
+Se på systemet $\begin{cases} 2x + ay = 4\\ x + 3y = b \end{cases}$, der $a$ og $b$ er konstanter.
+\begin{tasks}(1)
+  \task Finn $a$ og $b$ slik at systemet har uendelig mange løsninger.
+  \task Finn $a$ og $b$ slik at systemet ikke har noen løsning.
+  \task For hvilke verdier av $a$ har systemet nøyaktig én løsning? Begrunn.
+\end{tasks}
+
+\oppg{2.8}{3}{\uh}
+Innsetting virker også når en av likningene ikke er en rett linje. Da kan vi få en likning vi løser med felles faktor: $x^2 = 5x$ gir $x(x - 5) = 0$, så $x = 0$ eller $x = 5$.
+\begin{tasks}(1)
+  \task Løs $\begin{cases} y = x^2\\ y = 4x \end{cases}$. Svar som tallpar.
+  \task Forklar hvorfor linjen $y = -4$ aldri krysser parabelen $y = x^2$.
+\end{tasks}
+
+\begin{sjekk}
+\begin{tasks}(2)
+  \task! Har $\begin{cases} y = -x + 2\\ y = -x + 6 \end{cases}$ én, ingen eller uendelig mange løsninger?
+  \task Hva betyr $0 = 0$ etter addisjon?
+  \task! Hvorfor er løsningen av et likningssystem skjæringspunktet mellom linjene?
+\end{tasks}
+\end{sjekk}
