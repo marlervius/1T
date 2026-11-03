@@ -236,6 +236,8 @@ bedre = min(range(17), key=lambda i: abs(float(l17[i].split()[1]) - 0.6931471805
 sant("U7 beste h er rundt 1e-8", bedre in (7, 8), l17[bedre])
 aapen("U7b", "Forklaring: avrundingsfeil når 2**h - 1 er ekstremt liten.")
 
+aapen("U5c", "Vekstfart x1+x2 for x^2; midtpunkt m gir 2m = x1+x2.")
+chk("U5c", sek(x**2, (x1 + x2) / 2, h).subs(h, 0) if False else simplify(gv(x**2, x1, x2) - 2 * (x1 + x2) / 2), 0)
 # U5 bevis
 A, B, C = symbols("A B C")
 q = A * x**2 + B * x + C

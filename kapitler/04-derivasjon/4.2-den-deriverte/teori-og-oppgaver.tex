@@ -5,7 +5,7 @@
 \del{1}{Grenseverdi og definisjonen av den deriverte}
 
 \begin{ordliste}
-grenseverdi & Tallet et uttrykk kommer så nær vi vil når $h$ er nær nok 0. Skrives $\lim\limits_{h \to 0}$. & \mittsprak\\
+grenseverdi & Tallet et uttrykk kommer så nær vi vil når $h$ er nær nok 0. Skrives $\lim_{h \to 0}$. & \mittsprak\\
 den deriverte & Grenseverdien av sekantenes stigningstall. Den er vekstfarten i ett punkt. & \mittsprak\\
 derivere & Finne den deriverte til en funksjon. & \mittsprak\\
 definisjon & En presis forklaring av hva et begrep betyr. Alt annet bygger på den. & \mittsprak\\
@@ -43,7 +43,7 @@ Kontroll: & Tabellen i 4.1 ga $7;\ 6,1;\ 6,01;\ \ldots$ Det stemmer med $6$.\\
 La $f(x) = x^2 - 4x$. Finn $f'(x)$. Finn deretter $f'(1)$ og forklar hva tallet betyr.
 
 \begin{stegtabell}
-$\dfrac{(x + h)^2 - 4(x + h) - (x^2 - 4x)}{h}$ & Sett inn i $\frac{f(x + h) - f(x)}{h}$. Hele $f(x)$ står i parentes.\\
+$\dfrac{(x + h)^2 - 4(x + h) - (x^2 - 4x)}{h}$ & Sett inn i differansekvotienten. Hele $f(x)$ står i parentes.\\
 $= \dfrac{x^2 + 2xh + h^2 - 4x - 4h - x^2 + 4x}{h}$ & Kvadratsetning, gang ut, og bytt fortegn i parentesen.\\
 $= \dfrac{2xh + h^2 - 4h}{h}$ & $x^2$ og $4x$ forsvinner.\\
 $= 2x + h - 4$ & Del hvert ledd på $h$.\\
@@ -154,9 +154,9 @@ bevis & En begrunnelse som viser at noe stemmer i alle tilfeller, ikke bare i no
 \textbf{Utledet fra definisjonen:}
 \renewcommand{\arraystretch}{1.5}
 \begin{tabular}[t]{@{}l l@{}}
-$(k)' = 0$ & $\frac{k - k}{h} = 0$\\
-$(kx)' = k$ & $\frac{kx + kh - kx}{h} = k$\\
-$(x^2)' = 2x$ & $\frac{2xh + h^2}{h} = 2x + h$\\
+$(k)' = 0$ & $(k - k)/h = 0$\\
+$(kx)' = k$ & $kh/h = k$\\
+$(x^2)' = 2x$ & $(2xh + h^2)/h = 2x + h$\\
 $(x^3)' = 3x^2$ & Eksempel 1\\
 $(f + g)' = f' + g'$ & Eksempel 2\\
 \end{tabular}
