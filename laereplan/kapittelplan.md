@@ -36,7 +36,7 @@ Status: `—` ikke startet · `brief` brief skrevet · `utkast` forfatter ferdig
 |---|---|---|---|---|
 | 3.1 | Funksjonsbegrepet og lineære funksjoner | Definisjonsmengde og verdimengde · Stigningstall og konstantledd | 5, 3 | brief |
 | 3.2 | Andregradsfunksjoner | Nullpunkter og symmetrilinje · Ekstremalpunkt og fullstendige kvadraters metode | 6, 9 | brief |
-| 3.3 | Polynomfunksjoner og polynomdivisjon | Polynomdivisjon og faktorisering · Nullpunkter og forløp | 11, 9 | — |
+| 3.3 | Polynomfunksjoner og polynomdivisjon | Polynomdivisjon og faktorisering · Nullpunkter og forløp | 11, 9 | brief |
 | 3.4 | Rasjonale funksjoner | Asymptoter (med polynomdivisjon) · Rasjonale likninger og ulikheter | 9, 11, 4 | — |
 | 3.5 | Eksponential- og potensfunksjoner | Vekstfaktor og prosentvis endring · Potensfunksjoner $ax^b$ | 9, 7 | — |
 | 3.6 | Modellering | Regresjon med digitale verktøy · Vurdere gyldighet og lese tekster | 7, 8, 3 | — |

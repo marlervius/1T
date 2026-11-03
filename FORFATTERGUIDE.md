@@ -56,6 +56,9 @@ Ingen preamble, ingen `\documentclass`, ingen `\usepackage`. Byggeskriptet lager
   `(2)` for middels, `(1)` for setninger. `\task!` gir full bredde.
 - `\begin{infoboks}{Tittel} … \end{infoboks}`, `\begin{oppsummering} … \end{oppsummering}`
 - `\begin{kode} … \end{kode}` — Python-kode. Ikke inni `tasks`.
+- `\polylongdiv{x^3-2x^2-5x+6}{x-1}` — polynomdivisjon med norsk oppstilling. Pakken regner selv
+  (også rest). `\polylongdiv[stage=3]{…}{…}` viser bare de første stegene — fint til «fullfør»-oppgaver.
+  Skriv polynomene uten mellomrom og med `^` (ikke `\cdot`). Kontroller svaret i `verifiser.py` med `div()`.
 - `\hint{tekst}` — grått tips under en oppgave (bruk sjelden, mest på nivå 3)
 - `\skrivlinje[3cm]`, `\rute` — tomme felt i «fullfør»-oppgaver
 - `minipage[t]` med `\begin{tabular}[t]` — to spalter i `mustkunne`
