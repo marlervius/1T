@@ -1,0 +1,68 @@
+% =====================================================================
+%  2.1 Likninger og formler — ekstra utfordring
+% =====================================================================
+
+\begin{infoboks}{Velg metode selv}
+Arket bygger på 2.1 Likninger og formler. Vis regning og begrunnelse. Bruk eksakte svar.
+Kontroller svaret ved å sette inn i den opprinnelige likningen.
+\end{infoboks}
+
+\nivaahode{2}
+
+\oppg{U1}{2}{\uh}
+Løs likningen og kontroller svaret.
+\[ x - \frac{x-2}{3} = \frac{x+4}{2} - 1 \]
+
+\oppg{U2}{2}{\uh}
+Se på likningen $a(x-1) = 2x + 4$, der $a$ er en konstant.
+\begin{tasks}(1)
+  \task Løs likningen når $a = 3$.
+  \task For hvilken verdi av $a$ har likningen ingen løsning?
+  \task Finnes det en verdi av $a$ som gjør likningen til en identitet? Begrunn.
+\end{tasks}
+
+\oppg{U3}{2}{\uh}
+Ved hvilken temperatur viser celsius og fahrenheit det samme tallet? Bruk $F = 1{,}8C + 32$.
+
+\oppg{U4}{2}{\mh}
+To taxiselskap tar ulik pris. Selskap A tar 49 kr i start og 16 kr per km. Selskap B tar 89 kr i start og 12 kr per km.
+\begin{tasks}(1)
+  \task Sett opp en formel for prisen hos hvert selskap etter $x$ km.
+  \task Finn algebraisk hvor langt du må kjøre for at prisen blir lik.
+  \task Tegn begge i GeoGebra. Hvilket selskap anbefaler du for en tur på 6 km og for en tur på 25 km?
+\end{tasks}
+
+\oppg{U5}{2}{\prog}
+Programmet skal løse $ax + b = cx + d$ og skrive ut hvor mange løsninger det er. Fyll inn hullene.
+\begin{kode}
+def los(a, b, c, d):
+    if a != c:
+        x = (d - b) / (a - c)
+        print("en losning:", x)
+    elif ____:
+        print("alle tall er losninger")
+    else:
+        print("____")
+\end{kode}
+\begin{tasks}(1)
+  \task Hva må stå i de to hullene? Forklar hvorfor $a = c$ gir to ulike tilfeller.
+  \task Hva skriver programmet ut for \lstinline[style=laereverk,numbers=none,frame=none]|los(3, 1, 1, 5)| og for \lstinline[style=laereverk,numbers=none,frame=none]|los(2, 1, 2, 4)|?
+\end{tasks}
+
+\nivaahode{3}
+
+\oppg{U6}{3}{\uh}
+\begin{tasks}(1)
+  \task Vis at $\dfrac{1}{x} - \dfrac{1}{x+1} = \dfrac{1}{x(x+1)}$ for $x \neq 0$ og $x \neq -1$.
+  \task Karl setter inn $x = 1$, $x = 2$ og $x = 3$, og alle gir lik verdi på begge sider. Forklar hvorfor det ikke er et bevis.
+\end{tasks}
+
+\oppg{U7}{3}{\uh}
+Likningen $\sqrt{x^2} = x$ er sann for uendelig mange $x$, men den er ikke en identitet.
+Forklar hvordan begge deler kan stemme. For hvilke $x$ er likningen sann?
+
+\begin{oppsummering}
+Én verdi som ikke stemmer, er nok til å vise at noe ikke er en identitet.
+Å sette inn tall kan aldri bevise en identitet. Det krever algebra.
+Ender du på $0 = 0$, er alle tall løsninger. Ender du på en usann påstand, er det ingen løsning.
+\end{oppsummering}
