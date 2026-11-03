@@ -1,0 +1,88 @@
+% =====================================================================
+%  4.2 Den deriverte — ekstra utfordring
+% =====================================================================
+
+\begin{infoboks}{Velg metode selv}
+Arket bygger på 4.2 Den deriverte. Gå tilbake til definisjonen når du er usikker.
+Hold $h$ i alle mellomsteg, og skriv «Når $h \to 0$» før siste steg.
+Vis regning og begrunnelse. Bruk eksakte svar.
+\end{infoboks}
+
+\nivaahode{2}
+
+\oppg{U1}{2}{\uh}
+La $f(x) = x^2 - 3x + 1$.
+\begin{tasks}(1)
+  \task Finn $f'(2)$ fra definisjonen.
+  \task Finn likningen for tangenten i punktet der $x = 2$.
+\end{tasks}
+
+\oppg{U2}{2}{\uh}
+La $f(x) = x^2$. Finn punktet på grafen der tangenten er parallell med linja $y = 8x + 1$.
+
+\oppg{U3}{2}{\prog}
+Programmet regner to tilnærminger til den deriverte.
+\begin{kode}
+def derivert(f, x, h):
+    return (f(x + h) - f(x)) / h
+
+def symmetrisk(f, x, h):
+    return (f(x + h) - f(x - h)) / (2 * h)
+
+def f(x):
+    return x**2
+
+print(round(derivert(f, 3, 0.001), 4))
+print(round(symmetrisk(f, 3, 0.001), 4))
+\end{kode}
+\begin{tasks}(1)
+  \task Hva skriver programmet ut? Hvorfor er ikke det første tallet helt lik den eksakte verdien $f'(3)$?
+  \task Bytt ut funksjonen med \lstinline[style=laereverk,numbers=none,frame=none]|x**3| og regn i $x = 2$, og deretter med \lstinline[style=laereverk,numbers=none,frame=none]|1/x| i $x = 2$. Den eksakte verdien er $12$ og $-0{,}25$. Hvilken variant er nærmest?
+  \task Prøv $h = 0{,}1$ og $h = 0{,}01$ for \lstinline[style=laereverk,numbers=none,frame=none]|x**2| i $x = 3$. Hvordan endrer feilen seg for hver av variantene?
+\end{tasks}
+
+\nivaahode{3}
+
+\oppg{U4}{3}{\uh}
+Vi viser at $(x^4)' = 4x^3$. Pascals trekant gir koeffisientene i $(x + h)^n$:
+\begin{center}
+\begin{tabular}{c}
+$1$\\
+$1 \quad 1$\\
+$1 \quad 2 \quad 1$\\
+$1 \quad 3 \quad 3 \quad 1$\\
+\end{tabular}
+\end{center}
+\begin{tasks}(1)
+  \task Skriv $(x + h)^4 = \big((x + h)^2\big)^2$ og gang ut. Hvilken rad i Pascals trekant får du?
+  \task Bevis at $(x^4)' = 4x^3$ fra definisjonen.
+  \task Hvilket tall står som koeffisient foran $x^{n-1}h$ i $(x + h)^n$? Hvordan forklarer det mønsteret $(x^n)' = nx^{n-1}$?
+\end{tasks}
+
+\oppg{U5}{3}{\uh}
+La $f(x) = \dfrac{1}{x}$, med $x \neq 0$.
+\begin{tasks}(1)
+  \task Finn $f'(x)$ fra definisjonen.
+  \task Hva sier fortegnet til $f'(x)$ om grafen?
+\end{tasks}
+
+\oppg{U6}{3}{\uh}
+La $f(x) = \sqrt{x}$, med $x > 0$.
+\begin{tasks}(1)
+  \task Finn $f'(x)$ fra definisjonen.
+  \task Skriv $\sqrt{x} = x^{\tfrac{1}{2}}$. Passer svaret ditt med mønsteret $(x^n)' = nx^{n-1}$?
+\end{tasks}
+\hint{Hvilket uttrykk gjør $\sqrt{x + h} - \sqrt{x}$ om til noe uten rottegn?}
+
+\oppg{U7}{3}{\uh}
+Den symmetriske differansekvotienten er $\dfrac{f(x + h) - f(x - h)}{2h}$.
+\begin{tasks}(1)
+  \task Vis at den er lik $2x$ for $f(x) = x^2$, for alle $h \neq 0$.
+  \task Velg selv en annen funksjon og regn ut begge differansekvotientene. Hvilken ligger nærmest $f'(x)$?
+  \task Forklar kort hvorfor den symmetriske varianten ofte gir bedre svar.
+\end{tasks}
+
+\begin{oppsummering}
+Den deriverte er grenseverdien av differansekvotienten når $h \to 0$. Forenkle og forkort $h$ før du lar $h$ gå mot 0.
+Et mønster er ikke et bevis. Vi må regne for hver $n$, eller bruke binomialformelen.
+\end{oppsummering}

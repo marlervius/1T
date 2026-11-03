@@ -43,7 +43,7 @@ Kontroll: & Tabellen i 4.1 ga $7;\ 6,1;\ 6,01;\ \ldots$ Det stemmer med $6$.\\
 La $f(x) = x^2 - 4x$. Finn $f'(x)$. Finn deretter $f'(1)$ og forklar hva tallet betyr.
 
 \begin{stegtabell}
-$\dfrac{f(x + h) - f(x)}{h} = \dfrac{(x + h)^2 - 4(x + h) - (x^2 - 4x)}{h}$ & Sett inn. Hele $f(x)$ står i parentes.\\
+$\dfrac{(x + h)^2 - 4(x + h) - (x^2 - 4x)}{h}$ & Sett inn i $\frac{f(x + h) - f(x)}{h}$. Hele $f(x)$ står i parentes.\\
 $= \dfrac{x^2 + 2xh + h^2 - 4x - 4h - x^2 + 4x}{h}$ & Kvadratsetning, gang ut, og bytt fortegn i parentesen.\\
 $= \dfrac{2xh + h^2 - 4h}{h}$ & $x^2$ og $4x$ forsvinner.\\
 $= 2x + h - 4$ & Del hvert ledd på $h$.\\
@@ -186,7 +186,7 @@ Når $h \to 0$: $(x^3)' = 3x^2$ & Leddene med $h$ går mot 0.\\
 Vis at $(f + g)' = f' + g'$.
 
 \begin{stegtabell}
-$\dfrac{(f + g)(x + h) - (f + g)(x)}{h} = \dfrac{f(x + h) + g(x + h) - f(x) - g(x)}{h}$ & Sett inn definisjonen av summen.\\
+$\dfrac{f(x + h) + g(x + h) - f(x) - g(x)}{h}$ & Sett inn $(f + g)(x) = f(x) + g(x)$ i differansekvotienten.\\
 $= \dfrac{f(x + h) - f(x)}{h} + \dfrac{g(x + h) - g(x)}{h}$ & Flytt leddene og del opp i to brøker.\\
 Når $h \to 0$: $= f'(x) + g'(x)$ & Hver brøk går mot sin deriverte.\\
 Bruk: $(x^3 + x)' = 3x^2 + 1$ & Vi bruker $(x^3)' = 3x^2$ og $(x)' = 1$.\\
@@ -243,7 +243,10 @@ En stein faller. Etter $t$ sekunder har den falt $s(t) = 5t^2$ meter.
 
 \oppg{2.6}{2}{\uh}
 La $f(x) = x^3 + 4x$. Finn \textbf{den første feilen}. Regn riktig.
-\[ \frac{(x + h)^3 + 4(x + h) - x^3 - 4x}{h} \ \to\ \frac{x^3 + 3x^2h + 3xh^2 + h^3 + 4x + 4h - x^3 - 4x}{h} \ \to\ \frac{3x^2h + 3xh^2 + h^3 + 4h}{h} \ \to\ 3x^2 + 3xh + h^2 + 4h \ \to\ 3x^2 \]
+\[ \begin{aligned}
+&\frac{(x + h)^3 + 4(x + h) - x^3 - 4x}{h} \ \to\ \frac{x^3 + 3x^2h + 3xh^2 + h^3 + 4x + 4h - x^3 - 4x}{h}\\
+&\to\ \frac{3x^2h + 3xh^2 + h^3 + 4h}{h} \ \to\ 3x^2 + 3xh + h^2 + 4h \ \to\ 3x^2
+\end{aligned} \]
 
 \oppg{2.7}{2}{\mh}
 Vi undersøker $f(x) = x^5$ med CAS.

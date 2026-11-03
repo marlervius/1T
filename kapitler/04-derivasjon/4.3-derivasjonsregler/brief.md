@@ -37,7 +37,7 @@ del 2: tangentlikning, ettpunktsformelen, parallell, vannrett tangent
 - Finn $a$ og $b$ slik at $f(x) = ax^2 + bx$ har $f'(1) = 4$ og $f(3) = 15$ (likningssystem, kobling 2.2). Løsning: $a = 1$, $b = 2$.
 - **Utfordring (oppdaget av arkitekten da briefen ble kontrollert):** «Ola vil finne $a$ og $b$ slik at $f(x) = ax^2 + bx$ har $f'(1) = 4$ og $f(2) = 10$. Han finner ingen løsning. Forklar hvorfor.» (Det gjelder alltid at $f(2) = 4a + 2b = 2f'(1)$, så kravene motsier hverandre.) For hvilke verdier av $f(2)$ ville det fungert, og hvor mange løsninger er det da?
 - Bevis (KM2): tangentene til $y = x^2$ i $x = a$ og $x = -a$ ($a \neq 0$) skjærer hverandre på $y$-aksen. Hvor? ($(0, -a^2)$)
-- Alltid / noen ganger / aldri: «To ulike punkter på grafen til et andregradspolynom har parallelle tangenter.» (Aldri: $f'$ er lineær og ikke konstant.) «… til et tredjegradspolynom.» (Noen ganger/ofte.)
+- Alltid / noen ganger / aldri: «To ulike punkter på grafen til et andregradspolynom har parallelle tangenter.» (Aldri: $f'$ er lineær og ikke konstant.) «… til et tredjegradspolynom.» (ALLTID — rettet av forfatteren: $f'$ er et andregradspolynom, så $f'(x)=k$ har to løsninger for passende $k$. Arkitektens opprinnelige «noen ganger» var feil.)
 - Baklengs: finn et polynom $f$ med $f'(x) = 6x^2 - 2$ og $f(1) = 3$.
 - **Utfordring:** tangenter til $y = x^2$ som går gjennom punktet $(1, -3)$ utenfor grafen. (Tangentpunkt $a$: $a^2 - 2a - 3 = 0$, $a = 3$ eller $a = -1$; tangenter $y = 6x - 9$ og $y = -2x - 1$.)
 - **Kontekst (`\mh`):** høyden til en ball $h(t) = 20t - 5t^2$ (meter, sekunder; tenkt modell). Fart $h'(t)$ med enhet. Når er farten 0? Sammenlign med toppunktet fra 3.2 — samme svar, to metoder.

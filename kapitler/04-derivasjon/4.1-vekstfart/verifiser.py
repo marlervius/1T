@@ -45,8 +45,8 @@ chk("1.1b", gv(g, 1, 3), 5)
 chk("1.1c", gv(g, -1, 2), 2)
 
 g = x**2 - 6 * x
-chk("1.2 g(1)", g.subs(x, 1), -5)
-chk("1.2 g(3)", g.subs(x, 3), -9)
+chk("1.2 p(1)", g.subs(x, 1), -5)
+chk("1.2 p(3)", g.subs(x, 3), -9)
 chk("1.2 Delta y", -9 - (-5), -4)
 chk("1.2 svar", gv(g, 1, 3), -2)
 
@@ -62,6 +62,8 @@ chk("1.4 punkt", [g.subs(x, v) for v in range(5)], [0, 3, 4, 3, 0])
 chk("1.4a", gv(g, 0, 1), 3)
 chk("1.4b", gv(g, 1, 4), -1)
 chk("1.4c", gv(g, 0, 3), 1)
+chk("1.4d", gv(g, 1, 3), 0)
+sant("1.4e ikke konstant", g.subs(x, 2) != g.subs(x, 1), "f(2)=4, f(1)=3")
 
 V = lambda t: 240000 * R(8, 10) ** t
 chk("1.5 V(3)", V(3), R(122880))
@@ -75,9 +77,9 @@ aapen("1.5c", "Tapet er 20 % av en mindre verdi, så færre kroner per år.")
 f6 = x**2 - 3 * x
 chk("1.6 f(2)", f6.subs(x, 2), -2)
 chk("1.6 f(6)", f6.subs(x, 6), 18)
-sant("1.6 pil 1 riktig", gv(f6, 2, 6) == (f6.subs(x, 6) - f6.subs(x, 2)) / (6 - 2), "oppsett")
-sant("1.6 pil 2 feil", (18 - (-2)) != (18 - 2), "18-(-2)=20, ikke 16")
-sant("1.6 pil 3 og 4 følger av feilen", R(18 - 2, 4) == 4, "16/4=4")
+sant("1.6 pil 1 riktig", f6.subs(x, 2) == -2 and f6.subs(x, 6) == 18, "f(2) og f(6)")
+sant("1.6 pil 2 feil (Delta y feil vei)", (f6.subs(x, 2) - f6.subs(x, 6)) / (6 - 2) != gv(f6, 2, 6), "-5 er ikke 5")
+chk("1.6 pil 3 følger av feilen", R(-2 - 18, 4), -5)
 chk("1.6 riktig svar", gv(f6, 2, 6), 5)
 
 k_, m_ = symbols("k m")
@@ -115,6 +117,9 @@ chk("Eks 2.2 h=0,01", sek(gk, 2, R(1, 100)), R(10025, 10000))
 chk("VF 2a f(3)", fk.subs(x, 3), 9)
 sant("VF 2a er feil", fk.subs(x, 3) != 6, "f(3)=9, tilnærmet vekstfart 6")
 sant("VF 2c h=1 er ikke eksakt", sek(fk, 3, 1) != 6, "7 er ikke 6")
+chk("VF 2c rett linje", sek(3 * x + 2, 5, 1), 3)
+chk("VF 2c x^3 i -1/3 med h=1", sek(x**3, R(-1, 3), 1), R(1, 3))
+chk("VF 2c x^3 momentan i -1/3 er 1/3", [sek(x**3, R(-1, 3), R(1, 10**i)) for i in (4,)][0].evalf(6), R(1, 3).evalf(6), tol=1e-3)
 
 # ---------- Del 2 ----------
 chk("2.1 h=1", sek(fk, 1, 1), 3)
@@ -126,11 +131,12 @@ chk("2.1 tilnærming", [sek(fk, 1, R(1, 10**i)) for i in (3, 4)], [R(2001, 1000)
 
 d = x**2 - 4 * x + 5
 chk("2.2 punkt", [d.subs(x, v) for v in range(5)], [5, 2, 1, 2, 5])
-sant("2.2 tangent y=2x-4 gjennom (3,2), (2,0), (4,4)", all(2 * p - 4 == q for p, q in [(3, 2), (2, 0), (4, 4)]), "punkt")
-chk("2.2a", R(4 - 0, 4 - 2), 2)
-sant("2.2b voksende", sek(d, 3, R(1, 1000)) > 0, "positiv")
-chk("2.2c", [sek(d, 2, R(1, 10**i)) for i in (2, 3)], [R(1, 100), R(1, 1000)])
-sant("2.2c tilnærmer 0", sek(d, 2, R(1, 10**6)) < R(1, 10**5), "nær 0")
+sant("2.2 tangent y=-2x+4 gjennom (1,2), (0,4), (2,0)", all(-2 * p + 4 == q for p, q in [(1, 2), (0, 4), (2, 0)]), "punkt")
+chk("2.2a", R(0 - 4, 2 - 0), -2)
+sant("2.2b avtagende", sek(d, 1, R(1, 1000)) < 0, "negativ")
+chk("2.2c", sek(d, 1, R(1, 100)), R(-199, 100))
+chk("2.2d", [sek(d, 2, R(1, 10**i)) for i in (2, 3)], [R(1, 100), R(1, 1000)])
+sant("2.2d tilnærmer 0", sek(d, 2, R(1, 10**6)) < R(1, 10**5), "nær 0")
 
 aapen("2.3a", "momentan: 70 km/h i et øyeblikk")
 chk("2.3b", R(270, 3), 90)

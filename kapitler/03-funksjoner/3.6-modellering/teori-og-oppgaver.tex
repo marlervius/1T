@@ -28,7 +28,7 @@ Velg $x$ som «år etter 2010», ikke årstallet. Da er $x = 0$ første året, o
 \textbf{Hvilken modelltype?}\par\smallskip
 \renewcommand{\arraystretch}{1.35}
 \small
-\begin{tabular}[t]{@{}l p{4.1cm}@{}}
+\begin{tabular}[t]{@{}l >{\raggedright\arraybackslash}p{4.1cm}@{}}
 Lineær & like store tillegg i $y$ når $x$ øker med 1\\
 Eksponentiell & $y$ ganges med samme tall når $x$ øker med 1\\
 Potens & $y$ ganges med samme tall når $x$ dobles\\
@@ -61,14 +61,12 @@ Vurdering: $f(5) \approx 12{,}8$ & Målt verdi er $12{,}7$. Modellen passer, og 
 \end{eksempel}
 
 \begin{eksempel}[2 — velg $x$ med omhu]
-Tenkte data: medlemmer i et turlag ved årsslutt. Året 2010: 212, 2011: 228, 2012: 247, 2013: 261, 2014: 280, 2015: 297.
+Tenkte data: medlemmer i et turlag ved årsslutt 2010 til 2015: 212, 228, 247, 261, 280 og 297. Tillegg per år: $16, 19, 14, 19, 17$. Nesten like, så vi velger en lineær modell.
 
 \begin{stegtabell}
-Differanser: $16, 19, 14, 19, 17$ & Nesten like store tillegg. Velg lineær modell.\\
-$x = $ årstall, regresjon gir konstantledd $\approx -33\,958$ & Meningsløst: «$-33\,958$ medlemmer i år 0».\\
-$x = $ år etter 2010, regresjon gir $f(x) \approx 17{,}0x + 212$ & Nå er $x = 0$ i 2010.\\
-Tolking & $17{,}0$: laget får omtrent 17 nye medlemmer per år. $212$: antall medlemmer i 2010.\\
-Kontroll: $f(5) \approx 297$ & Stemmer med tallet for 2015.\\
+$x = $ årstall & Regresjon gir konstantledd $\approx -33\,958$. Meningsløst: «$-33\,958$ medlemmer i år 0».\\
+$x = $ år etter 2010 & Regresjon gir $f(x) \approx 17{,}0x + 212$. Nå er $x = 0$ i 2010.\\
+Tolking & $17{,}0$: omtrent 17 nye medlemmer per år. $212$: antall medlemmer i 2010.\\
 \end{stegtabell}
 \end{eksempel}
 
@@ -252,9 +250,9 @@ Tenkt avisutdrag: «Svømmehallen i Bakkeby hadde 12\,000 besøkende i 2020 og 1
 – Hvis veksten fortsetter, har vi over 100\,000 besøkende i 2040, sier daglig leder.»
 
 \begin{stegtabell}
-Tall: $12\,000$ (2020), $15\,600$ (2023). Påstand: over $100\,000$ i 2040 & Skriv tall og påstand hver for seg.\\
+Tall og påstand & Tall: $12\,000$ (2020) og $15\,600$ (2023). Påstand: over $100\,000$ i 2040.\\
 $\dfrac{15\,600}{12\,000} = 1{,}3$ & Økning på $30\,\%$ på tre år.\\
-Lineær: $\dfrac{3\,600}{3} = 1\,200$ per år, så $12\,000 + 1\,200 \cdot 20 = 36\,000$ & Samme tillegg hvert år.\\
+Lineær: $\dfrac{3\,600}{3} = 1\,200$ & Samme tillegg per år. Da blir 2040: $12\,000 + 1\,200 \cdot 20 = 36\,000$.\\
 Eksponentiell: $12\,000 \cdot 1{,}3^{\tfrac{20}{3}} \approx 69\,000$ & Faktor $1{,}3$ per tre år. 20 år er $\frac{20}{3}$ perioder.\\
 Vurdering & Ingen av modellene gir 100\,000. To tall kan ikke avgjøre modelltypen. Tallene i teksten støtter ikke påstanden.\\
 \end{stegtabell}

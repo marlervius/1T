@@ -25,7 +25,7 @@ Negativ vekstfart betyr at $f$ synker i snitt.
 \vspace{0pt}\centering
 \begin{tikzpicture}[baseline=(current bounding box.north)]
 \begin{axis}[width=\linewidth, height=0.85\linewidth, axis lines=middle, xmin=-0.4, xmax=5.2, ymin=-2.2, ymax=9.5,
-  xtick={1,4}, xticklabels={$a$,$b$}, ytick={-1,8}, yticklabels={$f(a)$,$f(b)$},
+  xtick={1,4}, xticklabels={$a$,$b$}, xticklabel style={anchor=south}, ytick={-1,8}, yticklabels={$f(a)$,$f(b)$},
   tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$}, label style={font=\small}]
 \addplot[domain=-0.3:4.45, thick, black!60, samples=40] {x^2 - 2*x};
 \addplot[domain=0:4.8, thick, hoved] {3*x - 4};
@@ -89,10 +89,10 @@ La $g(x) = x^2 + x$. Finn gjennomsnittlig vekstfart på intervallet.
 \end{tasks}
 
 \oppg{1.2}{1}{\uh}
-La $h(x) = x^2 - 6x$. Finn gjennomsnittlig vekstfart på $[1, 3]$. Fullfør.
+La $p(x) = x^2 - 6x$. Finn gjennomsnittlig vekstfart på $[1, 3]$. Fullfør.
 \begin{tasks}(1)
-  \task $h(1) =$ \skrivlinje[2cm] \quad og \quad $h(3) =$ \skrivlinje[2cm]
-  \task Sett inn og regn ut: \quad $\dfrac{h(3) - h(1)}{3 - 1} = \dfrac{\ \rute\ -\ (\ \rute\ )}{\ \rute\ } =$ \skrivlinje[2cm]
+  \task $p(1) =$ \skrivlinje[2cm] \quad og \quad $p(3) =$ \skrivlinje[2cm]
+  \task Sett inn og regn ut: \quad $\dfrac{p(3) - p(1)}{3 - 1} = \dfrac{\ \rute\ -\ (\ \rute\ )}{\ \rute\ } =$ \skrivlinje[2cm]
 \end{tasks}
 
 \oppg{1.3}{1}{\uh}
@@ -112,21 +112,29 @@ avstand (km) & 0 & 70 & 150 & 210\\
 \nivaahode{2}
 
 \oppg{1.4}{2}{\uh}
-Grafen viser $f(x) = -x^2 + 4x$. Les av punkt og finn gjennomsnittlig vekstfart på intervallet.
-\begin{center}
-\begin{tikzpicture}
-\begin{axis}[width=6.4cm, height=4.4cm, axis lines=middle, xmin=-0.6, xmax=4.8, ymin=-1, ymax=4.8,
+Grafen viser $f$. Les av punkt og finn gjennomsnittlig vekstfart på intervallet.\par
+\begin{minipage}[t]{0.52\linewidth}
+\vspace{0pt}
+\begin{tasks}(2)
+  \task $[0, 1]$
+  \task $[1, 4]$
+  \task $[0, 3]$
+  \task $[1, 3]$
+\end{tasks}
+\begin{tasks}(1)
+  \task Svaret i d) er $0$. Betyr det at $f$ er konstant? Begrunn.
+\end{tasks}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.44\linewidth}
+\vspace{0pt}\centering
+\begin{tikzpicture}[baseline=(current bounding box.north)]
+\begin{axis}[width=\linewidth, height=0.75\linewidth, axis lines=middle, xmin=-0.6, xmax=4.8, ymin=-1, ymax=4.8,
   xtick={0,1,2,3,4}, ytick={1,2,3,4}, grid=both, grid style={black!10},
   tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$}, label style={font=\small}]
 \addplot[domain=-0.1:4.1, thick, hoved, samples=40] {-x^2 + 4*x};
 \end{axis}
 \end{tikzpicture}
-\end{center}
-\begin{tasks}(3)
-  \task $[0, 1]$
-  \task $[1, 4]$
-  \task $[0, 3]$
-\end{tasks}
+\end{minipage}
 
 \oppg{1.5}{2}{\mh}
 En bil koster $240\,000$ kr som ny. Verdien etter $t$ år er $V(t) = 240\,000 \cdot 0,8^t$ kr.
@@ -138,8 +146,8 @@ Avrund til nærmeste hundre kroner.
 \end{tasks}
 
 \oppg{1.6}{2}{\uh}
-La $f(x) = x^2 - 3x$. Da er $f(2) = -2$ og $f(6) = 18$. Finn \textbf{den første feilen}. Regn riktig.
-\[ \frac{f(6) - f(2)}{6 - 2} \quad\longrightarrow\quad \frac{18 - (-2)}{6 - 2} \quad\longrightarrow\quad \frac{18 - 2}{4} \quad\longrightarrow\quad 4 \]
+La $f(x) = x^2 - 3x$. Finn gjennomsnittlig vekstfart på $[2, 6]$. Finn \textbf{den første feilen}. Regn riktig.
+\[ f(2) = 2^2 - 3\cdot 2 = -2 \ \longrightarrow\ f(6) = 6^2 - 3\cdot 6 = 18 \ \longrightarrow\ \frac{f(2) - f(6)}{6 - 2} = \frac{-2 - 18}{4} \ \longrightarrow\ -5 \]
 
 \nivaahode{3}
 
@@ -206,7 +214,7 @@ Vi gir dette tallet et navn i 4.2.
 \end{mustkunne}
 
 \begin{eksempel}[1 — mindre og mindre $h$]
-La $f(x) = x^2$. Anslå vekstfarten i $x = 3$. Vi regner $\dfrac{f(3 + h) - f(3)}{h}$ for mindre og mindre $h$. Her er $f(3) = 9$.
+La $f(x) = x^2$. Vi anslår vekstfarten i $x = 3$. Vi regner $\dfrac{f(3 + h) - f(3)}{h}$ for mindre og mindre $h$. Her er $f(3) = 9$.
 
 \begin{center}
 \renewcommand{\arraystretch}{1.3}
@@ -220,39 +228,40 @@ $0,001$ & $9,006001$ & $0,006001$ & $6,001$\\
 \end{center}
 
 \begin{stegtabell}
-$7;\ 6,1;\ 6,01;\ 6,001$ & Tallene blir mindre og nærmer seg $6$.\\
-Momentan vekstfart i $x = 3$ er $6$. & Sekantene nærmer seg tangenten når $h$ blir liten.\\
+$7;\ 6,1;\ 6,01;\ 6,001$ & Tallene nærmer seg $6$. Momentan vekstfart i $x = 3$ er $6$.\\
 \end{stegtabell}
 \end{eksempel}
 
 \begin{eksempel}[2 — lese av en tangent]
-Grafen viser $g(x) = \dfrac{x^2}{4}$ med tangent i punktet $(2, 1)$. Finn vekstfarten i $x = 2$ ved å lese av.
-
-\begin{center}
-\begin{tikzpicture}
-\begin{axis}[width=5.6cm, height=3.4cm, axis lines=middle, xmin=-1, xmax=5.2, ymin=-1.6, ymax=4.2,
-  xtick={0,1,2,3,4}, ytick={-1,1,2,3}, grid=both, grid style={black!10},
+Grafen viser $g(x) = \dfrac{x^2}{4}$ med tangent i punktet $(2, 1)$. Finn vekstfarten i $x = 2$ ved å lese av.\par\smallskip
+\begin{minipage}[t]{0.60\linewidth}
+\vspace{0pt}
+\begin{stegtabell}
+Punkt: $(0, -1)$ og $(4, 3)$ & Velg punkt der tangenten treffer rutenettet.\\
+$\dfrac{3 - (-1)}{4 - 0} = \dfrac{4}{4} = 1$ & Stigningstallet til tangenten.\\
+Kontroll: & $h = 0,1$ og $h = 0,01$ gir $1,025$ og $1,0025$.\\
+Avlesning er unøyaktig. & En liten feil i linja gir en annen verdi. Tabellen er sikrere.\\
+\end{stegtabell}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.36\linewidth}
+\vspace{0pt}\centering
+\begin{tikzpicture}[baseline=(current bounding box.north)]
+\begin{axis}[width=\linewidth, height=0.85\linewidth, axis lines=middle, xmin=-1, xmax=5.2, ymin=-1.6, ymax=4.2,
+  xtick={0,1,2,3,4}, ytick={1,2,3}, grid=both, grid style={black!10},
   tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$}, label style={font=\small}]
 \addplot[domain=-0.8:4.5, thick, hoved, samples=40] {x^2/4};
 \addplot[domain=-0.5:4.6, thick, dashed, niv3] {x - 1};
 \addplot[only marks, mark=*, mark size=1.5pt, black] coordinates {(2,1) (0,-1) (4,3)};
 \end{axis}
 \end{tikzpicture}
-\end{center}
-
-\begin{stegtabell}
-Punkt på tangenten: $(0, -1)$ og $(4, 3)$ & Velg punkt der tangenten treffer rutenettet.\\
-$\dfrac{3 - (-1)}{4 - 0} = \dfrac{4}{4} = 1$ & Stigningstallet til tangenten.\\
-Kontroll med $h = 0,1$ og $h = 0,01$: & Tabell gir $1,025$ og $1,0025$. De nærmer seg $1$.\\
-\end{stegtabell}
-Avlesning fra en tegnet tangent er \emph{unøyaktig}: en liten feil i linja gir en annen verdi. Tabellen gir et sikrere anslag.
+\end{minipage}
 \end{eksempel}
 
 \begin{vanligfeil}
 \begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
   \item Momentan vekstfart er ikke funksjonsverdien. For $f(x) = x^2$ er $f(3) = 9$, men vekstfarten i $x = 3$ er $6$. $f(3)$ sier hvor høyt grafen er. Vekstfarten sier hvor bratt den er.
-  \item At sekanten med $h = 1$ gir den momentane vekstfarten gjelder ikke generelt. Moteksempel: for $f(x) = x^2$ i $x = 3$ gir $h = 1$ tallet $7$, ikke $6$. Det stemmer bare for en rett linje.
-  \item Vekstfarten må ha enhet. Er $s$ i meter og $t$ i sekunder, er enheten m/s, akkurat som for gjennomsnittlig vekstfart.
+  \item At sekanten med $h = 1$ gir den momentane vekstfarten, gjelder ikke generelt. For en rett linje stemmer det alltid. Moteksempel: for $f(x) = x^2$ i $x = 3$ gir $h = 1$ tallet $7$, ikke $6$.
+  \item «Fart $= 12$» er ikke ferdig. Skriv $12$ m/s, ikke $12$ s/m.
 \end{itemize}
 \end{vanligfeil}
 
@@ -272,23 +281,28 @@ $0,01$ & \rute & \rute & \rute\\
 Hvilket tall nærmer stigningstallene seg?
 
 \oppg{2.2}{1}{\uh}
-Grafen viser $f(x) = x^2 - 4x + 5$ og tangenten i punktet $(3, 2)$.
-\begin{center}
-\begin{tikzpicture}
-\begin{axis}[width=5.6cm, height=3.6cm, axis lines=middle, xmin=-0.5, xmax=5.3, ymin=-0.8, ymax=5.6,
-  xtick={0,1,2,3,4,5}, ytick={1,2,3,4,5}, grid=both, grid style={black!10},
-  tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$}, label style={font=\small}]
-\addplot[domain=0.2:4.4, thick, hoved, samples=40] {x^2 - 4*x + 5};
-\addplot[domain=1.7:4.4, thick, dashed, niv3] {2*x - 4};
-\addplot[only marks, mark=*, mark size=1.5pt, black] coordinates {(3,2) (2,0) (4,4) (2,1)};
-\end{axis}
-\end{tikzpicture}
-\end{center}
+Grafen viser $f(x) = x^2 - 4x + 5$ og tangenten i punktet $(1, 2)$.\par
+\begin{minipage}[t]{0.55\linewidth}
+\vspace{0pt}
 \begin{tasks}(1)
-  \task Tangenten går gjennom $(2, 0)$ og $(4, 4)$. Finn momentan vekstfart i $x = 3$.
-  \task Er funksjonen voksende eller avtagende i $x = 3$? Hvordan ser du det?
+  \task Les av to punkt på tangenten. Finn momentan vekstfart i $x = 1$.
+  \task Er funksjonen voksende eller avtagende i $x = 1$? Hvordan ser du det?
+  \task Kontroller med $h = 0,01$. Hvor god var avlesningen?
   \task Hva er momentan vekstfart i bunnpunktet $(2, 1)$? Hvordan ser tangenten ut der?
 \end{tasks}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.42\linewidth}
+\vspace{0pt}\centering
+\begin{tikzpicture}[baseline=(current bounding box.north)]
+\begin{axis}[width=\linewidth, height=0.9\linewidth, axis lines=middle, xmin=-0.5, xmax=4.6, ymin=-0.8, ymax=5.6,
+  xtick={0,1,2,3,4}, ytick={1,2,3,4,5}, grid=both, grid style={black!10},
+  tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$}, label style={font=\small}]
+\addplot[domain=0.2:4.4, thick, hoved, samples=40] {x^2 - 4*x + 5};
+\addplot[domain=-0.2:2.4, thick, dashed, niv3] {-2*x + 4};
+\addplot[only marks, mark=*, mark size=1.5pt, black] coordinates {(1,2) (0,4) (2,0) (2,1)};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
 
 \oppg{2.3}{1}{\uh}
 Avgjør om vekstfarten er gjennomsnittlig eller momentan. Finn størrelsen med enhet når du kan.
@@ -310,7 +324,7 @@ La $f(x) = x^3$.
 \end{tasks}
 
 \oppg{2.5}{2}{\mh}
-En syklist kjører en etappe. Tabellen viser hvor langt hun har kommet etter $t$ sekunder.
+En syklist i et sykkelritt kjører en etappe. Tabellen viser hvor langt hun har kommet etter $t$ sekunder.
 \begin{center}
 \begin{tabular}{c|ccccccc}
 $t$ (s) & 0 & 10 & 20 & 30 & 40 & 50 & 60\\ \hline
@@ -341,8 +355,8 @@ La $f(x) = x^2$. Vi undersøker et mønster.
 Vi regner sekantens stigningstall for en funksjon $f$ mellom $x = 2$ og $x = 2 + h$. Vi får $5$ for $h = 1$, $4,1$ for $h = 0,1$ og $4,01$ for $h = 0,01$.
 \begin{tasks}(1)
   \task Anslå vekstfarten i $x = 2$.
-  \task Kan vekstfarten i $x = 2$ være $4,5$? Begrunn.
-  \task Finn en enkel funksjon som passer med tabellen. Kontroller med regning.
+  \task Hvorfor kan vi ikke bruke svaret for $h = 1$ som vekstfart? Kan vekstfarten være $4,5$?
+  \task Finn en enkel funksjon som passer med tallene. Kontroller med regning.
 \end{tasks}
 \hint{Regn sekantens stigningstall for noen enkle funksjoner i $x = 2$.}
 

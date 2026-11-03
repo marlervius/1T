@@ -1,0 +1,44 @@
+% =====================================================================
+%  4.2 Den deriverte — fasit
+% =====================================================================
+
+\fk{Del 1 — Grenseverdi og definisjonen av den deriverte}
+\fo{1.1} a) $f(5) = 25$ og $(5 + h)^2 = 25 + 10h + h^2$ \ b) $\frac{10h + h^2}{h} = 10 + h$ \ c) $f'(5) = 10$
+\fo{1.2} $\frac{(2 + h)^2 + (2 + h) - 6}{h} = \frac{5h + h^2}{h} = 5 + h$. Når $h \to 0$: $f'(2) = 5$.
+\fo{1.3} a) $\frac{5(4 + h) - 2 - 18}{h} = 5$, så $f'(4) = 5$ \ b) $g'(1) = -3$. Hvert svar er stigningstallet til den rette linja.
+\fo{1.4} a) $f'(x) = 2x + 6$ \ b) $f'(2) = 10$ og $f'(-1) = 4$
+\fo{1.5} a) $\frac{s(3 + h) - s(3)}{h} = \frac{13h + 2h^2}{h} = 13 + 2h$, så $s'(3) = 13$ \ b) Etter 3 sekunder er farten 13 m/s.
+\fo{1.6} Feilen er overgangen til $\frac{11h + h^2}{h}$. Leddene med $h$ er $8h - 3h = 5h$, ikke $11h$. Riktig: $\frac{5h + h^2}{h} = 5 + h$, så $f'(4) = 5$.
+\fo{1.7} a) $\frac{7h + 2h^2}{h} = 7 + 2h$, så $f'(3) = 7$ \ b) CAS gir også $7$.
+\fo{1.8} a) Noen ganger. For $f(x) = x^2 - 6x$ er $f'(4) = 2 > 0$, men $f(4) = -8$. For $f(x) = x^2$ stemmer det i $x = 3$.
+b) Alltid. $\frac{k(a + h) + m - ka - m}{h} = \frac{kh}{h} = k$ for alle $h \neq 0$.
+c) Noen ganger. For $f(x) = x^2$ er $f'(0) = 0$ og $0$ er et bunnpunkt. For $f(x) = x^3$ er $\frac{h^3}{h} = h^2 \to 0$, så $f'(0) = 0$, men grafen stiger hele veien og har ikke topp- eller bunnpunkt.
+\fo{1.9} a) $f'(1) = 8$ \ b) For eksempel $f(x) = 3x^2 + 2x$. Da er $f(1) = 5$ og $f(1 + h) = 5 + 8h + 3h^2$, så kvotienten er $8 + 3h$.
+c) Ja, uendelig mange. Legger vi til en konstant $c$, forsvinner den i $f(1 + h) - f(1)$.
+\fo{1.10} $\frac{f(2 + h) - f(2)}{h} = \frac{p(4h + h^2) - h}{h} = 4p + ph - 1$, så $f'(2) = 4p - 1$. Fra $4p - 1 = 11$ får vi $p = 3$.
+\fo{Sjekk 1} a) $\frac{4h + h^2}{h} = 4 + h$, så $f'(2) = 4$ \ b) $f(2) = 9$ er høyden til grafen. $f'(2) = 4$ er stigningstallet til tangenten. c) Teller og nevner blir 0, og $\frac{0}{0}$ har ingen verdi. Vi må forenkle og forkorte $h$ først.
+
+\fk{Del 2 — Utlede derivasjonsregler}
+\fo{2.1} a) $5x^4$ \ b) $9x^8$ \ c) $1$ \ d) $0$
+\fo{2.2} a) $8 + 12h + 6h^2 + h^3$ \ b) $\frac{12h + 6h^2 + h^3}{h} = 12 + 6h + h^2$ \ c) $f'(2) = 12$
+\fo{2.3} a) $10$ \ b) $3$ \ c) $2x = 8$ gir $x = 4$
+\fo{2.4} $\frac{2(x + h)^2 + 5(x + h) - 2x^2 - 5x}{h} = \frac{4xh + 2h^2 + 5h}{h} = 4x + 2h + 5$. Når $h \to 0$: $g'(x) = 4x + 5$.
+\fo{2.5} a) $\frac{5(t + h)^2 - 5t^2}{h} = \frac{10th + 5h^2}{h} = 10t + 5h$, så $s'(t) = 10t$ \ b) $s'(2) = 20$ m/s
+\fo{2.6} Feilen er overgangen til $3x^2 + 3xh + h^2 + 4h$. Leddet $4h$ skal også deles på $h$ og blir $4$. Riktig: $3x^2 + 3xh + h^2 + 4$, så $f'(x) = 3x^2 + 4$.
+\fo{2.7} a) $x^5 + 5x^4h + 10x^3h^2 + 10x^2h^3 + 5xh^4 + h^5$ \ b) $5x^4$ \ c) Ja, det stemmer med $n = 5$. Men det er ett tilfelle til, ikke et bevis for alle $n$.
+\fo{2.8} $\frac{k\,f(x + h) - k\,f(x)}{h} = k \cdot \frac{f(x + h) - f(x)}{h}$. Når $h \to 0$ går brøken mot $f'(x)$, så $(k \cdot f)' = k \cdot f'$.
+\fo{2.9} a) Noen ganger. Med $f(x) = g(x) = x$ er $(x \cdot x)' = (x^2)' = 2x$, men $f' \cdot g' = 1 \cdot 1 = 1$. Med $f = g = 0$ er begge sider $0$.
+b) Alltid. I $f(x + h) - f(x) = g(x + h) + 5 - g(x) - 5$ forsvinner $5$, så kvotientene er like.
+\fo{2.10} $f(x) = x^2 + 3x + 1$. Da er $f'(x) = 2x + 3$ og $f(0) = 1$. Uten kravet finnes uendelig mange: $x^2 + 3x + c$ for en hvilken som helst konstant $c$, fordi $(c)' = 0$.
+\fo{Sjekk 2} a) $6x^5$ \ b) $2x$ \ c) $(2 + 1)^3 = 27$, men $2^3 + 1^3 = 9$
+
+\fk{Ekstra utfordring}
+\fo{U1} a) $f(2) = -1$, og $\frac{f(2 + h) - f(2)}{h} = \frac{h + h^2}{h} = 1 + h$, så $f'(2) = 1$ \ b) $y = 1\cdot(x - 2) + (-1) = x - 3$
+\fo{U2} $f'(a) = 2a$ (fra definisjonen). Vi vil ha $2a = 8$, så $a = 4$. Punktet er $(4, 16)$.
+\fo{U3} a) $6,001$ og $6,0$. Den første tilnærmingen er $6 + h$ med $h = 0,001$, så den er litt for stor. \ b) $x^3$: forover $12,006$, symmetrisk $12,0$. $1/x$: forover $-0,2499$, symmetrisk $-0,25$. Den symmetriske er nærmest. \ c) Forover gir $6,1$ og $6,01$. Feilen blir 10 ganger mindre når $h$ blir 10 ganger mindre. Symmetrisk gir $6,0$ i begge.
+\fo{U4} a) $(x^2 + 2xh + h^2)^2 = x^4 + 4x^3h + 6x^2h^2 + 4xh^3 + h^4$. Rad: $1\ 4\ 6\ 4\ 1$.
+b) $\frac{(x + h)^4 - x^4}{h} = \frac{4x^3h + 6x^2h^2 + 4xh^3 + h^4}{h} = 4x^3 + 6x^2h + 4xh^2 + h^3 \to 4x^3$.
+c) Tallet er $n$ (nest etter 1 i rad $n$). Leddet $n\,x^{n-1}h$ er det eneste som ikke har $h^2$ eller mer, så det blir igjen som $nx^{n-1}$ når vi deler på $h$ og lar $h \to 0$. Dette viser ideen. Et fullt bevis trenger binomialformelen.
+\fo{U5} a) $\frac{\frac{1}{x + h} - \frac{1}{x}}{h} = \frac{\frac{x - (x + h)}{x(x + h)}}{h} = \frac{-h}{x(x + h)h} = -\frac{1}{x(x + h)} \to -\frac{1}{x^2}$ \ b) $f'(x) < 0$ for alle $x \neq 0$. Grafen synker i hele sin gren, både for $x < 0$ og for $x > 0$.
+\fo{U6} a) Utvid med $\sqrt{x + h} + \sqrt{x}$: $\frac{(x + h) - x}{h(\sqrt{x + h} + \sqrt{x})} = \frac{1}{\sqrt{x + h} + \sqrt{x}} \to \frac{1}{2\sqrt{x}}$ \ b) Ja. Mønsteret gir $\frac{1}{2}x^{-\tfrac{1}{2}} = \frac{1}{2\sqrt{x}}$.
+\fo{U7} a) $\frac{(x + h)^2 - (x - h)^2}{2h} = \frac{4xh}{2h} = 2x$ \ b) For $x^3$ er den symmetriske $3x^2 + h^2$ og den vanlige $3x^2 + 3xh + h^2$. Den symmetriske ligger nærmest. Flere funksjoner kan velges. c) Punktene ligger på hver sin side av $x$. Feilleddene med $h$ opphever hverandre, og vi sitter igjen med feil av størrelse $h^2$ i stedet for $h$. Sekanten ligner mer på tangenten.
