@@ -1,0 +1,7 @@
+build/
+__pycache__/
+.kontroll.json
+*.aux
+*.log
+*.fls
+*.fdb_latexmk

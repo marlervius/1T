@@ -1,0 +1,43 @@
+% =====================================================================
+%  1.1 Potenser — fasit   (MØNSTERSEKSJON)
+%  \fk{overskrift}   \fo{oppgavenummer} svar
+% =====================================================================
+
+\fk{Del 1 — Potensreglene}
+\fo{1.1} a) $3^6$ \ b) $5^4$ \ c) $2^{12}$ \ d) $a^6$
+\fo{1.2} a) $1000$ \ b) $\frac{4}{9}$ \ c) $16$ \ d) $-16$
+\fo{1.3} a) $a^7$ \ b) $a^5$
+\fo{1.4} a) $27x^6$ \ b) $3a^3b$ \ c) $4x^2$ \ d) $x^6y$
+\fo{1.5} a) $\frac{2^6}{2^5} = 2$ \ b) $\frac{3^6}{3^5} = 3$ \ c) $\frac{2^{10}}{2^9} = 2$
+\fo{1.6} Feilen er $(3a^2)^2 = 3a^4$. Riktig er $9a^4$. Da blir $\frac{9a^4}{3a^3} = 3a$.
+\fo{1.7} a) Noen ganger. Venstre side er $a^5$, og $a^5 = a^6$ bare når $a = 0$ eller $a = 1$.
+b) Noen ganger. $(a+b)^2 = a^2 + 2ab + b^2$, så det stemmer bare når $ab = 0$.
+c) Alltid. Det er regelen for potens av produkt.
+\fo{1.8} $4^n = 2^{2n}$, og $\frac{2^3}{8} = 1$. Da er $2^{2n} = 2^{10}$, så $n = 5$.
+\fo{Sjekk 1} a) $x^7$ \ b) $9$ og $-9$ \ c) $(2\cdot2\cdot2)\cdot(2\cdot2\cdot2\cdot2)$ er sju faktorer 2.
+
+\fk{Del 2 — Null, negative eksponenter og standardform}
+\fo{2.1} a) $1$ \ b) $\frac{1}{8}$ \ c) $\frac{1}{100} = 0,01$ \ d) $2$
+\fo{2.2} a) $5,2 \cdot 10^4$ \ b) $7,1 \cdot 10^{-3}$ \ c) $3,4 \cdot 10^7$
+\fo{2.3} a) $\frac{1}{x^2}$ \ b) $\frac{3}{a}$ \ c) $b^4$
+\fo{2.4} a) $a$ \ b) $\frac{8}{x^3}$ \ c) $\frac{2x^3}{y^3}$ \ d) $a^2b^4$
+\fo{2.5} a) $9 \cdot 10^{-4}$ \ b) $4 \cdot 10^6$ \ c) $27 \cdot 10^{-6} = 2,7 \cdot 10^{-5}$
+\fo{2.6} $8,3 \cdot 60\text{ s} = 498\text{ s}$. Avstand: $498 \cdot 3,0 \cdot 10^8\text{ m} \approx 1,5 \cdot 10^{11}\text{ m} = 1,5 \cdot 10^8\text{ km}$.
+\fo{2.7} $\frac{a^3}{a^3} = a^{3-3} = a^0$. Samtidig er et tall delt på seg selv lik 1. Derfor må $a^0 = 1$.
+Vi kan ikke dele på 0, så $a \neq 0$.
+\fo{2.8} $2^{-10} = \frac{1}{1024}$, $10^{-3} = \frac{1}{1000}$ og $4^{-4} = \frac{1}{256}$.
+Minst nevner gir størst brøk, så $4^{-4}$ er størst.
+\fo{Sjekk 2} a) $\frac{1}{9}$ \ b) $4,5 \cdot 10^{-4}$ \ c) Nei. $25 > 10$. Standardform: $2,5 \cdot 10^4$.
+
+\fk{Ekstra utfordring}
+\fo{U1} Teller: $8a^6b^{-3} \cdot a^2b^2 = 8a^8b^{-1}$. Brøken blir $\frac{8a^8b^{-1}}{4a^7b^{-2}} = 2ab$.
+\fo{U2} $\frac{2^5 \cdot 2^3 3^3}{3^2 \cdot 2^4 3^2} = \frac{2^8 3^3}{2^4 3^4} = \frac{2^4}{3} = \frac{16}{3}$
+\fo{U3} a) $2^x = 2^{-5}$, $x = -5$ \ b) $3^{2x} = 3^3$, $x = \frac{3}{2}$ \ c) $2^{2x+2} = 2^{3x}$, $x = 2$
+\fo{U4} a) $20$. Programmet øker $n$ så lenge $2^n < 10^6$. $2^{19} = 524\,288$ og $2^{20} = 1\,048\,576$.
+b) Bytt linje 2 med \lstinline[style=laereverk,numbers=none,frame=none]|while 3**n <= 10**9:|. Svaret blir $19$.
+\fo{U5} $2^{100} = (2^5)^{20} = 32^{20}$ og $3^{60} = (3^3)^{20} = 27^{20}$. Siden $32 > 27$, er $2^{100}$ størst.
+\fo{U6} $4^6 \cdot 5^{10} = 2^{12} \cdot 5^{10} = 2^2 \cdot (2 \cdot 5)^{10} = 4 \cdot 10^{10}$. Tallet har 11 sifre.
+\fo{U7} a) $m = 3$, $n = 2$: $(a^3)^2 = a^6$, men $a^{(3^2)} = a^9$.
+b) Vi trenger $m \cdot n = m^n$. Når $n = 1$, stemmer det for alle $m$. Når $n = 2$, får vi $2m = m^2$, så $m = 2$.
+Når $n \ge 3$, er $m^n \ge 2^{n-1} \cdot m > n \cdot m$ for $m \ge 2$, og $m = 1$ gir $1 \ne n$.
+Svar: $n = 1$ (alle $m$), eller $m = n = 2$.
