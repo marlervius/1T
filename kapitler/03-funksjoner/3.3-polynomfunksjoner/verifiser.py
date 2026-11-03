@@ -102,6 +102,7 @@ divchk("1.8b steg", x**3 - x**2 - 4*x + 4, x - 2, x**2 + x - 2)
 eks19 = x**3 - 3
 chk("1.9 rest", dv(eks19, x - 2)[1], 5)
 chk("1.9 P(2)", eks19.subs(x, 2), 5)
+chk("1.9 alternativ", (x**3 + x - 5).subs(x, 2), 5)
 aapen("1.9 forklar", "Rest = P(2) etter P(x) = (x-2)Q(x) + r")
 
 # Sjekk 1
