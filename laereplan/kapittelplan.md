@@ -58,7 +58,7 @@ Status: `—` ikke startet · `brief` brief skrevet · `utkast` forfatter ferdig
 | 5.2 | Arealsetningen | Bevis · Bruk | 13, 12 | ferdig |
 | 5.3 | Sinussetningen | Bevis · Tvetydig tilfelle | 13, 12 | ferdig |
 | 5.4 | Cosinussetningen | Bevis · Velg riktig setning | 13, 12 | ferdig |
-| 5.5 | Sammensatte problemer | Teoretiske problemer · Praktiske problemer | 14 | brief |
+| 5.5 | Sammensatte problemer | Teoretiske problemer · Praktiske problemer | 14 | ferdig |
 
 ## Gjennomgående
 

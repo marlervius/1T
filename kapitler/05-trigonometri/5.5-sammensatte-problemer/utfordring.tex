@@ -21,10 +21,8 @@ En regulær åttekant er innskrevet i en sirkel med radius $1$. Alle hjørnene l
 Programmet er en «trekantløser». Linje med \lstinline[style=laereverk,numbers=none,frame=none]|___| mangler en betingelse.
 \begin{kode}
 import math
-
 def vinkel_fra_sider(a, b, c):
     return math.degrees(math.acos((b**2 + c**2 - a**2) / (2*b*c)))
-
 def ssv(a, b, A):
     s = b * math.sin(math.radians(A)) / a
     if s > 1:
@@ -32,16 +30,13 @@ def ssv(a, b, A):
     B1 = math.degrees(math.asin(s))
     B2 = 180 - B1
     losninger = []
-    for B in sorted({round(B1, 6), round(B2, 6)}):
+    for B in sorted({round(B1, 4), round(B2, 4)}):
         if ___:
             losninger.append(B)
     return losninger
-
 print(round(vinkel_fra_sider(7, 5, 8), 1))
-print([round(v, 1) for v in ssv(5, 8, 30)])
-print([round(v, 1) for v in ssv(9, 8, 30)])
-print([round(v, 1) for v in ssv(3, 8, 30)])
-print([round(v, 1) for v in ssv(5, 8, 150)])
+for a, A in [(5, 30), (9, 30), (3, 30), (5, 150)]:
+    print([round(v, 1) for v in ssv(a, 8, A)])
 \end{kode}
 \begin{tasks}(1)
   \task Fyll inn betingelsen, slik at \lstinline[style=laereverk,numbers=none,frame=none]|ssv| bare tar med en vinkel $B$ når den gir en trekant. Hva skriver programmet ut?

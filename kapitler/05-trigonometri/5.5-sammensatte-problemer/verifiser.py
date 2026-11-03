@@ -59,7 +59,7 @@ chk("Eks 1.2 figur C", 2 + 2 * sqrt(3), 5.4641016, tol=1e-6)
 # =============== DEL 1 — VANLIGE FEIL ===============
 chk("VF 1a", [S_(60), Integer(1)], [sqrt(3) / 2, 1])
 sant("VF 1a ulik", S_(60) != 1, "motstaaende/hypotenus = 1 i likesidet, men sin 60 = sqrt3/2")
-chk("VF 1b", 180 - 60, 120)
+chk("VF 1b", 180 - 70, 110)
 aapen("VF 1c", "SVS har ingen vinkel-side-par; sinussetningen trenger et par")
 
 # =============== DEL 1 — OPPGAVER ===============
@@ -192,76 +192,76 @@ sant("2.1a", abs(70 - 90) < abs(70 - 0), "70 er naermere 90 (ost) enn 0 (nord)")
 chk("2.1b", (70 + 180) % 360, 250)
 chk("2.1c", 150 - 70, 80)
 
-# 2.2 flaggstang
-avrund("2.2", 45 * T_(32), 1, 28.1)
+# 2.2 boye
+chk("2.2a", 180 - 50 - 64, 66)
+avrund("2.2b", 200 * S_(64) / S_(66), 1, 196.8)
 
-# 2.3 boye
-chk("2.3a", 180 - 50 - 64, 66)
-avrund("2.3b", 200 * S_(64) / S_(66), 1, 196.8)
-avrund("2.3c", 200 * S_(50) / S_(66), 1, 167.7)
-
-# 2.4 elv, AB = 75, TAB = 58, TBA = 74
-chk("2.4 T", 180 - 58 - 74, 48)
+# 2.3 elv, AB = 75, TAB = 58, TBA = 74
+chk("2.3 T", 180 - 58 - 74, 48)
 AT = 75 * S_(74) / S_(48)
-avrund("2.4 AT", AT, 1, 97.0)
-avrund("2.4", AT * S_(58), 1, 82.3)
-avrund("2.4 rundet AT", 97.0 * S_(58), 1, 82.3)
+avrund("2.3 AT", AT, 1, 97.0)
+avrund("2.3", AT * S_(58), 1, 82.3)
+avrund("2.3 rundet AT", 97.0 * S_(58), 1, 82.3)
 bt_ = 75 * S_(58) / S_(48)
-avrund("2.4 kontroll", bt_ * S_(74), 1, 82.3)
+avrund("2.3 kontroll", bt_ * S_(74), 1, 82.3)
 
-# 2.5 skip, kurs 30 i 15 km, kurs 160 i 10 km
-chk("2.5a", 180 - (160 - 30), 50)
+# 2.4 skip, kurs 30 i 15 km, kurs 160 i 10 km
+chk("2.4a", 180 - (160 - 30), 50)
 HQ = sqrt(15**2 + 10**2 - 2 * 15 * 10 * C_(50))
-avrund("2.5b", HQ, 1, 11.5)
+avrund("2.4b", HQ, 1, 11.5)
 cosH = (15**2 + num(HQ) ** 2 - 10**2) / (2 * 15 * num(HQ))
 Hv = math.degrees(math.acos(cosH))
-avrund("2.5c", Hv, 1, 41.8)
-avrund("2.5c rundet HQ", math.degrees(math.acos((15**2 + 11.5**2 - 10**2) / (2 * 15 * 11.5))), 1, 41.8)
+avrund("2.4c", Hv, 1, 41.8)
+avrund("2.4c rundet HQ", math.degrees(math.acos((15**2 + 11.5**2 - 10**2) / (2 * 15 * 11.5))), 1, 41.8)
 x1, y1 = pol(30, 15)
 x2, y2 = pol(160, 10)
-avrund("2.5d koordinater", kurs(x1 + x2, y1 + y2), 1, 71.8)
-avrund("2.5d tilbake", (kurs(x1 + x2, y1 + y2) + 180) % 360, 1, 251.8)
-avrund("2.5b koordinater", math.hypot(x1 + x2, y1 + y2), 1, 11.5)
+avrund("2.4d koordinater", kurs(x1 + x2, y1 + y2), 1, 71.8)
+avrund("2.4d tilbake", (kurs(x1 + x2, y1 + y2) + 180) % 360, 1, 251.8)
+avrund("2.4b koordinater", math.hypot(x1 + x2, y1 + y2), 1, 11.5)
 
-# 2.6 første feil, fjell: AB = 300, hoydevinkler 20 (A) og 32 (B)
-chk("2.6 pil1", 32 - 20, 12)
-chk("2.6 pil2", 180 - 32, 148)
+# 2.5 første feil, fjell: AB = 300, hoydevinkler 20 (A) og 32 (B)
+chk("2.5 pil1", 32 - 20, 12)
+chk("2.5 pil2", 180 - 32, 148)
 BT6 = 300 * S_(20) / S_(12)
-avrund("2.6 pil3", BT6, 1, 493.5)
-avrund("2.6 pil4 feil", BT6 * S_(20), 1, 168.8)
-avrund("2.6 riktig", BT6 * S_(32), 1, 261.5)
-avrund("2.6 rundet BT", 493.5 * S_(32), 1, 261.5)
-avrund("2.6 kontroll", 300 / (1 / T_(20) - 1 / T_(32)), 1, 261.5)
+avrund("2.5 pil3", BT6, 1, 493.5)
+avrund("2.5 pil4 feil", BT6 * S_(20), 1, 168.8)
+avrund("2.5 riktig", BT6 * S_(32), 1, 261.5)
+avrund("2.5 rundet BT", 493.5 * S_(32), 1, 261.5)
+avrund("2.5 kontroll", 300 / (1 / T_(20) - 1 / T_(32)), 1, 261.5)
 
-# 2.7 tak: bredde 10, 35 og 50
-chk("2.7 topp", 180 - 35 - 50, 95)
-avrund("2.7a venstre", 10 * S_(50) / S_(95), 1, 7.7)
-avrund("2.7a hoyre", 10 * S_(35) / S_(95), 1, 5.8)
-avrund("2.7a hoyde", 10 * S_(50) / S_(95) * S_(35), 1, 4.4)
-avrund("2.7a hoyde rundet", 7.7 * S_(35), 1, 4.4)
-avrund("2.7 kontroll", 10 / (1 / T_(35) + 1 / T_(50)), 1, 4.4)
-sant("2.7 figur", abs(4.41 / math.tan(math.radians(35)) - 6.30) < 0.01, "toppunkt")
+# 2.6 taarn: A 30 grader, B 40 grader, 60 m nærmere
+chk("2.6 ABT", 180 - 40, 140)
+chk("2.6 ATB", 40 - 30, 10)
+ATt = 60 * S_(140) / S_(10)
+avrund("2.6a AT", ATt, 1, 222.1)
+avrund("2.6a", ATt * S_(30), 0, 111)
+avrund("2.6a rundet AT", 222.1 * S_(30), 0, 111)
+avrund("2.6a kontroll", 60 / (1 / T_(30) - 1 / T_(40)), 0, 111)
+for v_a, hv in [(29, 98), (31, 127)]:
+    ATv = 60 * S_(140) / S_(40 - v_a)
+    avrund(f"2.6b {v_a}", ATv * S_(v_a), 0, hv)
+    avrund(f"2.6b {v_a} rundet AT", round(num(ATv), 1) * S_(v_a), 0, hv)
+sant("2.6c", num(S_(10)) < 0.2 and 40 - 31 == 9 and 40 - 29 == 11, "toppvinkelen er 10 +- 1 grad")
 
-# 2.8 usikkerhet
-avrund("2.8a nom", 80 * T_(25), 1, 37.3)
-avrund("2.8a min", 80 * T_(24), 1, 35.6)
-avrund("2.8a maks", 80 * T_(26), 1, 39.0)
-avrund("2.8b nom", 80 * T_(60), 1, 138.6)
-avrund("2.8b min", 80 * T_(59), 1, 133.1)
-avrund("2.8b maks", 80 * T_(61), 1, 144.3)
-spenn_a = num(80 * T_(26) - 80 * T_(24))
-spenn_b = num(80 * T_(61) - 80 * T_(59))
-sant("2.8c", spenn_b > 3 * spenn_a and abs(spenn_a - 3.4) < 0.05 and abs(spenn_b - 11.2) < 0.05, f"spenn {spenn_a:.1f} og {spenn_b:.1f}")
-
-# 2.9 to skip: A kurs 30, 30 km/t, 2 t; B kurs 90; avstand 52 km
-chk("2.9a", 90 - 30, 60)
+# 2.7 to skip: A kurs 30, 21 km/t, 2 t; B kurs 90; avstand 38 km
+chk("2.7a", 90 - 30, 60)
 xx = symbols("xx", positive=True)
-los("2.9b", Eq(52**2, 60**2 + xx**2 - 2 * 60 * xx * C_(60)), [28, 32], var=xx)
-ax, ay = pol(30, 60)
-for bx in (28, 32):
-    chk(f"2.9 koord {bx}", sqrt((bx - ax) ** 2 + ay**2), 52, tol=1e-9)
-chk("2.9 fart", [Rational(28, 2), Rational(32, 2)], [14, 16])
-sant("2.9 midtpunkt", 60 * math.sin(math.radians(60)) < 52, "52 er over minimumsavstanden 51,96: to løsninger")
+los("2.7b", Eq(38**2, 42**2 + xx**2 - 2 * 42 * xx * C_(60)), [10, 32], var=xx)
+ax, ay = pol(30, 42)
+for bx in (10, 32):
+    chk(f"2.7 koord {bx}", sqrt((bx - ax) ** 2 + ay**2), 38, tol=1e-9)
+chk("2.7 fart", [Rational(10, 2), Rational(32, 2)], [5, 16])
+sinB = 42 * S_(60) / 38
+avrund("2.7c sin", sinB, 3, 0.957)
+Bv1 = math.degrees(math.asin(num(sinB)))
+avrund("2.7c B1", Bv1, 1, 73.2)
+avrund("2.7c B2", 180 - Bv1, 1, 106.8)
+avrund("2.7c x=32", 38 * math.sin(math.radians(180 - 60 - Bv1)) / math.sin(math.radians(60)), 0, 32, margin=0.0)
+avrund("2.7c x=10", 38 * math.sin(math.radians(180 - 60 - (180 - Bv1))) / math.sin(math.radians(60)), 0, 10, margin=0.0)
+# avrundede kjeder: B = 73,2 og 106,8
+avrund("2.7c x=32 rundet", 38 * math.sin(math.radians(180 - 60 - 73.2)) / math.sin(math.radians(60)), 0, 32, margin=0.0)
+avrund("2.7c x=10 rundet", 38 * math.sin(math.radians(180 - 60 - 106.8)) / math.sin(math.radians(60)), 0, 10, margin=0.0)
+sant("2.7d", 42 * math.sin(math.radians(60)) < 38 < 42, "38 ligger mellom 36,4 og 42: to losninger, A spiss")
 
 # Sjekk 2
 chk("Sjekk 2a", (310 + 180) % 360, 130)
@@ -277,34 +277,12 @@ chk("U1b alt", sqrt(s8sq) , 2 * S_(Rational(45, 2)))
 avrund("U1c", 8 * sqrt(2 - sqrt(2)), 2, 6.12, margin=0.0)
 sant("U1c sammenlign", 8 * math.sqrt(2 - math.sqrt(2)) < 2 * math.pi, "omkrets < 2 pi")
 
-# U2 usikkerhet
-avrund("U2a min", 50 * T_(39), 0, 40, margin=0.0)
-avrund("U2a nom", 50 * T_(40), 0, 42, margin=0.0)
-avrund("U2a maks", 50 * T_(41), 0, 43, margin=0.0)
-chk("U2 nom1", round(num(50 * T_(40)), 1), 42.0)
-chk("U2b spenn", round(num(50 * T_(41) - 50 * T_(39)), 0), 3)
-sant("U2 mellom", num(50 * T_(39)) < num(50 * T_(40)) < num(50 * T_(41)), "monotont")
-
-# U3 SSV med cosinussetningen: A = 45, a = 5, b = 4 sqrt2
-cc = symbols("cc", positive=True)
-los("U3a", Eq(5**2, (4 * sqrt(2)) ** 2 + cc**2 - 2 * 4 * sqrt(2) * cc * C_(45)), [1, 7], var=cc)
-chk("U3b", 4 * sqrt(2) * S_(45) / 5, Rational(4, 5))
-Bs = [math.degrees(math.asin(0.8)), 180 - math.degrees(math.asin(0.8))]
-avrund("U3c B1", Bs[0], 1, 53.1)
-avrund("U3c B2", Bs[1], 1, 126.9)
-for Bv, cv in zip(Bs, (7, 1)):
-    Cv = 180 - 45 - Bv
-    avrund(f"U3c c={cv}", 5 * math.sin(math.radians(Cv)) / math.sin(math.radians(45)), 1, cv, margin=0.0)
-
-# U4 program
+# U2 program
 kode_u4 = '''
 import math
 
 def vinkel_fra_sider(a, b, c):
     return math.degrees(math.acos((b**2 + c**2 - a**2) / (2 * b * c)))
-
-def side_fra_svs(b, c, A):
-    return math.sqrt(b**2 + c**2 - 2 * b * c * math.cos(math.radians(A)))
 
 def ssv(a, b, A):
     s = b * math.sin(math.radians(A)) / a
@@ -312,22 +290,21 @@ def ssv(a, b, A):
         return []
     B1 = math.degrees(math.asin(s))
     B2 = 180 - B1
-    losninger = [B1]
-    if A + B2 < 180:
-        losninger.append(B2)
+    losninger = []
+    for B in sorted({round(B1, 4), round(B2, 4)}):
+        if A + B < 180:
+            losninger.append(B)
     return losninger
 
 print(round(vinkel_fra_sider(7, 5, 8), 1))
-print(round(side_fra_svs(3, 5, 120), 1))
-print([round(v, 1) for v in ssv(5, 8, 30)])
-print([round(v, 1) for v in ssv(9, 8, 30)])
-print([round(v, 1) for v in ssv(3, 8, 30)])
+for a, A in [(5, 30), (9, 30), (3, 30), (5, 150)]:
+    print([round(v, 1) for v in ssv(a, 8, A)])
 '''
 buf = io.StringIO()
 with contextlib.redirect_stdout(buf):
     exec(kode_u4, {})
 ut = buf.getvalue().strip().splitlines()
-sant("U4a", ut == ["60.0", "7.0", "[53.1, 126.9]", "[26.4]", "[]"], str(ut))
+sant("U2a", ut == ["60.0", "[53.1, 126.9]", "[26.4]", "[]", "[]"], str(ut))
 kode_c = kode_u4.split("print(")[0] + """
 def trekant_sss(a, b, c):
     A = vinkel_fra_sider(a, b, c)
@@ -339,45 +316,46 @@ print([round(v, 1) for v in trekant_sss(5, 7, 8)])
 buf2 = io.StringIO()
 with contextlib.redirect_stdout(buf2):
     exec(kode_c, {})
-sant("U4c kode", buf2.getvalue().strip() == "[38.2, 60.0, 81.8]", buf2.getvalue())
-aapen("U4b", "Forklaring: sin B = sin(180 - B); to vinkler kan gi trekant")
-chk("U4c", [round(math.degrees(math.asin(8 * 0.5 / 9)), 1), round(180 - math.degrees(math.asin(8 * 0.5 / 9)), 1)], [26.4, 153.6])
+sant("U2c kode", buf2.getvalue().strip() == "[38.2, 60.0, 81.8]", buf2.getvalue())
+aapen("U2b", "Forklaring: sin B = sin(180 - B); to vinkler kan gi trekant")
+chk("U2c", [round(math.degrees(math.asin(8 * 0.5 / 9)), 1), round(180 - math.degrees(math.asin(8 * 0.5 / 9)), 1)], [26.4, 153.6])
 
-# U5 Herons formel
+# U3 Herons formel
 a_, b_, c2_ = symbols("a_ b_ c2_", positive=True)
 s_ = (a_ + b_ + c2_) / 2
 cosC = (a_**2 + b_**2 - c2_**2) / (2 * a_ * b_)
 T2 = (a_ * b_) ** 2 / 4 * (1 - cosC**2)
-chk("U5a", simplify(T2 - s_ * (s_ - a_) * (s_ - b_) * (s_ - c2_)), 0)
-chk("U5 steg 1", simplify((1 - cosC) * (1 + cosC) - (1 - cosC**2)), 0)
-chk("U5 steg 2", simplify(1 - cosC - (c2_**2 - (a_ - b_) ** 2) / (2 * a_ * b_)), 0)
-chk("U5 steg 3", simplify(1 + cosC - ((a_ + b_) ** 2 - c2_**2) / (2 * a_ * b_)), 0)
-chk("U5 fire faktorer", simplify((c2_ - a_ + b_) * (c2_ + a_ - b_) * (a_ + b_ - c2_) * (a_ + b_ + c2_) - 16 * s_ * (s_ - a_) * (s_ - b_) * (s_ - c2_)), 0)
-chk("U5c", sqrt(Rational(10) * 5 * 3 * 2), 10 * sqrt(3))
-chk("U5c alt", Rational(1, 2) * 5 * 8 * S_(60), 10 * sqrt(3))
-chk("U5c vinkel", Rational(5**2 + 8**2 - 7**2, 2 * 5 * 8), Rational(1, 2))
+chk("U3a", simplify(T2 - s_ * (s_ - a_) * (s_ - b_) * (s_ - c2_)), 0)
+chk("U3 steg 1", simplify((1 - cosC) * (1 + cosC) - (1 - cosC**2)), 0)
+chk("U3 steg 2", simplify(1 - cosC - (c2_**2 - (a_ - b_) ** 2) / (2 * a_ * b_)), 0)
+chk("U3 steg 3", simplify(1 + cosC - ((a_ + b_) ** 2 - c2_**2) / (2 * a_ * b_)), 0)
+chk("U3 fire faktorer", simplify((c2_ - a_ + b_) * (c2_ + a_ - b_) * (a_ + b_ - c2_) * (a_ + b_ + c2_) - 16 * s_ * (s_ - a_) * (s_ - b_) * (s_ - c2_)), 0)
+chk("U3c", sqrt(Rational(10) * 5 * 3 * 2), 10 * sqrt(3))
+chk("U3c alt", Rational(1, 2) * 5 * 8 * S_(60), 10 * sqrt(3))
+chk("U3c vinkel", Rational(5**2 + 8**2 - 7**2, 2 * 5 * 8), Rational(1, 2))
 
-# U6 lag selv — fasiteksempel: AB = 7, BC = 8, B = 120, ACD = 90, CD = 84
+# U4 lag selv — fasiteksempel: AB = 7, BC = 8, B = 120, ACD = 90, CD = 84
 AC6 = sqrt(7**2 + 8**2 - 2 * 7 * 8 * C_(120))
-chk("U6 AC", AC6, 13)
-chk("U6 AD", sqrt(AC6**2 + 84**2), 85)
-chk("U6 areal", Rational(1, 2) * 7 * 8 * S_(120) + Rational(1, 2) * 13 * 84, 14 * sqrt(3) + 546)
+chk("U4 AC", AC6, 13)
+chk("U4 AD", sqrt(AC6**2 + 84**2), 85)
+chk("U4 areal", Rational(1, 2) * 7 * 8 * S_(120) + Rational(1, 2) * 13 * 84, 14 * sqrt(3) + 546)
 
-# U7 Hele 1T
+# U5 Hele 1T
 xs = symbols("xs", positive=True)
 Tx = Rational(1, 2) * xs * (20 - xs) * S_(30)
-chk("U7a", expand(Tx), 5 * xs - xs**2 / 4)
-chk("U7b toppunkt", -Rational(5) / (2 * Rational(-1, 4)), 10)
-chk("U7b derivert", solve(Eq(diff(Tx, xs), 0), xs), [10])
-chk("U7b areal", Tx.subs(xs, 10), 25)
-chk("U7c", sqrt(10**2 + 10**2 - 2 * 10 * 10 * C_(30)), 10 * sqrt(2 - sqrt(3)))
-chk("U7c ekvivalent", 10 * sqrt(2 - sqrt(3)), 5 * (sqrt(6) - sqrt(2)))
-avrund("U7c tall", 10 * sqrt(2 - sqrt(3)), 1, 5.2)
+chk("U5a", expand(Tx), 5 * xs - xs**2 / 4)
+chk("U5b toppunkt", -Rational(5) / (2 * Rational(-1, 4)), 10)
+chk("U5b derivert", solve(Eq(diff(Tx, xs), 0), xs), [10])
+chk("U5b areal", Tx.subs(xs, 10), 25)
+chk("U5c", sqrt(10**2 + 10**2 - 2 * 10 * 10 * C_(30)), 10 * sqrt(2 - sqrt(3)))
+chk("U5c ekvivalent", 10 * sqrt(2 - sqrt(3)), 5 * (sqrt(6) - sqrt(2)))
+avrund("U5c tall", 10 * sqrt(2 - sqrt(3)), 1, 5.2)
 
-avrund("U2c min", 49.5 * T_(39), 0, 40, margin=0.0)
-avrund("U2c maks", 50.5 * T_(41), 0, 44, margin=0.0)
-chk("U6 a", [C_(60), C_(120)], [Rational(1, 2), -Rational(1, 2)])
-chk("2.6 kontroll sjekk", 261.5 / math.tan(math.radians(20)) - 261.5 / math.tan(math.radians(32)), 300, tol=0.2)
+chk("U4 a", [C_(60), C_(120)], [Rational(1, 2), -Rational(1, 2)])
+chk("2.5 kontroll sjekk", 261.5 / math.tan(math.radians(20)) - 261.5 / math.tan(math.radians(32)), 300, tol=0.2)
 chk("U1c verdi", round(8 * math.sqrt(2 - math.sqrt(2)), 2), 6.12)
 
+ns = {}
+exec(kode_u4.split("print(")[0], ns)
+sant("U2 s=1 gir én trekant", len(ns["ssv"](4, 8, 30)) == 1, "B1 = B2 = 90 telles én gang")
 rapport()
