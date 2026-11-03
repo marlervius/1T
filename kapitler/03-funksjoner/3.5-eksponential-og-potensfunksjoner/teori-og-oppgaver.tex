@@ -38,7 +38,6 @@ $100 \cdot 1{,}1^x$ & 100 & 110 & 121 & 133,1\\
 
 \textbf{Vekstfaktor fra prosent:} vekst på $p\,\%$ gir $b = 1 + \frac{p}{100}$. Nedgang på $p\,\%$ gir $b = 1 - \frac{p}{100}$.
 Grafen har $y = 0$ som horisontal asymptote og skjærer $y$-aksen i $(0, a)$. Verdien blir aldri negativ.
-Doblingstid og halveringstid er like uansett startverdi, fordi hvert steg bare ganger med $b$.
 \end{mustkunne}
 
 \begin{eksempel}[1 — rente på rente]
@@ -78,7 +77,7 @@ Kontroll: $3 \cdot 2^2 = 12$ og $3 \cdot 2^5 = 96$ & Begge punktene stemmer.\\
 \oppg{1.1}{1}{\uh}
 Finn vekstfaktoren.
 \begin{tasks}(2)
-  \task Verdien øker med $8\,\%$.
+  \task Verdien øker med $12\,\%$.
   \task Verdien synker med $35\,\%$.
   \task Verdien øker med $2{,}5\,\%$.
   \task Verdien øker med $60\,\%$.
@@ -108,6 +107,7 @@ Tenkt eksempel: En bil er verdt 240\,000 kr. Verdien synker med $15\,\%$ per år
   \task Skriv en funksjon $f$ som gir verdien etter $x$ år.
   \task Finn verdien etter 4 år. Rund av til nærmeste hundre kroner.
   \task Når er verdien 100\,000 kr? Bruk graf eller digitalt verktøy. Svar med én desimal.
+  \task Modellen gir at bilen er verdt ca. 1\,800 kr etter 30 år. Drøft om modellen er gyldig.
 \end{tasks}
 
 \oppg{1.5}{2}{\uh}
@@ -129,10 +129,10 @@ Tenkt eksempel: Et beløp vokser med $6\,\%$ per år.
 
 \oppg{1.8}{3}{\uh}
 Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret.
-Anta at $a > 0$ i $f(x) = a \cdot b^x$.
+Vi ser på $f(x) = a \cdot b^x$ og $g(x) = c \cdot d^x$ med positive $a$, $b$, $c$ og $d$.
 \begin{tasks}(1)
-  \task Hvis $b > 1$, er $f$ voksende.
-  \task Hvis $0 < b < 1$, blir $f(x)$ negativ for store $x$.
+  \task Produktet $f(x) \cdot g(x)$ er en eksponentialfunksjon.
+  \task Summen $f(x) + g(x)$ er en eksponentialfunksjon.
   \task Vekst på $30\,\%$ to år på rad gir $60\,\%$ vekst til sammen.
 \end{tasks}
 
@@ -146,7 +146,7 @@ Verdien til en eksponentialfunksjon $f(x) = a \cdot b^x$ blir doblet hvert 3. å
 \oppg{1.10}{3}{\uh}
 \begin{tasks}(1)
   \task Lag selv en avtagende eksponentialfunksjon $f$ med $f(3) = 6$.
-  \task Kan en eksponentialfunksjon $f(x) = a \cdot b^x$ med $a > 0$ og $b > 0$ ha $f(1) = -4$? Forklar.
+  \task En eksponentialfunksjon $f(x) = a \cdot b^x$ har $f(0) = 5$ og $f(2) = 20$. Kan $f(1) = 12$? Forklar.
 \end{tasks}
 
 \begin{sjekk}
@@ -162,25 +162,25 @@ Verdien til en eksponentialfunksjon $f(x) = a \cdot b^x$ blir doblet hvert 3. å
 \del{2}{Potensfunksjoner}
 
 \begin{ordliste}
-potensfunksjon & En funksjon $f(x) = a \cdot x^b$. Variabelen $x$ står i grunntallet. & \mittsprak\\
-eksponent & Tallet $b$ i $x^b$. Det sier hvor mange ganger $x$ er faktor. & \mittsprak\\
+potensfunksjon & En funksjon $f(x) = a \cdot x^k$. Variabelen $x$ står i grunntallet. & \mittsprak\\
+eksponent & Tallet $k$ i $x^k$. Det sier hvor mange ganger $x$ er faktor. & \mittsprak\\
 proporsjonal & To størrelser der den ene dobles når den andre dobles: $y = a \cdot x$. & \mittsprak\\
 modell & En funksjon som beskriver en virkelig situasjon omtrent, ikke nøyaktig. & \mittsprak\\
 \end{ordliste}
 
 \begin{mustkunne}
-\textbf{Potensfunksjon:} $f(x) = a \cdot x^b$. Eksempler: $x^2$, $x^3$, $\sqrt{x} = x^{\tfrac12}$ og $\dfrac{1}{x} = x^{-1}$.
-Når $b$ er en brøk eller negativ, bruker vi $x > 0$, som i 1.3.\par\smallskip
+\textbf{Potensfunksjon:} $f(x) = a \cdot x^k$. Eksempler: $x^2$, $x^3$, $\sqrt{x} = x^{\tfrac12}$ og $\frac{1}{x} = x^{-1}$.
+Når $k$ er en brøk eller negativ, bruker vi $x > 0$, som i 1.3.\par\smallskip
 \textbf{Hva skjer når $x$ dobles?}
-\[ f(2x) = a \cdot (2x)^b = a \cdot 2^b \cdot x^b = 2^b \cdot f(x) \]
-Dobler vi $x$, ganges $f(x)$ med $2^b$. Ganger vi $x$ med $k$, ganges $f(x)$ med $k^b$.\par\smallskip
+\[ f(2x) = a \cdot (2x)^k = a \cdot 2^k \cdot x^k = 2^k \cdot f(x) \]
+Dobler vi $x$, ganges $f(x)$ med $2^k$. Ganger vi $x$ med $r$, ganges $f(x)$ med $r^k$.\par\smallskip
 \textbf{Tre typer. Hva sier en tabell?}\par\smallskip
 \renewcommand{\arraystretch}{1.4}
 \begin{tabular}{@{}l l l@{}}
 \textbf{Type} & \textbf{Funksjon} & \textbf{Mønster i tabellen}\\ \hline
 Lineær & $ax + b$ & $x$ øker med 1: $y$ øker med et fast tall\\
 Eksponentiell & $a \cdot b^x$ & $x$ øker med 1: $y$ ganges med en fast faktor\\
-Potens & $a \cdot x^b$ & $x$ ganges med 2: $y$ ganges med en fast faktor\\
+Potens & $a \cdot x^k$ & $x$ ganges med 2: $y$ ganges med en fast faktor\\
 \end{tabular}
 \end{mustkunne}
 
@@ -203,18 +203,18 @@ $y$ & 2 & 16 & 128 & 1024\\
 
 \begin{stegtabell}
 $\frac{16}{2} = 8$, $\frac{128}{16} = 8$, $\frac{1024}{128} = 8$ & $x$ dobles hver gang. $y$ ganges med 8 hver gang.\\
-$2^b = 8$, så $b = 3$ & Potensfunksjon, fordi $x$ ganges med 2 og $y$ med en fast faktor.\\
+$2^k = 8$, så $k = 3$ & Potensfunksjon, fordi $x$ ganges med 2 og $y$ med en fast faktor.\\
 $f(1) = a \cdot 1^3 = 2$, så $a = 2$ & Sett $x = 1$.\\
 $f(x) = 2x^3$ & Kontroll: $f(4) = 2 \cdot 64 = 128$.\\
 \end{stegtabell}
-Tabellen er ikke lineær: tilleggene $14$ og $112$ er ikke like. Den er ikke eksponentiell: $x$ øker ikke med 1 hver gang.
+Tabellen er ikke lineær: $\frac{\Delta y}{\Delta x}$ er $14$, $56$ og $224$, og det er ikke konstant. Den er ikke eksponentiell: fra $x = 1$ til $2$ er forholdet 8, så vi ville fått $b = 8$. Fra $x = 2$ til $4$ er det to steg, og da skulle forholdet vært $8^2 = 64$. Men det er 8.
 \end{eksempel}
 
 \begin{vanligfeil}
 \begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
   \item $2^x$ og $x^2$ er ikke samme funksjon. For $x = 3$ er $2^3 = 8$ og $3^2 = 9$. I $2^x$ er $x$ eksponent, i $x^2$ er $x$ grunntall.
-  \item $x^{\tfrac12} = \frac{x}{2}$ er feil. Det er kvadratroten: $9^{\tfrac12} = 3$, ikke $\frac{9}{2}$.
-  \item «Dobler vi $x$, dobles $f(x)$» gjelder ikke generelt. Det gjelder bare når $b = 1$. For $x^2$ firedobles $f(x)$, fordi $(2x)^2 = 4x^2$.
+  \item $x^{\tfrac12} = \frac{x}{2}$ gjelder ikke generelt. Det er kvadratroten, og for $x = 9$ er $9^{\tfrac12} = 3$, men $\frac{9}{2} = 4{,}5$.
+  \item «Dobler vi $x$, dobles $f(x)$» gjelder ikke generelt. Det gjelder bare når $k = 1$. For $x^2$ firedobles $f(x)$, fordi $(2x)^2 = 4x^2$.
 \end{itemize}
 \end{vanligfeil}
 
@@ -291,12 +291,12 @@ Figuren viser grafene til $x^{\tfrac12}$, $x$ og $x^2$ for $x \ge 0$.
 \begin{tasks}(1)
   \task Hvilken graf hører til hvilken funksjon?
   \task For hvilke $x$ er $x^{\tfrac12}$ størst av de tre? For hvilke $x$ er $x^2$ størst?
-  \task Hva er felles for de tre funksjonene når $x = 1$? Forklar hvorfor.
+  \task Hva er felles for de tre funksjonene når $x = 1$? Forklar hvorfor rekkefølgen bytter der.
 \end{tasks}
 
 \oppg{2.7}{2}{\uh}
-Finn $b$ slik at $f(x) = x^b$ gir $f(4) = 8$. Finn \textbf{den første feilen}. Løs riktig.
-\[ 4^b = 8 \ \longrightarrow\ (2^2)^b = 2^3 \ \longrightarrow\ 2^{b+2} = 2^3 \ \longrightarrow\ b + 2 = 3 \ \longrightarrow\ b = 1 \]
+Finn $k$ slik at $f(x) = x^k$ gir $f(4) = 8$. Finn \textbf{den første feilen}. Løs riktig.
+\[ 4^k = 8 \ \longrightarrow\ (2^2)^k = 2^3 \ \longrightarrow\ 2^{k+2} = 2^3 \ \longrightarrow\ k + 2 = 3 \ \longrightarrow\ k = 1 \]
 
 \nivaahode{3}
 
@@ -304,9 +304,9 @@ Finn $b$ slik at $f(x) = x^b$ gir $f(4) = 8$. Finn \textbf{den første feilen}. 
 Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret.
 Vi ser på $x > 0$ og $a > 0$.
 \begin{tasks}(1)
-  \task $f(x) = a \cdot x^b$ er voksende når $b > 0$.
-  \task $f(x) = x^b$ er avtagende.
-  \task Grafen til $f(x) = \dfrac{a}{x}$ skjærer $x$-aksen.
+  \task $f(x) = a \cdot x^k$ er voksende når $k > 0$.
+  \task $f(x) = x^k$ er avtagende.
+  \task Grafen til $f(x) = \frac{a}{x}$ skjærer $x$-aksen.
 \end{tasks}
 
 \oppg{2.9}{3}{\mh}
@@ -314,15 +314,15 @@ Bruk graftegner eller GeoGebra. Se på $2^x$ og $x^2$ for $x \ge 0$.
 \begin{tasks}(1)
   \task For hvilke $x \ge 0$ er $2^x > x^2$?
   \task Se på $x$ fra 10 til 11. Hva skjer med hver verdi? Forklar hvorfor $2^x$ vinner for store $x$.
+  \task Undersøk negative $x$. Hvor mange skjæringspunkter har grafene til sammen?
 \end{tasks}
 
 \oppg{2.10}{3}{\uh}
 En funksjon $f$ går gjennom $(2, 20)$ og $(4, 80)$.
 \begin{tasks}(1)
-  \task Finn $a$ og $b$ i potensfunksjonen $f(x) = a \cdot x^b$.
+  \task Finn $a$ og $k$ i potensfunksjonen $f(x) = a \cdot x^k$.
   \task Finn $a$ og $b$ i eksponentialfunksjonen $g(x) = a \cdot b^x$ gjennom de samme punktene.
-  \task Regn ut $f(6)$ og $g(6)$.
-  \task Lag selv et tredje punkt som ligger på bare én av grafene. Forklar hva det forteller om dataene.
+  \task Hvilket punkt ville avslørt typen? Begrunn uten å regne ut $f(6)$.
 \end{tasks}
 
 \begin{sjekk}
