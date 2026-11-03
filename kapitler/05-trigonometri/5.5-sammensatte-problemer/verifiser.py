@@ -126,6 +126,7 @@ chk("1.7 pil3", 10 * C_(30), 5 * sqrt(3))
 sant("1.7 pil4 feil", simplify(5 * sqrt(2) * C_(30) - 5) != 0, "DC = AC cos 30 er feil")
 chk("1.7 pil4 riktig", 5 * sqrt(2) * C_(45), 5)
 chk("1.7 pil4 alt", 5 / T_(45), 5)
+chk("1.7 DC feil", 5 * sqrt(2) * C_(30), 5 * sqrt(6) / 2)
 chk("1.7 BC", 5 * sqrt(3) + 5, 5 + 5 * sqrt(3))
 
 # 1.8 alltid / noen ganger / aldri
@@ -163,6 +164,8 @@ avrund("Eks 2.1 QT", QT, 1, 62.6)
 avrund("Eks 2.1 h", QT * S_(41), 1, 41.1)
 avrund("Eks 2.1 h rundet QT", 62.6 * S_(41), 1, 41.1)
 chk("Eks 2.1 kontroll", 30 / (1 / T_(28) - 1 / T_(41)), QT * S_(41))
+avrund("Eks 2.1 kontroll 77,3", 41.1 / T_(28), 1, 77.3)
+avrund("Eks 2.1 kontroll 47,3", 41.1 / T_(41), 1, 47.3)
 # figur
 sant("Eks 2.1 figur", abs(math.degrees(math.atan2(2.88, 5.41)) - 28) < 0.3 and abs(math.degrees(math.atan2(2.88, 3.31)) - 41) < 0.3, "koordinater")
 # VF avrunding
@@ -325,6 +328,18 @@ with contextlib.redirect_stdout(buf):
     exec(kode_u4, {})
 ut = buf.getvalue().strip().splitlines()
 sant("U4a", ut == ["60.0", "7.0", "[53.1, 126.9]", "[26.4]", "[]"], str(ut))
+kode_c = kode_u4.split("print(")[0] + """
+def trekant_sss(a, b, c):
+    A = vinkel_fra_sider(a, b, c)
+    B = vinkel_fra_sider(b, a, c)
+    C = 180 - A - B
+    return [A, B, C]
+print([round(v, 1) for v in trekant_sss(5, 7, 8)])
+"""
+buf2 = io.StringIO()
+with contextlib.redirect_stdout(buf2):
+    exec(kode_c, {})
+sant("U4c kode", buf2.getvalue().strip() == "[38.2, 60.0, 81.8]", buf2.getvalue())
 aapen("U4b", "Forklaring: sin B = sin(180 - B); to vinkler kan gi trekant")
 chk("U4c", [round(math.degrees(math.asin(8 * 0.5 / 9)), 1), round(180 - math.degrees(math.asin(8 * 0.5 / 9)), 1)], [26.4, 153.6])
 
@@ -358,5 +373,11 @@ chk("U7b areal", Tx.subs(xs, 10), 25)
 chk("U7c", sqrt(10**2 + 10**2 - 2 * 10 * 10 * C_(30)), 10 * sqrt(2 - sqrt(3)))
 chk("U7c ekvivalent", 10 * sqrt(2 - sqrt(3)), 5 * (sqrt(6) - sqrt(2)))
 avrund("U7c tall", 10 * sqrt(2 - sqrt(3)), 1, 5.2)
+
+avrund("U2c min", 49.5 * T_(39), 0, 40, margin=0.0)
+avrund("U2c maks", 50.5 * T_(41), 0, 44, margin=0.0)
+chk("U6 a", [C_(60), C_(120)], [Rational(1, 2), -Rational(1, 2)])
+chk("2.6 kontroll sjekk", 261.5 / math.tan(math.radians(20)) - 261.5 / math.tan(math.radians(32)), 300, tol=0.2)
+chk("U1c verdi", round(8 * math.sqrt(2 - math.sqrt(2)), 2), 6.12)
 
 rapport()

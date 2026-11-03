@@ -26,7 +26,7 @@ eksakt svar & Et svar uten avrunding, for eksempel $4\sqrt3 + 6$. & \mittsprak\\
 \begin{minipage}[t]{0.47\linewidth}
 \textbf{Hva er kjent? Hvilken setning?}\par
 \renewcommand{\arraystretch}{1.3}
-\begin{tabular}[t]{@{}p{3.7cm} p{3.4cm}@{}}
+\begin{tabular}[t]{@{}>{\raggedright\arraybackslash}p{3.7cm} >{\raggedright\arraybackslash}p{3.4cm}@{}}
 rett vinkel & $\sin$, $\cos$, $\tan$, Pytagoras\\
 vinkel og siden overfor, pluss én til & sinussetningen\\
 to sider og vinkelen mellom, eller tre sider & cosinussetningen\\
@@ -38,10 +38,9 @@ to sider og vinkelen mellom, areal & arealsetningen\\
 \end{mustkunne}
 
 \begin{eksempel}[1 — firkant med diagonal]
-\begin{minipage}[t]{0.60\linewidth}
-I firkanten $ABCD$ er $AB = AD = 4$, $\angle A = 60^\circ$, $BC = 3$ og $\angle DBC = 90^\circ$. Finn diagonalen $BD$, siden $CD$ og arealet av firkanten. Svar eksakt.
+\begin{minipage}[t]{0.52\linewidth}I firkanten $ABCD$ er $AB = AD = 4$, $\angle A = 60^\circ$, $BC = 3$ og $\angle DBC = 90^\circ$. Finn diagonalen $BD$, siden $CD$ og arealet av firkanten. Svar eksakt.
 \end{minipage}\hfill
-\begin{minipage}[t]{0.36\linewidth}
+\begin{minipage}[t]{0.45\linewidth}
 \centering
 \begin{tikzpicture}[baseline=(current bounding box.north),scale=0.6,font=\small]
   \coordinate (A) at (0,0);
@@ -63,7 +62,7 @@ I firkanten $ABCD$ er $AB = AD = 4$, $\angle A = 60^\circ$, $BC = 3$ og $\angle 
 \end{tikzpicture}
 \end{minipage}
 
-\medskip
+\smallskip
 \begin{stegtabell}
 $BD^2 = 4^2 + 4^2 - 2 \cdot 4 \cdot 4 \cdot \cos 60^\circ = 16$ & Trekant $ABD$ har to sider og vinkelen mellom: cosinussetningen.\\
 $BD = 4$ & Ta kvadratroten. (Trekanten er likesidet.)\\
@@ -76,10 +75,9 @@ Kontroll: & $ABD$ har $AB = AD$ og $60^\circ$ i toppen, så alle vinkler er $60^
 \end{eksempel}
 
 \begin{eksempel}[2 — høyde i en trekant]
-\begin{minipage}[t]{0.58\linewidth}
-I trekant $ABC$ er $\angle B = 45^\circ$, $\angle C = 30^\circ$ og $BC = 2 + 2\sqrt3$. Linja $AD$ er høyden fra $A$. Finn $h = AD$ og arealet.
+\begin{minipage}[t]{0.52\linewidth}I trekant $ABC$ er $\angle B = 45^\circ$, $\angle C = 30^\circ$ og $BC = 2 + 2\sqrt3$. Linja $AD$ er høyden fra $A$. Finn $h = AD$ og arealet.
 \end{minipage}\hfill
-\begin{minipage}[t]{0.38\linewidth}
+\begin{minipage}[t]{0.45\linewidth}
 \centering
 \begin{tikzpicture}[baseline=(current bounding box.north),scale=0.8,font=\small]
   \coordinate (B) at (0,0);
@@ -101,7 +99,7 @@ I trekant $ABC$ er $\angle B = 45^\circ$, $\angle C = 30^\circ$ og $BC = 2 + 2\s
 \end{tikzpicture}
 \end{minipage}
 
-\medskip
+\smallskip
 \begin{stegtabell}
 $BD = \dfrac{h}{\tan 45^\circ} = h$ & Rettvinklet $ABD$: $\tan 45^\circ = \frac{h}{BD}$ og $\tan 45^\circ = 1$.\\
 $DC = \dfrac{h}{\tan 30^\circ} = \sqrt3\,h$ & Rettvinklet $ADC$: $\tan 30^\circ = \frac{1}{\sqrt3}$.\\
@@ -135,7 +133,7 @@ Hva er kjent? Velg setningen du vil bruke først: sinussetningen, cosinussetning
 \begin{minipage}[t]{0.58\linewidth}
 Linja $AD$ står vinkelrett på $BC$. Fullfør.
 \begin{tasks}(1)
-  \task Trekant $ABD$: $AD = AB \cdot \sin\skrivlinje[1cm] = 6 \cdot \skrivlinje[1cm] = \skrivlinje[1.5cm]$.
+  \task Trekant $ABD$: $AD = AB \cdot \sin\skrivlinje[1cm] = 6 \cdot \skrivlinje[1cm] = \skrivlinje[15mm]$.
   \task Trekant $ADC$: $AC = \dfrac{AD}{\sin\skrivlinje[1cm]} = \skrivlinje[2cm]$.
 \end{tasks}
 \end{minipage}\hfill
@@ -315,8 +313,7 @@ usikkerhet & Hvor mye en målt verdi kan avvike fra den riktige. & \mittsprak\\
 \end{mustkunne}
 
 \begin{eksempel}[1 — høyden av en mast]
-\begin{minipage}[t]{0.52\linewidth}
-Fra $P$ er høydevinkelen til toppen av en mast $28^\circ$. Vi går $30$ m rett mot masten til $Q$. Der er høydevinkelen $41^\circ$. Finn høyden $h$. Svar med én desimal.
+\begin{minipage}[t]{0.52\linewidth}Fra $P$ er høydevinkelen til toppen av en mast $28^\circ$. Vi går $30$ m rett mot masten til $Q$. Der er høydevinkelen $41^\circ$. Finn høyden $h$. Svar med én desimal.
 \end{minipage}\hfill
 \begin{minipage}[t]{0.45\linewidth}
 \centering
@@ -342,7 +339,7 @@ Fra $P$ er høydevinkelen til toppen av en mast $28^\circ$. Vi går $30$ m rett 
 \end{tikzpicture}
 \end{minipage}
 
-\medskip
+\smallskip
 \begin{stegtabell}
 $\angle PQT = 180^\circ - 41^\circ = 139^\circ$ & Høydevinkelen $41^\circ$ er en ytre vinkel. Vinkelen i trekanten er $139^\circ$.\\
 $\angle PTQ = 180^\circ - 28^\circ - 139^\circ = 13^\circ$ & Vinkelsum i trekant $PQT$.\\
@@ -354,31 +351,30 @@ Kontroll: & $\frac{h}{\tan 28^\circ} - \frac{h}{\tan 41^\circ} = 77,3 - 47,3 = 3
 \end{eksempel}
 
 \begin{eksempel}[2 — navigasjon]
-\begin{minipage}[t]{0.52\linewidth}
-En båt seiler fra $H$ kurs $40^\circ$ i $9$ km til $P$. Så seiler den kurs $100^\circ$ i $6$ km til $Q$. Finn avstanden $HQ$ og kursen fra $H$ rett til $Q$.
+\begin{minipage}[t]{0.52\linewidth}En båt seiler fra $H$ kurs $40^\circ$ i $9$ km til $P$. Så seiler den kurs $100^\circ$ i $6$ km til $Q$. Finn avstanden $HQ$ og kursen fra $H$ rett til $Q$.
 \end{minipage}\hfill
 \begin{minipage}[t]{0.45\linewidth}
 \centering
-\begin{tikzpicture}[baseline=(current bounding box.north),font=\small]
+\begin{tikzpicture}[baseline=(current bounding box.north),font=\small,scale=1.2]
   \coordinate (H) at (0,0);
   \coordinate (P) at (50:2.25);
-  \coordinate (Q) at ($(P)+(-10:1.5)$);
+  \coordinate (Q) at ([shift={(-10:1.5)}]P);
   \draw[dashed] (H)--(0,1.2);
-  \draw[dashed] (P)--($(P)+(0,0.9)$);
+  \draw[dashed] (P)--([shift={(0,0.9)}]P);
   \draw[thick] (H)--(P) node[midway,above,sloped] {\scriptsize$9$ km};
   \draw[thick] (P)--(Q) node[midway,above,sloped] {\scriptsize$6$ km};
   \draw[thick,dashed] (H)--(Q) node[midway,below,sloped] {\color{niv3}\bfseries ?};
   \draw (0,0.5) arc (90:50:0.5);
-  \node[font=\scriptsize] at (0.52,0.82) {$40^\circ$};
-  \draw ($(P)+(0,0.35)$) arc (90:-10:0.35);
-  \node[font=\scriptsize] at ($(P)+(40:0.65)$) {$100^\circ$};
+  \node[font=\scriptsize] at (-0.3,0.7) {$40^\circ$};
+  \draw ([shift={(0,0.35)}]P) arc (90:-10:0.35);
+  \node[font=\scriptsize] at ([shift={(40:0.65)}]P) {$100^\circ$};
   \node[below left] at (H) {$H$};
   \node[left] at (P) {$P$};
   \node[right] at (Q) {$Q$};
 \end{tikzpicture}
 \end{minipage}
 
-\medskip
+\smallskip
 \begin{stegtabell}
 $\angle HPQ = 180^\circ - (100^\circ - 40^\circ) = 120^\circ$ & Båten svinger $60^\circ$ til høyre. Vinkelen inne i trekanten er $180^\circ - 60^\circ$.\\
 $HQ^2 = 9^2 + 6^2 - 2 \cdot 9 \cdot 6 \cdot \cos 120^\circ = 171$ & To sider og vinkelen mellom: cosinussetningen.\\
@@ -412,8 +408,8 @@ Du står $45$ m fra foten av en flaggstang på flatt terreng. Høydevinkelen til
 \oppg{2.3}{1}{\mh}
 To båter $A$ og $B$ ligger $200$ m fra hverandre. Begge sikter mot en bøye $C$. I trekant $ABC$ er $\angle A = 50^\circ$ og $\angle B = 64^\circ$. Tegn en skisse og fullfør.
 \begin{tasks}(1)
-  \task $\angle C = 180^\circ - 50^\circ - 64^\circ = \skrivlinje[1.5cm]$.
-  \task $\dfrac{AC}{\sin 64^\circ} = \dfrac{200}{\sin\skrivlinje[1.2cm]}$, så $AC \approx \skrivlinje[2cm]$ m.
+  \task $\angle C = 180^\circ - 50^\circ - 64^\circ = \skrivlinje[15mm]$.
+  \task $\dfrac{AC}{\sin 64^\circ} = \dfrac{200}{\sin\skrivlinje[12mm]}$, så $AC \approx \skrivlinje[2cm]$ m.
   \task Finn $BC$ på samme måte.
 \end{tasks}
 
@@ -439,7 +435,7 @@ Fra to punkter $A$ og $B$ på samme elvebredd, $75$ m fra hverandre, ser vi et t
   \draw (0.7,0) arc (0:58:0.7);
   \node[font=\scriptsize] at (1.0,0.3) {$58^\circ$};
   \draw (2.4,0) arc (180:106:0.6);
-  \node[font=\scriptsize] at (2.62,0.55) {$74^\circ$};
+  \node[font=\scriptsize] at (2.28,0.45) {$74^\circ$};
   \draw[|-|] (0,-0.5)--(3,-0.5) node[midway,below] {\scriptsize$75$ m};
   \node[left] at (A) {$A$};
   \node[right] at (B) {$B$};

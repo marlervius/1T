@@ -1,0 +1,106 @@
+% =====================================================================
+%  5.5 Sammensatte problemer — ekstra utfordring
+% =====================================================================
+
+\begin{infoboks}{Velg metode selv}
+Arket bygger på 5.1 til 5.5. Tegn figur og merk kjente og ukjente størrelser. Vis regning og begrunnelse.
+Bruk eksakte svar der det går. Kontroller svaret på en annen måte.
+\end{infoboks}
+
+\nivaahode{2}
+
+\oppg{U1}{2}{\mh}
+En regulær åttekant er innskrevet i en sirkel med radius $1$. Alle hjørnene ligger på sirkelen.
+\begin{tasks}(1)
+  \task Finn arealet av åttekanten. Svar eksakt.
+  \task Finn sidelengden eksakt.
+  \task Finn omkretsen av åttekanten. Sammenlign med omkretsen av sirkelen. Hvorfor blir den ene mindre?
+\end{tasks}
+
+\oppg{U2}{2}{\mh}
+Fra et punkt $50$ m fra foten av en mast er høydevinkelen til toppen målt til $40^\circ \pm 1^\circ$.
+\begin{tasks}(1)
+  \task Finn minste og største mulige høyde. Rund av til hele meter.
+  \task Hvor mange gjeldende siffer er det rimelig å oppgi for høyden? Begrunn.
+  \task Avstanden $50$ m er også usikker, $\pm 0,5$ m. Finn minste og største mulige høyde når begge usikkerhetene regnes med. Rund av til hele meter.
+\end{tasks}
+
+\oppg{U3}{2}{\mh}
+I trekant $ABC$ er $A = 45^\circ$, $a = 5$ og $b = 4\sqrt2$. Vi skal finne $c$.
+\begin{tasks}(1)
+  \task Sett opp cosinussetningen for $a^2$. Løs andregradslikningen for $c$.
+  \task Tegn begge trekantene. Forklar hvorfor begge løsningene er gyldige.
+  \task Kontroller begge løsningene med sinussetningen. Finn først $B$ i begge tilfellene.
+\end{tasks}
+
+\oppg{U4}{2}{\prog}
+Programmet er en «trekantløser». Linje med \lstinline[style=laereverk,numbers=none,frame=none]|___| mangler en betingelse.
+\begin{kode}
+import math
+
+def vinkel_fra_sider(a, b, c):
+    return math.degrees(math.acos((b**2 + c**2 - a**2) / (2*b*c)))
+
+def side_fra_svs(b, c, A):
+    return math.sqrt(b**2 + c**2 - 2*b*c*math.cos(math.radians(A)))
+
+def ssv(a, b, A):
+    s = b * math.sin(math.radians(A)) / a
+    if s > 1:
+        return []
+    B1 = math.degrees(math.asin(s))
+    B2 = 180 - B1
+    losninger = [B1]
+    if ___:
+        losninger.append(B2)
+    return losninger
+
+print(round(vinkel_fra_sider(7, 5, 8), 1))
+print(round(side_fra_svs(3, 5, 120), 1))
+print([round(v, 1) for v in ssv(5, 8, 30)])
+print([round(v, 1) for v in ssv(9, 8, 30)])
+print([round(v, 1) for v in ssv(3, 8, 30)])
+\end{kode}
+\begin{tasks}(1)
+  \task Fyll inn betingelsen, slik at \lstinline[style=laereverk,numbers=none,frame=none]|ssv| bare tar med $B_2$ når den gir en trekant. Hva skriver programmet ut?
+  \task Hvorfor regner programmet ut $180 - B_1$? Hva betyr det at listen er tom?
+  \task Skriv funksjonen \lstinline[style=laereverk,numbers=none,frame=none]|trekant_sss(a, b, c)| som returnerer alle tre vinklene. Bruk \lstinline[style=laereverk,numbers=none,frame=none]|vinkel_fra_sider|.
+\end{tasks}
+
+\nivaahode{3}
+
+\oppg{U5}{3}{\uh}
+Herons formel sier at en trekant med sidene $a$, $b$, $c$ og $s = \frac{a+b+c}{2}$ har areal $T = \sqrt{s(s-a)(s-b)(s-c)}$. Les beviset.
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt,topsep=2pt]
+  \item Arealsetningen gir $T^2 = \frac14 a^2b^2 \sin^2 C$.
+  \item Fra $\sin^2 C + \cos^2 C = 1$ får vi $\sin^2 C = (1 - \cos C)(1 + \cos C)$.
+  \item Cosinussetningen gir $\cos C = \dfrac{a^2 + b^2 - c^2}{2ab}$. Da er
+  \[ 1 - \cos C = \frac{c^2 - (a-b)^2}{2ab} \qquad\text{og}\qquad 1 + \cos C = \frac{\rute}{2ab}. \]
+  \item Konjugatsetningen gir $c^2 - (a-b)^2 = (c - a + b)(c + a - b)$ og $(a+b)^2 - c^2 = \skrivlinje[3cm]$.
+  \item Sett inn: $T^2 = \dfrac{(c-a+b)(c+a-b)(a+b-c)(a+b+c)}{16}$.
+  \item Sett $a + b + c = 2s$, og skriv de andre faktorene med $s$.
+\end{enumerate}
+\begin{tasks}(1)
+  \task Fyll inn de to manglende uttrykkene.
+  \task Forklar steg 6: Hvorfor blir svaret Herons formel?
+  \task Bruk formelen på en trekant med sidene $5$, $7$ og $8$. Kontroller med arealsetningen.
+\end{tasks}
+
+\oppg{U6}{3}{\uh}
+Lag selv et sammensatt problem med to trekanter, for eksempel en firkant med en diagonal. Svaret skal bli et helt tall, og du skal trenge minst to ulike setninger. Tegn figur og lag en fasit. Bytt med en medelev og løs hverandres oppgaver.
+\begin{tasks}(1)
+  \task Hvilke vinkler er det lurt å bruke for å få hele tall med cosinussetningen? Hvorfor?
+\end{tasks}
+
+\oppg{U7}{3}{\uh}
+Hele 1T: Et jordstykke har form som en trekant $ABC$. Vi vet at $AB + AC = 20$ m og $\angle A = 30^\circ$. Sett $AB = x$.
+\begin{tasks}(1)
+  \task Vis at arealet er $T(x) = \frac14 x(20 - x)$.
+  \task Finn $x$ slik at arealet blir størst. Bruk toppunktet og kontroller med derivasjon. Hvor stort er arealet da?
+  \task Finn $BC$ i dette tilfellet. Svar eksakt.
+\end{tasks}
+
+\begin{oppsummering}
+Tegn figur, merk det kjente, og finn en trekant der du har nok opplysninger.
+Bruk lagrede verdier og avrund til slutt. Vurder alltid om svaret er rimelig og hvor nøyaktig det er.
+\end{oppsummering}
