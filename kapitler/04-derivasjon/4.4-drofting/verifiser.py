@@ -107,33 +107,41 @@ chk("1.5b topp", fverdi(g15, -1), 16)
 chk("1.5b bunn", fverdi(g15, 3), -16)
 chk("1.5c y-akse", fverdi(g15, 0), 11)
 
-# ---- 1.6: finn første feil, f(x) = x^3 - 3x^2 - 24x
+# ---- 1.6: f(x) = x^4 - 4x^3
+f16n = x**4 - 4 * x**3
+chk("1.6 f'", d(f16n), 4 * x**2 * (x - 3))
+los("1.6 f'=0", Eq(d(f16n), 0), [0, 3])
+chk("1.6 fortegn", [fortegn(d(f16n), -1), fortegn(d(f16n), 1), fortegn(d(f16n), 4)], [-1, -1, 1])
+chk("1.6 f(0)", fverdi(f16n, 0), 0)
+chk("1.6 f(3)", fverdi(f16n, 3), -27)
+
+# ---- 1.7: finn første feil, f(x) = x^3 - 3x^2 - 24x
 f16 = x**3 - 3 * x**2 - 24 * x
-sant("1.6 pil 1", d(f16) == 3 * x**2 - 6 * x - 24, "f' riktig")
-sant("1.6 pil 2", expand(3 * (x - 4) * (x + 2)) == 3 * x**2 - 6 * x - 24, "faktorisering riktig")
-sant("1.6 pil 3", set(solve(d(f16), x)) == {4, -2}, "f'=0 for x=4 og x=-2")
-sant("1.6 pil 4 feil", fortegn(d(f16), -3) == 1, "f' er positiv for x<-2 (ikke negativ)")
-chk("1.6 riktig fortegn", [fortegn(d(f16), -3), fortegn(d(f16), 0), fortegn(d(f16), 5)], [1, -1, 1])
-chk("1.6 f(4)", fverdi(f16, 4), -80)
-chk("1.6 f(-2)", fverdi(f16, -2), 28)
+sant("1.7 pil 1", d(f16) == 3 * x**2 - 6 * x - 24, "f' riktig")
+sant("1.7 pil 2", expand(3 * (x - 4) * (x + 2)) == 3 * x**2 - 6 * x - 24, "faktorisering riktig")
+sant("1.7 pil 3", set(solve(d(f16), x)) == {4, -2}, "f'=0 for x=4 og x=-2")
+sant("1.7 pil 4 feil", fortegn(d(f16), -3) == 1, "f' er positiv for x<-2 (ikke negativ)")
+chk("1.7 riktig fortegn", [fortegn(d(f16), -3), fortegn(d(f16), 0), fortegn(d(f16), 5)], [1, -1, 1])
+chk("1.7 f(4)", fverdi(f16, 4), -80)
+chk("1.7 f(-2)", fverdi(f16, -2), 28)
 
-# ---- 1.7: alltid / noen ganger / aldri
-sant("1.7a", d(x**3).subs(x, 0) == 0 and fortegn(d(x**3), -1) == fortegn(d(x**3), 1) == 1, "x^3 er voksende, men f'(0)=0")
-sant("1.7a eks2", d(x**2).subs(x, 1) == 2 and d(x**3).subs(x, 1) == 3, "f'>0 i vanlig tilfelle")
+# ---- 1.8: alltid / noen ganger / aldri
+sant("1.8a", d(x**3).subs(x, 0) == 0 and fortegn(d(x**3), -1) == fortegn(d(x**3), 1) == 1, "x^3 er voksende, men f'(0)=0")
+sant("1.8a eks2", d(x**2).subs(x, 1) == 2 and d(x**3).subs(x, 1) == 3, "f'>0 i vanlig tilfelle")
 p7, q7, r7 = symbols("p7 q7 r7", real=True)
-sant("1.7b", solve(d(p7 * x**2 + q7 * x + r7), x) == [-q7 / (2 * p7)] and diff(d(x**2 + 3 * x), x) != 0, "f'=2px+q har én rot og skifter fortegn")
-chk("1.7b fortegn", [fortegn(d(x**2 - 4 * x + 1), 1), fortegn(d(x**2 - 4 * x + 1), 3)], [-1, 1])
-sant("1.7c", d(x**2) == d(x**2 + 5) and x**2 != x**2 + 5, "samme f', ulike f")
+sant("1.8b", solve(d(p7 * x**2 + q7 * x + r7), x) == [-q7 / (2 * p7)] and diff(d(x**2 + 3 * x), x) != 0, "f'=2px+q har én rot og skifter fortegn")
+chk("1.8b fortegn", [fortegn(d(x**2 - 4 * x + 1), 1), fortegn(d(x**2 - 4 * x + 1), 3)], [-1, 1])
+sant("1.8c", d(x**2) == d(x**2 + 5) and x**2 != x**2 + 5, "samme f', ulike f")
 
-# ---- 1.8: lag selv, topp x=-1, bunn x=2
+# ---- 1.9: lag selv, topp x=-1, bunn x=2
 k8 = symbols("k8", positive=True)
 f18 = integrate(6 * (x + 1) * (x - 2), x)   # k = 6
-chk("1.8 f", f18, 2 * x**3 - 3 * x**2 - 12 * x)
-chk("1.8 f'", d(f18), 6 * (x + 1) * (x - 2))
-chk("1.8 fortegn", [fortegn(d(f18), -2), fortegn(d(f18), 0), fortegn(d(f18), 3)], [1, -1, 1])
-chk("1.8 topp", fverdi(f18, -1), 7)
-chk("1.8 bunn", fverdi(f18, 2), -20)
-chk("1.8b k<0 gir omvendt", [fortegn(-6 * (x + 1) * (x - 2), -2), fortegn(-6 * (x + 1) * (x - 2), 0)], [-1, 1])
+chk("1.9 f", f18, 2 * x**3 - 3 * x**2 - 12 * x)
+chk("1.9 f'", d(f18), 6 * (x + 1) * (x - 2))
+chk("1.9 fortegn", [fortegn(d(f18), -2), fortegn(d(f18), 0), fortegn(d(f18), 3)], [1, -1, 1])
+chk("1.9 topp", fverdi(f18, -1), 7)
+chk("1.9 bunn", fverdi(f18, 2), -20)
+chk("1.9b k<0 gir omvendt", [fortegn(-6 * (x + 1) * (x - 2), -2), fortegn(-6 * (x + 1) * (x - 2), 0)], [-1, 1])
 
 # ---- Sjekk 1
 s1 = x**2 - 8 * x + 3

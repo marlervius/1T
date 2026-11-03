@@ -1,0 +1,100 @@
+% =====================================================================
+%  5.3 Sinussetningen — ekstra utfordring
+% =====================================================================
+
+\begin{infoboks}{Velg metode selv}
+Arket bygger på 5.3 Sinussetningen. Vis regning og begrunnelse. Bruk eksakte svar når oppgaven er uten hjelpemidler.
+Kontroller svaret ved å regne på en annen måte.
+\end{infoboks}
+
+\nivaahode{2}
+
+\oppg{U1}{2}{\uh}
+I trekant $ABC$ er $A = 45^\circ$, $B = 60^\circ$ og $a = 4\sqrt2$. Finn $b$ eksakt og vinkel $C$.
+
+\oppg{U2}{2}{\mh}
+En landmåler vil finne bredden av en elv. Hun står i $A$ og går $70$ m langs elvebredden til $B$. Et tre $C$ står på den andre bredden.
+Vinkelen mellom bredden og siktelinja er $48^\circ$ fra $A$ og $71^\circ$ fra $B$. Trekanten $ABC$ har da $AB = 70$ m.
+\begin{tasks}(1)
+  \task Finn avstanden $AC$. Svar med én desimal.
+  \task Finn bredden av elven, altså den korteste avstanden fra $C$ til elvebredden. Svar i hele meter.
+\end{tasks}
+
+\oppg{U3}{2}{\mh}
+I trekant $ABC$ er $A = 50^\circ$, $B = 70^\circ$ og $a = 10$. Finn arealet av trekanten med én desimal.
+Bruk både sinussetningen og arealsetningen.
+
+\nivaahode{3}
+
+\oppg{U4}{3}{\prog}
+Funksjonen finner alle trekanter når $A$, $a$ og $b$ er kjent. Den gir antall trekanter og vinklene $B$.
+\begin{kode}
+import math
+
+def ssv(a, b, A):
+    s = b * math.sin(math.radians(A)) / a
+    if s > 1:
+        return 0, []
+    B1 = round(math.degrees(math.asin(s)), 1)
+    vinkler = []
+    for B in [B1, round(180 - B1, 1)]:
+        if A + B < 180 and B not in vinkler:
+            vinkler.append(B)
+    return len(vinkler), vinkler
+
+for a in [2, 3, 4, 8]:
+    print(a, ssv(a, 6, 30))
+print(ssv(9, 6, 62))
+\end{kode}
+\begin{tasks}(1)
+  \task Hva skriver programmet ut? Forklar uten å kjøre det, og knytt hver linje til et tilfelle: ingen, én eller to trekanter.
+  \task Hvorfor må programmet teste $180^\circ - B_1$ og ikke bare $B_1$? Forklar med et eksempel fra utskriften.
+  \task Finn selv en test for en stump $A$. Hva forventer du, og hva skriver programmet ut?
+\end{tasks}
+
+\oppg{U5}{3}{\uh}
+Er påstanden «den største vinkelen i en trekant står overfor den lengste siden» alltid, noen ganger eller aldri sann?
+Begrunn med sinussetningen og enhetssirkelen. Husk at en vinkel kan være stump.
+
+\oppg{U6}{3}{\uh}
+Under er et bevis for at $\dfrac{a}{\sin A} = 2R$, der $R$ er radien i sirkelen gjennom $A$, $B$ og $C$ (den omskrevne sirkelen).
+Beviset bruker to fakta fra geometri: En vinkel som spenner over en diameter er $90^\circ$. Periferivinkler på samme bue er like store.
+
+\begin{minipage}[t]{0.50\linewidth}
+\textbf{Bevis} for spiss $A$.
+\begin{enumerate}[leftmargin=1.5em,itemsep=1pt,topsep=2pt]
+  \item Tegn diameteren $BD$. Da er $BD = 2R$.
+  \item Trekant $BCD$ har $\angle C = 90^\circ$.
+  \item $\angle D = \angle A$, fordi begge spenner over buen $BC$.
+  \item I trekant $BCD$ er $\sin D = \dfrac{a}{2R}$.
+  \item Altså er $\sin A = \dfrac{a}{2R}$, og $\dfrac{a}{\sin A} = 2R$.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.44\linewidth}
+\centering
+\begin{tikzpicture}[baseline=(current bounding box.north),scale=0.9,font=\small]
+  \coordinate (O) at (0,0);
+  \coordinate (A) at (0,2); \coordinate (B) at (-1.879,-0.684);
+  \coordinate (C) at (1.879,-0.684); \coordinate (D) at (1.879,0.684);
+  \draw (O) circle (2);
+  \draw[thick] (A) -- (B) -- (C) -- cycle;
+  \draw[thick] (B) -- (D) -- (C);
+  \draw (1.679,-0.684)--(1.679,-0.484)--(1.879,-0.484);
+  \pic[draw, angle radius=5mm] {angle = B--A--C};
+  \pic[draw, angle radius=6mm] {angle = C--D--B};
+  \node[above] at (A) {$A$}; \node[below left] at (B) {$B$};
+  \node[below right] at (C) {$C$}; \node[above right] at (D) {$D$};
+  \node[below] at (0,-0.684) {$a$};
+\end{tikzpicture}
+\end{minipage}
+\begin{tasks}(1)
+  \task Hvorfor er $\angle C = 90^\circ$ i trekant $BCD$?
+  \task Hvorfor kan vi bruke $BD$ som hypotenus i punkt 4, og hvilken side er motstående til $D$?
+  \task Bruk resultatet på en rettvinklet trekant med hypotenus $13$. Finn $R$. Hva forteller det om hvor sentrum i sirkelen ligger?
+  \task Forklar kort hvordan beviset blir hvis $A$ er stump. Hva er forskjellen mellom $\angle A$ og $\angle D$ da?
+\end{tasks}
+
+\begin{oppsummering}
+Sinussetningen kommer fra arealsetningen og gjelder i alle trekanter. Med to sider og en vinkel som ikke ligger mellom dem kan det finnes to trekanter, så sjekk alltid $180^\circ - B$ og vinkelsummen.
+Det finnes en dypere grunn til forholdet: $\frac{a}{\sin A} = 2R$.
+\end{oppsummering}
