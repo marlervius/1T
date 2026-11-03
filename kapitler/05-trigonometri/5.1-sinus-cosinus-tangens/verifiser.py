@@ -86,9 +86,10 @@ for v in (30, 45, 60, 100, 150):
 
 # =============== DEL 1 ===============
 # 1.1: 5, 12, 13
-chk("1.1a", Rational(5, 13), Rational(5, 13))
+h13 = sqrt(5**2 + 12**2)
+chk("1.1a", Rational(5) / h13, Rational(5, 13))
 chk("1.1 hyp", sqrt(5**2 + 12**2), 13)
-chk("1.1 sin/cos/tan", [Rational(5, 13), Rational(12, 13), Rational(5, 12)], [Rational(5, 13), Rational(12, 13), Rational(5, 12)])
+chk("1.1 sin/cos/tan", [5 / h13, 12 / h13, Rational(5, 12)], [Rational(5, 13), Rational(12, 13), Rational(5, 12)])
 # 1.2 fullfør: sin v = 0,8 og hypotenus 15
 chk("1.2a", Rational(8, 10) * 15, 12)
 chk("1.2b", sqrt(15**2 - 12**2), 9)
@@ -96,11 +97,12 @@ chk("1.2c", Rational(9, 15), Rational(3, 5))
 # 1.3
 chk("1.3a", avr(S_(25), 3), 0.423)
 chk("1.3b", avr(C_(64), 3), 0.438)
-chk("1.3c", avr(T_(70), 3), 2.747)
+chk("1.3c", avr(T_(55), 3), 1.428)
 chk("1.3d", avr(invtan(2), 1), 63.4)
 # 1.4: 9 og 40
 chk("1.4a", sqrt(9**2 + 40**2), 41)
-chk("1.4b", [Rational(9, 41), Rational(40, 41), Rational(9, 40)], [Rational(9, 41), Rational(40, 41), Rational(9, 40)])
+h41 = sqrt(9**2 + 40**2)
+chk("1.4b", [9 / h41, 40 / h41, Rational(9, 40)], [Rational(9, 41), Rational(40, 41), Rational(9, 40)])
 # 1.5
 chk("1.5a", avr(12 * C_(37), 1), 9.6)
 chk("1.5b", avr(9 * T_(42), 1), 8.1)
@@ -111,11 +113,9 @@ chk("1.6b", avr(sqrt(25 - Rational(225, 100)), 1), 4.8)
 chk("1.6b alt", avr(5 * S_(Rational(725, 10)), 1), 4.8)
 # 1.7 feil: første feil er overgangen til 14 * (-0,667)
 sant("1.7 pil 1", abs(num(C_(40)) * 14 - 14 * num(C_(40))) < 1e-12, "cos 40 = x/14 gir x = 14 cos 40")
-chk("1.7 pil 2 (feil)", avr(cos(40), 3), -0.669)
-sant("1.7 pil 2 feil", abs(num(cos(40)) - (-0.667)) > 1e-3 or True, "kalkulator i RAD")
-chk("1.7 radianer", avr(cos(40), 3), -0.669)
+chk("1.7 radianer", avr(cos(40), 3), -0.667)
 chk("1.7 riktig", avr(14 * C_(40), 1), 10.7)
-chk("1.7 feil svar", avr(14 * cos(40), 1), -9.4)
+chk("1.7 feil svar", avr(14 * cos(40), 1), -9.3)
 # 1.8
 sant("1.8a", all(num(S_(v)) < 1 for v in range(1, 90)), "sin v < 1 for spisse v")
 sant("1.8b", num(Rational(3, 4)) < 1 < num(Rational(4, 3)), "tan v < 1 noen ganger")
@@ -206,7 +206,7 @@ for v in tabell:
         if v < w and tabell[v][0] == tabell[w][0]:
             paar.append((v, w))
 chk("U4a", len(tabell), 13)
-chk("U4b", paar, [(0, 180), (15, 165), (30, 150), (45, 135), (60, 120), (75, 105)])
+sant("U4b", paar == [(0, 180), (15, 165), (30, 150), (45, 135), (60, 120), (75, 105)], "seks par")
 sant("U4b sum", all(v + w == 180 for v, w in paar), "parene summerer til 180")
 sant("U4 cos", len({tabell[v][1] for v in tabell}) == 13, "cos aldri lik for to vinkler")
 chk("U4 rad", round(math.sin(30), 3), -0.988)
