@@ -16,7 +16,8 @@ Fra Python:
     print(fortegnslinje(["x+1", "x-3"]))
 
 Stil: én rad per faktor, loddrett grå strek og 0 ved hvert nullpunkt, heltrukket = positiv,
-stiplet = negativ, produktlinja i hovedfargen. × markerer nullpunkt i en nevner.
+stiplet = negativ, produktlinja i hovedfargen. På faktorradene står 0 i nullpunktene (også for
+nevneren). På produktlinja står × der en nevner er 0: der er brøken ikke definert.
 """
 import argparse
 import re
@@ -70,11 +71,12 @@ def fortegnslinje(faktorer, navn=None, bredde=1.9, marg=1.4):
         linje(y, tegn)
         for i, v in enumerate(nuller):
             if sp.simplify(u.subs(x, v)) == 0:
+                # Faktoren selv er 0 her (også i nevneren). Bare produktet/brøken er ikke definert.
                 if nevner:
                     prod_merke[i] = r"\times"
                 elif prod_merke[i] is None:
                     prod_merke[i] = "0"
-                merke(p[i], y, r"\times" if nevner else "0")
+                merke(p[i], y, "0")
     produkt = navn or " ".join(f"({l})" if len(rader) > 1 else l for l, _, n in rader if not n)
     ut.append(rf"  \node[anchor=east] at (-0.15,{yprod:.2f}) {{${produkt}$}};")
     linje(yprod, prod_tegn, "hoved")
