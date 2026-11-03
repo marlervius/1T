@@ -38,9 +38,9 @@ Programmet skal løse $ax + b = cx + d$ og skrive ut hvor mange løsninger det e
 def los(a, b, c, d):
     if a != c:
         x = (d - b) / (a - c)
-        print("en losning:", x)
+        print("én løsning:", x)
     elif ____:
-        print("alle tall er losninger")
+        print("alle tall er løsninger")
     else:
         print("____")
 \end{kode}
@@ -58,8 +58,12 @@ def los(a, b, c, d):
 \end{tasks}
 
 \oppg{U7}{3}{\uh}
-Likningen $\sqrt{x^2} = x$ er sann for uendelig mange $x$, men den er ikke en identitet.
-Forklar hvordan begge deler kan stemme. For hvilke $x$ er likningen sann?
+Se på likningen $\dfrac{x+p}{2} - \dfrac{x-q}{3} = \dfrac{x+5}{6}$, der $p$ og $q$ er konstanter.
+\begin{tasks}(1)
+  \task Finn to tall $p$ og $q$ som gjør likningen til en identitet.
+  \task Finn alle slike par $(p, q)$. Hva skjer for alle andre par?
+  \task Kan likningen ha nøyaktig én løsning? Begrunn.
+\end{tasks}
 
 \begin{oppsummering}
 Én verdi som ikke stemmer, er nok til å vise at noe ikke er en identitet.
