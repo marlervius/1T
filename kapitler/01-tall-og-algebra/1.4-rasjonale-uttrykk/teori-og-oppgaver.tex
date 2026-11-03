@@ -1,0 +1,276 @@
+% =====================================================================
+%  1.4 Rasjonale uttrykk — teori og oppgaver
+% =====================================================================
+
+\del{1}{Forkorte, gange og dele}
+
+\begin{ordliste}
+rasjonalt uttrykk & En brøk med polynom i teller og nevner, for eksempel $\frac{x+1}{x-2}$. & \mittsprak\\
+forkorte & Dele teller og nevner på den samme faktoren. & \mittsprak\\
+vilkår & Det som må gjelde for at uttrykket er definert, for eksempel $x \neq 2$. & \mittsprak\\
+faktor & Et tall eller uttrykk som ganges med noe annet. & \mittsprak\\
+ikke definert & Vi kan ikke dele på 0. Da har uttrykket ingen verdi. & \mittsprak\\
+\end{ordliste}
+
+\begin{mustkunne}
+\begin{minipage}[t]{0.52\linewidth}
+\textbf{Vi kan bare forkorte faktorer.}
+\[ \frac{a\cdot c}{b\cdot c} = \frac{a}{b}\cdot\frac{c}{c} = \frac{a}{b}\cdot 1 = \frac{a}{b} \]
+Summer kan ikke forkortes. Prøv med tall:
+\[ \frac{2+3}{4+3} = \frac{5}{7} \quad\text{men}\quad \frac{2}{4} = \frac{1}{2} \]
+\end{minipage}\hfill
+\begin{minipage}[t]{0.44\linewidth}
+\textbf{Metode}\par
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+  \item Skriv vilkår: nevneren er ikke 0.
+  \item Faktoriser teller og nevner.
+  \item Forkort like faktorer.
+  \item Gange: gang tellere og nevnere. Dele: snu brøken og gang.
+\end{enumerate}
+\end{minipage}
+
+\medskip
+Vilkåret gjelder fra starten og \emph{fortsetter å gjelde} etter forkorting.
+Husk $\frac{x-3}{3-x} = -1$, fordi $3-x = -(x-3)$.
+\end{mustkunne}
+
+\begin{eksempel}[1 — forkort og skriv vilkår]
+Forkort $\dfrac{x^2-9}{x^2+3x}$.
+
+\begin{stegtabell}
+$x^2+3x = x(x+3) \neq 0$ & Vilkår: $x \neq 0$ og $x \neq -3$.\\
+$= \dfrac{(x-3)(x+3)}{x(x+3)}$ & Konjugatsetningen i teller, felles faktor $x$ i nevner.\\
+$= \dfrac{x-3}{x}$, \ $x \neq 0,\ x \neq -3$ & Forkort $x+3$. Vilkåret står fortsatt.\\
+Kontroll med $x = 1$: & $\frac{1-9}{1+3} = -2$ og $\frac{1-3}{1} = -2$. Det stemmer.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{eksempel}[2 — gange]
+Regn ut $\dfrac{x^2-4}{3x} \cdot \dfrac{6x^2}{x+2}$.
+
+\begin{stegtabell}
+Vilkår: $x \neq 0$ og $x \neq -2$ & Nevnerne $3x$ og $x+2$ kan ikke være 0.\\
+$= \dfrac{(x-2)(x+2)}{3x} \cdot \dfrac{6x^2}{x+2}$ & Faktoriser telleren.\\
+$= \dfrac{(x-2)\cdot 6x^2}{3x}$ & Forkort $x+2$.\\
+$= 2x(x-2)$ & Forkort $\frac{6x^2}{3x} = 2x$.\\
+Kontroll med $x = 3$: & $\frac{5}{9}\cdot\frac{54}{5} = 6$ og $2\cdot 3\cdot 1 = 6$. Det stemmer.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{vanligfeil}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
+  \item $\frac{x+2}{x} = 2$ er feil. $x$ er ikke en faktor i telleren. Du kan ikke forkorte ledd.
+  \item $\frac{x+3}{x+5} = \frac{3}{5}$ er feil. Prøv $x = 1$: $\frac{4}{6} \neq \frac{3}{5}$.
+  \item $\frac{x-3}{3-x} = 1$ er feil. Det riktige er $-1$, fordi $3-x = -(x-3)$.
+  \item Å glemme vilkåret etter forkorting. $\frac{x-3}{x}$ er bare lik det opprinnelige uttrykket når $x \neq 0$ og $x \neq -3$.
+\end{itemize}
+\end{vanligfeil}
+
+\nivaahode{1}
+
+\oppg{1.1}{1}{\uh}
+Forkort. Skriv vilkår.
+\begin{tasks}(4)
+  \task $\dfrac{6x^2}{9x}$
+  \task $\dfrac{3x+6}{x+2}$
+  \task $\dfrac{x^2-5x}{x}$
+  \task $\dfrac{x-4}{x^2-4x}$
+\end{tasks}
+
+\oppg{1.2}{1}{\uh}
+Vi skal forkorte $\dfrac{x^2-25}{x^2-5x}$.
+\begin{tasks}(2)
+  \task Faktoriser telleren og nevneren.
+  \task Forkort og skriv vilkår.
+\end{tasks}
+
+\oppg{1.3}{1}{\uh}
+Hvilke verdier av $x$ er ikke tillatt?
+\begin{tasks}(3)
+  \task $\dfrac{5}{x-3}$
+  \task $\dfrac{x}{x^2-4}$
+  \task $\dfrac{x+1}{x(x+2)}$
+\end{tasks}
+
+\nivaahode{2}
+
+\oppg{1.4}{2}{\uh}
+Forkort. Skriv vilkår.
+\begin{tasks}(2)
+  \task $\dfrac{x^2-6x+9}{x^2-9}$
+  \task $\dfrac{2x^2-8}{x^2+4x+4}$
+  \task $\dfrac{x^2+6x+9}{3x+9}$
+  \task $\dfrac{5-x}{x-5}$
+\end{tasks}
+
+\oppg{1.5}{2}{\uh}
+Regn ut. Skriv vilkår.
+\begin{tasks}(1)
+  \task $\dfrac{x^2-1}{2x} \cdot \dfrac{4x}{x+1}$
+  \task $\dfrac{x^2-9}{x+1} : \dfrac{x+3}{2x+2}$
+  \task $\dfrac{x^2+2x}{x^2-4} \cdot \dfrac{x-2}{x^2}$
+\end{tasks}
+
+\oppg{1.6}{2}{\uh}
+Finn \textbf{den første feilen}. Forkort riktig.
+\[ \frac{x^2-9}{x^2-3x} \quad\longrightarrow\quad \frac{-9}{-3x} \quad\longrightarrow\quad \frac{3}{x} \]
+
+\nivaahode{3}
+
+\oppg{1.7}{3}{\uh}
+Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret.
+\begin{tasks}(1)
+  \task $\dfrac{x^2-1}{x-1} = x+1$
+  \task $\dfrac{x-3}{3-x} = -1$
+  \task $\dfrac{x+3}{x+5} = \dfrac{3}{5}$
+\end{tasks}
+
+\oppg{1.8}{3}{\uh}
+Lag selv et rasjonalt uttrykk som kan forkortes til $\dfrac{x+1}{x-2}$, og som ikke er definert for $x = 3$.
+Forklar hvordan du fant det.
+
+\oppg{1.9}{3}{\uh}
+Anna forkorter $\dfrac{x(x-2)}{(x+2)(x-2)}$ til $\dfrac{x}{x+2}$ og skriver vilkåret $x \neq -2$.
+Forklar hvorfor hun også må skrive $x \neq 2$, selv om $\dfrac{x}{x+2}$ er definert for $x = 2$.
+
+\begin{sjekk}
+\begin{tasks}(2)
+  \task Forkort $\dfrac{2x+4}{x^2-4}$. Skriv vilkår.
+  \task Hvilken verdi av $x$ er ikke tillatt i $\dfrac{x+1}{x-5}$?
+  \task! Forklar med et tall hvorfor $\dfrac{x+3}{x+5}$ ikke kan forkortes til $\dfrac{3}{5}$.
+\end{tasks}
+\end{sjekk}
+
+% ---------------------------------------------------------------------
+
+\del{2}{Addere og subtrahere}
+
+\begin{ordliste}
+fellesnevner & En nevner som alle brøkene kan skrives med. & \mittsprak\\
+minste fellesnevner & Den enkleste fellesnevneren. Den har hver faktor med høyeste potens. & \mittsprak\\
+utvide & Gange teller og nevner med den samme faktoren. & \mittsprak\\
+trekke sammen & Skrive flere ledd som én brøk eller ett ledd. & \mittsprak\\
+\end{ordliste}
+
+\begin{mustkunne}
+\textbf{Samme metode som for tall.} Brøker kan bare legges sammen når nevnerne er like.
+\[
+\frac{1}{6} + \frac{1}{4} = \frac{1\cdot 2}{6\cdot 2} + \frac{1\cdot 3}{4\cdot 3} = \frac{2+3}{12} = \frac{5}{12}
+\qquad\quad
+\frac{1}{x} + \frac{1}{x+1} = \frac{1\cdot(x+1)}{x(x+1)} + \frac{1\cdot x}{(x+1)x} = \frac{2x+1}{x(x+1)}
+\]
+\textbf{Metode:} 1) Faktoriser nevnerne. 2) Finn minste fellesnevner. 3) Utvid hver brøk. 4) Trekk sammen. 5) Forkort hvis mulig.\\
+\textbf{Minus foran en brøk:} Sett parentes rundt hele telleren. $\ \dfrac{2}{x} - \dfrac{x-1}{x} = \dfrac{2-(x-1)}{x} = \dfrac{3-x}{x}$
+\end{mustkunne}
+
+\begin{eksempel}[1 — to ulike nevnere]
+Skriv $\dfrac{2}{x} + \dfrac{3}{x+1}$ som én brøk.
+
+\begin{stegtabell}
+Fellesnevner: $x(x+1)$ & Nevnerne har ingen felles faktor. Vilkår: $x \neq 0$, $x \neq -1$.\\
+$= \dfrac{2(x+1)}{x(x+1)} + \dfrac{3x}{x(x+1)}$ & Utvid hver brøk.\\
+$= \dfrac{2x+2+3x}{x(x+1)} = \dfrac{5x+2}{x(x+1)}$ & Trekk sammen. Ingen felles faktorer å forkorte.\\
+Kontroll med $x = 1$: & $\frac{2}{1}+\frac{3}{2} = \frac{7}{2}$ og $\frac{7}{1\cdot 2} = \frac{7}{2}$. Det stemmer.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{eksempel}[2 — minus foran brøk]
+Skriv $\dfrac{x}{x^2-4} - \dfrac{1}{x+2}$ så enkelt som mulig.
+
+\begin{stegtabell}
+$x^2-4 = (x-2)(x+2)$ & Faktoriser. Vilkår: $x \neq 2$ og $x \neq -2$.\\
+Fellesnevner: $(x-2)(x+2)$ & Den andre brøken mangler faktoren $x-2$.\\
+$= \dfrac{x}{(x-2)(x+2)} - \dfrac{x-2}{(x-2)(x+2)}$ & Utvid den andre brøken.\\
+$= \dfrac{x-(x-2)}{(x-2)(x+2)}$ & Parentes rundt telleren fordi det er minus foran.\\
+$= \dfrac{2}{(x-2)(x+2)}$ & $x - x + 2 = 2$.\\
+Kontroll med $x = 3$: & $\frac{3}{5} - \frac{1}{5} = \frac{2}{5}$ og $\frac{2}{1\cdot 5} = \frac{2}{5}$. Det stemmer.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{vanligfeil}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
+  \item $\frac{a}{b} + \frac{c}{d} = \frac{a+c}{b+d}$ er feil. Prøv: $\frac{1}{2}+\frac{1}{3} = \frac{5}{6}$, ikke $\frac{2}{5}$.
+  \item $\frac{2}{x} - \frac{x-1}{x} = \frac{2-x-1}{x}$ er feil. Minuset gjelder hele telleren: $\frac{2-x+1}{x}$.
+  \item Å bare gange sammen nevnerne uten å faktorisere. Da får du en fellesnevner som er for stor, og svaret kan ikke forkortes.
+  \item Å glemme å utvide telleren. Når nevneren ganges med $(x+1)$, må telleren også det.
+\end{itemize}
+\end{vanligfeil}
+
+\nivaahode{1}
+
+\oppg{2.1}{1}{\uh}
+Regn ut. Finn fellesnevner først.
+\begin{tasks}(3)
+  \task $\dfrac{1}{3}+\dfrac{1}{4}$
+  \task $\dfrac{5}{6}-\dfrac{3}{8}$
+  \task $\dfrac{2}{5}+\dfrac{3}{10}$
+\end{tasks}
+
+\oppg{2.2}{1}{\uh}
+Trekk sammen.
+\begin{tasks}(2)
+  \task $\dfrac{3}{x}+\dfrac{5}{x}$
+  \task $\dfrac{2x+1}{x+3}+\dfrac{x+5}{x+3}$
+  \task $\dfrac{5}{x}-\dfrac{2}{x}$
+  \task $\dfrac{x+4}{x-1}-\dfrac{x+1}{x-1}$
+\end{tasks}
+
+\oppg{2.3}{1}{\uh}
+Finn minste fellesnevner.
+\begin{tasks}(3)
+  \task $\dfrac{1}{x}$ og $\dfrac{1}{x+2}$
+  \task $\dfrac{3}{x^2-4}$ og $\dfrac{1}{x-2}$
+  \task $\dfrac{1}{2x}$ og $\dfrac{1}{3x^2}$
+\end{tasks}
+
+\nivaahode{2}
+
+\oppg{2.4}{2}{\uh}
+Skriv som én brøk. Forkort hvis det går.
+\begin{tasks}(2)
+  \task $\dfrac{1}{x}+\dfrac{2}{x+3}$
+  \task $\dfrac{3}{x-1}-\dfrac{2}{x}$
+  \task $\dfrac{1}{2x}+\dfrac{1}{3x^2}$
+  \task $\dfrac{x}{x+1}+\dfrac{1}{x-1}$
+\end{tasks}
+
+\oppg{2.5}{2}{\uh}
+Faktoriser nevnerne først. Skriv som én brøk, forkort og skriv vilkår.
+\begin{tasks}(1)
+  \task $\dfrac{1}{x-3}-\dfrac{6}{x^2-9}$
+  \task $\dfrac{2x}{x^2-1}+\dfrac{1}{x+1}$
+  \task $\dfrac{1}{x}-\dfrac{1}{x^2+x}$
+\end{tasks}
+
+\oppg{2.6}{2}{\uh}
+Finn \textbf{den første feilen}. Regn riktig.
+\[ \frac{2}{x}-\frac{x-1}{x} \quad\longrightarrow\quad \frac{2-x-1}{x} \quad\longrightarrow\quad \frac{1-x}{x} \]
+
+\oppg{2.7}{2}{\mh}
+Anna sykler $s$ km til hytta med $60$ km/h og samme vei tilbake med $40$ km/h.
+\begin{tasks}(1)
+  \task Forklar hvorfor turen tar $\dfrac{s}{60}+\dfrac{s}{40}$ timer. Skriv summen som én brøk.
+  \task Gjennomsnittsfart er total strekning delt på total tid. Finn Annas gjennomsnittsfart.
+\end{tasks}
+
+\nivaahode{3}
+
+\oppg{2.8}{3}{\uh}
+Den ene likningen har ingen løsning. Den andre stemmer for alle tillatte verdier.
+Finn ut hvilken som er hvilken, og begrunn.
+\begin{tasks}(1)
+  \task $\dfrac{x}{x-2} = \dfrac{2}{x-2}+3$
+  \task $\dfrac{2}{x-1}+1 = \dfrac{x+1}{x-1}$
+\end{tasks}
+
+\oppg{2.9}{3}{\uh}
+Er likningen $\dfrac{1}{a}+\dfrac{1}{b} = \dfrac{2}{a+b}$ sann for noen tillatte verdier av $a$ og $b$?
+Skriv begge sider som én brøk og begrunn svaret.
+
+\begin{sjekk}
+\begin{tasks}(2)
+  \task Skriv $\dfrac{1}{x}+\dfrac{1}{y}$ som én brøk.
+  \task Regn ut $\dfrac{3}{x}-\dfrac{x+1}{x}$.
+  \task! Hvorfor er $\dfrac{1}{2}+\dfrac{1}{3}$ ikke lik $\dfrac{2}{5}$? Forklar.
+\end{tasks}
+\end{sjekk}

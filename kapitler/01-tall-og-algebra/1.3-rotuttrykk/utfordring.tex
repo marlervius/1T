@@ -36,7 +36,8 @@ Løs likningene. Skriv begge sider med samme grunntall først.
 \nivaahode{3}
 
 \oppg{U4}{3}{\prog}
-Herons metode finner $\sqrt{2}$ ved å gjenta $x \to \frac{x + 2/x}{2}$, med start i $x = 1$.
+Herons metode finner $\sqrt{2}$ ved å gjenta formelen under, med start i $x = 1$.
+\[ x \to \dfrac{x + \dfrac{2}{x}}{2} \]
 \begin{kode}
 x = 1
 runder = 0
@@ -48,26 +49,26 @@ print(runder)
 \begin{tasks}(1)
   \task Regn for hånd verdien av $x$ etter runde 1 og runde 2. Svar som brøker.
   \task Kjør programmet. Hvor mange runder trengs?
-  \task Hvis $x$ er for stor, er $\frac{2}{x}$ for liten. Bruk dette til å forklare hvorfor gjennomsnittet kommer nærmere $\sqrt{2}$.
+  \task Hvis $x$ er for stor, er $\frac{2}{x}$ for liten. Forklar hvorfor gjennomsnittet av dem kommer nærmere $\sqrt{2}$.
   \task Endre programmet slik at det finner $\sqrt{10}$. Hvor mange runder trengs nå?
 \end{tasks}
 
 \oppg{U5}{3}{\uh}
-Hvilket tall er størst, $\sqrt[3]{3}$ eller $\sqrt{2}$? Begrunn uten kalkulator.
-\hint{Opphøy begge tallene i 6.}
+Ordne $\sqrt{2}$, $\sqrt[3]{3}$ og $\sqrt[6]{6}$ etter størrelse, minst først. Begrunn uten kalkulator.
+\hint{Hvilken potens fjerner alle rottegnene?}
 
 \oppg{U6}{3}{\uh}
-Vi skal vise at $\sqrt{2}$ er irrasjonalt. Anta det motsatte: $\sqrt{2} = \frac{p}{q}$, der $p$ og $q$ er heltall uten felles faktor.
+Vi skal vise at $\sqrt{2}$ er irrasjonalt. Anta det motsatte: $\sqrt{2} = \dfrac{p}{q}$, der $p$ og $q$ er heltall, $q \neq 0$, og de har ingen felles faktor større enn 1.
 \begin{tasks}(1)
   \task Kvadrer begge sider og fullfør: $p^2 = \skrivlinje[2cm]\cdot q^2$.
   \task Da er $p^2$ et partall. Forklar hvorfor $p$ da må være et partall.
   \task Sett $p = 2k$. Vis at $q^2 = \skrivlinje[2cm]$.
   \task Forklar hvorfor $q$ også er et partall, og hvorfor det gir en selvmotsigelse.
-  \task Prøv de samme stegene med $\sqrt{4} = \frac{p}{q}$. Hvilket steg bryter sammen, og hvorfor?
+  \task Prøv de samme stegene med $\sqrt{4} = \dfrac{p}{q}$. Hvilket steg bryter sammen, og hvorfor?
 \end{tasks}
 
 \oppg{U7}{3}{\uh}
-Lag selv et uttrykk på formen $\dfrac{c}{\sqrt{a}+\sqrt{b}}$ som blir et uttrykk uten brøk når nevneren gjøres rasjonal. Vis utregningen.
+Lag selv et uttrykk på formen $\dfrac{c}{\sqrt{a}+\sqrt{b}}$ som blir et uttrykk uten brøk når nevneren gjøres rasjonal ved å utvide med konjugatet. Vis utregningen. Hvilken betingelse må $a$, $b$ og $c$ oppfylle?
 
 \begin{oppsummering}
 En rot er en potens med brøkeksponent. Rottegnet gjelder produkt og brøk, men ikke sum.

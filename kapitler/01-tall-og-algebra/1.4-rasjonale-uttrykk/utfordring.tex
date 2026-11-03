@@ -1,0 +1,61 @@
+% =====================================================================
+%  1.4 Rasjonale uttrykk — ekstra utfordring
+% =====================================================================
+
+\begin{infoboks}{Velg metode selv}
+Arket bygger på 1.4 Rasjonale uttrykk. Vis regning og begrunnelse. Bruk eksakte svar.
+Skriv vilkår. Kontroller svaret ved å sette inn et tall.
+\end{infoboks}
+
+\nivaahode{2}
+
+\oppg{U1}{2}{\uh}
+Forenkle. Skriv vilkår.
+\[ \frac{x^2-4}{x^2+4x+4} : \frac{x-2}{x^2+2x} \]
+
+\oppg{U2}{2}{\uh}
+Skriv som én brøk. Hva forteller svaret om uttrykket?
+\[ \frac{1}{x-1}-\frac{1}{x+1}-\frac{2}{x^2-1} \]
+
+\oppg{U3}{2}{\uh}
+Forenkle brøken med brøk i teller og nevner. Skriv vilkår.
+\[ \dfrac{1+\dfrac{1}{x}}{1-\dfrac{1}{x^2}} \]
+
+\nivaahode{3}
+
+\oppg{U4}{3}{\uh}
+Se på uttrykket $\dfrac{x^2+1}{x-1}$.
+\begin{tasks}(1)
+  \task Vis at $\dfrac{x^2+1}{x-1} = x+1+\dfrac{2}{x-1}$ ved å sette høyre side på felles brøkstrek.
+  \task Hva sier omskrivingen om uttrykket når $x$ er et stort tall?
+\end{tasks}
+
+\oppg{U5}{3}{\uh}
+\begin{tasks}(1)
+  \task Vis at $\dfrac{1}{n}-\dfrac{1}{n+1} = \dfrac{1}{n(n+1)}$.
+  \task Bruk a) til å finne $\dfrac{1}{1\cdot 2}+\dfrac{1}{2\cdot 3}+\ldots+\dfrac{1}{99\cdot 100}$ eksakt.
+\end{tasks}
+
+\oppg{U6}{3}{\prog}
+Se på programmet.
+\begin{kode}
+from fractions import Fraction
+
+sum_ = Fraction(0)
+for n in range(1, 11):
+    sum_ = sum_ + Fraction(1, n * (n + 1))
+    print(n, sum_)
+\end{kode}
+\begin{tasks}(1)
+  \task Hvilket mønster ser du i utskriften?
+  \task Forklar hvorfor programmet ikke beviser mønsteret, men U5 a) gjør det.
+\end{tasks}
+
+\oppg{U7}{3}{\uh}
+For hvilke hele tall $x$ er $\dfrac{x+5}{x-1}$ et helt tall?
+\hint{Skriv $x+5 = (x-1)+6$ og del opp brøken.}
+
+\begin{oppsummering}
+Faktoriser først, og skriv vilkår før du forkorter. Bruk parentes når det står minus foran en brøk.
+Å skrive et uttrykk på en annen form kan vise hva uttrykket egentlig gjør.
+\end{oppsummering}

@@ -6,7 +6,7 @@
 
 \begin{ordliste}
 kvadratrot & Tallet $\sqrt{a}$ er det tallet som er $\ge 0$ og som ganget med seg selv gir $a$. & \mittsprak\\
-$n$-te rot & Tallet $\sqrt[n]{a}$ er det tallet som opphøyd i $n$ gir $a$. Eksempel: $\sqrt[3]{8} = 2$. & \mittsprak\\
+$n$-te rot & Tallet $\sqrt[n]{a}$ er det tallet som opphøyd i $n$ gir $a$. For partall $n$: tallet $\ge 0$. Eksempel: $\sqrt[3]{8} = 2$. & \mittsprak\\
 rotuttrykk & Et uttrykk med rottegn, for eksempel $3\sqrt{2} + 1$. & \mittsprak\\
 irrasjonalt tall & Et tall som ikke kan skrives som en brøk av heltall. $\sqrt{2}$ er irrasjonalt. & \mittsprak\\
 rasjonal nevner & En nevner uten rottegn. Å gjøre nevneren rasjonal betyr å fjerne roten fra nevneren. & \mittsprak\\
@@ -14,10 +14,10 @@ rasjonal nevner & En nevner uten rottegn. Å gjøre nevneren rasjonal betyr å f
 
 \begin{mustkunne}
 \begin{minipage}[t]{0.47\linewidth}
-\textbf{Definisjon.} $\sqrt{9} = 3$, fordi $3 \ge 0$ og $3 \cdot 3 = 9$. Partallsrøtter av negative tall finnes ikke. Oddetallsrøtter finnes: $\sqrt[3]{-8} = -2$.\par
+\textbf{Definisjon.} $\sqrt{9} = 3$, fordi $3 \ge 0$ og ${3 \cdot 3 = 9}$. Partallsrøtter av negative tall finnes ikke. Oddetallsrøtter finnes: $\sqrt[3]{-8} = -2$.\par
 \textbf{Hvorfor produktregelen virker:}
 \[ (\sqrt{a}\cdot\sqrt{b})^2 = (\sqrt{a})^2 (\sqrt{b})^2 = ab \]
-Og $\sqrt{a}\cdot\sqrt{b} \ge 0$. Da er det tallet som gir $ab$ når det kvadreres, altså $\sqrt{ab}$.
+Og $\sqrt{a}\cdot\sqrt{b} \ge 0$. Da er det tallet $\ge 0$ som gir $ab$ når det kvadreres, altså $\sqrt{ab}$.
 \end{minipage}\hfill
 \begin{minipage}[t]{0.49\linewidth}
 \textbf{Regler} ($a, b \ge 0$)\par
@@ -64,14 +64,14 @@ Regn ut.
 \begin{tasks}(4)
   \task $\sqrt{81}$
   \task $\sqrt[3]{27}$
-  \task $\sqrt[3]{-8}$
+  \task $\sqrt[3]{-125}$
   \task $\sqrt{\dfrac{4}{25}}$
 \end{tasks}
 
 \oppg{1.2}{1}{\uh}
 Forenkle.
 \begin{tasks}(4)
-  \task $\sqrt{12}$
+  \task $\sqrt{28}$
   \task $\sqrt{50}$
   \task $\sqrt{45}$
   \task $\sqrt{72}$
@@ -83,23 +83,23 @@ Forenkle.
 Forenkle.
 \begin{tasks}(2)
   \task $\sqrt{18} + \sqrt{50} - \sqrt{8}$
-  \task $\sqrt{20} + \sqrt{45}$
-  \task $3\sqrt{12} - \sqrt{27}$
+  \task $\sqrt{63} + \sqrt{28}$
+  \task $3\sqrt{20} - \sqrt{45}$
   \task $\sqrt{2}\cdot\sqrt{18}$
 \end{tasks}
 
 \oppg{1.4}{2}{\uh}
 Gjør nevneren rasjonal. Forenkle svaret.
 \begin{tasks}(4)
-  \task $\dfrac{6}{\sqrt{3}}$
-  \task $\dfrac{14}{\sqrt{7}}$
+  \task $\dfrac{6}{\sqrt{3}} + \sqrt{27}$
+  \task $\dfrac{3}{2\sqrt{3}}$
   \task $\dfrac{4}{\sqrt{8}}$
-  \task $\dfrac{6}{\sqrt{2}}$
+  \task $\dfrac{10}{\sqrt{20}}$
 \end{tasks}
 
 \oppg{1.5}{2}{\uh}
 Finn \textbf{den første feilen}. Regn riktig.
-\[ \sqrt{9+16} \quad\longrightarrow\quad \sqrt{9}+\sqrt{16} \quad\longrightarrow\quad 3+4 \quad\longrightarrow\quad 7 \]
+\[ \sqrt{2}\left(\sqrt{8}+\sqrt{18}\right) \ \to\ \sqrt{2}\cdot\sqrt{26} \ \to\ \sqrt{52} \ \to\ 2\sqrt{13} \]
 
 \nivaahode{3}
 
@@ -108,7 +108,7 @@ Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret.
 \begin{tasks}(1)
   \task $\sqrt{x^2} = x$ for et vilkårlig tall $x$
   \task $\sqrt{a+b} = \sqrt{a} + \sqrt{b}$ for $a, b \ge 0$
-  \task $\sqrt{a}\cdot\sqrt{a} = a$ for $a \ge 0$
+  \task $\sqrt{a}+\sqrt{a} = \sqrt{2a}$ for $a \ge 0$
 \end{tasks}
 
 \oppg{1.7}{3}{\uh}
@@ -121,8 +121,8 @@ Anta at $a, b \ge 0$.
 \begin{sjekk}
 \begin{tasks}(2)
   \task Forenkle $\sqrt{32}$.
-  \task Forenkle $\sqrt{27} + \sqrt{3}$.
-  \task! Hvorfor er $\sqrt{9+16}$ ikke lik $\sqrt{9}+\sqrt{16}$? Forklar med tall.
+  \task Forenkle $\sqrt{75} - \sqrt{12}$.
+  \task! Er $2\sqrt{3} = \sqrt{6}$? Forklar.
 \end{tasks}
 \end{sjekk}
 
@@ -131,24 +131,24 @@ Anta at $a, b \ge 0$.
 \del{2}{Brøk som eksponent}
 
 \begin{ordliste}
-brøkeksponent & En eksponent som er en brøk, for eksempel $9^{\frac{1}{2}}$ eller $8^{\frac{2}{3}}$. & \mittsprak\\
+brøkeksponent & En eksponent som er en brøk, for eksempel $9^{\tfrac{1}{2}}$ eller $8^{\tfrac{2}{3}}$. & \mittsprak\\
 positivt grunntall & Brøkeksponenter bruker vi bare når grunntallet $a$ er større enn 0. & \mittsprak\\
 omskrive & Å skrive det samme tallet på en annen form, for eksempel en rot som en potens. & \mittsprak\\
 \end{ordliste}
 
 \begin{mustkunne}
-\textbf{Hvorfor $a^{\frac12} = \sqrt{a}$?} Potensregelen $(a^m)^n = a^{m\cdot n}$ skal gjelde også for brøker. Da må
-\[ \left(a^{\frac12}\right)^2 = a^{\frac12 \cdot 2} = a^1 = a \]
-Altså er $a^{\frac12}$ et positivt tall som ganget med seg selv gir $a$. Det er definisjonen av $\sqrt{a}$.
+\textbf{Hvorfor $a^{\tfrac12} = \sqrt{a}$?} Potensregelen $(a^m)^n = a^{m\cdot n}$ skal gjelde også for brøker. Da må
+\[ \left(a^{\tfrac12}\right)^2 = a^{\tfrac12 \cdot 2} = a^1 = a \]
+Altså er $a^{\tfrac12}$ et positivt tall som ganget med seg selv gir $a$. Det er definisjonen av $\sqrt{a}$.
 Vi definerer brøkeksponenter bare for $a > 0$:
-\[ a^{\frac{1}{n}} = \sqrt[n]{a} \qquad\qquad a^{\frac{m}{n}} = \left(\sqrt[n]{a}\right)^m = \sqrt[n]{a^m} \qquad\qquad a^{-\frac{m}{n}} = \frac{1}{a^{\frac{m}{n}}} \]
+\[ a^{\tfrac{1}{n}} = \sqrt[n]{a} \qquad\qquad a^{\tfrac{m}{n}} = \left(\sqrt[n]{a}\right)^m = \sqrt[n]{a^m} \qquad\qquad a^{-\tfrac{m}{n}} = \frac{1}{a^{\tfrac{m}{n}}} \]
 Nevneren i eksponenten er rotens tall. Telleren er potensen.
 \end{mustkunne}
 
-\begin{eksempel}[1 — regn ut $16^{\frac34}$ på to måter]
+\begin{eksempel}[1 — regn ut $16^{\tfrac34}$ på to måter]
 \begin{stegtabell}
-$16^{\frac34} = \left(\sqrt[4]{16}\right)^3 = 2^3 = 8$ & Rot først: $2^4 = 16$. Tallene er små.\\
-$16^{\frac34} = \sqrt[4]{16^3} = \sqrt[4]{4096} = 8$ & Potens først: vi må kjenne igjen at $8^4 = 4096$.\\
+$16^{\tfrac34} = \left(\sqrt[4]{16}\right)^3 = 2^3 = 8$ & Rot først: $2^4 = 16$. Tallene er små.\\
+$16^{\tfrac34} = \sqrt[4]{16^3} = \sqrt[4]{4096} = 8$ & Potens først: vi må kjenne igjen at $8^4 = 4096$.\\
 \end{stegtabell}
 Begge gir 8. Uten hjelpemidler er den første måten lettest: ta roten først.
 \end{eksempel}
@@ -157,18 +157,18 @@ Begge gir 8. Uten hjelpemidler er den første måten lettest: ta roten først.
 Skriv $\dfrac{x\sqrt{x}}{\sqrt[3]{x}}$ som én potens av $x$ ($x > 0$).
 
 \begin{stegtabell}
-$= \dfrac{x^1 \cdot x^{\frac12}}{x^{\frac13}}$ & Skriv hver rot som en potens.\\
-$= x^{1 + \frac12 - \frac13}$ & Produkt: legg sammen. Kvotient: trekk fra.\\
-$= x^{\frac{6}{6}+\frac{3}{6}-\frac{2}{6}} = x^{\frac76}$ & Felles nevner 6.\\
-Kontroll med $x = 64$: & $\frac{64\cdot 8}{4} = 128$ og $64^{\frac76} = 2^7 = 128$. Det stemmer.\\
+$= \dfrac{x^1 \cdot x^{\tfrac12}}{x^{\tfrac13}}$ & Skriv hver rot som en potens.\\
+$= x^{1 + \tfrac12 - \tfrac13}$ & Produkt: legg sammen. Kvotient: trekk fra.\\
+$= x^{\tfrac{6}{6}+\tfrac{3}{6}-\tfrac{2}{6}} = x^{\tfrac76}$ & Felles nevner 6.\\
+Kontroll med $x = 64$: & $\frac{64\cdot 8}{4} = 128$ og $64^{\tfrac76} = 2^7 = 128$. Det stemmer.\\
 \end{stegtabell}
 \end{eksempel}
 
 \begin{vanligfeil}
 \begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
-  \item $a^{\frac12} = \frac{a}{2}$ er feil. Eksponenten $\frac12$ betyr kvadratrot: $a^{\frac12} = \sqrt{a}$.
-  \item $8^{\frac23} = \frac{8^2}{3}$ er feil. Nevneren 3 er rotens tall: $8^{\frac23} = (\sqrt[3]{8})^2 = 4$.
-  \item $a^{-\frac12} = -\sqrt{a}$ er feil. Negativ eksponent gir brøk, som i 1.1: $a^{-\frac12} = \frac{1}{\sqrt{a}}$.
+  \item $a^{\tfrac12} = \frac{a}{2}$ er feil. Eksponenten $\frac12$ betyr kvadratrot: $a^{\tfrac12} = \sqrt{a}$.
+  \item $8^{\tfrac23} = \frac{8^2}{3}$ er feil. Nevneren 3 er rotens tall: $8^{\tfrac23} = (\sqrt[3]{8})^2 = 4$.
+  \item $a^{-\tfrac12} = -\sqrt{a}$ er feil. Negativ eksponent gir brøk, som i 1.1: $a^{-\tfrac12} = \frac{1}{\sqrt{a}}$.
 \end{itemize}
 \end{vanligfeil}
 
@@ -186,10 +186,10 @@ Skriv som en potens med brøkeksponent ($x > 0$).
 \oppg{2.2}{1}{\uh}
 Regn ut.
 \begin{tasks}(4)
-  \task $25^{\frac12}$
-  \task $27^{\frac13}$
-  \task $4^{\frac32}$
-  \task $8^{\frac23}$
+  \task $25^{\tfrac12}$
+  \task $27^{\tfrac13}$
+  \task $4^{\tfrac32}$
+  \task $64^{\tfrac23}$
 \end{tasks}
 
 \nivaahode{2}
@@ -197,10 +197,10 @@ Regn ut.
 \oppg{2.3}{2}{\uh}
 Regn ut.
 \begin{tasks}(4)
-  \task $27^{-\frac13}$
-  \task $16^{-\frac34}$
-  \task $\left(\dfrac{4}{9}\right)^{-\frac12}$
-  \task $32^{\frac25}$
+  \task $27^{-\tfrac13}$
+  \task $81^{-\tfrac34}$
+  \task $\left(\dfrac{4}{9}\right)^{-\tfrac12}$
+  \task $32^{\tfrac25}$
 \end{tasks}
 
 \oppg{2.4}{2}{\uh}
@@ -214,10 +214,10 @@ Skriv som én potens av $x$ ($x > 0$).
 
 \oppg{2.5}{2}{\uh}
 Finn \textbf{den første feilen}. Regn riktig.
-\[ 25^{-\frac12} \quad\longrightarrow\quad -\sqrt{25} \quad\longrightarrow\quad -5 \]
+\[ 8^{-\tfrac23} \ \to\ \left(\sqrt[3]{8}\right)^{-2} \ \to\ 2^{-2} \ \to\ -4 \]
 
 \oppg{2.6}{2}{\mh}
-Keplers tredje lov sier at omløpstiden er $T = a^{\frac32}$. Her er $T$ i år og $a$ er middelavstanden til sola i astronomiske enheter.
+Keplers tredje lov sier at omløpstiden er $T = a^{\tfrac32}$. Her er $T$ i år og $a$ er middelavstanden til sola i astronomiske enheter.
 \begin{tasks}(1)
   \task Mars har $a \approx 1,52$. Finn omløpstiden. Svar med to gjeldende siffer.
   \task Et objekt har $T = 8$ år. Finn $a$ eksakt.
@@ -226,25 +226,23 @@ Keplers tredje lov sier at omløpstiden er $T = a^{\frac32}$. Her er $T$ i år o
 \nivaahode{3}
 
 \oppg{2.7}{3}{\uh}
-Løs likningene. Vis hvordan du tenker.
-\begin{tasks}(2)
-  \task $x^{\frac32} = 27$
-  \task $x^{-\frac12} = \dfrac{1}{5}$
+\begin{tasks}(1)
+  \task Løs likningen $x^{\tfrac32} = 27$.
+  \task For hvilke positive heltall $n$ er $n^{\tfrac32}$ et heltall? Begrunn.
 \end{tasks}
-\hint{Opphøy begge sider i den omvendte eksponenten.}
 
 \oppg{2.8}{3}{\uh}
 La $a > 0$. Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret.
 \begin{tasks}(1)
-  \task $a^{-\frac12} = -\sqrt{a}$
-  \task $a^{\frac12} = \dfrac{a}{2}$
-  \task $a^{\frac12} < a$
+  \task $a^{-\tfrac12} = -\sqrt{a}$
+  \task $a^{\tfrac12} = \dfrac{a}{2}$
+  \task $a^{\tfrac12} < a$
 \end{tasks}
 
 \begin{sjekk}
 \begin{tasks}(2)
-  \task Regn ut $9^{\frac32}$.
-  \task Regn ut $8^{-\frac13}$.
-  \task! Forklar hvorfor $a^{\frac12} = \sqrt{a}$. Bruk regelen $(a^m)^n = a^{mn}$.
+  \task Regn ut $9^{\tfrac32}$.
+  \task Regn ut $125^{-\tfrac13}$.
+  \task! Forklar hvorfor $a^{\tfrac12} = \sqrt{a}$. Bruk regelen $(a^m)^n = a^{mn}$.
 \end{tasks}
 \end{sjekk}
