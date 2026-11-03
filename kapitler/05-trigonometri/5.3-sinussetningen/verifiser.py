@@ -193,10 +193,10 @@ chk("U1 steg", 4 * sqrt(2) * (sqrt(3) / 2) / (sqrt(2) / 2), 4 * sqrt(3))
 avrund("U2 AC", 70 * S_(71) / S_(61), 1, 75.7)
 avrund("U2 h", 70 * S_(71) / S_(61) * S_(48), 1, 56.2)
 chk("U2 C", 180 - 48 - 71, 61)
-bU = side_(10, 50, 70)
-avrund("U3 b", bU, 1, 12.3)
-avrund("U3 T", Rational(1, 2) * 10 * bU * S_(60), 1, 53.1)
-avrund("U3 T2", Rational(1, 2) * 10 * 10 * S_(70) * S_(60) / S_(50) , 1, 53.1)
+bU = side_(12, 50, 65)
+avrund("U3 b", bU, 1, 14.2)
+avrund("U3 T", Rational(1, 2) * 12 * bU * S_(65), 1, 77.2)
+avrund("U3 T avrundet b", Rational(1, 2) * 12 * Rational(142, 10) * S_(65), 1, 77.2)
 
 # U4 programmering
 kode = '''
@@ -230,5 +230,18 @@ aapen("U4", "Begrunnelse med sinussetningen og enhetssirkelen")
 aapen("U6", "Bevis for a/sin A = 2R")
 chk("U6c", Rational(13, 1) / 1, 13)
 chk("U6c R", Rational(13, 2), Rational(13, 2))
+
+# ---------- Avrundede mellomsvar gir samme sluttsvar ----------
+avrund("R Eks 2.1 c1", 5 * S_(Rational(969, 10)) / S_(30), 1, 9.9)
+avrund("R Eks 2.1 c2", 5 * S_(Rational(231, 10)) / S_(30), 1, 3.9)
+avrund("R 2.4 c1", 7 * S_(Rational(975, 10)) / S_(35), 1, 12.1)
+avrund("R 2.4 c2", 7 * S_(Rational(125, 10)) / S_(35), 1, 2.6)
+avrund("R 2.5a c", 9 * S_(Rational(819, 10)) / S_(62), 1, 10.1)
+avrund("R 2.5c c", 10 * S_(Rational(289, 10)) / S_(110), 1, 5.1)
+avrund("R 2.6 AB1", 6 * S_(Rational(1207, 10)) / S_(25), 1, 12.2)
+avrund("R 2.6 AB2", 6 * S_(Rational(93, 10)) / S_(25), 1, 2.3)
+avrund("R 2.7 c1", 7 * S_(Rational(592, 10)) / S_(48), 1, 8.1)
+avrund("R 2.7 c2", 7 * S_(Rational(248, 10)) / S_(48), 1, 4.0)
+avrund("R 1.6c", Rational(6464, 10) * S_(62), 0, 571)
 
 rapport()
