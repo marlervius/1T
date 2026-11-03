@@ -44,9 +44,6 @@ avrund("Eks 2.1 B2", 180 - invs(Rational(4, 5)), 1, 126.9)
 sant("Eks 2.1 sum", 30 + 126.9 < 180, "30+126,9<180")
 avrund("Eks 2.1 C1", 180 - 30 - invs(Rational(4, 5)), 1, 96.9)
 avrund("Eks 2.1 C2", 180 - 30 - (180 - invs(Rational(4, 5))), 1, 23.1)
-avrund("Eks 2.1 c1", 5 * S_(180 - 30 - invs(Rational(4, 5)) * 1) if False else 5 * sin(pi - pi / 6 - asin(Rational(4, 5))) / S_(30), 1, 9.9)
-avrund("Eks 2.1 c2", 5 * sin(pi / 6 - 0 + asin(Rational(4, 5)) - pi / 6 * 0 - pi / 6 * 0 - 0) * 0 + 5 * sin(pi - pi / 6 - (pi - asin(Rational(4, 5)))) / S_(30), 1, 3.9)
-chk("Eks 2.1 c-eksakt", [4 * sqrt(3) + 3, 4 * sqrt(3) - 3], [4 * sqrt(3) + 3, 4 * sqrt(3) - 3])
 avrund("Eks 2.1 c1e", 4 * sqrt(3) + 3, 1, 9.9)
 avrund("Eks 2.1 c2e", 4 * sqrt(3) - 3, 1, 3.9)
 
@@ -221,10 +218,9 @@ with contextlib.redirect_stdout(ut):
     exec(kode, {})
 print(ut.getvalue())
 linjer = ut.getvalue().strip().split("\n")
-chk("U4 ut", linjer, ["2 (0, [])", "3 (1, [90.0])", "4 (2, [48.6, 131.4])", "8 (1, [22.0])", "(1, [36.1])"])
+sant("U4 ut", linjer == ["2 (0, [])", "3 (1, [90.0])", "4 (2, [48.6, 131.4])", "8 (1, [22.0])", "(1, [36.1])"], "utskrift")
 
 # U5: største vinkel / lengste side
-sant("U5", all((Av > Bv) == (float(S_(Av)) > float(S_(Bv))) for Av in range(1, 178) for Bv in range(1, 179 - Av) if Av != Bv and (Av > 90 or Bv > 90 or True) and Av + Bv < 180 and (Av > Bv) <= (float(S_(Av)) > float(S_(Bv)) or True)) or True, "se begrunnelse")
 sant("U5 sjekk", all(float(S_(Av)) > float(S_(Bv)) for Av in range(1, 180) for Bv in range(1, 180 - Av) if Av > Bv), "A>B, A+B<180 gir sin A > sin B")
 aapen("U5", "Begrunnelse med sinussetningen og enhetssirkelen")
 aapen("U6", "Bevis for a/sin A = 2R")

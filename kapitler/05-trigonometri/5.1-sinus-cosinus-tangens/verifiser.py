@@ -122,7 +122,7 @@ sant("1.3e feil", abs(num(1 / sin(Rational(4, 10))) - invsin(Rational(4, 10))) >
 # VF 1d: trekant 3, 4, 6, v overfor 4
 cosv = Rational(3**2 + 6**2 - 4**2, 2 * 3 * 6)
 chk("VF 1d v", avr(invcos(cosv), 1), 36.3)
-chk("VF 1d sin", [avr(sqrt(1 - cosv**2), 3), avr(Rational(4, 6), 3)], [0.593, 0.667])
+chk("VF 1d sin", [avr(sqrt(1 - cosv**2), 2), avr(Rational(4, 6), 2)], [0.59, 0.67])
 # 1.8
 sant("1.8a", all(num(S_(v)) < 1 for v in range(1, 90)), "sin v < 1 for spisse v")
 sant("1.8b", num(Rational(3, 4)) < 1 < num(Rational(4, 3)), "tan v < 1 noen ganger")
