@@ -55,7 +55,7 @@ Status: `—` ikke startet · `brief` brief skrevet · `utkast` forfatter ferdig
 | Nr | Seksjon | Deler | KM | Status |
 |---|---|---|---|---|
 | 5.1 | Sinus, cosinus og tangens | Definisjoner i rettvinklet trekant · Eksakte verdier (30°, 45°, 60°) | 12 | ferdig |
-| 5.2 | Arealsetningen | Bevis · Bruk | 13, 12 | brief |
+| 5.2 | Arealsetningen | Bevis · Bruk | 13, 12 | ferdig |
 | 5.3 | Sinussetningen | Bevis · Tvetydig tilfelle | 13, 12 | brief |
 | 5.4 | Cosinussetningen | Bevis · Velg riktig setning | 13, 12 | brief |
 | 5.5 | Sammensatte problemer | Teoretiske problemer · Praktiske problemer | 14 | brief |
