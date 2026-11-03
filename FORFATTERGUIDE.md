@@ -153,6 +153,8 @@ Les målene i briefen i `laereplan/kompetansemaal-1T.md`. Se på verbene. Står 
 - Desimalkomma: `$0,25$` (ikke `0.25`). Tusenskille: `$45\,000$`. Prosent: `$25\,\%$`.
 - Gangetegn: `\cdot`. Aldri `*` eller `x`.
 - Brøk i oppgavetekst og `tasks`: `\dfrac`. Brøk i fasit og løpende tekst: `\frac`.
+- I ordlisten, tabeller og tett tekst: `\frac`, ikke `\dfrac` (ellers kolliderer radene).
+- Ingen utropstegn, heller ikke «Feil!» i eksempler. Skriv «Det er feil:».
 - **Brøk i eksponent: alltid `\tfrac`**, for eksempel `8^{\tfrac{2}{3}}`. `\frac` i en eksponent blir for lite til å lese i OneNote.
 - Formler med brøk inni brøk (som $\frac{x + 2/x}{2}$) settes på egen linje med `\[ … \]`.
 - Sentrert matematikk: `\[ … \]`. Aldri `$$`.
