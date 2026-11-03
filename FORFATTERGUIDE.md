@@ -58,7 +58,11 @@ Ingen preamble, ingen `\documentclass`, ingen `\usepackage`. Byggeskriptet lager
 - `\begin{kode} … \end{kode}` — Python-kode. Ikke inni `tasks`.
 - `\polylongdiv{x^3-2x^2-5x+6}{x-1}` — polynomdivisjon med norsk oppstilling. Pakken regner selv
   (også rest, som vises som brøk: $x + 3 + \frac{1}{x+2}$ betyr rest 1). Delvis oppstilling til «fullfør»-oppgaver:
-  `[stage=4]` viser første ledd i kvotienten ferdig regnet, `[stage=7]` to ledd (hvert ledd = 3 steg).
+  `[stage=4]` viser første runde ferdig regnet (med linja under streken), `[stage=7]` to ledd (hvert ledd = 3 steg).
+  **Fortegn:** pakken skriver produktet med *motsatt fortegn*, og linja skal *legges til*. All tekst (teoriboks,
+  eksempler, «Vanlig feil», fasit) skal si «skriv produktet med motsatt fortegn og legg sammen — det er det
+  samme som å trekke fra». Skriv aldri bare «trekk fra» ved en `\polylongdiv`.
+  **Manglende ledd** ($0x^2$) vises som en tom kolonne, ikke som $0x^2$. Skriv «sett av en tom kolonne (tenk $0x^2$)».
   Skriv polynomene uten mellomrom og med `^` (ikke `\cdot`). Kontroller i `verifiser.py` med sympy:
   `kvotient, rest = div(P, D, x)` (`div` følger med `from kontroll import *`).
 - **Fortegnslinjer og tallinjer lages ALLTID med `verktoy/figurer.py`** (fortegnene regnes av sympy):
