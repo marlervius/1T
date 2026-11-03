@@ -104,6 +104,11 @@ Les målene i briefen i `laereplan/kompetansemaal-1T.md`. Se på verbene. Står 
 
 ### Unngå
 - At a) avslører svaret på b).
+- At svaret står et annet sted på siden. Tall fra eksempler, «Vanlig feil», ordlisten og
+  «Hva kan jeg?» skal **ikke** gjenbrukes i oppgavene. «Finn den første feilen» skal ha nye tall
+  og helst flere steg, med feilen et stykke ut i kjeden.
+- Nivå 3 som bruker samme metode som en nivå 2-oppgave, og hint som gir bort hele metoden.
+  Et hint på nivå 3 skal peke i en retning («Hvilken potens fjerner begge rottegnene?»), ikke gi oppskriften.
 - Tall som gir avrundingstrøbbel. Velg tall med pene svar uten hjelpemidler.
 - Oppgaver som bare kan løses med en metode som ikke er gjennomgått.
 - Kontekster som er kunstige («Per har $x^2 + 3$ epler»).
@@ -125,6 +130,8 @@ Les målene i briefen i `laereplan/kompetansemaal-1T.md`. Se på verbene. Står 
 - Desimalkomma: `$0,25$` (ikke `0.25`). Tusenskille: `$45\,000$`. Prosent: `$25\,\%$`.
 - Gangetegn: `\cdot`. Aldri `*` eller `x`.
 - Brøk i oppgavetekst og `tasks`: `\dfrac`. Brøk i fasit og løpende tekst: `\frac`.
+- **Brøk i eksponent: alltid `\tfrac`**, for eksempel `8^{\tfrac{2}{3}}`. `\frac` i en eksponent blir for lite til å lese i OneNote.
+- Formler med brøk inni brøk (som $\frac{x + 2/x}{2}$) settes på egen linje med `\[ … \]`.
 - Sentrert matematikk: `\[ … \]`. Aldri `$$`.
 - Enheter: `$3,0 \cdot 10^8$ m/s` (enheten utenfor `$`), eller `\text{ m}` inni.
 - Likningssett: `\begin{cases} … \end{cases}` eller `aligned`.
