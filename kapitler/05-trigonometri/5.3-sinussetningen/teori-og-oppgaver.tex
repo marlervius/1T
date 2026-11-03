@@ -83,7 +83,7 @@ Finn den tredje vinkelen i trekant $ABC$.
 \oppg{1.2}{1}{\uh}
 I trekant $ABC$ er $A = 60^\circ$, $B = 30^\circ$ og $a = 6\sqrt3$. Fullfør.
 \begin{tasks}(1)
-  \task Fyll inn: $\dfrac{b}{\sin \skrivlinje[1.5cm]} = \dfrac{6\sqrt3}{\sin \skrivlinje[1.5cm]}$
+  \task Fyll inn: $\dfrac{b}{\sin \skrivlinje[15mm]} = \dfrac{6\sqrt3}{\sin \skrivlinje[15mm]}$
   \task Bruk $\sin 30^\circ = \frac12$ og $\sin 60^\circ = \frac{\sqrt3}{2}$ og finn $b$.
 \end{tasks}
 
@@ -162,19 +162,20 @@ Da finnes to vinkler mellom $0^\circ$ og $180^\circ$ med $\sin B = k$ (5.1): $B$
 \end{minipage}\hfill
 \begin{minipage}[t]{0.44\linewidth}
 \centering
-\begin{tikzpicture}[baseline=(current bounding box.north),scale=1.0,font=\small]
+\begin{tikzpicture}[baseline=(current bounding box.north),scale=1.2,font=\small]
   \coordinate (A) at (0,0); \coordinate (C) at (2.77,1.6);
   \coordinate (B1) at (1.57,0); \coordinate (B2) at (3.97,0); \coordinate (H) at (2.77,0);
-  \draw (A) -- (4.6,0);
+  \draw (A) -- (4.8,0);
   \draw[thick] (A) -- (C) node[midway,above left] {$b$};
   \draw[thick] (C) -- (B1) node[pos=0.35,left] {$a$};
   \draw[thick] (C) -- (B2) node[pos=0.35,right] {$a$};
+  \draw[dotted, thick] (C) ++(220:2) arc (220:320:2);
   \draw[dashed] (C) -- (H);
   \draw (2.57,0)--(2.57,0.2)--(2.77,0.2);
   \node[right] at (2.8,0.45) {$h$};
   \pic[draw, angle radius=7mm] {angle = H--A--C};
   \node[left] at (A) {$A$}; \node[above] at (C) {$C$};
-  \node[below] at (B1) {$B_1$}; \node[below] at (B2) {$B_2$};
+  \node[below left] at (B1) {$B_1$}; \node[below right] at (B2) {$B_2$};
 \end{tikzpicture}
 \end{minipage}\par\medskip
 \renewcommand{\arraystretch}{1.4}
@@ -182,7 +183,7 @@ Da finnes to vinkler mellom $0^\circ$ og $180^\circ$ med $\sin B = k$ (5.1): $B$
 $a < h$ & ($k > 1$) & ingen trekant, armen når ikke ned.\\
 $a = h$ & ($k = 1$) & én trekant, $B = 90^\circ$.\\
 $h < a < b$ & ($k < 1$) & to trekanter: $B$ og $180^\circ - B$.\\
-$a \ge b$ & & én trekant. Da er $A + (180^\circ - B) \ge 180^\circ$.\\
+$a \ge b$ & & én trekant. Da gir $180^\circ - B$ sum $\ge 180^\circ$.\\
 \end{tabular}
 \end{mustkunne}
 
@@ -222,7 +223,7 @@ Finn alle vinkler $v$ mellom $0^\circ$ og $180^\circ$ med
 \oppg{2.2}{1}{\uh}
 I trekant $ABC$ er $A = 30^\circ$, $a = 6$ og $b = 6\sqrt3$. Fullfør.
 \begin{tasks}(1)
-  \task $\sin B = \dfrac{\skrivlinje[2cm] \cdot \sin 30^\circ}{\skrivlinje[1cm]} = \skrivlinje[2cm]$
+  \task Sinussetningen gir $\sin B = \dfrac{6\sqrt3 \cdot \sin 30^\circ}{6}$. Regn ut $\sin B$ eksakt.
   \task Finn de to mulige vinklene $B$.
   \task Sjekk at begge gir en trekant. Finn $C$ og $c$ i hver trekant.
 \end{tasks}

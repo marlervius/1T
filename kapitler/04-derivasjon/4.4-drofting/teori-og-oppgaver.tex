@@ -21,7 +21,7 @@ drøfte & Finne ut hvordan en funksjon oppfører seg: nullpunkter, voksende og a
   \item Løs $f'(x) = 0$.
   \item Lag fortegnslinje for $f'$ (ikke for $f$).
   \item Sett $x$-verdiene inn i $f$ og oppgi punktene.
-  \item Finn nullpunktene og skisser grafen.
+  \item Finn nullpunktene (faktoriser, eller finn ett nullpunkt og bruk polynomdivisjon) og skisser grafen.
 \end{enumerate}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.47\linewidth}
@@ -40,7 +40,7 @@ Ved et ekstremalpunkt er tangenten vannrett, så $f'(a) = 0$.\par\smallskip
 \begin{axis}[name=graf, at={(0,0)}, anchor=south west, scale only axis, width=5.4cm, height=3.3cm,
   axis lines=middle, xmin=-1.0769, xmax=3.0769, ymin=-5, ymax=2.5, enlargelimits=false,
   xtick={0,2,3}, ytick={-4}, tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$}, label style={font=\small}]
-\addplot[domain=-1.07:3.07, thick, hoved, samples=60] {x^3-3*x^2};
+\addplot[domain=-1.07:3.03, thick, hoved, samples=60] {x^3-3*x^2};
 \addplot[only marks, mark=*, mark size=1.6pt, hoved] coordinates {(0,0) (2,-4)};
 \node[font=\scriptsize, anchor=south west] at (axis cs:0.1,0.1) {topp};
 \node[font=\scriptsize, anchor=north west] at (axis cs:2.1,-4.0) {bunn};
@@ -91,10 +91,29 @@ Drøft $g(x) = x^3 - 6x^2 + 12x$.
 \begin{stegtabell}
 $g'(x) = 3x^2 - 12x + 12 = 3(x - 2)^2$ & Deriver, sett $3$ utenfor og bruk kvadratsetningen.\\
 $g'(x) = 0$ for $x = 2$ & Bare ett nullpunkt for $g'$.\\
-$(x - 2)^2 \ge 0$, så $g'(x) \ge 0$ overalt & Et kvadrat er aldri negativt. Ingen fortegnsskifte i $x = 2$.\\
+$g'(x) = 3(x - 2)^2 > 0$ for alle $x \ne 2$ & Et kvadrat er aldri negativt. Fortegnslinjen viser ingen fortegnsskifte i $x = 2$.\\
 $g(2) = 8 - 24 + 24 = 8$ & Terrassepunkt $(2, 8)$. Ikke topp eller bunn.\\
 $g$ er voksende for alle $x$ & Grafen flater ut i $(2, 8)$ og stiger videre.\\
+$g(x) = x(x^2 - 6x + 12)$ & Andre faktor har $D = -12 < 0$. Eneste nullpunkt er $x = 0$.\\
 \end{stegtabell}
+\begin{center}
+\begin{tikzpicture}[font=\small,fpos/.style={line width=1.1pt},fneg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
+  \draw[graa,thin] (1.40,0.40) -- (1.40,-1.95);
+  \node[anchor=east] at (-0.15,-0.00) {$x - 2$};
+  \draw[fneg] (0.00,-0.00) -- (1.40,-0.00);
+  \draw[fpos] (1.40,-0.00) -- (2.80,-0.00);
+  \node[fill=white,inner sep=1.5pt] at (1.40,-0.00) {$0$};
+  \node[anchor=east] at (-0.15,-0.70) {$x - 2$};
+  \draw[fneg] (0.00,-0.70) -- (1.40,-0.70);
+  \draw[fpos] (1.40,-0.70) -- (2.80,-0.70);
+  \node[fill=white,inner sep=1.5pt] at (1.40,-0.70) {$0$};
+  \node[anchor=east] at (-0.15,-1.55) {$g'(x)$};
+  \draw[fpos,hoved] (0.00,-1.55) -- (1.40,-1.55);
+  \draw[fpos,hoved] (1.40,-1.55) -- (2.80,-1.55);
+  \node[fill=white,inner sep=1.5pt] at (1.40,-1.55) {$0$};
+  \node[below] at (1.40,-1.95) {$2$};
+\end{tikzpicture}
+\end{center}
 \end{eksempel}
 
 \begin{vanligfeil}
@@ -224,8 +243,8 @@ optimering & Å finne den beste verdien, for eksempel størst volum eller minst 
 
 \begin{mustkunne}
 \begin{minipage}[t]{0.57\linewidth}
-\textbf{På et lukket intervall $[a, b]$} ligger største og minste verdi enten der $f'(x) = 0$ eller i et endepunkt. Hvorfor: Der $f' \ne 0$ stiger eller synker grafen, så det finnes en høyere eller lavere verdi like ved. Bare i vannrette punkter og ved endene stopper grafen.\par\smallskip
-\textbf{Metode:} Regn ut $f$ i endepunktene og i alle $x$ med $f'(x) = 0$ inni intervallet. Sammenlign tallene.\par\smallskip
+\textbf{På et lukket intervall $[a, b]$} ligger største og minste verdi enten der $f'(x) = 0$ eller i et endepunkt. Hvorfor: Der $f' \ne 0$ stiger eller synker grafen, så det finnes både en høyere og en lavere verdi like ved. Bare i vannrette punkter og ved endene stopper grafen.\par\smallskip
+\textbf{Metode:} Regn ut $f$ i endepunktene og i alle $x$ med $f'(x) = 0$ inni intervallet. Sammenlign tallene. Er endepunktene ikke med, bruker du fortegnslinja for $f'$.\par\smallskip
 \textbf{Optimering i fire steg}
 \begin{enumerate}[leftmargin=1.4em,itemsep=0pt,topsep=2pt]
   \item Velg variabel og finn definisjonsmengden.
@@ -241,7 +260,7 @@ optimering & Å finne den beste verdien, for eksempel størst volum eller minst 
   xtick={0,5}, ytick={4,20}, tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$}, label style={font=\small}]
 \addplot[domain=0:5, thick, hoved, samples=60] {x^3-6*x^2+9*x};
 \addplot[only marks, mark=*, mark size=1.6pt, hoved] coordinates {(0,0) (1,4) (3,0) (5,20)};
-\node[font=\scriptsize, anchor=south] at (axis cs:1,5.5) {lokalt topp};
+\node[font=\scriptsize, anchor=south] at (axis cs:1,5.5) {lokal topp};
 \node[font=\scriptsize, anchor=south east] at (axis cs:5.0,21.5) {største verdi};
 \node[font=\scriptsize, anchor=north] at (axis cs:3,-1.2) {bunn};
 \end{axis}
@@ -273,9 +292,9 @@ Nå kan vi løse det vi lovte i 3.3. En eske lages av et papp på $20$ cm $\time
 $V(x) = 4x^3 - 100x^2 + 600x$ & Gang ut.\\
 3. $V'(x) = 12x^2 - 200x + 600 = 0$ & Deriver. Del på $4$: $3x^2 - 50x + 150 = 0$.\\
 $x = \dfrac{50 \pm \sqrt{700}}{6}$, så $x \approx 3,92$ eller $x \approx 12,74$ & Andregradsformelen. Verdien $12,74$ ligger utenfor $[0, 10]$ og forkastes.\\
-4. $V(0) = 0$, $V(10) = 0$, $V(3,92) \approx 1056$ & Sammenlign kandidatene.\\
+4. $V(0) = 0$, $V(10) = 0$, $V(3,92) \approx 1056$ & Vi tar med endepunktene (flat eske, $V = 0$) for å kunne sammenligne.\\
 \end{stegtabell}
-\textbf{Svar:} Esken får størst volum, ca. $1056$ cm$^3$, når hjørnene er ca. $3,92$ cm.
+\textbf{Svar:} Esken får størst volum, ca. $1056$ cm$^3$, når kvadratene i hjørnene har side ca. $3,92$ cm.
 \end{eksempel}
 
 \begin{vanligfeil}
@@ -320,7 +339,7 @@ En åpen eske uten lokk har kvadratisk bunn med side $x$ cm og høyde $h$ cm. He
 \begin{tasks}(1)
   \task Vis at $h = \dfrac{300 - x^2}{4x}$ og at $V(x) = 75x - \dfrac{x^3}{4}$. Finn definisjonsmengden.
   \task Finn $V'(x)$ og løs $V'(x) = 0$.
-  \task Vis med fortegnslinje for $V'$ at du har funnet et toppunkt. Svar i en setning med enhet.
+  \task Vis med fortegnslinje for $V'$ at $V(10)$ er den største verdien. Svar i en setning med enhet.
 \end{tasks}
 
 \oppg{2.5}{2}{\uh}
@@ -336,17 +355,16 @@ f'(x) = 6x^2 - 18x + 12 \ &\longrightarrow\ f'(x) = 6(x - 1)(x - 2) \ \longright
 Konsentrasjonen av et legemiddel i blodet er $K(t) = -0,5t^3 + 4,5t^2$ mg/L etter $t$ timer, for $0 \le t \le 8$ (tenkt modell).
 \begin{tasks}(1)
   \task Finn $K'(t)$. Når er konsentrasjonen størst, og hva er den da? Svar med enhet.
-  \task Finn minste verdi til $K$ på intervallet. Hvorfor ligger den i et endepunkt?
+  \task Finn den laveste konsentrasjonen for $1 \le t \le 8$. Hvor ligger den, og hvorfor ikke i et toppunkt eller bunnpunkt?
   \task I hvilket tidsrom avtar konsentrasjonen?
 \end{tasks}
 
 \nivaahode{3}
 
 \oppg{2.7}{3}{\uh}
-Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret og gi eksempler.
 \begin{tasks}(1)
-  \task Den største verdien til $f$ på $[a, b]$ ligger i et toppunkt.
-  \task Hvis $f$ er voksende på $[a, b]$, er $f(b)$ den største verdien til $f$ på $[a, b]$.
+  \task For hvilke $b$ er den største verdien til $f(x) = x^3 - 3x$ på $[-2, b]$ lik $2$? Begrunn svaret.
+  \task Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret. «Hvis $f$ er voksende på $[a, b]$, er $f(b)$ den største verdien til $f$ på $[a, b]$.»
 \end{tasks}
 
 \oppg{2.8}{3}{\uh}

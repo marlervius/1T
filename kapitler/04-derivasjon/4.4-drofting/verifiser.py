@@ -253,16 +253,24 @@ K = -Rational(1, 2) * x**3 + Rational(9, 2) * x**2
 chk("2.6a K'", d(K), -Rational(3, 2) * x**2 + 9 * x)
 los("2.6a K'=0", Eq(d(K), 0), [0, 6])
 chk("2.6a fortegn", [fortegn(d(K), 3), fortegn(d(K), 7)], [1, -1])
-chk("2.6b", [fverdi(K, 0), fverdi(K, 6), fverdi(K, 8)], [0, 54, 32])
+chk("2.6a verdier", [fverdi(K, 0), fverdi(K, 6), fverdi(K, 8)], [0, 54, 32])
 st, mi = storst_minst(K, 0, 8)
-chk("2.6b største", st, 54)
-chk("2.6c minste", mi, 0)
+chk("2.6a største", st, 54)
+st1, mi1 = storst_minst(K, 1, 8)
+chk("2.6b minste på [1,8]", mi1, 4)
+chk("2.6b verdier", [fverdi(K, 1), fverdi(K, 6), fverdi(K, 8)], [4, 54, 32])
+chk("2.6b K'(1)", d(K).subs(x, 1), Rational(15, 2))
 chk("2.6c avtagende", [fortegn(d(K), 6.5), fortegn(d(K), 7.9)], [-1, -1])
 
 # ---- 2.7: alltid / noen ganger / aldri
+los("2.7a", Eq(expand(x**3 - 3 * x - 2), 0), [-1, 2])
+chk("2.7a faktorisert", x**3 - 3 * x - 2, (x + 1) ** 2 * (x - 2))
+chk("2.7a b-verdier", [storst_minst(x**3 - 3 * x, -2, bb)[0] for bb in (-1, 0, 2)], [2, 2, 2])
+sant("2.7a b>2", storst_minst(x**3 - 3 * x, -2, 3)[0] == 18 > 2, "f(3)=18")
+sant("2.7a b<-1", storst_minst(x**3 - 3 * x, -2, Rational(-3, 2))[0] < 2, "f(-1,5)<2")
 sant("2.7a noen ganger 1", storst_minst(x**2 - 2 * x, 0, 2)[0] == 0 and fverdi(x**2 - 2 * x, 1) == -1, "x^2-2x på [0,2]: største verdi i endepunkt")
 st_b, _ = storst_minst(-x**2 + 4 * x, 0, 4)
-sant("2.7a noen ganger 2", st_b == 4 and fverdi(-x**2 + 4 * x, 2) == 4, "-x^2+4x på [0,4]: største verdi i toppunktet")
+sant("2.7 eks 2", st_b == 4 and fverdi(-x**2 + 4 * x, 2) == 4, "-x^2+4x på [0,4]: største verdi i toppunktet")
 sant("2.7b", all(fverdi(u, bb) >= fverdi(u, p) for u, bb in [(x**3, 3), (2 * x + 1, 3)] for p in [0, 1, 2, 3]), "voksende: største verdi i høyre endepunkt")
 # 2.7b bakgrunn: f' >= 0 på intervallet gir f(b) >= f(p)
 sant("2.7b voksende", all(fortegn(d(x**3), p) >= 0 for p in [0, 1, 2]), "f' >= 0")
@@ -330,17 +338,17 @@ for i in range(0, 1001):
     if V(x) > beste_V:
         beste_V = V(x)
         beste_x = x
-print(round(beste_x, 2), round(beste_V, 2))
+print(round(beste_x, 2), round(beste_V, 4))
 """
 ut = io.StringIO()
 with contextlib.redirect_stdout(ut):
     exec(kode, {})
-chk("U4a utskrift", ut.getvalue().strip(), "3.92 1056.31")
+chk("U4a utskrift", ut.getvalue().strip(), "3.92 1056.3052")
 kode2 = kode.replace("range(0, 1001)", "range(0, 10001)").replace("i / 100", "i / 1000").replace("round(beste_x, 2)", "round(beste_x, 3)")
 ut = io.StringIO()
 with contextlib.redirect_stdout(ut):
     exec(kode2, {})
-chk("U4c utskrift", ut.getvalue().strip(), "3.924 1056.31")
+chk("U4c utskrift", ut.getvalue().strip(), "3.924 1056.3059")
 xe = (25 - 5 * sqrt(7)) / 3
 chk("U4b eksakt x", N(xe, 6), 3.92375, tol=1e-4)
 chk("U4b eksakt V", N(fverdi(V, xe), 8), 1056.3059, tol=1e-3)
@@ -365,12 +373,14 @@ sant("U6 eks D>0", discriminant(d(x**3 - 3 * x), x) > 0, "x^3-3x: to")
 sant("U6 eks D<0", discriminant(d(x**3 + x), x) < 0, "x^3+x: ingen")
 sant("U6 eks D=0", discriminant(d(x**3), x) == 0, "x^3: terrasse")
 
-# U7: lag selv
-u7 = x**3 - 6 * x**2 + 9 * x
-chk("U7 f'", d(u7), 3 * (x - 1) * (x - 3))
-chk("U7 fortegn", [fortegn(d(u7), 0), fortegn(d(u7), 2), fortegn(d(u7), 4)], [1, -1, 1])
-chk("U7 topp", fverdi(u7, 1), 4)
-chk("U7 bunn", fverdi(u7, 3), 0)
-chk("U7 annen", d(2 * x**3 - 12 * x**2 + 18 * x + 7), 6 * (x - 1) * (x - 3))
+# U7: baklengs
+u7 = x**3 - 3 * x + 5
+chk("U7 f'", d(u7), 3 * (x + 1) * (x - 1))
+chk("U7 fortegn", [fortegn(d(u7), -2), fortegn(d(u7), 0), fortegn(d(u7), 2)], [1, -1, 1])
+chk("U7 topp", fverdi(u7, -1), 7)
+chk("U7 bunn", fverdi(u7, 1), 3)
+k7, c7 = symbols("k7 c7")
+losn = solve([Eq(fverdi(k7 / 3 * x**3 - k7 * x + c7, -1), 7), Eq(fverdi(k7 / 3 * x**3 - k7 * x + c7, 1), 3)], [k7, c7])
+chk("U7 entydig", [losn[k7], losn[c7]], [3, 5])
 
 rapport()

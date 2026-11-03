@@ -1,0 +1,301 @@
+% =====================================================================
+%  5.4 Cosinussetningen — teori og oppgaver
+% =====================================================================
+
+\del{1}{Cosinussetningen og beviset}
+
+\begin{ordliste}
+cosinussetningen & Formelen $a^2 = b^2 + c^2 - 2bc\cos A$ for en vilkårlig trekant. & \mittsprak\\
+generalisering & En regel som inneholder en kjent regel som spesialtilfelle. Pytagoras er et spesialtilfelle av cosinussetningen. & \mittsprak\\
+mellomliggende vinkel & Vinkelen som ligger mellom to kjente sider. I formelen over ligger $A$ mellom $b$ og $c$. & \mittsprak\\
+\end{ordliste}
+
+\begin{mustkunne}
+\textbf{Cosinussetningen.} I trekant $ABC$ står side $a$ overfor vinkel $A$ osv.
+\[ a^2 = b^2 + c^2 - 2bc\cos A \qquad\text{og}\qquad \cos A = \frac{b^2 + c^2 - a^2}{2bc} \]
+Første formel finner en side når to sider og vinkelen mellom dem er kjent. Andre formel finner en vinkel når alle sidene er kjent.
+Samme formel gjelder for hver vinkel: $b^2 = a^2 + c^2 - 2ac\cos B$ og $c^2 = a^2 + b^2 - 2ab\cos C$.\par\smallskip
+\begin{minipage}[t]{0.48\linewidth}
+\centering
+\begin{tikzpicture}[baseline=(current bounding box.north),scale=0.8,font=\small]
+  \coordinate (A) at (0,0); \coordinate (B) at (4.2,0);
+  \coordinate (C) at (1.4,2.3); \coordinate (D) at (1.4,0);
+  \draw[thick] (A) -- (B) node[midway, below, sloped] {$c$}
+                   -- (C) node[midway, above, sloped] {$a$}
+                   -- (A) node[midway, above, sloped] {$b$};
+  \draw[dashed] (C) -- (D) node[midway, right] {$h$};
+  \draw (1.2,0) -- (1.2,0.2) -- (1.4,0.2);
+  \draw pic[draw, angle radius=6mm] {angle = B--A--C};
+  \node at (0.85,0.28) {\scriptsize $A$};
+  \node[below left] at (A) {$A$}; \node[below right] at (B) {$B$}; \node[above] at (C) {$C$};
+  \draw[<->, thin] (0,-0.9) -- (1.4,-0.9) node[midway, below] {$x$};
+  \draw[<->, thin] (1.4,-0.9) -- (4.2,-0.9) node[midway, below] {$c-x$};
+\end{tikzpicture}\par\smallskip
+\raggedright
+\textbf{Spiss $A$.} Høyden $h$ fra $C$ deler $c$ i $x$ og $c-x$. I trekant $ADC$ er $\cos A = \frac{x}{b}$, altså $x = b\cos A$. Pytagoras i begge trekantene:
+\[ b^2 = h^2 + x^2 \qquad a^2 = h^2 + (c-x)^2 \]
+Skriv ut kvadratet og sett inn $b^2$:
+\[ a^2 = \underbrace{h^2 + x^2}_{b^2} + c^2 - 2cx = b^2 + c^2 - 2cx \]
+Sett inn $x = b\cos A$: $a^2 = b^2 + c^2 - 2bc\cos A$.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.50\linewidth}
+\centering
+\begin{tikzpicture}[baseline=(current bounding box.north),scale=0.8,font=\small]
+  \coordinate (A) at (0,0); \coordinate (B) at (3.6,0);
+  \coordinate (C) at (-1.3,2.1); \coordinate (D) at (-1.3,0);
+  \draw[thick] (A) -- (B) node[midway, below, sloped] {$c$}
+                   -- (C) node[midway, above, sloped] {$a$}
+                   -- (A) node[midway, below, sloped] {$b$};
+  \draw[dashed] (C) -- (D) node[midway, left] {$h$};
+  \draw[dashed] (D) -- (A);
+  \draw (-1.1,0) -- (-1.1,0.2) -- (-1.3,0.2);
+  \draw pic[draw, angle radius=5mm] {angle = B--A--C};
+  \node at (0.55,0.62) {\scriptsize $A$};
+  \node[below right] at (A) {$A$}; \node[below right] at (B) {$B$}; \node[above] at (C) {$C$};
+  \draw[<->, thin] (-1.3,-0.9) -- (0,-0.9) node[midway, below] {$x$};
+  \draw[<->, thin] (0,-0.9) -- (3.6,-0.9) node[midway, below] {$c$};
+\end{tikzpicture}\par\smallskip
+\raggedright
+\textbf{Stump $A$.} Høyden faller utenfor. Vinkelen ved $A$ i trekant $ADC$ er $180^\circ - A$, så $x = b\cos(180^\circ - A) = -b\cos A$. Pytagoras gir $b^2 = h^2 + x^2$ og
+\[ a^2 = h^2 + (c+x)^2 = b^2 + c^2 + 2cx \]
+Sett inn $x = -b\cos A$:
+$a^2 = b^2 + c^2 - 2bc\cos A$. Samme formel, fordi $\cos A < 0$ gjør leddet $-2bc\cos A$ positivt.
+\end{minipage}\par\smallskip
+\textbf{Rett vinkel.} Er $A = 90^\circ$, er $\cos A = 0$ og $a^2 = b^2 + c^2$. Pytagoras er et spesialtilfelle.
+\end{mustkunne}
+
+\begin{eksempel}[1 — to sider og vinkelen mellom dem]
+En trekant har $b = 3$, $c = 5$ og $A = 120^\circ$. Finn $a$.
+
+\begin{stegtabell}
+$a^2 = 3^2 + 5^2 - 2\cdot 3\cdot 5\cdot\cos 120^\circ$ & Cosinussetningen. $A$ ligger mellom $b$ og $c$.\\
+$= 9 + 25 - 30\cdot\left(-\frac12\right)$ & $\cos 120^\circ = -\cos 60^\circ = -\frac12$ (fra 5.1).\\
+$= 34 + 15 = 49$ & Minus ganger minus gir pluss.\\
+$a = \sqrt{49} = 7$ & Ta kvadratroten til slutt. En side er positiv.\\
+Kontroll: & $a = 7$ er den lengste siden og ligger overfor den største vinkelen. Det stemmer.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{eksempel}[2 — tre sider]
+En trekant har sidene $5$, $7$ og $8$. Finn vinkelen overfor siden $7$.
+
+\begin{stegtabell}
+$\cos A = \dfrac{5^2 + 8^2 - 7^2}{2\cdot 5\cdot 8}$ & Siden $a = 7$ står overfor $A$. Bruk $\cos A = \frac{b^2 + c^2 - a^2}{2bc}$.\\
+$= \dfrac{25 + 64 - 49}{80} = \dfrac{40}{80} = \dfrac12$ & Regn ut teller og nevner hver for seg.\\
+$A = 60^\circ$ & $\cos 60^\circ = \frac12$. Mellom $0^\circ$ og $180^\circ$ finnes bare én slik vinkel.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{vanligfeil}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
+  \item $a^2 = (b^2 + c^2 - 2bc)\cos A$ er feil. Cosinus står bare i siste ledd: $a^2 = b^2 + c^2 - 2bc\cos A$.
+  \item Å svare $a^2 = 49$ som lengde er feil. Ta kvadratroten til slutt: $a = 7$.
+  \item For stump $A$ er $\cos A < 0$. Da blir $-2bc\cos A$ positivt. For $A = 120^\circ$ er $a^2 = b^2 + c^2 + bc$, ikke $b^2 + c^2 - bc$.
+  \item «Cosinussetningen gjelder bare for spisse vinkler» er feil. Beviset over viser at den gjelder for alle vinkler i en trekant.
+\end{itemize}
+\end{vanligfeil}
+
+\nivaahode{1}
+
+\oppg{1.1}{1}{\uh}
+Finn siden $a$. Svar eksakt.
+\begin{tasks}(3)
+  \task $b = 6$, $c = 8$ og $A = 90^\circ$
+  \task $b = 4$, $c = 6$ og $A = 60^\circ$
+  \task $b = 2$, $c = 3$ og $A = 120^\circ$
+\end{tasks}
+
+\oppg{1.2}{1}{\uh}
+En trekant har sidene $a = 14$, $b = 6$ og $c = 16$. Fullfør og finn vinkel $A$.
+\[ \cos A = \frac{6^2 + 16^2 - \rute^{\,2}}{2 \cdot 6 \cdot 16} = \frac{\skrivlinje[12mm]}{\skrivlinje[12mm]} = \skrivlinje[10mm] \qquad\text{så}\qquad A = \skrivlinje[12mm] \]
+
+\oppg{1.3}{1}{\mh}
+Svar med én desimal.
+\begin{tasks}(1)
+  \task Finn $a$ når $b = 12$ cm, $c = 15$ cm og $A = 48^\circ$.
+  \task Finn den største vinkelen i en trekant med sidene $6$ cm, $8$ cm og $11$ cm.
+\end{tasks}
+
+\nivaahode{2}
+
+\oppg{2.1}{2}{\uh}
+Finn den største vinkelen. Svar eksakt.
+\begin{tasks}(2)
+  \task Sidene er $2$, $2$ og $2\sqrt3$.
+  \task Sidene er $\sqrt2$, $\sqrt2$ og $2$.
+\end{tasks}
+
+\oppg{2.2}{2}{\mh}
+Ola står i punktet $R$ ved et vann. Han måler $RP = 420$ m og $RQ = 310$ m til to punkter $P$ og $Q$ på hver sin side av vannet. Vinkelen $PRQ$ er $72^\circ$.
+\begin{tasks}(1)
+  \task Finn avstanden $PQ$ over vannet.
+  \task Finn vinkelen ved $P$.
+\end{tasks}
+
+\oppg{2.3}{2}{\uh}
+Finn \textbf{den første feilen}. Løs riktig.\\
+Trekant med $b = 10$, $c = 6$ og $A = 120^\circ$. Finn $a$.
+\[ \begin{aligned}
+a^2 &= 10^2 + 6^2 - 2\cdot 10\cdot 6\cdot\cos 120^\circ\\
+    &= 136 - 120\cdot\left(-\tfrac12\right)\\
+    &= 136 - 60\\
+    &= 76\\
+a   &= \sqrt{76} \approx 8{,}7
+\end{aligned} \]
+
+\oppg{2.4}{2}{\uh}
+En trekant har $b = 8$, $c = 10$ og $A = 60^\circ$. Høyden fra $C$ treffer siden $c$ i punktet $D$, som i beviset.
+\begin{tasks}(1)
+  \task Finn $x = AD$ og høyden $h$.
+  \task Finn $a^2$ med Pytagoras i trekant $DBC$.
+  \task Finn $a^2$ med cosinussetningen. Sammenlign med b).
+\end{tasks}
+
+\nivaahode{3}
+
+\oppg{3.1}{3}{\uh}
+Bevis at $c^2 = a^2 + b^2 - 2ab\cos C$ når $C$ er en spiss vinkel. Tegn figur og forklar hvert steg.
+\hint{Velg et hjørne å trekke høyden fra. Gi de to delene av den motstående siden hver sin lengde.}
+
+\oppg{3.2}{3}{\uh}
+Er påstanden alltid, noen ganger eller aldri sann i en trekant? Begrunn med cosinussetningen.
+\begin{tasks}(1)
+  \task Siden $a$ er kortere enn $b + c$.
+  \task Siden $a$ er lengre enn både $b$ og $c$.
+  \task Hvis $A = 60^\circ$, er $a^2 = b^2 + c^2 - bc$.
+\end{tasks}
+
+\oppg{3.3}{3}{\uh}
+Sidene i en trekant er $x$, $x+1$ og $x+2$. Cosinus til den største vinkelen er $\dfrac18$. Finn $x$.
+
+\begin{sjekk}
+\begin{tasks}(2)
+  \task Finn $a$ når $b = 3$, $c = 8$ og $A = 60^\circ$.
+  \task Skriv formelen for $\cos A$ når alle sidene er kjent.
+  \task! Hvorfor blir $a^2$ større enn $b^2 + c^2$ når $A$ er stump?
+\end{tasks}
+\end{sjekk}
+
+% ---------------------------------------------------------------------
+
+\del{2}{Velg riktig setning}
+
+\begin{ordliste}
+SSS & Tre sider er kjent. & \mittsprak\\
+SVS & To sider og vinkelen mellom dem er kjent. & \mittsprak\\
+SVV & En side og to vinkler er kjent. & \mittsprak\\
+SSV & To sider og en vinkel som \emph{ikke} ligger mellom dem er kjent. & \mittsprak\\
+strategi & En fast rekkefølge å løse oppgaven i: tegn, velg, regn, kontroller. & \mittsprak\\
+\end{ordliste}
+
+\begin{mustkunne}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}[t]{@{}l p{4.3cm} p{9.2cm}@{}}
+\textbf{Kjent} & \textbf{Setning} & \textbf{Slik gjør du}\\
+SSS & cosinussetningen & Finn en vinkel med $\cos A = \frac{b^2 + c^2 - a^2}{2bc}$.\\
+SVS & cosinussetningen & Finn den tredje siden. Finn resten etterpå.\\
+SVV & sinussetningen & Finn den tredje vinkelen ($180^\circ$ minus de to). Så sidene.\\
+SSV & sinussetningen \emph{eller} cosinussetningen & Sinus gir to mulige vinkler. Cosinus gir en andregradslikning for den ukjente siden: 0, 1 eller 2 positive løsninger, altså 0, 1 eller 2 trekanter.\\
+\end{tabular}\par\smallskip
+\textbf{Hvorfor?} Sinussetningen trenger et par (vinkel, motstående side). Ved SSS og SVS finnes ikke noe slikt par. For en vinkel mellom $0^\circ$ og $180^\circ$ gir $\cos v$ bare én vinkel, mens $\sin v$ gir to ($v$ og $180^\circ - v$).\par\smallskip
+\textbf{Areal.} Ligger en kjent vinkel mellom to kjente sider, bruk $T = \frac12 ab\sin C$. Ellers finn først en vinkel.\par\smallskip
+\textbf{Strategi.} 1) Tegn trekanten og merk det som er kjent og ukjent. 2) Velg setning. 3) Regn. 4) Kontroller: vinkelsummen er $180^\circ$, og den lengste siden ligger overfor den største vinkelen.
+\end{mustkunne}
+
+\begin{eksempel}[— SSV med cosinussetningen]
+Samme trekant som i 5.3: $A = 30^\circ$, $a = 5$ og $b = 8$. Finn $c$ med cosinussetningen.
+
+\begin{stegtabell}
+$5^2 = 8^2 + c^2 - 2\cdot 8\cdot c\cdot\cos 30^\circ$ & Cosinussetningen med den ukjente siden $c$.\\
+$25 = 64 + c^2 - 8\sqrt3\,c$ & $\cos 30^\circ = \frac{\sqrt3}{2}$, så $16\cdot\frac{\sqrt3}{2} = 8\sqrt3$.\\
+$c^2 - 8\sqrt3\,c + 39 = 0$ & Flytt alt over på én side. Det er en andregradslikning.\\
+$c = \dfrac{8\sqrt3 \pm \sqrt{192 - 156}}{2} = \dfrac{8\sqrt3 \pm 6}{2}$ & Abc-formelen (2.3): $(8\sqrt3)^2 - 4\cdot 39 = 36$.\\
+$c = 4\sqrt3 + 3 \approx 9{,}9$ eller $c = 4\sqrt3 - 3 \approx 3{,}9$ & Begge er positive. Det gir to trekanter.\\
+\end{stegtabell}
+Sinussetningen ga to vinkler $B \approx 53{,}1^\circ$ og $B \approx 126{,}9^\circ$, og de samme to sidene. Cosinussetningen gir sidene direkte, men du må løse en andregradslikning. Er en løsning negativ eller null, gir den ingen trekant.
+\end{eksempel}
+
+\begin{vanligfeil}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
+  \item Å sette opp $\frac{\sin A}{a} = \frac{\sin B}{b}$ når du bare kjenner tre sider, fører ikke frem. Begge vinklene er ukjente. Start med cosinussetningen.
+  \item Å godta en negativ løsning for $c$ er feil. En lengde er positiv, og en negativ rot gir ingen trekant.
+  \item Å stoppe etter den første løsningen i SSV gjelder ikke generelt. Har likningen to positive røtter, gir hver sin trekant.
+  \item Å levere svaret uten kontroll gir ofte feil. Sjekk vinkelsummen og at den lengste siden ligger overfor den største vinkelen.
+\end{itemize}
+\end{vanligfeil}
+
+\nivaahode{1}
+
+\oppg{1.1}{1}{\uh}
+Skriv hva som er kjent (SSS, SVS, SVV eller SSV). Skriv hvilken setning du bruker først. Ikke regn ut.
+\begin{tasks}(2)
+  \task $a = 6$, $b = 7$ og $c = 8$
+  \task $b = 5$, $c = 9$ og $A = 40^\circ$
+  \task $A = 40^\circ$, $B = 70^\circ$ og $a = 5$
+  \task $a = 7$, $b = 9$ og $B = 50^\circ$
+\end{tasks}
+
+\oppg{1.2}{1}{\mh}
+Velg setning og finn det som mangler. Svar med én desimal.
+\begin{tasks}(1)
+  \task $b = 9$, $c = 14$ og $A = 65^\circ$. Finn $a$.
+  \task $A = 48^\circ$, $B = 65^\circ$ og $a = 10$. Finn $b$.
+  \task $a = 8$, $b = 11$ og $c = 13$. Finn vinkel $C$.
+\end{tasks}
+
+\oppg{1.3}{1}{\uh}
+Kontroller svarene til to elever uten å regne om. Forklar hvorfor hvert svar ikke kan stemme.
+\begin{tasks}(1)
+  \task Vinklene er $A = 40^\circ$, $B = 60^\circ$ og $C = 80^\circ$. Sidene er $a = 5$, $b = 7$ og $c = 6$.
+  \task Vinklene er $62^\circ$, $71^\circ$ og $57^\circ$.
+\end{tasks}
+
+\nivaahode{2}
+
+\oppg{2.1}{2}{\uh}
+Det er gitt $A = 60^\circ$. Bruk cosinussetningen til å sette opp en likning for $c$. Løs den. Hvor mange trekanter finnes?
+\begin{tasks}(3)
+  \task $a = 13$ og $b = 15$
+  \task $a = 19$ og $b = 5$
+  \task $a = 6$ og $b = 8$
+\end{tasks}
+
+\oppg{2.2}{2}{\mh}
+En trekant har sidene $7$ cm, $9$ cm og $12$ cm. Finn alle vinklene. Start med den største. Kontroller med vinkelsummen.
+
+\oppg{2.3}{2}{\mh}
+Finn \textbf{den første feilen}. Trekanten har sidene $a = 4$, $b = 5$ og $c = 6$. Eleven fant vinklene slik:
+\[ \begin{aligned}
+\cos A &= \frac{5^2 + 6^2 - 4^2}{2\cdot 5\cdot 6} = 0{,}75 &&\Rightarrow\quad A \approx 41{,}4^\circ\\
+\sin B &= \frac{5 \cdot \sin 41{,}4^\circ}{4} \approx 0{,}827 &&\Rightarrow\quad B \approx 124{,}2^\circ\\
+C &= 180^\circ - 41{,}4^\circ - 124{,}2^\circ = 14{,}4^\circ
+\end{aligned} \]
+Finn de riktige vinklene.
+
+\oppg{2.4}{2}{\mh}
+En tomt har sidene $9$ m, $10$ m og $11$ m. Finn arealet med én desimal.
+
+\nivaahode{3}
+
+\oppg{3.1}{3}{\uh}
+Er påstanden alltid, noen ganger eller aldri sann? Begrunn med cosinussetningen.
+\begin{tasks}(1)
+  \task Hvis $a^2 > b^2 + c^2$, er vinkel $A$ stump.
+  \task Hvis $a$ er den lengste siden, er vinkel $A$ stump.
+  \task Sidene $4$, $6$ og $11$ danner en trekant.
+\end{tasks}
+
+\oppg{3.2}{3}{\uh}
+I en trekant er $A = 60^\circ$ og $b = 10$. Siden $a$ kan variere. For hvilke verdier av $a$ finnes ingen, én eller to trekanter? Gi eksakte grenser.
+\hint{Når har en andregradslikning ingen, én eller to løsninger? Og når er begge løsningene positive?}
+
+\oppg{3.3}{3}{\uh}
+Forklar hvorfor SSV kan gi to trekanter, mens SSS og SVS gir høyst én. Bruk det du vet om $\cos v$ og $\sin v$ for $0^\circ < v < 180^\circ$.
+
+\begin{sjekk}
+\begin{tasks}(2)
+  \task Hvilken setning bruker du når $A = 70^\circ$, $B = 50^\circ$ og $a = 9$?
+  \task Hvilken setning bruker du når $a = b = 5$ og $c = 8$?
+  \task! Hvorfor trenger du ikke tenke på to trekanter når du finner en vinkel med cosinussetningen?
+\end{tasks}
+\end{sjekk}

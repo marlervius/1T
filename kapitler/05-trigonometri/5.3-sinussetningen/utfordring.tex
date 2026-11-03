@@ -26,7 +26,11 @@ Bruk både sinussetningen og arealsetningen.
 
 \nivaahode{3}
 
-\oppg{U4}{3}{\prog}
+\oppg{U4}{3}{\uh}
+Er påstanden «den største vinkelen i en trekant står overfor den lengste siden» alltid, noen ganger eller aldri sann?
+Begrunn med sinussetningen og enhetssirkelen. Husk at en vinkel kan være stump.
+
+\oppg{U5}{3}{\prog}
 Funksjonen finner alle trekanter når $A$, $a$ og $b$ er kjent. Den gir antall trekanter og vinklene $B$.
 \begin{kode}
 import math
@@ -52,12 +56,8 @@ print(ssv(9, 6, 62))
   \task Finn selv en test for en stump $A$. Hva forventer du, og hva skriver programmet ut?
 \end{tasks}
 
-\oppg{U5}{3}{\uh}
-Er påstanden «den største vinkelen i en trekant står overfor den lengste siden» alltid, noen ganger eller aldri sann?
-Begrunn med sinussetningen og enhetssirkelen. Husk at en vinkel kan være stump.
-
 \oppg{U6}{3}{\uh}
-Under er et bevis for at $\dfrac{a}{\sin A} = 2R$, der $R$ er radien i sirkelen gjennom $A$, $B$ og $C$ (den omskrevne sirkelen).
+Under er et bevis for at $\frac{a}{\sin A} = 2R$, der $R$ er radien i sirkelen gjennom $A$, $B$ og $C$ (den omskrevne sirkelen).
 Beviset bruker to fakta fra geometri: En vinkel som spenner over en diameter er $90^\circ$. Periferivinkler på samme bue er like store.
 
 \begin{minipage}[t]{0.50\linewidth}
@@ -81,7 +81,7 @@ Beviset bruker to fakta fra geometri: En vinkel som spenner over en diameter er 
   \draw[thick] (B) -- (D) -- (C);
   \draw (1.679,-0.684)--(1.679,-0.484)--(1.879,-0.484);
   \pic[draw, angle radius=5mm] {angle = B--A--C};
-  \pic[draw, angle radius=6mm] {angle = C--D--B};
+  \pic[draw, angle radius=6mm] {angle = B--D--C};
   \node[above] at (A) {$A$}; \node[below left] at (B) {$B$};
   \node[below right] at (C) {$C$}; \node[above right] at (D) {$D$};
   \node[below] at (0,-0.684) {$a$};

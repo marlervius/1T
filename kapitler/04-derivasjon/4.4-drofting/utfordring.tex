@@ -41,12 +41,12 @@ for i in range(0, 1001):
     if V(x) > beste_V:
         beste_V = V(x)
         beste_x = x
-print(round(beste_x, 2), round(beste_V, 2))
+print(round(beste_x, 2), round(beste_V, 4))
 \end{kode}
 \begin{tasks}(1)
   \task Kjør programmet. Hva skriver det ut? Hvorfor går \texttt{i} fra $0$ til $1000$?
-  \task Sammenlign med det eksakte svaret fra $V'(x) = 0$. Hvor mange desimaler stemmer for $x$ og for $V$? Forklar hvorfor $V$ stemmer bedre.
-  \task Endre programmet til steg $0,001$. Hva skriver det ut nå?
+  \task Sammenlign med det eksakte svaret fra $V'(x) = 0$. Hvor stor er feilen i $x$ og i $V$? Forklar hvorfor feilen i $V$ er mye mindre.
+  \task Endre programmet til steg $0,001$. Da må du endre \texttt{range}, \texttt{i / 100} og \texttt{round(beste\_x, 2)}. Hva skriver det ut nå?
 \end{tasks}
 
 \nivaahode{3}
@@ -63,11 +63,7 @@ Bevis at et tredjegradspolynom $f(x) = px^3 + qx^2 + rx + s$ ($p \ne 0$) har ent
 \hint{Se på $f'$ og antall nullpunkter. Hva avgjør om fortegnet skifter?}
 
 \oppg{U7}{3}{\uh}
-Lag selv en funksjon med toppunkt i $x = 1$ og bunnpunkt i $x = 3$.
-\begin{tasks}(1)
-  \task Skriv funksjonen og vis at den virker.
-  \task Hvor mange slike funksjoner finnes? Beskriv alle tredjegradspolynomene.
-\end{tasks}
+Finn tredjegradspolynomet med toppunkt $(-1, 7)$ og bunnpunkt $(1, 3)$. Finnes det flere slike polynomer? Begrunn.
 
 \begin{oppsummering}
 Fortegnslinjen for $f'$ forteller hvor $f$ stiger og synker. Et nullpunkt for $f'$ er bare en kandidat.

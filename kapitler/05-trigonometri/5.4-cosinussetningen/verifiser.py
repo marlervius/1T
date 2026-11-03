@@ -43,6 +43,10 @@ chk("Bevis stump a2", expand(b**2 + c**2 + 2 * c * (-b * cA) - ((b**2 - (-b * cA
 chk("Teori cos(180-v)", cos(rad(180 - 120)) + cos(rad(120)), 0)
 chk("Teori A=90", expand(b**2 + c**2 - 2 * b * c * cos(pi / 2)), b**2 + c**2)
 
+# ---------- Vanlige feil ----------
+sant("VF 1a", simplify((b**2 + c**2 - 2 * b * c) * cA - (b**2 + c**2 - 2 * b * c * cA)) != 0, "feil formel er ikke lik riktig")
+chk("VF 1c", expand(b**2 + c**2 - 2 * b * c * cn(120)), b**2 + c**2 + b * c)
+sant("VF 2b", -16 < 0, "negativ rot er ikke en lengde")
 # ---------- Eksempler del 1 ----------
 chk("Eks 1.1 steg 1", 3**2 + 5**2 - 2 * 3 * 5 * cn(120), 49)
 chk("Eks 1.1 steg 2", cn(120), -Rational(1, 2))
@@ -183,44 +187,49 @@ avrund("U2a B", B2, 1, 91.2)
 avrund("U2a D", D2, 1, 78.5)
 avrund("U2b areal", 0.5 * 35 * 48 * math.sin(math.radians(B2)) + 0.5 * 42 * 52 * math.sin(math.radians(D2)), 0, 1910)
 
-# U3 programmet
+# U3 programmet: koden slik den står i oppgaven, med hullet fylt inn
 kode = '''
 from math import acos, degrees
 
 def vinkel(a, b, c):
+    """Vinkelen overfor siden a."""
     return degrees(acos((b**2 + c**2 - a**2) / (2 * b * c)))
 
-def undersok(a, b, c):
-    if a + b <= c or a + c <= b or b + c <= a:
-        print("Ingen trekant")
+a = SIDE_A
+b = SIDE_B
+c = SIDE_C
+
+if a + b <= c or a + c <= b or b + c <= a:
+    print("Ingen trekant")
+else:
+    A = vinkel(a, b, c)
+    B = vinkel(b, a, c)
+    C = vinkel(c, a, b)
+    print(round(A, 1), round(B, 1), round(C, 1))
+    storst = max(A, B, C)
+    if abs(storst - 90) < 0.0001:
+        print("rett")
+    elif storst < 90:
+        print("spiss")
     else:
-        A = vinkel(a, b, c)
-        B = vinkel(b, a, c)
-        C = vinkel(c, a, b)
-        print(round(A, 1), round(B, 1), round(C, 1))
-        storst = max(A, B, C)
-        if abs(storst - 90) < 0.0001:
-            print("rett")
-        elif storst < 90:
-            print("spiss")
-        else:
-            print("stump")
+        print("stump")
 '''
-ns = {}
-exec(kode, ns)
 
 
 def kjor(a1, b1, c1):
     ut = io.StringIO()
+    src = kode.replace("SIDE_A", str(a1)).replace("SIDE_B", str(b1)).replace("SIDE_C", str(c1))
     with redirect_stdout(ut):
-        ns["undersok"](a1, b1, c1)
+        exec(src, {})
     return ut.getvalue().split("\n")[:-1]
 
 
 sant("U3 3-4-5", kjor(3, 4, 5) == ["36.9 53.1 90.0", "rett"], str(kjor(3, 4, 5)))
 sant("U3 5-7-8", kjor(5, 7, 8) == ["38.2 60.0 81.8", "spiss"], str(kjor(5, 7, 8)))
 sant("U3 1-2-4", kjor(1, 2, 4) == ["Ingen trekant"], str(kjor(1, 2, 4)))
-aapen("U3c", "Uten trekantulikheten feiler acos med domenefeil / gir meningsløst svar")
+aapen("U3c", "Uten trekantulikheten feiler acos med domenefeil")
+sant("U3a flyt", math.degrees(math.acos((1 + 1 - math.sqrt(2) ** 2) / 2)) != 90.0, "sidene 1, 1, sqrt(2) gir ikke nøyaktig 90.0")
+sant("U3a flyt2", abs(math.degrees(math.acos((1 + 1 - math.sqrt(2) ** 2) / 2)) - 90) < 1e-4, "men innenfor toleransen")
 
 # U4 parallellogramloven
 d1 = a**2 + b**2 - 2 * a * b * cos(pi - symbols("v"))

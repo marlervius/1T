@@ -222,11 +222,11 @@ with contextlib.redirect_stdout(ut):
     exec(kode, {})
 print(ut.getvalue())
 linjer = ut.getvalue().strip().split("\n")
-sant("U4 ut", linjer == ["2 (0, [])", "3 (1, [90.0])", "4 (2, [48.6, 131.4])", "8 (1, [22.0])", "(1, [36.1])"], "utskrift")
+sant("U5 ut", linjer == ["2 (0, [])", "3 (1, [90.0])", "4 (2, [48.6, 131.4])", "8 (1, [22.0])", "(1, [36.1])"], "utskrift")
 
 # U5: største vinkel / lengste side
-sant("U5 sjekk", all(float(S_(Av)) > float(S_(Bv)) for Av in range(1, 180) for Bv in range(1, 180 - Av) if Av > Bv), "A>B, A+B<180 gir sin A > sin B")
-aapen("U5", "Begrunnelse med sinussetningen og enhetssirkelen")
+sant("U4 sjekk", all(float(S_(Av)) > float(S_(Bv)) for Av in range(1, 180) for Bv in range(1, 180 - Av) if Av > Bv), "A>B, A+B<180 gir sin A > sin B")
+aapen("U4", "Begrunnelse med sinussetningen og enhetssirkelen")
 aapen("U6", "Bevis for a/sin A = 2R")
 chk("U6c", Rational(13, 1) / 1, 13)
 chk("U6c R", Rational(13, 2), Rational(13, 2))
