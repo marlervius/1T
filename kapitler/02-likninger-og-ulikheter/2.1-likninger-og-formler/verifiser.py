@@ -60,13 +60,13 @@ sant("1.9b", sqrt((-1) ** 2) != -1, "moteksempel")
 chk("1.9c", simplify(sqrt(Symbol("p", positive=True) ** 2)), Symbol("p", positive=True))
 
 aapen("Sjekk 1a", "7x + 2 er et uttrykk")
-los("Sjekk 1b", (3 * x + 4, 3 * x - 1), [])
+los("Sjekk 1b", (5 * x + 4, 5 * x - 1), [])
 aapen("Sjekk 1c", "Tall kan vise moteksempel, men aldri bevise alle x")
 
 # ---------- Del 2 ----------
 los("2.1a", Eq(x / 3 + 2, 5), [9])
 los("2.1b", Eq(x / 2, x / 5 + 6), [20])
-los("2.1c", Eq((x + 1) / 3, 4), [11])
+los("2.1c", Eq((x + 5) / 3, 4), [7])
 
 los("2.2", Eq((x + 3) / 2 + x / 3, 4), [3])
 chk("2.2 fellesnevner", expand(6 * ((x + 3) / 2 + x / 3)), 5 * x + 9)
@@ -82,11 +82,11 @@ chk("2.4b", solve(Eq(v, s / t), t)[0], s / v)
 
 los("2.5a", Eq((2 * x - 1) / 3 - (x + 4) / 6, 2), [6])
 los("2.5b", Eq(x / 2 - (x - 3) / 5, 3), [8])
-los("2.5c", Eq((x + 2) / 4 - (x - 1) / 3, Rational(1, 2)), [4])
+los("2.5c", Eq((x + 3) / 4 - (x - 2) / 3, Rational(1, 2)), [11])
 
-los("2.6a", Eq((x + 5) / 2 - (x - 1) / 3, 4), [7])
-chk("2.6b", expand(6 * ((x + 5) / 2 - (x - 1) / 3)), x + 17)
-chk("2.6c", solve(Eq(x + 13, 24), x)[0], 11)
+los("2.6a", Eq((x + 6) / 2 - (x - 2) / 3, 4), [2])
+chk("2.6b", expand(6 * ((x + 6) / 2 - (x - 2) / 3)), x + 22)
+chk("2.6c", solve(Eq(x + 14, 24), x)[0], 10)
 
 chk("2.7a", solve(Eq(O, 2 * (l + b)), b)[0], O / 2 - l)
 chk("2.7b", solve(Eq(s, (v + u) * t / 2), u)[0], 2 * s / t - v)
@@ -136,5 +136,17 @@ los("U6", (1 / x - 1 / (x + 1), 1 / (x * (x + 1))), "alle")
 chk("U6 teller", together(1 / x - 1 / (x + 1)), 1 / (x * (x + 1)))
 sant("U7a", sqrt((-1) ** 2) != -1, "x = -1")
 chk("U7b", sqrt(0**2), 0)
+
+# ---------- Vanlig feil ----------
+sant("VF 1a", (2 * (1 + 3), 2 * 1 + 6) == (8, 8), "0 = 0 gir ikke x = 0: x = 1 virker også")
+los("VF 1a alle", (2 * (x + 3), 2 * x + 6), "alle")
+los("VF 1b", (2 * (x + 3), 2 * x + 11), [])
+sant("VF 1c", all(p**2 + 2 == 3 * p for p in (1, 2)) and 3**2 + 2 != 3 * 3, "to tall stemmer, tre ikke")
+sant("VF 2a", simplify(12 * ((x - 1) / 3 - (x + 2) / 4) - (4 * (x - 1) - (x + 2) / 4)) != 0, "feil versjon")
+chk("VF 2a riktig", expand(12 * ((x - 1) / 3 - (x + 2) / 4)), expand(4 * (x - 1) - 3 * (x + 2)))
+chk("VF 2b", expand(12 * (x + 2) / 4), 3 * x + 6)
+sant("VF 2b feil", expand(12 * (x + 2) / 4) != 3 * x + 2, "3x+2 er feil")
+sant("VF 2c", solve(Eq(A, (a + b) * h / 2), b)[0] != 2 * A / h + a, "pluss er feil")
+chk("VF 2c riktig", solve(Eq(A, (a + b) * h / 2), b)[0], 2 * A / h - a)
 
 rapport()
