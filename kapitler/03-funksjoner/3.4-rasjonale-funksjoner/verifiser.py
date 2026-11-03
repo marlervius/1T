@@ -179,7 +179,7 @@ sant("2.6 kontroll x=3 gir ikke løsning", Rational(3 + 5, 3 - 1) >= 2 and True,
 sant("2.6 skiller: x=5", Rational(5 + 5, 5 - 1) >= 2, "5/2 >= 2 sant, men 5 > 3")
 
 # 3.1 baklengs
-ulikhet("3.1", (x - 3) / (x + 2) >= 0, Union(Interval.open(-oo, -2), Interval(3, oo)))
+ulikhet("2.7", (x - 3) / (x + 2) >= 0, Union(Interval.open(-oo, -2), Interval(3, oo)))
 # 3.2
 ulikhet("2.8a", (x - 1) ** 2 / (x + 3) > 0, Union(Interval.open(-3, 1), Interval.open(1, oo)))
 ulikhet("2.8b", (x - 1) ** 2 / (x + 3) >= 0, Interval.open(-3, oo))
