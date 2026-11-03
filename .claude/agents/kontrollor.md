@@ -22,6 +22,8 @@ Les først `FORFATTERGUIDE.md`, `brief.md` i mappa og mønsterseksjonen
 ## 2. Didaktikk
 - Er nivå 1 direkte bruk av én regel? Er nivå 2 flere steg? Er nivå 3 *dypere* (begrunn, generaliser,
   alltid/noen ganger/aldri, baklengs), ikke bare større tall?
+- Passer `\kompetansemaal{…}` i `meta.tex` til kapittelplanen? Gjør oppgavene det verbene i målene
+  krever (utforske, forklare, begrunne, modellere), eller bare teknikk? Se `laereplan/kompetansemaal-1T.md`.
 - Er utfordringsarket mer krevende enn nivå 3 i heftet, med minst én «lag selv/undersøk»?
 - Forklarer teoriboksen *hvorfor*? Tester oppgavene misoppfatningene fra brief og «Vanlig feil»?
 - Avslører a) svaret på b)? Er noen kontekster kunstige?

@@ -73,6 +73,11 @@
 \newcommand{\undertittel}[1]{\renewcommand{\sundertittel}{#1}}
 \newcommand{\maal}[1]{\renewcommand{\smaal}{#1}}
 \newcommand{\kompetansemaal}[1]{\renewcommand{\skompetanse}{#1}}
+% Målteksten defineres av bygg.py (fra laereplan/kompetansemaal-1T.md): \kmdef{6}{tekst}
+\makeatletter
+\newcommand{\kmdef}[2]{\expandafter\def\csname km@#1\endcsname{#2}}
+\newcommand{\kmtekst}[1]{\ifcsname km@#1\endcsname\csname km@#1\endcsname\else\textbf{(ukjent mål KM#1)}\fi}
+\makeatother
 \newcommand{\hvakanjeg}[1]{\renewcommand{\shvakanjeg}{#1}}
 % Rad i «Hva kan jeg?»:  \kan{del}{jeg kan ...}   (\kanskille gir luft mellom deler)
 \newcommand{\kan}[2]{#1 & #2 & \boks & \boks & \boks\\}
@@ -266,7 +271,11 @@
   \end{tabularx}}}
 
 \newcommand{\kompetansefot}{%
-  \ifdefempty{\skompetanse}{}{\par\vfill{\footnotesize\color{graa}Kompetansemål (LK20, MAT09-01): \skompetanse\par}}}
+  \ifdefempty{\skompetanse}{}{\par\vfill{\footnotesize\color{graa}\textbf{Seksjonen bygger mot disse kompetansemålene etter 1T} (LK20, MAT09-02).
+    Eleven skal kunne\par
+    \begin{itemize}[leftmargin=1.2em,itemsep=0pt,topsep=1pt,parsep=0pt]
+    \foreach \km in \skompetanse {\item \kmtekst{\km}}
+    \end{itemize}\par}}}
 
 % Forside for «Teori og oppgaver»
 \newcommand{\forsideteori}{%

@@ -24,7 +24,7 @@ Les hele guiden før du begynner. Se deretter på mønsterseksjonen
 
 | Fil | Innhold |
 |---|---|
-| `meta.tex` | `\seksjon{1.2}{Tittel}`, `\undertittel{…}`, `\maal{…}`, `\kompetansemaal{}`, `\hvakanjeg{…}` |
+| `meta.tex` | `\seksjon{1.2}{Tittel}`, `\undertittel{…}`, `\maal{…}`, `\kompetansemaal{6}`, `\hvakanjeg{…}` |
 | `teori-og-oppgaver.tex` | 1–3 deler. Hver del starter med `\del{nr}{Tittel}` |
 | `utfordring.tex` | infoboks, oppgaver U1, U2 …, oppsummering |
 | `fasit.tex` | `\fk{Del 1 — …}` og `\fo{1.1} svar` for hver oppgave og hver «Sjekk» |
@@ -62,7 +62,9 @@ Ingen preamble, ingen `\documentclass`, ingen `\usepackage`. Byggeskriptet lager
 - TikZ / pgfplots for figurer og grafer (`\begin{tikzpicture} … \end{tikzpicture}`)
 - `\renewcommand{\arraystretch}{1.5}` er lov inni en boks. Andre `\renewcommand` er ikke lov.
 
-**I `meta.tex`:** `\kan{1}{skrive … }` per linje i `\hvakanjeg{…}`, `\kanskille` mellom deler.
+**I `meta.tex`:** `\kompetansemaal{6}` eller `\kompetansemaal{9,11}` — bare ID-ene fra `brief.md`
+(se `laereplan/kompetansemaal-1T.md`). Aldri tekst. Målteksten settes inn automatisk.
+`\kan{1}{skrive … }` per linje i `\hvakanjeg{…}`, `\kanskille` mellom deler.
 2–4 linjer per del. Start med et verb: «løse», «forklare», «tegne».
 
 ---
@@ -83,6 +85,10 @@ Ingen preamble, ingen `\documentclass`, ingen `\usepackage`. Byggeskriptet lager
 - Minst 2 oppgaver på nivå 3. Minst én der eleven lager noe selv eller undersøker.
 - Gjerne én `\prog`-oppgave (Python) og én oppgave som krever et bevis eller en fullstendig begrunnelse.
 - Start med infoboksen «Velg metode selv». Slutt med `oppsummering` (2–3 setninger).
+
+### Kompetansemålene
+Les målene i briefen i `laereplan/kompetansemaal-1T.md`. Se på verbene. Står det «utforske»,
+«forklare», «begrunne» eller «argumentere», skal minst én oppgave på nivå 2–3 be eleven gjøre nettopp det.
 
 ### Teoriboksen
 - Forklar **hvorfor**, ikke bare **hva**. Vis hvor regelen kommer fra (som i 1.1: skriv ut faktorene).

@@ -1,6 +1,6 @@
 # Læreverk i Matematikk 1T
 
-Eget læreverk for 1T (LK20, MAT09-01), laget av Marius. Utdata er PDF-er som legges i OneNote.
+Eget læreverk for 1T (LK20, MAT09-02), laget av Marius. Utdata er PDF-er som legges i OneNote.
 Designet er låst og bygger på 4FOB-heftene (`stil/laereverk.sty`).
 
 ## Struktur
@@ -8,7 +8,8 @@ Designet er låst og bygger på 4FOB-heftene (`stil/laereverk.sty`).
 ```
 stil/laereverk.sty        Design. Låst. Endres bare av arkitekten etter avtale med Marius.
 stil/oppsett.tex          Læreverksinnstillinger (fagnavn, «Mitt språk» av/på).
-laereplan/kapittelplan.md Alle kapitler og seksjoner, med status. Kilden til hva som skal lages.
+laereplan/kapittelplan.md Alle kapitler og seksjoner, med kompetansemål (KM) og status.
+laereplan/kompetansemaal-1T.md  De 14 målene ordrett fra udir.no (KM1–KM14). Ikke endre ordlyden.
 kapitler/<NN-kapittel>/<n.m-seksjon>/
     brief.md              Bestilling fra arkitekten. Forfatteren leser, endrer ikke.
     meta.tex              Tittel, mål, «Hva kan jeg?».
@@ -60,6 +61,9 @@ Bruk `/ny-seksjon <nr>` for hele flyten.
 - Les `FORFATTERGUIDE.md` før du skriver innhold. Den er fasiten for format og kvalitet.
 - Ikke endre `stil/` eller `verktoy/` mens du skriver innhold. Trengs en ny makro, si fra.
 - Alle svar i fasiten skal være regnet på nytt i `verifiser.py`. 0 feil før bygging.
-- Kompetansemål siteres bare ordrett fra udir.no. Er du ikke sikker, la `\kompetansemaal{}` stå tom.
+- Kompetansemål oppgis bare som ID-er i `meta.tex`: `\kompetansemaal{6}` eller `{9,11}`. `bygg.py` henter
+  teksten ordrett fra `laereplan/kompetansemaal-1T.md`. Skriv aldri målteksten selv.
+- Hver seksjon skal bidra til målene i kapittelplanen. Oppgavene skal bruke verbene i målet
+  (utforske, forklare, begrunne, modellere), ikke bare drille teknikk.
 - Ingen modellnavn i filer, commits eller PDF-er.
 - Commit kildefiler og PDF-er sammen. `build/` sjekkes ikke inn.

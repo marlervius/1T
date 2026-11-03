@@ -36,12 +36,29 @@ MAL = r"""\documentclass[11pt,a4paper]{article}
 \usepackage{laereverk}
 \input{oppsett}
 \renewcommand{\dokumenttype}{TYPE}
+\input{KMFIL}
 \input{SEKSJON/meta}
 \begin{document}
 FORSIDE
 INNHOLD
 \end{document}
 """
+
+
+def les_kompetansemaal():
+    """Leser KM-tabellen i laereplan/kompetansemaal-1T.md -> {nr: tekst}."""
+    fil = ROT / "laereplan" / "kompetansemaal-1T.md"
+    tekst = fil.read_text(encoding="utf-8") if fil.exists() else ""
+    return {int(m.group(1)): m.group(2).strip()
+            for m in re.finditer(r"^\|\s*KM(\d+)\s*\|\s*([^|]+?)\s*\|", tekst, flags=re.M)}
+
+
+def skriv_kompetansemaal():
+    BUILD.mkdir(exist_ok=True)
+    ut = BUILD / "kompetansemaal.tex"
+    linjer = [f"\\kmdef{{{nr}}}{{{t}}}" for nr, t in sorted(les_kompetansemaal().items())]
+    ut.write_text("\n".join(linjer) + "\n", encoding="utf-8")
+    return ut
 
 
 def installer_latex():
@@ -91,7 +108,7 @@ def kompiler(mappe, forhandsvis):
         tex = ut / f"{navn}.tex"
         tex.write_text(
             MAL.replace("TYPE", str(typ)).replace("FORSIDE", forside).replace("INNHOLD", innhold)
-               .replace("SEKSJON", mappe.as_posix()),
+               .replace("SEKSJON", mappe.as_posix()).replace("KMFIL", skriv_kompetansemaal().as_posix()),
             encoding="utf-8")
         r = subprocess.run(
             ["latexmk", "-pdf", "-interaction=nonstopmode", "-halt-on-error", "-quiet", f"-outdir={ut}", str(tex)],

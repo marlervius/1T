@@ -198,6 +198,21 @@ def sjekk_meta(tekst, delnr):
     for kommando in ["undertittel", "maal", "kompetansemaal", "hvakanjeg"]:
         if f"\\{kommando}{{" not in tekst:
             F(f"meta.tex: mangler \\{kommando}{{…}}.")
+    m = re.search(r"\\kompetansemaal\{([^}]*)\}", tekst)
+    if m:
+        sys.path.insert(0, str(ROT / "verktoy"))
+        from bygg import les_kompetansemaal
+        gyldige = les_kompetansemaal()
+        ider = [s.strip() for s in m.group(1).split(",") if s.strip()]
+        if not ider:
+            F("meta.tex: \\kompetansemaal{} er tom. Skriv ID-ene fra brief.md, f.eks. \\kompetansemaal{6} eller {9,11}.")
+        for i in ider:
+            if not i.isdigit():
+                F(f"meta.tex: \\kompetansemaal skal bare ha tall (ID-er), ikke tekst. Fant «{i[:30]}».")
+            elif int(i) not in gyldige:
+                F(f"meta.tex: KM{i} finnes ikke i laereplan/kompetansemaal-1T.md.")
+        if len(ider) > 3:
+            A("meta.tex: mer enn 3 kompetansemål. Velg de 1–3 som passer best.")
     kan_deler = set(re.findall(r"\\kan\{(\d+)\}", tekst))
     for d in delnr:
         if d not in kan_deler:

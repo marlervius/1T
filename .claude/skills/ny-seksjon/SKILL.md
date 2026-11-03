@@ -14,7 +14,8 @@ Du er arkitekten. Du skriver briefen og godkjenner. Forfatteren og kontrolløren
 1. Les `CLAUDE.md`, `laereplan/kapittelplan.md`, og briefen og fasiten til forrige seksjon
    (så du vet hva elevene har lært).
 2. Lag mappa `kapitler/<NN-kapittel>/<nr>-<kort-navn>/` (små bokstaver, bindestrek, ikke æøå).
-3. Skriv `brief.md` fra `maler/brief.md`. Vær konkret: deler, ord, 3–5 misoppfatninger,
+3. Skriv `brief.md` fra `maler/brief.md`. Ta med KM-ID-ene fra kapittelplanen og siter målene
+   fra `laereplan/kompetansemaal-1T.md`. Vær konkret: deler, ord, 3–5 misoppfatninger,
    idéer til nivå 3 og utfordringsarket, én programmeringsidé. Briefen er det viktigste
    kvalitetsgrepet — en svak brief gir en svak seksjon.
 4. Er noe faglig uklart (hører temaet til 1T? hvilken notasjon?), spør Marius før du går videre.
