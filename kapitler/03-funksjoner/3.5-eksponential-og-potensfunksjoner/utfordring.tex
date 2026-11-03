@@ -1,0 +1,74 @@
+% =====================================================================
+%  3.5 Eksponential- og potensfunksjoner — ekstra utfordring
+% =====================================================================
+
+\begin{infoboks}{Velg metode selv}
+Arket bygger på 3.5 Eksponential- og potensfunksjoner. Vis regning og begrunnelse.
+Alle tall i oppgavene er tenkte, ikke målinger. Bruk eksakte svar når det går.
+\end{infoboks}
+
+\nivaahode{2}
+
+\oppg{U1}{2}{\uh}
+Tenkt eksempel: En medisin har halveringstid 6 timer. Startdosen er 400 mg. Mengden etter $t$ timer er
+\[ f(t) = 400 \cdot \left(\tfrac{1}{2}\right)^{\tfrac{t}{6}} \]
+\begin{tasks}(2)
+  \task! Forklar hvorfor funksjonen passer med halveringstiden 6 timer.
+  \task Hvor mye er igjen etter ett døgn?
+  \task Hvor mye er igjen etter 18 timer?
+\end{tasks}
+
+\oppg{U2}{2}{\uh}
+Løs likningene. Skriv begge sider med samme grunntall først.
+\begin{tasks}(3)
+  \task $5^x = 125$
+  \task $3 \cdot 2^x = 96$
+  \task $\left(\dfrac{1}{2}\right)^x = 16$
+\end{tasks}
+
+\oppg{U3}{2}{\prog}
+Programmet finner hvor mange hele år et beløp trenger for å bli doblet ved $p\,\%$ rente. Det skriver også ut $\frac{72}{p}$ (72-regelen).
+\begin{kode}
+for p in range(1, 11):
+    belop = 1.0
+    ar = 0
+    while belop < 2:
+        belop = belop * (1 + p / 100)
+        ar = ar + 1
+    print(p, ar, 72 / p)
+\end{kode}
+\begin{tasks}(1)
+  \task Forklar hva som skjer i den indre løkken. Hvorfor starter \texttt{belop} på 1,0?
+  \task Kjør programmet. Hva skriver det ut for $p = 4$ og $p = 7$?
+  \task Hvor godt stemmer 72-regelen? Regelen er en tommelfingerregel og ikke eksakt. Kommenter avvikene.
+\end{tasks}
+
+\nivaahode{3}
+
+\oppg{U4}{3}{\uh}
+Bevis.
+\begin{tasks}(1)
+  \task Vis at $\dfrac{f(x+1)}{f(x)} = b$ for alle $x$ når $f(x) = a \cdot b^x$.
+  \task Vis at $\dfrac{g(2x)}{g(x)} = 2^k$ for alle $x > 0$ når $g(x) = a \cdot x^k$.
+  \task Hva betyr de to resultatene for hvordan en tabell ser ut?
+\end{tasks}
+
+\oppg{U5}{3}{\uh}
+Er det mulig at en funksjon både kan skrives som $f(x) = a \cdot b^x$ og som $f(x) = c \cdot x^k$ for alle $x > 0$?
+Undersøk, og finn alle slike funksjoner. Begrunn svaret.
+\hint{Hva er $\dfrac{f(2x)}{f(x)}$ i hver av de to modellene?}
+
+\oppg{U6}{3}{\mh}
+Kleibers lov er en modell. Den sier at energiforbruket til et pattedyr er omtrent proporsjonalt med $m^{\tfrac34}$, der $m$ er massen.
+\begin{tasks}(1)
+  \task Hvor mange ganger mer energi bruker et dyr som er 16 ganger så tungt?
+  \task Hvor mye energi bruker det store dyret per kilo, sammenlignet med det lille?
+  \task Et dyr er 20\,000 ganger så tungt som et annet. Finn forholdet mellom energiforbrukene. Svar med tre gjeldende siffer.
+  \task Drøft: Hva begrenser modellen? Er den gyldig for alle dyr?
+\end{tasks}
+
+\begin{oppsummering}
+En eksponentialfunksjon ganges med en fast faktor når $x$ øker med et fast tall.
+En potensfunksjon ganges med en fast faktor når $x$ ganges med et fast tall.
+Bruk forhold mellom verdier til å skille typene, og husk at en modell bare er en tilnærming.
+\end{oppsummering}

@@ -1,0 +1,334 @@
+% =====================================================================
+%  3.5 Eksponential- og potensfunksjoner — teori og oppgaver
+% =====================================================================
+
+\del{1}{Eksponentialfunksjoner}
+
+\begin{ordliste}
+eksponential\-funksjon & En funksjon $f(x) = a \cdot b^x$ med $a > 0$ og $b > 0$. & \mittsprak\\
+startverdi & Tallet $a$. Det er verdien når $x = 0$, fordi $f(0) = a$. & \mittsprak\\
+vekstfaktor & Tallet $b$. Verdien ganges med $b$ for hver gang $x$ øker med 1. & \mittsprak\\
+doblingstid & Tiden det tar før verdien er doblet. & \mittsprak\\
+halveringstid & Tiden det tar før verdien er halvert. & \mittsprak\\
+\end{ordliste}
+
+\begin{mustkunne}
+\begin{minipage}[t]{0.50\linewidth}
+\textbf{Lineær: like store tillegg. Eksponentiell: samme faktor.}\par\smallskip
+\begin{tabular}[t]{@{}c|cccc@{}}
+$x$ & 0 & 1 & 2 & 3\\ \hline
+$100 + 10x$ & 100 & 110 & 120 & 130\\
+$100 \cdot 1{,}1^x$ & 100 & 110 & 121 & 133,1\\
+\end{tabular}\par\smallskip
+Øverst legger vi til 10 hver gang. Nederst ganger vi med $1{,}1$ hver gang. Derfor er $f(x) = a \cdot b^x$: start på $a$, og gang med $b$ for hvert steg.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.47\linewidth}
+\vspace{0pt}\centering
+\begin{tikzpicture}[baseline=(current bounding box.north)]
+\begin{axis}[width=\linewidth, height=0.72\linewidth, axis lines=middle, xmin=-3.5, xmax=3.5, ymin=-0.5, ymax=8.8,
+  xtick={-2,0,2}, ytick={2,4,6,8}, tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$}, label style={font=\small}]
+\addplot[domain=-3.3:3, thick, hoved, samples=50] {2^x};
+\addplot[domain=-3:3.3, thick, red!70!black, samples=50] {(1/2)^x};
+\node[font=\scriptsize, hoved, anchor=west] at (axis cs:1.2,7) {$2^x$};
+\node[font=\scriptsize, red!70!black, anchor=east] at (axis cs:-1.2,7) {$\left(\tfrac12\right)^x$};
+\end{axis}
+\end{tikzpicture}\par
+{\footnotesize $b > 1$: voksende. $0 < b < 1$: avtagende.}
+\end{minipage}\medskip
+
+\textbf{Vekstfaktor fra prosent:} vekst på $p\,\%$ gir $b = 1 + \frac{p}{100}$. Nedgang på $p\,\%$ gir $b = 1 - \frac{p}{100}$.
+Grafen har $y = 0$ som horisontal asymptote og skjærer $y$-aksen i $(0, a)$. Verdien blir aldri negativ.
+Doblingstid og halveringstid er like uansett startverdi, fordi hvert steg bare ganger med $b$.
+\end{mustkunne}
+
+\begin{eksempel}[1 — rente på rente]
+Tenkt eksempel: 20\,000 kr står på en konto med 4\,\% rente per år. Finn beløpet etter 5 år.
+
+\begin{stegtabell}
+$b = 1 + \frac{4}{100} = 1{,}04$ & Vekst på 4\,\% gir vekstfaktor $1{,}04$.\\
+$f(x) = 20\,000 \cdot 1{,}04^x$ & $a = 20\,000$ er startbeløpet. $x$ er antall år.\\
+$f(5) = 20\,000 \cdot 1{,}04^5 \approx 24\,333$ & Kalkulator. Beløpet er omtrent 24\,333 kr.\\
+Tolking: & $a$ er beløpet i dag. $b$ sier at beløpet ganges med $1{,}04$ hvert år.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{eksempel}[2 — finn funksjonen fra to punkter]
+Finn $f(x) = a \cdot b^x$ som går gjennom $(2, 12)$ og $(5, 96)$.
+
+\begin{stegtabell}
+$a \cdot b^2 = 12$ og $a \cdot b^5 = 96$ & Sett inn begge punktene.\\
+$\dfrac{a \cdot b^5}{a \cdot b^2} = \dfrac{96}{12}$, altså $b^3 = 8$ & Del den andre likningen på den første. Da forsvinner $a$.\\
+$b = 2$ & Fordi $2^3 = 8$.\\
+$a \cdot 2^2 = 12$, så $a = 3$ & Sett $b$ inn i den første likningen.\\
+Kontroll: $3 \cdot 2^2 = 12$ og $3 \cdot 2^5 = 96$ & Begge punktene stemmer.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{vanligfeil}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
+  \item «5\,\% vekst gir $b = 0{,}05$ eller $b = 1{,}5$» er feil. Riktig er $b = 1 + \frac{5}{100} = 1{,}05$.
+  \item «20\,\% nedgang gir $b = 0{,}2$» er feil. Riktig er $b = 1 - \frac{20}{100} = 0{,}8$.
+  \item «5\,\% per år i 10 år er 50\,\%» er feil. Det blir $1{,}05^{10} \approx 1{,}63$, altså omtrent 63\,\% vekst.
+  \item $a \cdot b^x = (ab)^x$ gjelder ikke generelt. For $2 \cdot 5^x$ og $x = 2$ er $2 \cdot 5^2 = 50$, men $(2 \cdot 5)^2 = 100$.
+\end{itemize}
+\end{vanligfeil}
+
+\nivaahode{1}
+
+\oppg{1.1}{1}{\uh}
+Finn vekstfaktoren.
+\begin{tasks}(2)
+  \task Verdien øker med $8\,\%$.
+  \task Verdien synker med $35\,\%$.
+  \task Verdien øker med $2{,}5\,\%$.
+  \task Verdien øker med $60\,\%$.
+\end{tasks}
+
+\oppg{1.2}{1}{\uh}
+Se på $f(x) = 4 \cdot 3^x$.
+\begin{tasks}(1)
+  \task Hva er startverdien og vekstfaktoren?
+  \task Regn ut $f(0)$, $f(1)$ og $f(2)$.
+  \task Er funksjonen voksende eller avtagende?
+\end{tasks}
+
+\oppg{1.3}{1}{\uh}
+Tenkt eksempel: En vare koster 500 kr. Prisen øker med $10\,\%$ per år. Fullfør.
+\begin{tasks}(1)
+  \task Vekstfaktoren er $b = 1 + \dfrac{10}{100} = $ \skrivlinje[2cm]
+  \task Funksjonen er $f(x) = 500 \cdot$ \skrivlinje[2cm]$^x$
+  \task Prisen etter 2 år er $f(2) = $ \skrivlinje[2cm]
+\end{tasks}
+
+\nivaahode{2}
+
+\oppg{1.4}{2}{\mh}
+Tenkt eksempel: En bil er verdt 240\,000 kr. Verdien synker med $15\,\%$ per år.
+\begin{tasks}(1)
+  \task Skriv en funksjon $f$ som gir verdien etter $x$ år.
+  \task Finn verdien etter 4 år. Rund av til nærmeste hundre kroner.
+  \task Når er verdien 100\,000 kr? Bruk graf eller digitalt verktøy. Svar med én desimal.
+\end{tasks}
+
+\oppg{1.5}{2}{\uh}
+Finn $f(x) = a \cdot b^x$ som går gjennom $(1, 40)$ og $(3, 10)$. Kontroller svaret.
+
+\oppg{1.6}{2}{\uh}
+Tenkt eksempel: En vare koster 800 kr og blir $25\,\%$ billigere hvert år. Hva koster den etter 2 år?
+Finn \textbf{den første feilen}. Regn riktig.
+\[ b = 1 - 0{,}25 = 0{,}75 \ \longrightarrow\ f(x) = 800 \cdot 0{,}75^x \ \longrightarrow\ f(2) = (800 \cdot 0{,}75)^2 \ \longrightarrow\ f(2) = 600^2 = 360\,000 \]
+
+\oppg{1.7}{2}{\mh}
+Tenkt eksempel: Et beløp vokser med $6\,\%$ per år.
+\begin{tasks}(1)
+  \task Startbeløpet er 1\,000 kr. Finn doblingstiden grafisk eller digitalt. Svar med én desimal.
+  \task Finn doblingstiden når startbeløpet er 3\,000 kr. Hva legger du merke til?
+\end{tasks}
+
+\nivaahode{3}
+
+\oppg{1.8}{3}{\uh}
+Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret.
+Anta at $a > 0$ i $f(x) = a \cdot b^x$.
+\begin{tasks}(1)
+  \task Hvis $b > 1$, er $f$ voksende.
+  \task Hvis $0 < b < 1$, blir $f(x)$ negativ for store $x$.
+  \task Vekst på $30\,\%$ to år på rad gir $60\,\%$ vekst til sammen.
+\end{tasks}
+
+\oppg{1.9}{3}{\uh}
+Verdien til en eksponentialfunksjon $f(x) = a \cdot b^x$ blir doblet hvert 3. år.
+\begin{tasks}(1)
+  \task Forklar hvorfor $b^3 = 2$.
+  \task Hvor mange ganger større er verdien etter 9 år? Forklar uten å finne $b$.
+\end{tasks}
+
+\oppg{1.10}{3}{\uh}
+\begin{tasks}(1)
+  \task Lag selv en avtagende eksponentialfunksjon $f$ med $f(3) = 6$.
+  \task Kan en eksponentialfunksjon $f(x) = a \cdot b^x$ med $a > 0$ og $b > 0$ ha $f(1) = -4$? Forklar.
+\end{tasks}
+
+\begin{sjekk}
+\begin{tasks}(2)
+  \task Finn vekstfaktoren ved $9\,\%$ vekst.
+  \task Regn ut $f(3)$ når $f(x) = 7 \cdot 2^x$.
+  \task! Er $f(x) = 90 \cdot 0{,}95^x$ voksende eller avtagende? Forklar.
+\end{tasks}
+\end{sjekk}
+
+% ---------------------------------------------------------------------
+
+\del{2}{Potensfunksjoner}
+
+\begin{ordliste}
+potensfunksjon & En funksjon $f(x) = a \cdot x^b$. Variabelen $x$ står i grunntallet. & \mittsprak\\
+eksponent & Tallet $b$ i $x^b$. Det sier hvor mange ganger $x$ er faktor. & \mittsprak\\
+proporsjonal & To størrelser der den ene dobles når den andre dobles: $y = a \cdot x$. & \mittsprak\\
+modell & En funksjon som beskriver en virkelig situasjon omtrent, ikke nøyaktig. & \mittsprak\\
+\end{ordliste}
+
+\begin{mustkunne}
+\textbf{Potensfunksjon:} $f(x) = a \cdot x^b$. Eksempler: $x^2$, $x^3$, $\sqrt{x} = x^{\tfrac12}$ og $\dfrac{1}{x} = x^{-1}$.
+Når $b$ er en brøk eller negativ, bruker vi $x > 0$, som i 1.3.\par\smallskip
+\textbf{Hva skjer når $x$ dobles?}
+\[ f(2x) = a \cdot (2x)^b = a \cdot 2^b \cdot x^b = 2^b \cdot f(x) \]
+Dobler vi $x$, ganges $f(x)$ med $2^b$. Ganger vi $x$ med $k$, ganges $f(x)$ med $k^b$.\par\smallskip
+\textbf{Tre typer. Hva sier en tabell?}\par\smallskip
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{@{}l l l@{}}
+\textbf{Type} & \textbf{Funksjon} & \textbf{Mønster i tabellen}\\ \hline
+Lineær & $ax + b$ & $x$ øker med 1: $y$ øker med et fast tall\\
+Eksponentiell & $a \cdot b^x$ & $x$ øker med 1: $y$ ganges med en fast faktor\\
+Potens & $a \cdot x^b$ & $x$ ganges med 2: $y$ ganges med en fast faktor\\
+\end{tabular}
+\end{mustkunne}
+
+\begin{eksempel}[1 — dobling og tredobling]
+Se på $f(x) = 3x^2$. Hva skjer med $f(x)$ når $x$ dobles? Når $x$ tredobles?
+
+\begin{stegtabell}
+$f(2x) = 3 \cdot (2x)^2$ & Sett inn $2x$ for $x$.\\
+$= 3 \cdot 4 \cdot x^2 = 4 \cdot 3x^2 = 4 \cdot f(x)$ & Potens av produkt: $(2x)^2 = 4x^2$.\\
+$f(3x) = 3 \cdot 9 \cdot x^2 = 9 \cdot f(x)$ & Samme regning: $3^2 = 9$.\\
+\end{stegtabell}
+Dobles $x$, blir $f(x)$ fire ganger så stor. Tredobles $x$, blir $f(x)$ ni ganger så stor.
+\end{eksempel}
+
+\begin{eksempel}[2 — hvilken type er tabellen?]
+\begin{tabular}{@{}c|cccc@{}}
+$x$ & 1 & 2 & 4 & 8\\ \hline
+$y$ & 2 & 16 & 128 & 1024\\
+\end{tabular}
+
+\begin{stegtabell}
+$\frac{16}{2} = 8$, $\frac{128}{16} = 8$, $\frac{1024}{128} = 8$ & $x$ dobles hver gang. $y$ ganges med 8 hver gang.\\
+$2^b = 8$, så $b = 3$ & Potensfunksjon, fordi $x$ ganges med 2 og $y$ med en fast faktor.\\
+$f(1) = a \cdot 1^3 = 2$, så $a = 2$ & Sett $x = 1$.\\
+$f(x) = 2x^3$ & Kontroll: $f(4) = 2 \cdot 64 = 128$.\\
+\end{stegtabell}
+Tabellen er ikke lineær: tilleggene $14$ og $112$ er ikke like. Den er ikke eksponentiell: $x$ øker ikke med 1 hver gang.
+\end{eksempel}
+
+\begin{vanligfeil}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
+  \item $2^x$ og $x^2$ er ikke samme funksjon. For $x = 3$ er $2^3 = 8$ og $3^2 = 9$. I $2^x$ er $x$ eksponent, i $x^2$ er $x$ grunntall.
+  \item $x^{\tfrac12} = \frac{x}{2}$ er feil. Det er kvadratroten: $9^{\tfrac12} = 3$, ikke $\frac{9}{2}$.
+  \item «Dobler vi $x$, dobles $f(x)$» gjelder ikke generelt. Det gjelder bare når $b = 1$. For $x^2$ firedobles $f(x)$, fordi $(2x)^2 = 4x^2$.
+\end{itemize}
+\end{vanligfeil}
+
+\nivaahode{1}
+
+\oppg{2.1}{1}{\uh}
+Er funksjonen en eksponentialfunksjon eller en potensfunksjon?
+\begin{tasks}(4)
+  \task $f(x) = x^5$
+  \task $g(x) = 5^x$
+  \task $h(x) = \dfrac{4}{x}$
+  \task $k(x) = 0{,}5^x$
+\end{tasks}
+
+\oppg{2.2}{1}{\uh}
+Regn ut uten kalkulator.
+\begin{tasks}(2)
+  \task $f(x) = x^{\tfrac12}$. Finn $f(25)$.
+  \task $g(x) = x^{-1}$. Finn $g(4)$.
+  \task $h(x) = 2x^3$. Finn $h(3)$.
+  \task $k(x) = x^{\tfrac32}$. Finn $k(9)$.
+\end{tasks}
+
+\oppg{2.3}{1}{\uh}
+Se på $f(x) = 4x^3$. Hva skjer med $f(x)$ når $x$ dobles? Fullfør.
+\[ f(2x) = 4 \cdot (2x)^3 = 4 \cdot \ \skrivlinje[12mm] \ \cdot x^3 = \ \skrivlinje[12mm] \ \cdot f(x) \]
+
+\nivaahode{2}
+
+\oppg{2.4}{2}{\uh}
+Hva ganges $f(x)$ med når $x$ endres slik?
+\begin{tasks}(3)
+  \task $f(x) = 5x^3$, og $x$ tredobles.
+  \task $g(x) = x^{\tfrac12}$, og $x$ firedobles.
+  \task $h(x) = \dfrac{10}{x}$, og $x$ tredobles.
+\end{tasks}
+
+\oppg{2.5}{2}{\uh}
+Hver tabell er lineær, eksponentiell eller en potensfunksjon.
+\begin{center}
+\begin{tabular}{@{}l|cccc@{}}
+Tabell A: $x$ & 0 & 1 & 2 & 3\\
+$y$ & 7 & 12 & 17 & 22\\
+\end{tabular}\qquad
+\begin{tabular}{@{}l|cccc@{}}
+Tabell B: $x$ & 0 & 1 & 2 & 3\\
+$y$ & 5 & 15 & 45 & 135\\
+\end{tabular}\qquad
+\begin{tabular}{@{}l|cccc@{}}
+Tabell C: $x$ & 1 & 2 & 4 & 8\\
+$y$ & 24 & 12 & 6 & 3\\
+\end{tabular}
+\end{center}
+\begin{tasks}(1)
+  \task Avgjør type for hver tabell. Begrunn med differanser eller forhold.
+  \task Skriv funksjonsuttrykk for tabell B og tabell C.
+\end{tasks}
+
+\oppg{2.6}{2}{\uh}
+Figuren viser grafene til $x^{\tfrac12}$, $x$ og $x^2$ for $x \ge 0$.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=6cm, height=5cm, axis lines=middle, xmin=0, xmax=4.4, ymin=0, ymax=4.6,
+  xtick={1,2,3,4}, ytick={1,2,3,4}, tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$}, label style={font=\small}, grid=both, grid style={gray!25}]
+\addplot[domain=0:2, thick, hoved, samples=50] {x^2};
+\addplot[domain=0:4.2, thick, red!70!black, samples=2] {x};
+\addplot[domain=0:4.2, thick, green!50!black, samples=60] {sqrt(x)};
+\node[font=\small\bfseries, hoved, anchor=west] at (axis cs:1.95,3.7) {A};
+\node[font=\small\bfseries, red!70!black, anchor=south] at (axis cs:3.85,3.9) {B};
+\node[font=\small\bfseries, green!50!black, anchor=north] at (axis cs:4.1,1.9) {C};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\begin{tasks}(1)
+  \task Hvilken graf hører til hvilken funksjon?
+  \task For hvilke $x$ er $x^{\tfrac12}$ størst av de tre? For hvilke $x$ er $x^2$ størst?
+  \task Hva er felles for de tre funksjonene når $x = 1$? Forklar hvorfor.
+\end{tasks}
+
+\oppg{2.7}{2}{\uh}
+Finn $b$ slik at $f(x) = x^b$ gir $f(4) = 8$. Finn \textbf{den første feilen}. Løs riktig.
+\[ 4^b = 8 \ \longrightarrow\ (2^2)^b = 2^3 \ \longrightarrow\ 2^{b+2} = 2^3 \ \longrightarrow\ b + 2 = 3 \ \longrightarrow\ b = 1 \]
+
+\nivaahode{3}
+
+\oppg{2.8}{3}{\uh}
+Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret.
+Vi ser på $x > 0$ og $a > 0$.
+\begin{tasks}(1)
+  \task $f(x) = a \cdot x^b$ er voksende når $b > 0$.
+  \task $f(x) = x^b$ er avtagende.
+  \task Grafen til $f(x) = \dfrac{a}{x}$ skjærer $x$-aksen.
+\end{tasks}
+
+\oppg{2.9}{3}{\mh}
+Bruk graftegner eller GeoGebra. Se på $2^x$ og $x^2$ for $x \ge 0$.
+\begin{tasks}(1)
+  \task For hvilke $x \ge 0$ er $2^x > x^2$?
+  \task Se på $x$ fra 10 til 11. Hva skjer med hver verdi? Forklar hvorfor $2^x$ vinner for store $x$.
+\end{tasks}
+
+\oppg{2.10}{3}{\uh}
+En funksjon $f$ går gjennom $(2, 20)$ og $(4, 80)$.
+\begin{tasks}(1)
+  \task Finn $a$ og $b$ i potensfunksjonen $f(x) = a \cdot x^b$.
+  \task Finn $a$ og $b$ i eksponentialfunksjonen $g(x) = a \cdot b^x$ gjennom de samme punktene.
+  \task Regn ut $f(6)$ og $g(6)$.
+  \task Lag selv et tredje punkt som ligger på bare én av grafene. Forklar hva det forteller om dataene.
+\end{tasks}
+
+\begin{sjekk}
+\begin{tasks}(2)
+  \task Hva ganges $f(x) = x^3$ med når $x$ dobles?
+  \task Regn ut $3^x$ og $x^3$ for $x = 2$.
+  \task! Skriv $\dfrac{1}{x^2}$ som en potensfunksjon.
+\end{tasks}
+\end{sjekk}
