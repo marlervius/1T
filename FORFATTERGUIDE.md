@@ -59,6 +59,9 @@ Ingen preamble, ingen `\documentclass`, ingen `\usepackage`. Byggeskriptet lager
 - `\polylongdiv{x^3-2x^2-5x+6}{x-1}` — polynomdivisjon med norsk oppstilling. Pakken regner selv
   (også rest). `\polylongdiv[stage=3]{…}{…}` viser bare de første stegene — fint til «fullfør»-oppgaver.
   Skriv polynomene uten mellomrom og med `^` (ikke `\cdot`). Kontroller svaret i `verifiser.py` med `div()`.
+- **Fortegnslinjer og tallinjer lages ALLTID med `verktoy/figurer.py`** (fortegnene regnes av sympy):
+  `python3 verktoy/figurer.py fortegn "x+1" "x-3"` · med nevner: `… fortegn "x-1" "/x+2" --navn "\dfrac{x-1}{x+2}"`
+  · tallinje: `python3 verktoy/figurer.py tallinje "[-1,3>" "<5,->" --fra -3 --til 7`. Lim utskriften inn som den er.
 - `\hint{tekst}` — grått tips under en oppgave (bruk sjelden, mest på nivå 3)
 - `\skrivlinje[3cm]`, `\rute` — tomme felt i «fullfør»-oppgaver
 - `minipage[t]` med `\begin{tabular}[t]` — to spalter i `mustkunne`
