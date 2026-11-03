@@ -1,0 +1,250 @@
+% =====================================================================
+%  1.3 Rotuttrykk og brøkeksponenter — teori og oppgaver
+% =====================================================================
+
+\del{1}{Kvadratrot og n-te rot}
+
+\begin{ordliste}
+kvadratrot & Tallet $\sqrt{a}$ er det tallet som er $\ge 0$ og som ganget med seg selv gir $a$. & \mittsprak\\
+$n$-te rot & Tallet $\sqrt[n]{a}$ er det tallet som opphøyd i $n$ gir $a$. Eksempel: $\sqrt[3]{8} = 2$. & \mittsprak\\
+rotuttrykk & Et uttrykk med rottegn, for eksempel $3\sqrt{2} + 1$. & \mittsprak\\
+irrasjonalt tall & Et tall som ikke kan skrives som en brøk av heltall. $\sqrt{2}$ er irrasjonalt. & \mittsprak\\
+rasjonal nevner & En nevner uten rottegn. Å gjøre nevneren rasjonal betyr å fjerne roten fra nevneren. & \mittsprak\\
+\end{ordliste}
+
+\begin{mustkunne}
+\begin{minipage}[t]{0.47\linewidth}
+\textbf{Definisjon.} $\sqrt{9} = 3$, fordi $3 \ge 0$ og $3 \cdot 3 = 9$. Partallsrøtter av negative tall finnes ikke. Oddetallsrøtter finnes: $\sqrt[3]{-8} = -2$.\par
+\textbf{Hvorfor produktregelen virker:}
+\[ (\sqrt{a}\cdot\sqrt{b})^2 = (\sqrt{a})^2 (\sqrt{b})^2 = ab \]
+Og $\sqrt{a}\cdot\sqrt{b} \ge 0$. Da er det tallet som gir $ab$ når det kvadreres, altså $\sqrt{ab}$.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.49\linewidth}
+\textbf{Regler} ($a, b \ge 0$)\par
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}[t]{@{}l l@{}}
+$\sqrt{ab} = \sqrt{a}\cdot\sqrt{b}$ & Produkt\\
+$\sqrt{\dfrac{a}{b}} = \dfrac{\sqrt{a}}{\sqrt{b}}$ & Brøk ($b \neq 0$)\\
+$\sqrt{a}\cdot\sqrt{a} = a$ & Rot ganger rot\\
+\end{tabular}
+\end{minipage}
+\end{mustkunne}
+
+\begin{eksempel}[1 — forenkle og trekke sammen]
+Forenkle $\sqrt{48} - \sqrt{12} + \sqrt{27}$.
+
+\begin{stegtabell}
+$= \sqrt{16\cdot 3} - \sqrt{4\cdot 3} + \sqrt{9\cdot 3}$ & Finn største kvadrattall som er faktor i hvert tall.\\
+$= 4\sqrt{3} - 2\sqrt{3} + 3\sqrt{3}$ & Produktregelen: $\sqrt{16\cdot3} = \sqrt{16}\cdot\sqrt{3}$.\\
+$= (4 - 2 + 3)\sqrt{3} = 5\sqrt{3}$ & Like rotledd trekkes sammen, som $4x - 2x + 3x$.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{eksempel}[2 — rasjonal nevner]
+Gjør nevneren rasjonal: $\dfrac{10}{\sqrt{5}}$.
+
+\begin{stegtabell}
+$= \dfrac{10\cdot\sqrt{5}}{\sqrt{5}\cdot\sqrt{5}} = \dfrac{10\sqrt{5}}{5} = 2\sqrt{5}$ & Utvid med $\sqrt{5}$. Nevneren blir 5. Forkort.\\
+Kontroll: & $2\sqrt{5}\cdot\sqrt{5} = 2\cdot 5 = 10$. Da er $\frac{10}{\sqrt{5}} = 2\sqrt{5}$.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{vanligfeil}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
+  \item $\sqrt{a+b} = \sqrt{a} + \sqrt{b}$ er feil. Sjekk: $\sqrt{9+16} = 5$, men $3 + 4 = 7$.
+  \item $\sqrt{8} + \sqrt{2} = \sqrt{10}$ er feil. Forenkle først: $2\sqrt{2} + \sqrt{2} = 3\sqrt{2}$.
+  \item $2\sqrt{3} = \sqrt{6}$ er feil. Tallet 2 går under roten som $2^2$: $2\sqrt{3} = \sqrt{4\cdot 3} = \sqrt{12}$.
+\end{itemize}
+\end{vanligfeil}
+
+\nivaahode{1}
+
+\oppg{1.1}{1}{\uh}
+Regn ut.
+\begin{tasks}(4)
+  \task $\sqrt{81}$
+  \task $\sqrt[3]{27}$
+  \task $\sqrt[3]{-8}$
+  \task $\sqrt{\dfrac{4}{25}}$
+\end{tasks}
+
+\oppg{1.2}{1}{\uh}
+Forenkle.
+\begin{tasks}(4)
+  \task $\sqrt{12}$
+  \task $\sqrt{50}$
+  \task $\sqrt{45}$
+  \task $\sqrt{72}$
+\end{tasks}
+
+\nivaahode{2}
+
+\oppg{1.3}{2}{\uh}
+Forenkle.
+\begin{tasks}(2)
+  \task $\sqrt{18} + \sqrt{50} - \sqrt{8}$
+  \task $\sqrt{20} + \sqrt{45}$
+  \task $3\sqrt{12} - \sqrt{27}$
+  \task $\sqrt{2}\cdot\sqrt{18}$
+\end{tasks}
+
+\oppg{1.4}{2}{\uh}
+Gjør nevneren rasjonal. Forenkle svaret.
+\begin{tasks}(4)
+  \task $\dfrac{6}{\sqrt{3}}$
+  \task $\dfrac{14}{\sqrt{7}}$
+  \task $\dfrac{4}{\sqrt{8}}$
+  \task $\dfrac{6}{\sqrt{2}}$
+\end{tasks}
+
+\oppg{1.5}{2}{\uh}
+Finn \textbf{den første feilen}. Regn riktig.
+\[ \sqrt{9+16} \quad\longrightarrow\quad \sqrt{9}+\sqrt{16} \quad\longrightarrow\quad 3+4 \quad\longrightarrow\quad 7 \]
+
+\nivaahode{3}
+
+\oppg{1.6}{3}{\uh}
+Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret.
+\begin{tasks}(1)
+  \task $\sqrt{x^2} = x$ for et vilkårlig tall $x$
+  \task $\sqrt{a+b} = \sqrt{a} + \sqrt{b}$ for $a, b \ge 0$
+  \task $\sqrt{a}\cdot\sqrt{a} = a$ for $a \ge 0$
+\end{tasks}
+
+\oppg{1.7}{3}{\uh}
+Anta at $a, b \ge 0$.
+\begin{tasks}(2)
+  \task Vis at $\sqrt{a^2 b} = a\sqrt{b}$.
+  \task Forenkle $\sqrt{75a^2}$.
+\end{tasks}
+
+\begin{sjekk}
+\begin{tasks}(2)
+  \task Forenkle $\sqrt{32}$.
+  \task Forenkle $\sqrt{27} + \sqrt{3}$.
+  \task! Hvorfor er $\sqrt{9+16}$ ikke lik $\sqrt{9}+\sqrt{16}$? Forklar med tall.
+\end{tasks}
+\end{sjekk}
+
+% ---------------------------------------------------------------------
+
+\del{2}{Brøk som eksponent}
+
+\begin{ordliste}
+brøkeksponent & En eksponent som er en brøk, for eksempel $9^{\frac{1}{2}}$ eller $8^{\frac{2}{3}}$. & \mittsprak\\
+positivt grunntall & Brøkeksponenter bruker vi bare når grunntallet $a$ er større enn 0. & \mittsprak\\
+omskrive & Å skrive det samme tallet på en annen form, for eksempel en rot som en potens. & \mittsprak\\
+\end{ordliste}
+
+\begin{mustkunne}
+\textbf{Hvorfor $a^{\frac12} = \sqrt{a}$?} Potensregelen $(a^m)^n = a^{m\cdot n}$ skal gjelde også for brøker. Da må
+\[ \left(a^{\frac12}\right)^2 = a^{\frac12 \cdot 2} = a^1 = a \]
+Altså er $a^{\frac12}$ et positivt tall som ganget med seg selv gir $a$. Det er definisjonen av $\sqrt{a}$.
+Vi definerer brøkeksponenter bare for $a > 0$:
+\[ a^{\frac{1}{n}} = \sqrt[n]{a} \qquad\qquad a^{\frac{m}{n}} = \left(\sqrt[n]{a}\right)^m = \sqrt[n]{a^m} \qquad\qquad a^{-\frac{m}{n}} = \frac{1}{a^{\frac{m}{n}}} \]
+Nevneren i eksponenten er rotens tall. Telleren er potensen.
+\end{mustkunne}
+
+\begin{eksempel}[1 — regn ut $16^{\frac34}$ på to måter]
+\begin{stegtabell}
+$16^{\frac34} = \left(\sqrt[4]{16}\right)^3 = 2^3 = 8$ & Rot først: $2^4 = 16$. Tallene er små.\\
+$16^{\frac34} = \sqrt[4]{16^3} = \sqrt[4]{4096} = 8$ & Potens først: vi må kjenne igjen at $8^4 = 4096$.\\
+\end{stegtabell}
+Begge gir 8. Uten hjelpemidler er den første måten lettest: ta roten først.
+\end{eksempel}
+
+\begin{eksempel}[2 — skriv som én potens]
+Skriv $\dfrac{x\sqrt{x}}{\sqrt[3]{x}}$ som én potens av $x$ ($x > 0$).
+
+\begin{stegtabell}
+$= \dfrac{x^1 \cdot x^{\frac12}}{x^{\frac13}}$ & Skriv hver rot som en potens.\\
+$= x^{1 + \frac12 - \frac13}$ & Produkt: legg sammen. Kvotient: trekk fra.\\
+$= x^{\frac{6}{6}+\frac{3}{6}-\frac{2}{6}} = x^{\frac76}$ & Felles nevner 6.\\
+Kontroll med $x = 64$: & $\frac{64\cdot 8}{4} = 128$ og $64^{\frac76} = 2^7 = 128$. Det stemmer.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{vanligfeil}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
+  \item $a^{\frac12} = \frac{a}{2}$ er feil. Eksponenten $\frac12$ betyr kvadratrot: $a^{\frac12} = \sqrt{a}$.
+  \item $8^{\frac23} = \frac{8^2}{3}$ er feil. Nevneren 3 er rotens tall: $8^{\frac23} = (\sqrt[3]{8})^2 = 4$.
+  \item $a^{-\frac12} = -\sqrt{a}$ er feil. Negativ eksponent gir brøk, som i 1.1: $a^{-\frac12} = \frac{1}{\sqrt{a}}$.
+\end{itemize}
+\end{vanligfeil}
+
+\nivaahode{1}
+
+\oppg{2.1}{1}{\uh}
+Skriv som en potens med brøkeksponent ($x > 0$).
+\begin{tasks}(4)
+  \task $\sqrt{7}$
+  \task $\sqrt[3]{5}$
+  \task $\sqrt{x^3}$
+  \task $\left(\sqrt[3]{x}\right)^2$
+\end{tasks}
+
+\oppg{2.2}{1}{\uh}
+Regn ut.
+\begin{tasks}(4)
+  \task $25^{\frac12}$
+  \task $27^{\frac13}$
+  \task $4^{\frac32}$
+  \task $8^{\frac23}$
+\end{tasks}
+
+\nivaahode{2}
+
+\oppg{2.3}{2}{\uh}
+Regn ut.
+\begin{tasks}(4)
+  \task $27^{-\frac13}$
+  \task $16^{-\frac34}$
+  \task $\left(\dfrac{4}{9}\right)^{-\frac12}$
+  \task $32^{\frac25}$
+\end{tasks}
+
+\oppg{2.4}{2}{\uh}
+Skriv som én potens av $x$ ($x > 0$).
+\begin{tasks}(4)
+  \task $x\cdot\sqrt{x}$
+  \task $\sqrt{x}\cdot\sqrt[3]{x}$
+  \task $\dfrac{x^2}{\sqrt[4]{x}}$
+  \task $\dfrac{\sqrt[3]{x^2}}{\sqrt{x}}$
+\end{tasks}
+
+\oppg{2.5}{2}{\uh}
+Finn \textbf{den første feilen}. Regn riktig.
+\[ 25^{-\frac12} \quad\longrightarrow\quad -\sqrt{25} \quad\longrightarrow\quad -5 \]
+
+\oppg{2.6}{2}{\mh}
+Keplers tredje lov sier at omløpstiden er $T = a^{\frac32}$. Her er $T$ i år og $a$ er middelavstanden til sola i astronomiske enheter.
+\begin{tasks}(1)
+  \task Mars har $a \approx 1,52$. Finn omløpstiden. Svar med to gjeldende siffer.
+  \task Et objekt har $T = 8$ år. Finn $a$ eksakt.
+\end{tasks}
+
+\nivaahode{3}
+
+\oppg{2.7}{3}{\uh}
+Løs likningene. Vis hvordan du tenker.
+\begin{tasks}(2)
+  \task $x^{\frac32} = 27$
+  \task $x^{-\frac12} = \dfrac{1}{5}$
+\end{tasks}
+\hint{Opphøy begge sider i den omvendte eksponenten.}
+
+\oppg{2.8}{3}{\uh}
+La $a > 0$. Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret.
+\begin{tasks}(1)
+  \task $a^{-\frac12} = -\sqrt{a}$
+  \task $a^{\frac12} = \dfrac{a}{2}$
+  \task $a^{\frac12} < a$
+\end{tasks}
+
+\begin{sjekk}
+\begin{tasks}(2)
+  \task Regn ut $9^{\frac32}$.
+  \task Regn ut $8^{-\frac13}$.
+  \task! Forklar hvorfor $a^{\frac12} = \sqrt{a}$. Bruk regelen $(a^m)^n = a^{mn}$.
+\end{tasks}
+\end{sjekk}

@@ -60,13 +60,30 @@ def chk(nr, verdi, forventet, tol=1e-9):
 
 def los(nr, likning, forventet, var=None, domene=S.Reals):
     """Løs likningen med sympy og sammenlign med forventet liste av løsninger.
-    Bruk forventet=[] for «ingen løsning» og forventet="alle" for alle reelle tall."""
+    Bruk forventet=[] for «ingen løsning» og forventet="alle" for alle tillatte verdier.
+    Verdier som gjør en nevner lik 0, blir alltid fjernet (sympy alene gjør ikke det riktig
+    for likninger med x i nevneren)."""
     var = var or x
-    if not isinstance(likning, Eq):
-        likning = Eq(likning, 0)
-    losning = solveset(likning, var, domain=domene)
+    if isinstance(likning, tuple):          # los(nr, (venstre, hoyre), ...) hindrer at sympy forenkler bort likningen
+        venstre, hoyre = map(sympify, likning)
+    elif likning is S.true or likning is S.false:
+        raise ValueError(f"{nr}: sympy gjorde likningen om til {likning}. Skriv los(nr, (venstre, høyre), ...) i stedet for Eq(...).")
+    elif isinstance(likning, Eq):
+        venstre, hoyre = sympify(likning.lhs), sympify(likning.rhs)
+    else:
+        venstre, hoyre = sympify(likning), S.Zero
+    ikke_tillatt = S.EmptySet
+    for side in (venstre, hoyre):
+        for ledd in Add.make_args(side):
+            nevner = fraction(together(ledd))[1]
+            if nevner.has(var):
+                ikke_tillatt = Union(ikke_tillatt, solveset(nevner, var, domain=domene))
+    teller = fraction(together(venstre - hoyre))[0]
+    losning = Complement(solveset(teller, var, domain=domene), ikke_tillatt)
     if forventet == "alle":
-        ok = losning == domene
+        ok = losning == Complement(domene, ikke_tillatt)
+    elif len(forventet) == 0:
+        ok = losning == S.EmptySet
     else:
         ok = isinstance(losning, FiniteSet) and _lik(list(losning), list(forventet), 1e-9)
     _logg.append({"nr": nr, "type": "los", "verdi": str(losning), "forventet": str(forventet), "ok": ok})

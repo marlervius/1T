@@ -153,7 +153,9 @@ chk("1.4a", (3*x**2)**3, 27*x**6)                 # uttrykk = forventet (sympy f
 chk("1.2b", Rational(2, 3)**2, Rational(4, 9))    # brøker med Rational, aldri 0.666
 los("2.3a", Eq(x**2 - 5*x + 6, 0), [2, 3])         # løs likning, sammenlign løsningsmengden
 los("3.4", Eq(2*x + 1, 2*x + 3), [])               # ingen løsning
-los("3.5", Eq(2*(x + 1), 2*x + 2), "alle")         # alle reelle tall
+los("3.5", (2*(x + 1), 2*x + 2), "alle")          # alle tillatte verdier (bruk tuppel, ikke Eq,
+                                                   # ellers gjør sympy identiteten om til True)
+los("3.6", Eq(x/(x - 2), 2/(x - 2) + 3), [])        # x = 2 fjernes automatisk (nevner 0)
 sant("2.8", Rational(1, 1024) < Rational(1, 1000), "rekkefølge")
 aapen("2.7", "Forklaringsoppgave")                 # bare for oppgaver som ikke kan regnes
 rapport()                                          # alltid sist
