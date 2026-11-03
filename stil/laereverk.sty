@@ -222,7 +222,7 @@
 % ---------- Forsider (brukes av byggeskriptet) ----------
 \newcommand{\banner}[3]{% #1 overlinje, #2 tittel, #3 bakgrunnsfarge
   \begin{tcolorbox}[colback=#3,colframe=#3,arc=4pt,left=12pt,right=12pt,top=12pt,bottom=12pt]
-    \color{white}
+    \raggedright\color{white}
     {\small\MakeUppercase{#1}}\\[5pt]
     {\fontsize{24}{28}\selectfont\bfseries #2}%
     \ifdefempty{\sundertittel}{}{\\[5pt]{\Large \sundertittel}}%
@@ -291,7 +291,7 @@
 \newcommand{\forsidefasit}{%
   \thispagestyle{empty}
   \begin{tcolorbox}[colback=graa,colframe=graa,arc=3pt,left=8pt,right=8pt,top=6pt,bottom=6pt]
-    \color{white}{\Large\bfseries Fasit — \snr\ \stittel}\hfill{\small Kontroller metoden, ikke bare svaret.}
+    \color{white}{\Large\bfseries Fasit — \snr\ \stittel}\\[2pt]{\small Kontroller metoden, ikke bare svaret.}
   \end{tcolorbox}}
 
 \endinput
