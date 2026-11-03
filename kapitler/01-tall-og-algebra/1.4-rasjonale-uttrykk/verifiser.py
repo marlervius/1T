@@ -10,6 +10,10 @@ def vilkaar(*nevnere):
     return sorted(mengde)
 
 
+def subs0(u):
+    return u.subs(x, 1) != 2
+
+
 def likt(u, v):
     return simplify(u - v) == 0
 
@@ -30,6 +34,19 @@ chk("Eks 2.2 forkortet", 2 / (x**2 - 4), 2 / ((x - 2) * (x + 2)))
 chk("Eks 2.2 kontroll", (x / (x**2 - 4) - 1 / (x + 2)).subs(x, 3), Rational(2, 5))
 chk("Eks 2.2 kontroll2", (2 / (x**2 - 4)).subs(x, 3), Rational(2, 5))
 
+# ---------- Vanlige feil ----------
+sant("VF 1a", not likt((x + 2) / x, 2) and subs0((x + 2) / x), "(x+2)/x er ikke 2")
+sant("VF 1b", ((x + 3) / (x + 5)).subs(x, 1) != Rational(3, 5), "x=1 gir 4/6")
+chk("VF 1b tall", Rational(4, 6), Rational(2, 3))
+chk("VF 1c", (x - 3) / (3 - x), -1)
+chk("VF 1d", ((x**2 - 9) / (x**2 + 3 * x)) - (x - 3) / x, 0)
+sant("VF 2a", Rational(1, 2) + Rational(1, 3) == Rational(5, 6) and Rational(5, 6) != Rational(2, 5), "1/2+1/3")
+sant("VF 2b", not likt(2 / x - (x - 1) / x, (2 - x - 1) / x) and likt(2 / x - (x - 1) / x, (2 - x + 1) / x), "minus foran brøk")
+chk("VF 2c", 1 / x + 1 / x**2, (x**2 + x) / x**3)
+chk("VF 2c forkortet", (x**2 + x) / x**3, (x + 1) / x**2)
+chk("VF 2c lcm", lcm(x, x**2), x**2)
+chk("VF 2d", (1 / x + 1 / (x + 1)).subs(x, 1), Rational(3, 2))
+
 # ---------- Del 1 ----------
 chk("1.1a", 6 * x**2 / (9 * x), 2 * x / 3)
 chk("1.1a vilkår", vilkaar(9 * x), [0])
@@ -42,7 +59,7 @@ chk("1.1d vilkår", vilkaar(x**2 - 4 * x), [0, 4])
 
 chk("1.2a", factor(x**2 - 25), (x - 5) * (x + 5))
 chk("1.2b", factor(x**2 - 5 * x), x * (x - 5))
-chk("1.2c", (x**2 - 25) / (x**2 - 5 * x), (x + 5) / x)
+chk("1.2b svar", (x**2 - 25) / (x**2 - 5 * x), (x + 5) / x)
 chk("1.2c vilkår", vilkaar(x**2 - 5 * x), [0, 5])
 
 chk("1.3a", vilkaar(x - 3), [3])
@@ -68,16 +85,16 @@ chk("1.5b vilkår", vilkaar(x + 1, x + 3), [-3, -1])
 chk("1.5c", e15c, 1 / x)
 chk("1.5c vilkår", vilkaar(x**2 - 4, x**2), [-2, 0, 2])
 
-chk("1.6", (x**2 - 9) / (x**2 - 3 * x), (x + 3) / x)
-chk("1.6 vilkår", vilkaar(x**2 - 3 * x), [0, 3])
-sant("1.6 feil", not likt((x**2 - 9) / (x**2 - 3 * x), 3 / x), "svaret 3/x er feil")
-chk("1.6 kontroll", [((x**2 - 9) / (x**2 - 3 * x)).subs(x, 6), Rational(3, 6)], [Rational(3, 2), Rational(1, 2)])
+chk("1.6", (3 * x**2 - 12) / (x**2 + 2 * x), 3 * (x - 2) / x)
+chk("1.6 vilkår", vilkaar(x**2 + 2 * x), [-2, 0])
+sant("1.6 feil", not likt((3 * x**2 - 12) / (x**2 + 2 * x), -3), "svaret -3 er feil")
+chk("1.6 kontroll", ((3 * x**2 - 12) / (x**2 + 2 * x)).subs(x, 3), 1)
 
 # 1.7: alltid / noen ganger / aldri
 chk("1.7a", (x**2 - 1) / (x - 1), x + 1)
 chk("1.7a vilkår", vilkaar(x - 1), [1])
-chk("1.7b", (x - 3) / (3 - x), -1)
-los("1.7c", Eq((x + 3) / (x + 5), Rational(3, 5)), [0])
+los("1.7b", ((x + 2) / x, 2), [2])
+los("1.7c", ((2 * x + 1) / x, 2), [])
 
 aapen("1.8", "Lag selv: f.eks. (x+1)(x-3)/((x-2)(x-3))")
 eks18 = (x + 1) * (x - 3) / ((x - 2) * (x - 3))
@@ -91,7 +108,7 @@ chk("1.9 kontroll", [(x / (x + 2)).subs(x, 2)], [S.Half])
 chk("Sjekk 1a", (2 * x + 4) / (x**2 - 4), 2 / (x - 2))
 chk("Sjekk 1a vilkår", vilkaar(x**2 - 4), [-2, 2])
 chk("Sjekk 1b", vilkaar(x - 5), [5])
-chk("Sjekk 1c", [Rational(1 + 3, 1 + 5), Rational(3, 5)], [Rational(2, 3), Rational(3, 5)])
+chk("Sjekk 1c", [Rational(1 + 4, 1 + 1), 4], [Rational(5, 2), 4])
 aapen("Sjekk 1c tekst", "x+3 og x+5 er summer, ikke faktorer; tallprøve")
 
 # ---------- Del 2 ----------
@@ -110,7 +127,7 @@ chk("2.3c", lcm(2 * x, 3 * x**2), 6 * x**2)
 
 chk("2.4a", 1 / x + 2 / (x + 3), 3 * (x + 1) / (x * (x + 3)))
 chk("2.4b", 3 / (x - 1) - 2 / x, (x + 2) / (x * (x - 1)))
-chk("2.4c", 1 / (2 * x) + 1 / (3 * x**2), (3 * x + 2) / (6 * x**2))
+chk("2.4c", 1 / (4 * x**2) + 1 / (6 * x), (2 * x + 3) / (12 * x**2))
 chk("2.4d", x / (x + 1) + 1 / (x - 1), (x**2 + 1) / (x**2 - 1))
 
 chk("2.5a", 1 / (x - 3) - 6 / (x**2 - 9), 1 / (x + 3))
@@ -120,15 +137,17 @@ chk("2.5b vilkår", vilkaar(x**2 - 1, x + 1), [-1, 1])
 chk("2.5c", 1 / x - 1 / (x**2 + x), 1 / (x + 1))
 chk("2.5c vilkår", vilkaar(x, x**2 + x), [-1, 0])
 
-chk("2.6", 2 / x - (x - 1) / x, (3 - x) / x)
-sant("2.6 feil", not likt(2 / x - (x - 1) / x, (1 - x) / x), "(2-x-1)/x er feil")
-chk("2.6 kontroll", [(2 / x - (x - 1) / x).subs(x, 2), (3 - x).subs(x, 2) / 2], [S.Half, S.Half])
+chk("2.6", 3 / (x - 1) - (x + 1) / (x**2 - 1), 2 / (x - 1))
+chk("2.6 vilkår", vilkaar(x - 1, x**2 - 1), [-1, 1])
+chk("2.6 steg 3", 3 * x + 3 - (x + 1), 2 * x + 2)
+sant("2.6 feil", not likt(3 / (x - 1) - (x + 1) / (x**2 - 1), (2 * x + 4) / (x**2 - 1)), "2x+4 er feil")
+chk("2.6 kontroll", (3 / (x - 1) - (x + 1) / (x**2 - 1)).subs(x, 3), 1)
 
 sv = symbols("s", positive=True)
 chk("2.7a", sv / 60 + sv / 40, sv / 24)
 chk("2.7b", 2 * sv / (sv / 60 + sv / 40), 48)
 v1, v2 = symbols("v1 v2", positive=True)
-chk("2.7 generell", 2 * sv / (sv / v1 + sv / v2), 2 * v1 * v2 / (v1 + v2))
+chk("2.10", 2 * sv / (sv / v1 + sv / v2), 2 * v1 * v2 / (v1 + v2))
 chk("2.7 generell tall", (2 * v1 * v2 / (v1 + v2)).subs({v1: 60, v2: 40}), 48)
 
 los("2.8a", Eq(x / (x - 2), 2 / (x - 2) + 3), [])
@@ -142,8 +161,9 @@ sant("2.9", all(a**2 + b**2 > 0 for a, b in [(1, 2), (-3, 1), (5, -5)]), "a^2+b^
 chk("2.9 kontroll", [Rational(1, 2) + Rational(1, 3), Rational(2, 5)], [Rational(5, 6), Rational(2, 5)])
 
 chk("Sjekk 2a", 1 / x + 1 / y, (x + y) / (x * y))
-chk("Sjekk 2b", 3 / x - (x + 1) / x, (2 - x) / x)
-chk("Sjekk 2c", [Rational(1, 2) + Rational(1, 3), Rational(2, 5)], [Rational(5, 6), Rational(2, 5)])
+chk("Sjekk 2b", 2 / x - 3 / (x + 2), (4 - x) / (x * (x + 2)))
+chk("Sjekk 2b vilkår", vilkaar(x, x + 2), [-2, 0])
+chk("Sjekk 2c", [Rational(1, 4) + Rational(1, 4), Rational(2, 8)], [Rational(1, 2), Rational(1, 4)])
 
 # ---------- Utfordring ----------
 uU1 = (x**2 - 4) / (x**2 + 4 * x + 4) / ((x - 2) / (x**2 + 2 * x))
@@ -164,6 +184,11 @@ for i in range(1, 11):
     utskrift.append(sum_)
 chk("U6", [str(f) for f in utskrift],
     ["1/2", "2/3", "3/4", "4/5", "5/6", "6/7", "7/8", "8/9", "9/10", "10/11"])
+sm = symbols("m", positive=True)
+chk("U6c", sum(Rational(1, (2 * i - 1) * (2 * i + 1)) for i in range(1, 11)), Rational(10, 21))
+chk("U6c alle n", [sum(Rational(1, (2 * i - 1) * (2 * i + 1)) for i in range(1, N + 1)) for N in range(1, 30)], [Rational(N, 2 * N + 1) for N in range(1, 30)])
+chk("U6c bevis", Rational(1, 2) * (1 / (2 * n - 1) - 1 / (2 * n + 1)), 1 / ((2 * n - 1) * (2 * n + 1)))
+chk("U6c sum", Rational(1, 2) * (1 - 1 / (2 * n + 1)), n / (2 * n + 1))
 chk("U7", (x + 5) / (x - 1), 1 + 6 / (x - 1))
 heltall = [m for m in range(-100, 101) if m != 1 and (m + 5) % (m - 1) == 0]
 chk("U7 heltall", heltall, [-5, -2, -1, 0, 2, 3, 4, 7])

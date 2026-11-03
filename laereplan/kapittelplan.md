@@ -19,7 +19,7 @@ Status: `—` ikke startet · `brief` brief skrevet · `utkast` forfatter ferdig
 | 1.1 | Potenser | Potensreglene · Null, negative eksponenter og standardform | 9 | ferdig (mønster) |
 | 1.2 | Kvadratsetningene og faktorisering | Kvadratsetningene · Faktorisering | 6 | ferdig (pilot) |
 | 1.3 | Rotuttrykk og brøkeksponenter | $\sqrt[n]{a}$ og $a^{1/n}$ · $a^{m/n}$ og regneregler | 9 | ferdig |
-| 1.4 | Rasjonale uttrykk | Forkorte · Addere og subtrahere med fellesnevner | 4, 11 | utkast |
+| 1.4 | Rasjonale uttrykk | Forkorte · Addere og subtrahere med fellesnevner | 4, 11 | ferdig |
 
 ## Kapittel 2 Likninger og ulikheter  (`kapitler/02-likninger-og-ulikheter/`)
 
@@ -34,7 +34,7 @@ Status: `—` ikke startet · `brief` brief skrevet · `utkast` forfatter ferdig
 
 | Nr | Seksjon | Deler | KM | Status |
 |---|---|---|---|---|
-| 3.1 | Funksjonsbegrepet og lineære funksjoner | Definisjonsmengde og verdimengde · Stigningstall og konstantledd | 5, 3 | — |
+| 3.1 | Funksjonsbegrepet og lineære funksjoner | Definisjonsmengde og verdimengde · Stigningstall og konstantledd | 5, 3 | brief |
 | 3.2 | Andregradsfunksjoner | Nullpunkter og symmetrilinje · Ekstremalpunkt og fullstendige kvadraters metode | 6, 9 | — |
 | 3.3 | Polynomfunksjoner og polynomdivisjon | Polynomdivisjon og faktorisering · Nullpunkter og forløp | 11, 9 | — |
 | 3.4 | Rasjonale funksjoner | Asymptoter (med polynomdivisjon) · Rasjonale likninger og ulikheter | 9, 11, 4 | — |
