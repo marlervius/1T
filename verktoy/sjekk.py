@@ -172,7 +172,7 @@ def sjekk_verifisering(mappe, oppgaver, delnr):
         return
     nr_kontrollert = [k["nr"] for k in json.loads(logg.read_text(encoding="utf-8"))]
     for o in oppgaver + [f"Sjekk {d}" for d in delnr]:
-        if not any(re.fullmatch(re.escape(o) + r"[a-z]?\d*", k) for k in nr_kontrollert):
+        if not any(re.match(re.escape(o) + r"(?![\d.])", k) for k in nr_kontrollert):
             F(f"verifiser.py: ingen kontroll for oppgave {o}.")
     aapne = [k for k in json.loads(logg.read_text(encoding="utf-8")) if k["type"] == "aapen"]
     if nr_kontrollert and len(aapne) / len(nr_kontrollert) > 0.35:

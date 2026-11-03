@@ -227,11 +227,11 @@ Like store steg i $x$ gir like store endringer i $f(x)$. Derfor blir grafen en r
 \begin{axis}[width=\linewidth, height=0.8\linewidth, axis lines=middle, xmin=-1, xmax=7, ymin=-1, ymax=5,
   xtick={2,6}, ytick={1,2,4}, tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$}, label style={font=\small}]
 \addplot[domain=-1:7, thick, hoved] {0.5*x + 1};
-\draw[red!70!black, thick] (axis cs:0,1) -- (axis cs:2,1) node[midway, below, font=\scriptsize] {$\Delta x = 2$} -- (axis cs:2,2) node[midway, right, font=\scriptsize] {$\Delta y = 1$};
-\draw[red!70!black, thick] (axis cs:2,2) -- (axis cs:6,2) node[midway, below, font=\scriptsize] {$\Delta x = 4$} -- (axis cs:6,4) node[midway, right, font=\scriptsize] {$\Delta y = 2$};
+\draw[red!70!black, thick] (axis cs:0,1) -- (axis cs:2,1) node[midway, below, font=\scriptsize] {$2$} -- (axis cs:2,2) node[midway, right, font=\scriptsize] {$1$};
+\draw[red!70!black, thick] (axis cs:2,2) -- (axis cs:6,2) node[midway, below, font=\scriptsize] {$4$} -- (axis cs:6,4) node[midway, right, font=\scriptsize] {$2$};
 \end{axis}
 \end{tikzpicture}\par
-{\footnotesize Begge trekantene gir $a = \frac{1}{2}$.}
+{\footnotesize Rødt: $\Delta x$ under og $\Delta y$ ved siden av. Begge trekantene gir $a = \frac{1}{2}$.}
 \end{minipage}
 \end{mustkunne}
 
@@ -260,8 +260,8 @@ $f(12) = 3\,880$ kr & Totalprisen etter ett år.\\
 
 \begin{vanligfeil}
 \begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
-  \item $a = \dfrac{y_2 - y_1}{x_1 - x_2}$ er feil. Differansene må tas i samme rekkefølge. Punktene $(1, 2)$ og $(3, 6)$ gir $a = \frac{6-2}{3-1} = 2$, ikke $-2$.
-  \item $a = \dfrac{\Delta x}{\Delta y}$ er feil. Stigningstallet er endring i $y$ delt på endring i $x$, så $a = 2$, ikke $\frac{1}{2}$.
+  \item $a = (y_2 - y_1)/(x_1 - x_2)$ er feil. Differansene må tas i samme rekkefølge. Punktene $(1, 2)$ og $(3, 6)$ gir $a = (6-2)/(3-1) = 2$, ikke $-2$.
+  \item $a = \Delta x/\Delta y$ er feil. Stigningstallet er endring i $y$ delt på endring i $x$. For punktene over er $a = 2$, ikke $0{,}5$.
   \item $f(x+1) = f(x) + 1$ gjelder ikke alltid. For $f(x) = 3x + 2$ øker $f(x)$ med 3, ikke 1, når $x$ øker med 1.
   \item $b$ er ikke alltid en «startverdi». Hvis $x = 0$ ligger utenfor situasjonen, er $b$ bare verdien linjen ville hatt der.
 \end{itemize}

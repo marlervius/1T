@@ -114,8 +114,10 @@ sant("1.10c", lsm(20 > 5 * x) == ap(-oo, 4), "20 > 5x gir x < 4")
 ulikhet("1.11a", 2 * x > 6, ap(3, oo))
 ulikhet("1.11b", -2 * x > 6, ap(-oo, -3))
 sant("1.11c", not (0 * 5 > 6) and lsm(0 * x > 6) == S.EmptySet, "ingen løsning")
-sant("1.11d", lsm(a * x > 6) is not None and lsm(Rational(5) * x > 6) == ap(Rational(6, 5), oo), "x > 6/a")
-sant("1.11e", lsm(Rational(-5) * x > 6) == ap(-oo, Rational(-6, 5)), "x < 6/a")
+ap_pos = symbols("a_pos", positive=True)
+a_neg = symbols("a_neg", negative=True)
+sant("1.11d", lsm(ap_pos * x > 6) == ap(6 / ap_pos, oo), "a > 0: x > 6/a")
+sant("1.11e", lsm(a_neg * x > 6) == ap(-oo, 6 / a_neg), "a < 0: x < 6/a")
 
 # Sjekk 1
 ulikhet("Sjekk 1a", 2 - 4 * x <= 10, Interval(-2, oo))
@@ -185,45 +187,57 @@ ulikhet("2.5c", x**2 - 8 * x + 16 > 0, Union(ap(-oo, 4), ap(4, oo)))
 chk("2.5d D", 6**2 - 4 * 1 * 10, -4)
 ulikhet("2.5d", x**2 + 6 * x + 10 <= 0, S.EmptySet)
 
-# 2.6: hver pil for seg
+# 2.6: hver pil for seg (feilen ligger i faktoriseringen)
 f0 = x**2 - x > 12
 f1 = x**2 - x - 12 > 0
-f2 = (x - 4) * (x + 3) > 0
+f2 = (x - 3) * (x + 4) > 0
+f3 = Union(ap(-oo, -4), ap(3, oo))
 sant("2.6a", lsm(f0) == lsm(f1), "trekk fra 12")
-sant("2.6b", lsm(f1) == lsm(f2) and expand((x - 4) * (x + 3)) == x**2 - x - 12, "faktorisering")
-sant("2.6c", lsm(f2) != ap(-3, 4), "produktet er positivt utenfor nullpunktene")
+sant("2.6b", lsm(f1) != lsm(f2) and expand((x - 3) * (x + 4)) == x**2 + x - 12, "feil faktorisering: (x-3)(x+4) = x^2 + x - 12")
+sant("2.6c", lsm(f2) == f3, "avlesing av fortegnslinja stemmer for den gale faktoriseringen")
 ulikhet("2.6d", x**2 - x > 12, Union(ap(-oo, -3), ap(4, oo)))
+chk("2.6e riktig faktorisering", expand((x - 4) * (x + 3)), x**2 - x - 12)
+
+# 2.7 les av parabel med negativ a
+chk("2.7a faktorisering", expand(-(x + 2) * (x - 4)), -(x**2) + 2 * x + 8)
+los("2.7a nullpunkter", Eq(-(x**2) + 2 * x + 8, 0), [-2, 4])
+ulikhet("2.7b", -(x**2) + 2 * x + 8 >= 0, Interval(-2, 4))
+ulikhet("2.7b <", -(x**2) + 2 * x + 8 < 0, Union(ap(-oo, -2), ap(4, oo)))
+chk("2.7 toppunkt", -(1**2) + 2 * 1 + 8, 9)
+ulikhet("2.7c", -(x + 2) * (x - 4) >= 0, Interval(-2, 4))
 
 # 2.7 alltid / noen ganger / aldri
-ulikhet("2.7a", x**2 > x, Union(ap(-oo, 0), ap(1, oo)))
-ulikhet("2.7b", (x - 3) ** 2 >= 0, S.Reals)
-ulikhet("2.7c", x**2 + 1 < 0, S.EmptySet)
-ulikhet("2.7d", -(x**2) <= 0, S.Reals)
+ulikhet("2.8a", x**2 > x, Union(ap(-oo, 0), ap(1, oo)))
+ulikhet("2.8b", (x - 3) ** 2 >= 0, S.Reals)
+ulikhet("2.8c", x**2 + 1 < 0, S.EmptySet)
+ulikhet("2.8d", -(x**2) <= 0, S.Reals)
 
 # 2.8 lag selv (eksempel på godt svar)
-chk("2.8a faktorisering", expand((x + 2) * (x - 5)), x**2 - 3 * x - 10)
-ulikhet("2.8a", x**2 - 3 * x - 10 <= 0, Interval(-2, 5))
-ulikhet("2.8b", (x - 3) ** 2 > 0, Union(ap(-oo, 3), ap(3, oo)))
+chk("2.9a faktorisering", expand((x + 1) * (x - 6)), x**2 - 5 * x - 6)
+ulikhet("2.9a", x**2 - 5 * x - 6 <= 0, Interval(-1, 6))
+ulikhet("2.9b", (x - 3) ** 2 > 0, Union(ap(-oo, 3), ap(3, oo)))
 
 # 2.9: x^2 + kx + 4 > 0 for alle x
-ulikhet("2.9a", k**2 - 16 < 0, ap(-4, 4), var=k)
-ulikhet("2.9b", x**2 + 3 * x + 4 > 0, S.Reals)
-ulikhet("2.9c", x**2 + 4 > 0, S.Reals)
-ulikhet("2.9d", x**2 + 4 * x + 4 > 0, Union(ap(-oo, -2), ap(-2, oo)))
-ulikhet("2.9e", x**2 + 5 * x + 4 > 0, Union(ap(-oo, -4), ap(-1, oo)))
+ulikhet("2.10a", k**2 - 16 < 0, ap(-4, 4), var=k)
+sant("2.10a alle x", all((lsm(x**2 + kk * x + 4 > 0) == S.Reals) == (-4 < kk < 4) for kk in range(-7, 8)), "x^2 + kx + 4 > 0 for alle x nøyaktig når -4 < k < 4 (heltall -7..7)")
+ulikhet("2.10b", x**2 + 3 * x + 4 > 0, S.Reals)
+ulikhet("2.10c", x**2 + 4 > 0, S.Reals)
+ulikhet("2.10d", x**2 + 4 * x + 4 > 0, Union(ap(-oo, -2), ap(-2, oo)))
+ulikhet("2.10e", x**2 + 5 * x + 4 > 0, Union(ap(-oo, -4), ap(-1, oo)))
 
 # Sjekk 2
 chk("Sjekk 2a faktorisering", expand((x + 4) * (x - 3)), x**2 + x - 12)
 ulikhet("Sjekk 2a", x**2 + x - 12 >= 0, Union(Interval(-oo, -4), Interval(3, oo)))
-ulikhet("Sjekk 2b", x**2 + 9 < 0, S.EmptySet)
-sant("Sjekk 2c", (-1) ** 2 >= 7 * (-1) and lsm(x**2 >= 7 * x) == Union(Interval(-oo, 0), Interval(7, oo)), "x = -1 virker, men x >= 7 inneholder ikke -1")
+ulikhet("Sjekk 2b", -((x - 2) ** 2) < 0, Union(ap(-oo, 2), ap(2, oo)))
+ulikhet("Sjekk 2c", x**2 >= 7 * x, Union(Interval(-oo, 0), Interval(7, oo)))
+sant("Sjekk 2c feil", (-1) ** 2 >= 7 * (-1) and not (-1 >= 7), "x = -1 virker, men x >= 7 inneholder ikke -1")
 
 # ======================= Utfordring =======================
 chk("U1 faktorisering", expand(x * (x - 2) * (x + 2)), x**3 - 4 * x)
 ulikhet("U1", x**3 - 4 * x >= 0, Union(Interval(-2, 0), Interval(2, oo)))
 
 ulikhet("U2a", 20 * t - 5 * t**2 > 15, ap(1, 3), var=t)
-chk("U2b", 3 - 1, 2)  # varighet i sekunder
+chk("U2b", ap(1, 3).measure, 2)  # varighet i sekunder
 chk("U2 høyeste", max(20 * i - 5 * i**2 for i in range(0, 5)), 20)
 
 kode = """x = -10
@@ -245,8 +259,10 @@ ulikhet("U3b smalt intervall", (x - Rational(6, 5)) * (x - Rational(7, 5)) < 0, 
 sant("U3b ingen testverdi", not any(Rational(6, 5) < Rational(i, 2) < Rational(7, 5) for i in range(-20, 21)), "ingen multiplum av 0,5 i <1,2; 1,4>")
 ulikhet("U3 løsning", x**2 - 2 * x - 3 < 0, ap(-1, 3))
 
-ulikhet("U4b", x**2 < 3 * x, ap(0, 3))
-sant("U4a", not ((-1) ** 2 < 3 * (-1)) and (-1 < 3), "x = -1 oppfyller ikke x^2 < 3x")
+ulikhet("U4a", x**2 - 1 >= 3, Union(Interval(-oo, -2), Interval(2, oo)))
+ulikhet("U4b", x**2 - 1 < 8, ap(-3, 3))
+sant("U4c", Intersection(lsm(3 <= x**2 - 1), lsm(x**2 - 1 < 8)) == Union(Lop(-3, -2), Rop(2, 3)), "<-3, -2] og [2, 3>")
+sant("U4d kontroll", all((3 <= v**2 - 1 < 8) for v in (Rational(5, 2), -Rational(5, 2), 2, -2)) and not (3 <= 0**2 - 1 < 8), "x = +-2,5 og +-2 virker, x = 0 virker ikke")
 
 ulikhet("U5", (x - 1) / (x + 2) >= 0, Union(ap(-oo, -2), Interval(1, oo)))
 sant("U5 x=-2", (-2) + 2 == 0 and (-2) not in lsm((x - 1) / (x + 2) >= 0), "x = -2 gir nevner 0")
@@ -262,5 +278,10 @@ ulikhet("U7a", 16 - 4 * k >= 0, Interval(-oo, 4), var=k)
 ulikhet("U7b", x**2 - 4 * x + 3 <= 0, Interval(1, 3))
 ulikhet("U7c", x**2 - 4 * x + 4 <= 0, FiniteSet(2))
 ulikhet("U7d", x**2 - 4 * x + 5 <= 0, S.EmptySet)
+sant("U7a ulikheten", all((lsm(x**2 - 4 * x + kk <= 0) != S.EmptySet) == (kk <= 4) for kk in range(-6, 9)), "minst én løsning nøyaktig når k <= 4 (heltall -6..8)")
+chk("U7e rot-intervall", sorted(solve(Eq(x**2 - 4 * x + k, 0), x), key=lambda e: e.subs(k, 0)), [2 - sqrt(4 - k), 2 + sqrt(4 - k)])
+ulikhet("U7f", x**2 - 4 * x - 5 <= 0, Interval(-1, 5))
+chk("U7f lengde", Interval(-1, 5).measure, 6)
+los("U7f k", Eq(2 * sqrt(4 - k), 6), [-5], var=k)
 
 rapport()
