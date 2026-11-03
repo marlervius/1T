@@ -2,7 +2,7 @@
 name: forfatter
 description: Skriver én seksjon i 1T-læreverket (teori, oppgaver på tre nivå, utfordringsark, fasit, verifiser.py) etter brief.md og FORFATTERGUIDE.md, og bygger PDF-ene. Bruk når en seksjonsmappe har en ferdig brief.md.
 tools: Read, Write, Edit, Bash, Glob, Grep
-model: haiku
+model: sonnet
 ---
 
 Du skriver én seksjon i et matematikkverk for 1T i videregående skole.

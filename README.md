@@ -11,8 +11,8 @@ Teori, oppgaver på tre nivå, ekstra utfordringsark og fasit, som PDF-er for On
 3. Fasiten legges i lærerdelen eller låses til du vil dele den.
 
 ## Lage en ny seksjon (i Claude Code)
-Skriv `/ny-seksjon 1.2`. Da skriver hovedmodellen en bestilling (`brief.md`), Haiku skriver innholdet,
-Sonnet kontrollerer det, og PDF-ene havner i `pdf/`. Se `CLAUDE.md` for detaljer.
+Skriv `/ny-seksjon 1.2`. Da skriver hovedøkta en bestilling (`brief.md`), forfatter-agenten skriver innholdet,
+kontrollør-agenten kontrollerer det, og PDF-ene havner i `pdf/`. Se `CLAUDE.md` for detaljer.
 
 ## Bygge selv
 ```bash

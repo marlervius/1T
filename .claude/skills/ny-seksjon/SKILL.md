@@ -1,6 +1,6 @@
 ---
 name: ny-seksjon
-description: Lager en ny seksjon i 1T-læreverket fra kapittelplanen — brief, forfatter (Haiku), kontroll (Sonnet), retting, PDF og commit. Bruk når Marius skriver «/ny-seksjon 1.2», «lag seksjon 2.3» eller «neste seksjon».
+description: Lager en ny seksjon i 1T-læreverket fra kapittelplanen — brief, forfatter-agent, kontrollør-agent, retting, PDF og commit. Bruk når Marius skriver «/ny-seksjon 1.2», «lag seksjon 2.3» eller «neste seksjon».
 ---
 
 # Ny seksjon
@@ -21,12 +21,12 @@ Du er arkitekten. Du skriver briefen og godkjenner. Forfatteren og kontrolløren
 4. Er noe faglig uklart (hører temaet til 1T? hvilken notasjon?), spør Marius før du går videre.
 5. Sett status `brief` i kapittelplanen.
 
-## 2. Forfatter (Haiku)
+## 2. Forfatter
 Start agenten `forfatter` med prompten:
 «Skriv seksjonen i `<mappe>`. Følg instruksjonene dine.»
 Les rapporten. Er det FEIL igjen, send den tilbake én gang med konkrete beskjeder.
 
-## 3. Kontroll (Sonnet)
+## 3. Kontroll
 Start agenten `kontrollor` med prompten: «Kontroller seksjonen i `<mappe>`.»
 
 ## 4. Retting (du)

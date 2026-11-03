@@ -19,7 +19,7 @@ kapitler/<NN-kapittel>/<n.m-seksjon>/
     verifiser.py          Regner alle svar på nytt med sympy.
 pdf/<NN-kapittel>/        Ferdige PDF-er (sjekkes inn i git, lastes ned til OneNote).
 verktoy/                  bygg.py, sjekk.py, kontroll.py, installer.sh
-.claude/agents/           forfatter (Haiku), kontrollor (Sonnet)
+.claude/agents/           forfatter, kontrollor (modellvalget står i `model:` i hver fil)
 .claude/skills/ny-seksjon Arbeidsflyten for å lage en ny seksjon.
 ```
 
@@ -48,9 +48,9 @@ python3 verktoy/bygg.py --alle
 ## Arbeidsdeling mellom modeller
 
 1. **Arkitekt (hovedøkta, sterk modell):** skriver `brief.md`, holder kapittelplanen, godkjenner.
-2. **Forfatter (Haiku, `.claude/agents/forfatter.md`):** skriver innholdsfilene etter brief og
+2. **Forfatter (`.claude/agents/forfatter.md`):** skriver innholdsfilene etter brief og
    `FORFATTERGUIDE.md`, kjører bygg, ser på PNG-ene, retter.
-3. **Kontrollør (Sonnet, `.claude/agents/kontrollor.md`):** regner alt på nytt uavhengig, vurderer
+3. **Kontrollør (`.claude/agents/kontrollor.md`, en annen og sterkere modell enn forfatteren):** regner alt på nytt uavhengig, vurderer
    nivå og språk, rapporterer. Endrer ikke filer.
 4. Arkitekten retter eller sender tilbake (maks to runder), oppdaterer kapittelplanen, committer.
 
