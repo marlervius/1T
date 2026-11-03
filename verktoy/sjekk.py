@@ -181,7 +181,7 @@ def sjekk_verifisering(mappe, oppgaver, delnr):
 
 def sjekk_sprak(navn, tekst):
     ren = re.sub(r"\$.*?\$|\\\[.*?\\\]", " X ", tekst, flags=re.S)
-    ren = re.sub(r"\\begin\{(kode|stegtabell|tasks)\}.*?\\end\{\1\}", " ", ren, flags=re.S)
+    ren = re.sub(r"\\begin\{(kode|stegtabell|tasks|tikzpicture|axis)\}.*?\\end\{\1\}", " ", ren, flags=re.S)
     ren = re.sub(r"\\(begin|end)\{[^}]*\}(\[[^\]]*\])?(\{[^}]*\})*", ". ", ren)
     ren = re.sub(r"\n\s*\n|\\task!?|\\item|&", ". ", ren)
     ren = re.sub(r"\\[a-zA-Z]+\*?(\[[^\]]*\])?", " ", ren)
