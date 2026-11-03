@@ -48,7 +48,7 @@ def ssv(a, b, A):
 
 for a in [2, 3, 4, 8]:
     print(a, ssv(a, 6, 30))
-print(ssv(9, 6, 62))
+print(ssv(7, 4, 70))
 \end{kode}
 \begin{tasks}(1)
   \task Hva skriver programmet ut? Forklar uten å kjøre det, og knytt hver linje til et tilfelle: ingen, én eller to trekanter.
@@ -58,14 +58,14 @@ print(ssv(9, 6, 62))
 
 \oppg{U6}{3}{\uh}
 Under er et bevis for at $\frac{a}{\sin A} = 2R$, der $R$ er radien i sirkelen gjennom $A$, $B$ og $C$ (den omskrevne sirkelen).
-Beviset bruker to fakta fra geometri: En vinkel som spenner over en diameter er $90^\circ$. Periferivinkler på samme bue er like store.
+Beviset bruker ett faktum fra geometri: En periferivinkel er halvparten av buen den spenner over.
 
 \begin{minipage}[t]{0.50\linewidth}
 \textbf{Bevis} for spiss $A$.
 \begin{enumerate}[leftmargin=1.5em,itemsep=1pt,topsep=2pt]
-  \item Tegn diameteren $BD$. Da er $BD = 2R$.
+  \item Tegn diameteren $BD$ gjennom sentrum $O$. Da er $BD = 2R$.
   \item Trekant $BCD$ har $\angle C = 90^\circ$.
-  \item $\angle D = \angle A$, fordi begge spenner over buen $BC$.
+  \item $\angle D = \angle A$, fordi begge er halvparten av buen $BC$.
   \item I trekant $BCD$ er $\sin D = \dfrac{a}{2R}$.
   \item Altså er $\sin A = \dfrac{a}{2R}$, og $\dfrac{a}{\sin A} = 2R$.
 \end{enumerate}
@@ -82,13 +82,14 @@ Beviset bruker to fakta fra geometri: En vinkel som spenner over en diameter er 
   \draw (1.679,-0.684)--(1.679,-0.484)--(1.879,-0.484);
   \pic[draw, angle radius=5mm] {angle = B--A--C};
   \pic[draw, angle radius=4mm] {angle = B--D--C};
+  \fill (O) circle (1pt); \node[above left,font=\scriptsize] at (O) {$O$};
   \node[above] at (A) {$A$}; \node[below left] at (B) {$B$};
   \node[below right] at (C) {$C$}; \node[above right] at (D) {$D$};
   \node[below] at (0,-0.684) {$a$};
 \end{tikzpicture}
 \end{minipage}
 \begin{tasks}(1)
-  \task Hvorfor er $\angle C = 90^\circ$ i trekant $BCD$?
+  \task Hvorfor er $\angle C = 90^\circ$ i trekant $BCD$? Bruk faktaet over.
   \task Hvorfor kan vi bruke $BD$ som hypotenus i punkt 4, og hvilken side er motstående til $D$?
   \task Bruk resultatet på en rettvinklet trekant med hypotenus $13$. Finn $R$. Hva forteller det om hvor sentrum i sirkelen ligger?
   \task Forklar kort hvordan beviset blir hvis $A$ er stump. Hva er forskjellen mellom $\angle A$ og $\angle D$ da?

@@ -48,9 +48,26 @@ avrund("Eks 2.1 c1e", 4 * sqrt(3) + 3, 1, 9.9)
 avrund("Eks 2.1 c2e", 4 * sqrt(3) - 3, 1, 3.9)
 
 # ---------- Vanlige feil ----------
-sant("VF1a", 30 + 150 == 180, "B2 = 180-B kan gi vinkelsum 180")
-chk("VF 1 bevis", simplify((Rational(1, 2) * b * c * sin(a) / (Rational(1, 2) * a * b * c)) * a / sin(a)), 1)
-sant("VF 3", len(tvetydig(62, 9, 6)) == 1, "a>b: bare én")
+# Del 1: A=30, B=45, a=4, b=4*sqrt(2)
+sant("VF 1.1", S_(30) / (4 * sqrt(2)) != S_(45) / 4 and S_(30) / 4 == S_(45) / (4 * sqrt(2)), "sinA/b er ikke sinB/a, men sinA/a = sinB/b")
+sant("VF 1.2", 90 - 30 - 45 != 180 - 30 - 45, "C = 90 - A - B er feil")
+sant("VF 1.3", True, "tre sider: ingen vinkel kjent")
+# Del 2
+sant("VF 2.1", len(tvetydig(30, 5, 8)) == 2 and [round(w, 1) for w in tvetydig(30, 5, 8)] == [53.1, 126.9], "ikke bare spiss B")
+sant("VF 2.2", all(A_ + (180 - float(invs(b_ * S_(A_) / a_))) >= 180 for A_, a_, b_ in [(40, 9, 6), (62, 9, 6), (80, 7, 7), (50, 8, 5)]), "a>=b: 180-B gir sum >= 180")
+sant("VF 2.3", 7 * S_(40) / 3 > 1, "sin B > 1: ingen trekant")
+# Tabellen i del 2: A spiss og stump/rett
+def antall_tabell(A_, a_, b_):
+    h_ = b_ * float(S_(A_))
+    if A_ < 90:
+        return 0 if a_ < h_ - 1e-9 else 1 if abs(a_ - h_) < 1e-9 or a_ >= b_ else 2
+    return 1 if a_ > b_ else 0
+
+sant("Tabell spiss", all(len(tvetydig(A_, a_ / 4, b_)) == antall_tabell(A_, a_ / 4, b_) for A_ in range(5, 90, 5) for a_ in range(1, 90) for b_ in (3, 6, 10)), "tabell for spiss A")
+sant("Tabell stump/rett", all(len(tvetydig(A_, a_ / 4, b_)) == antall_tabell(A_, a_ / 4, b_) for A_ in (90, 100, 120, 150, 170) for a_ in range(1, 90) for b_ in (3, 6, 10)), "A >= 90: én hvis a > b, ellers ingen")
+chk("Tabell mot-eks", len(tvetydig(120, 5.5, 6)), 0)
+chk("Eks 2.1 AH", 8 * cos(rad(30)), 4 * sqrt(3))
+chk("Eks 2.1 HB", sqrt(5**2 - 4**2), 3)
 
 # ---------- Del 1 ----------
 chk("1.1a", 180 - 50 - 70, 60)
@@ -74,9 +91,9 @@ chk("1.5 A", 180 - 120 - 45, 15)
 chk("1.5", side_(6 * sqrt(2), 45, 120), 6 * sqrt(3))
 chk("1.5 b", simplify(6 * sqrt(2) * (sqrt(3) / 2) / (sqrt(2) / 2)), 6 * sqrt(3))
 
-avrund("1.6a", 500 * S_(71) / S_(47), 1, 646.4)
-avrund("1.6b", 500 * S_(62) / S_(47), 1, 603.6)
-avrund("1.6c", 500 * S_(71) / S_(47) * S_(62), 0, 571)
+avrund("1.6a", 100 * S_(71) / S_(47), 1, 129.3)
+avrund("1.6b", 100 * S_(62) / S_(47), 1, 120.7)
+avrund("1.6c", 100 * S_(71) / S_(47) * S_(62), 0, 114)
 chk("1.6 vinkel", 180 - 62 - 71, 47)
 
 chk("1.7 C", 180 - 40 - 65, 75)
@@ -87,12 +104,16 @@ avrund("1.7 feil svar", 9 * S_(40) / S_(75), 1, 6.0)
 avrund("1.7 riktig", 9 * S_(75) / S_(40), 1, 13.5)
 sant("1.7 størst", 75 > 40 and 9 * S_(75) / S_(40) > 9, "C>A gir c>a")
 
+sant("1.8a", S_(40) / 7 == S_(40) / 7, "A=B gir sin A = sin B, så a = b: alltid")
 aapen("1.8a", "A=B gir a=b; alltid")
-sant("1.8a", True, "sin A/a = sin B/b med sin A = sin B gir a = b")
-chk("1.8b", sin(rad(120)), sin(rad(60)))
-aapen("1.8c", "SSS: ingen vinkel kjent, to ukjente i hver likning; aldri")
-chk("1.9", S_(90), 1)
-aapen("1.9", "sin B = b/a stemmer med definisjonen")
+sant("1.8b", True, "SVS (a=3, b=4, C=90): ingen vinkel med motstående side er kjent; aldri")
+aapen("1.8b", "SVS: ingen kjent par; aldri")
+sant("1.8c", 180 - 75 - 45 == 60, "VSV: tredje vinkel finnes, så et par er kjent; alltid")
+chk("1.8c eks", side_(10, 75, 45), 10 * S_(45) / S_(75))
+chk("1.9a", simplify((Rational(1, 2) * b * c * sin(a) / (Rational(1, 2) * a * b * c)) - sin(a) / a), 0)
+chk("1.9a2", simplify((Rational(1, 2) * a * c * sin(b) / (Rational(1, 2) * a * b * c)) - sin(b) / b), 0)
+chk("1.9b", S_(90), 1)
+aapen("1.9b", "sin B = b/a stemmer med definisjonen")
 # 1.10: lag selv, b = sqrt(3) a
 chk("1.10 eks1", S_(60) / S_(30), sqrt(3))
 chk("1.10 eks2", S_(120) / S_(30), sqrt(3))
@@ -115,14 +136,18 @@ sant("2.2 sum", 30 + 60 < 180 and 30 + 120 < 180, "begge")
 chk("2.2 C", [180 - 30 - 60, 180 - 30 - 120], [90, 30])
 chk("2.2 c", [side_(6, 30, 90), side_(6, 30, 30)], [12, 6])
 
-avrund("2.3 sinB", 7 * S_(40) / 6, 2, 0.75)
+avrund("2.3 sinB", 7 * S_(40) / 6, 3, 0.750)
+avrund("R 2.3 B1", invs(Rational(750, 1000)), 1, 48.6)
+avrund("R 2.3 B2", 180 - invs(Rational(750, 1000)), 1, 131.4)
 avrund("2.3 B1", invs(7 * S_(40) / 6), 1, 48.6)
 avrund("2.3 B2", 180 - invs(7 * S_(40) / 6), 1, 131.4)
 sant("2.3 sum", 40 + 131.4 < 180, "to trekanter")
 
 sB = 9 * S_(35) / 7
 B1 = invs(sB)
-avrund("2.4 sinB", sB, 2, 0.74)
+avrund("2.4 sinB", sB, 3, 0.737)
+avrund("R 2.4 B1", invs(Rational(737, 1000)), 1, 47.5)
+avrund("R 2.4 B2", 180 - invs(Rational(737, 1000)), 1, 132.5)
 avrund("2.4 B1", B1, 1, 47.5)
 avrund("2.4 B2", 180 - B1, 1, 132.5)
 avrund("2.4 C1", 180 - 35 - B1, 1, 97.5)
@@ -132,6 +157,8 @@ avrund("2.4 c2", 7 * sin(rad(180 - 35) - (pi - asin(sB))) / S_(35), 1, 2.6)
 
 chk("2.5a antall", len(tvetydig(62, 9, 6)), 1)
 sB5 = 6 * S_(62) / 9
+avrund("2.5a sinB", sB5, 3, 0.589)
+avrund("R 2.5a B", invs(Rational(589, 1000)), 1, 36.1)
 avrund("2.5a B", invs(sB5), 1, 36.1)
 avrund("2.5a C", 180 - 62 - invs(sB5), 1, 81.9)
 avrund("2.5a c", 9 * sin(rad(180 - 62) - asin(sB5)) / S_(62), 1, 10.1)
@@ -140,10 +167,14 @@ avrund("2.5b sinB", 7 * S_(40) / 3, 2, 1.50)
 sB5c = 7 * S_(110) / 10
 chk("2.5c antall", len(tvetydig(110, 10, 7)), 1)
 avrund("2.5c B", invs(sB5c), 1, 41.1)
+avrund("2.5c sinB", sB5c, 3, 0.658)
+avrund("R 2.5c B", invs(Rational(658, 1000)), 1, 41.1)
 sant("2.5c sum", 110 + (180 - 41.1) > 180, "B2 gir sum over 180")
 
 sB6 = 8 * S_(25) / 6
-avrund("2.6 sinB", sB6, 2, 0.56)
+avrund("2.6 sinB", sB6, 3, 0.563)
+avrund("R 2.6 B1", invs(Rational(563, 1000)), 1, 34.3)
+avrund("R 2.6 B2", 180 - invs(Rational(563, 1000)), 1, 145.7)
 avrund("2.6 B1", invs(sB6), 1, 34.3)
 avrund("2.6 B2", 180 - invs(sB6), 1, 145.7)
 sant("2.6 sum", 25 + 145.7 < 180, "begge")
@@ -153,6 +184,8 @@ chk("2.6 antall", len(tvetydig(25, 6, 8)), 2)
 
 sB7 = 9 * S_(44) / 7
 avrund("2.7 sinB", sB7, 3, 0.893)
+avrund("R 2.7 B1", invs(Rational(893, 1000)), 1, 63.3)
+avrund("R 2.7 B2", 180 - invs(Rational(893, 1000)), 1, 116.7)
 avrund("2.7 B1", invs(sB7), 1, 63.3)
 avrund("2.7 B2", 180 - invs(sB7), 1, 116.7)
 sant("2.7 sum", 44 + 116.7 < 180, "begge gir trekant")
@@ -178,14 +211,18 @@ avrund("2.5c C", 180 - 110 - invs(sB5c), 1, 28.9)
 avrund("2.5c c", 10 * sin(rad(70) - asin(sB5c)) / S_(110), 1, 5.1)
 chk("2.9a eks", len(tvetydig(120, 10, 7)), 1)
 sant("2.9b", len(tvetydig(30, 7, 10)) == 2 and len(tvetydig(30, 3, 10)) == 0 and 3 < 10, "a<b: noen ganger to, noen ganger ingen")
-chk("2.10 to", len(tvetydig(30, 7, 10)), 2)
-chk("2.10 én", len(tvetydig(30, 12, 10)), 1)
+chk("2.10 sinB", 10 * S_(30) / (5 * sqrt(2)), sqrt(2) / 2)
+chk("2.10 to", len(tvetydig(30, 5 * sqrt(2).evalf(), 10)), 2)
+chk("2.10 B", [45, 135], [45, 180 - 45])
+sant("2.10 sum", 30 + 135 < 180, "begge")
+chk("2.10 én", len(tvetydig(30, 5, 10)), 1)
+chk("2.10 B=90", 10 * S_(30) / 5, 1)
 aapen("2.10", "Lag selv; eksempel i fasit")
 
 avrund("Sjekk 2a", invs(Rational(3, 5)), 1, 36.9)
 avrund("Sjekk 2a2", 180 - invs(Rational(3, 5)), 1, 143.1)
-chk("Sjekk 2b h", 6 * S_(30), 3)
-chk("Sjekk 2b", len(tvetydig(30, 2, 6)), 0)
+chk("Sjekk 2b h", 12 * S_(30), 6)
+chk("Sjekk 2b", len(tvetydig(30, 5, 12)), 0)
 aapen("Sjekk 2c", "A + (180-B) må være under 180")
 
 # ---------- Utfordring ----------
@@ -199,7 +236,7 @@ avrund("U3 b", bU, 1, 14.2)
 avrund("U3 T", Rational(1, 2) * 12 * bU * S_(65), 1, 77.2)
 avrund("U3 T avrundet b", Rational(1, 2) * 12 * Rational(142, 10) * S_(65), 1, 77.2)
 
-# U4 programmering
+# U5 programmering
 kode = '''
 import math
 
@@ -216,19 +253,25 @@ def ssv(a, b, A):
 
 for a in [2, 3, 4, 8]:
     print(a, ssv(a, 6, 30))
-print(ssv(9, 6, 62))
+print(ssv(7, 4, 70))
 '''
 ut = io.StringIO()
 with contextlib.redirect_stdout(ut):
-    exec(kode, {})
+    ns = {}
+    exec(kode, ns)
+ssv_ = ns['ssv']
 print(ut.getvalue())
 linjer = ut.getvalue().strip().split("\n")
-sant("U5 ut", linjer == ["2 (0, [])", "3 (1, [90.0])", "4 (2, [48.6, 131.4])", "8 (1, [22.0])", "(1, [36.1])"], "utskrift")
+sant("U5 ut", linjer == ["2 (0, [])", "3 (1, [90.0])", "4 (2, [48.6, 131.4])", "8 (1, [22.0])", "(1, [32.5])"], "utskrift")
 
-# U5: største vinkel / lengste side
+# U4: største vinkel / lengste side
 sant("U4 sjekk", all(float(S_(Av)) > float(S_(Bv)) for Av in range(1, 180) for Bv in range(1, 180 - Av) if Av > Bv), "A>B, A+B<180 gir sin A > sin B")
-aapen("U4", "Begrunnelse med sinussetningen og enhetssirkelen")
+aapen("U4", "Alltid. Begrunnelse med sinussetningen og enhetssirkelen")
 aapen("U6", "Bevis for a/sin A = 2R")
+sant("U5 b", [round(w, 1) for w in tvetydig(30, 4, 6)] == [48.6, 131.4], "a=4: begge")
+sant("U5 c1", ssv_(10, 7, 110) == (1, [41.1]), "ssv(10,7,110)")
+sant("U5 c2", ssv_(6, 9, 150) == (0, []), "ssv(6,9,150)")
+chk("U4 A=90", S_(90), 1)
 chk("U6c", Rational(13, 1) / 1, 13)
 chk("U6c R", Rational(13, 2), Rational(13, 2))
 
@@ -243,6 +286,6 @@ avrund("R 2.6 AB1", 6 * S_(Rational(1207, 10)) / S_(25), 1, 12.2)
 avrund("R 2.6 AB2", 6 * S_(Rational(93, 10)) / S_(25), 1, 2.3)
 avrund("R 2.7 c1", 7 * S_(Rational(727, 10)) / S_(44), 1, 9.6)
 avrund("R 2.7 c2", 7 * S_(Rational(193, 10)) / S_(44), 1, 3.3)
-avrund("R 1.6c", Rational(6464, 10) * S_(62), 0, 571)
+avrund("R 1.6c", Rational(1293, 10) * S_(62), 0, 114)
 
 rapport()
