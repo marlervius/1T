@@ -214,6 +214,9 @@ rapport()                                          # alltid sist
   før (`chk("Eks 2.1 steg 3", venstre - hoyre, ...)`). Eleven kopierer stegene.
 - «Finn den første feilen»: kontroller hver pil for seg (`sant("1.6 pil 1", ...)`), og la fasiten nevne
   steget med innhold («overgangen til $3x + 18 - 2x - 4 = 24$»), ikke bare et pilnummer.
+- **Avrundede mellomsvar:** Legger eksempler eller fasit sammen (eller ganger) avrundede mellomsvar, skal
+  resultatet bli det samme som når man regner urundet og avrunder til slutt. Kontroller begge veier med
+  `avrund()`. Gir de ulikt svar, bytt tall i oppgaven (ikke bare i fasiten) — ellers tror eleven at riktig svar er feil.
 - Programmeringsoppgaver: kjør **koden slik den står i oppgaven** (med hullene fylt inn) og sammenlign utskriften.
 - Programmeringsoppgaver: kjør koden i Python og sammenlign utskriften.
 - Høyst ca. 1/3 av kontrollene kan være `aapen`.
