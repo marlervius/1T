@@ -180,7 +180,11 @@ rapport()                                          # alltid sist
 - **Minst én kontroll per oppgave og per «Sjekk deg selv».** Nummer = oppgavenummer + bokstav.
 - Regn oppgaven *fra oppgaveteksten*, ikke fra svaret du tror er riktig. Eksempel: for «løs likningen»
   skal sympy løse likningen. Ikke skriv `chk("2.3a", 3, 3)`.
-- Kontroller også eksemplene i teoriboksene (`chk("Eks 1.1", …)`).
+- Kontroller **hvert steg** i eksemplene, ikke bare svaret: hver linje i `stegtabell` skal være lik linja
+  før (`chk("Eks 2.1 steg 3", venstre - hoyre, ...)`). Eleven kopierer stegene.
+- «Finn den første feilen»: kontroller hver pil for seg (`sant("1.6 pil 1", ...)`), og la fasiten nevne
+  steget med innhold («overgangen til $3x + 18 - 2x - 4 = 24$»), ikke bare et pilnummer.
+- Programmeringsoppgaver: kjør **koden slik den står i oppgaven** (med hullene fylt inn) og sammenlign utskriften.
 - Programmeringsoppgaver: kjør koden i Python og sammenlign utskriften.
 - Høyst ca. 1/3 av kontrollene kan være `aapen`.
 
