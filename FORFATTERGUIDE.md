@@ -163,6 +163,8 @@ los("3.4", Eq(2*x + 1, 2*x + 3), [])               # ingen løsning
 los("3.5", (2*(x + 1), 2*x + 2), "alle")          # alle tillatte verdier (bruk tuppel, ikke Eq,
                                                    # ellers gjør sympy identiteten om til True)
 los("3.6", Eq(x/(x - 2), 2/(x - 2) + 3), [])        # x = 2 fjernes automatisk (nevner 0)
+ulikhet("2.4a", x**2 - 2*x - 3 < 0, Interval(-1, 3, True, True))   # <-1, 3>  (True = åpent endepunkt)
+ulikhet("2.4b", 2*x**2 >= 8*x, Union(Interval(-oo, 0), Interval(4, oo)))
 sant("2.8", Rational(1, 1024) < Rational(1, 1000), "rekkefølge")
 aapen("2.7", "Forklaringsoppgave")                 # bare for oppgaver som ikke kan regnes
 rapport()                                          # alltid sist

@@ -90,6 +90,17 @@ def los(nr, likning, forventet, var=None, domene=S.Reals):
     return ok
 
 
+def ulikhet(nr, ulikheten, forventet, var=None):
+    """Løs en ulikhet over de reelle tallene og sammenlign med forventet mengde.
+    forventet: Interval(-1, 3, True, True) for <-1, 3>, Union(...), S.Reals eller S.EmptySet.
+    Eksempel: ulikhet("2.1a", 5 - 3*x >= 11, Interval(-oo, -2))"""
+    var = var or x
+    losning = solveset(ulikheten, var, domain=S.Reals)
+    ok = losning == forventet
+    _logg.append({"nr": nr, "type": "ulikhet", "verdi": str(losning), "forventet": str(forventet), "ok": ok})
+    return ok
+
+
 def sant(nr, pastand, beskrivelse=""):
     """Kontroller en påstand som er True/False i Python (f.eks. en kontroll i VS = HS)."""
     ok = bool(pastand)
