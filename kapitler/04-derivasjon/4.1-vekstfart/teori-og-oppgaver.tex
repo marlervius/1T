@@ -217,7 +217,7 @@ Vi gir dette tallet et navn i 4.2.
 La $f(x) = x^2$. Vi anslår vekstfarten i $x = 3$. Vi regner $\dfrac{f(3 + h) - f(3)}{h}$ for mindre og mindre $h$. Her er $f(3) = 9$.
 
 \begin{center}
-\renewcommand{\arraystretch}{1.3}
+\renewcommand{\arraystretch}{1.1}
 \begin{tabular}{c|c|c|c}
 $h$ & $f(3 + h)$ & $f(3 + h) - 9$ & $\dfrac{f(3 + h) - 9}{h}$\\ \hline
 $1$ & $16$ & $7$ & $7$\\
@@ -233,17 +233,18 @@ $7;\ 6,1;\ 6,01;\ 6,001$ & Tallene nærmer seg $6$. Momentan vekstfart i $x = 3$
 \end{eksempel}
 
 \begin{eksempel}[2 — lese av en tangent]
-Grafen viser $g(x) = \dfrac{x^2}{4}$ med tangent i punktet $(2, 1)$. Finn vekstfarten i $x = 2$ ved å lese av.\par\smallskip
-\begin{minipage}[t]{0.60\linewidth}
+Grafen viser $g(x) = \dfrac{x^2}{4}$ med tangent i punktet $(2, 1)$. Finn vekstfarten i $x = 2$ ved å lese av.
+\smallskip
+\begin{minipage}[t]{0.62\linewidth}
 \vspace{0pt}
 \begin{stegtabell}
-Punkt: $(0, -1)$ og $(4, 3)$ & Velg punkt der tangenten treffer rutenettet.\\
+Punkt: $(0, -1)$ og $(4, 3)$ & Punkt på rutenettet.\\
 $\dfrac{3 - (-1)}{4 - 0} = \dfrac{4}{4} = 1$ & Stigningstallet til tangenten.\\
-Kontroll: & $h = 0,1$ og $h = 0,01$ gir $1,025$ og $1,0025$.\\
-Avlesning er unøyaktig. & En liten feil i linja gir en annen verdi. Tabellen er sikrere.\\
+Kontroll: & Tabell: $1,025$ og $1,0025$.\\
+Unøyaktig: & en liten feil i linja gir en annen verdi.\\
 \end{stegtabell}
 \end{minipage}\hfill
-\begin{minipage}[t]{0.36\linewidth}
+\begin{minipage}[t]{0.34\linewidth}
 \vspace{0pt}\centering
 \begin{tikzpicture}[baseline=(current bounding box.north)]
 \begin{axis}[width=\linewidth, height=0.85\linewidth, axis lines=middle, xmin=-1, xmax=5.2, ymin=-1.6, ymax=4.2,

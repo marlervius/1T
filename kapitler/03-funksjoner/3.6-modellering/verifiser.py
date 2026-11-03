@@ -110,8 +110,8 @@ ae, be = lin(xe, ye)
 chk("1.3a", type_av(xe, [10, 20, 30, 40, 50, 60]), "lineær")
 chk("1.3b stigning", round(ae, 1), 52.0)
 chk("1.3b start", round(be), 120)
-chk("1.3c", round(ae * 10 + be), 640)
-chk("1.3d R2", round(r2(ye, [ae * v + be for v in xe]), 3), 0.999, tol=0.001)
+chk("1.3 f(10)", round(ae * 10 + be), 640)
+chk("1.3 R2", round(r2(ye, [ae * v + be for v in xe]), 3), 0.999, tol=0.001)
 
 # ---------- Nivå 2 ----------
 xv = list(range(7))
