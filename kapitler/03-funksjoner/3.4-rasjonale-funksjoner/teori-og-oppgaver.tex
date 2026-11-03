@@ -1,0 +1,340 @@
+% =====================================================================
+%  3.4 Rasjonale funksjoner — teori og oppgaver
+% =====================================================================
+
+\del{1}{Asymptoter og hull}
+
+\begin{ordliste}
+rasjonal funksjon & En funksjon som er en brøk av to polynomer, for eksempel $f(x) = \dfrac{2x+1}{x-1}$. & \mittsprak\\
+vertikal asymptote & En loddrett linje $x = k$ som grafen nærmer seg uten å nå. & \mittsprak\\
+horisontal asymptote & En vannrett linje $y = k$ som grafen nærmer seg når $x$ blir veldig stor eller veldig liten. & \mittsprak\\
+hull i grafen & Et enkelt punkt som mangler i grafen. Tegnes som en åpen ring. & \mittsprak\\
+\end{ordliste}
+
+\begin{mustkunne}
+\begin{minipage}[t]{0.50\linewidth}
+\textbf{Hvorfor asymptotene?} Del telleren på nevneren med polynomdivisjon:
+\polylongdiv{2x+1}{x-1}
+Altså er $f(x) = 2 + \dfrac{3}{x-1}$.
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+  \item Er $x$ stor, er $\frac{3}{x-1}$ nær 0. Da er $f(x)$ nær 2.
+  \item Er $x$ nær 1, er nevneren nær 0. Brøken blir veldig stor.
+\end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.46\linewidth}
+\centering
+\begin{tikzpicture}[baseline=(current bounding box.north)]
+\begin{axis}[width=\linewidth, height=1.05\linewidth, axis lines=middle, xmin=-4, xmax=6, ymin=-6, ymax=8,
+  xtick={-2,2,4}, ytick={-4,4,6}, tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$}, label style={font=\small},
+  restrict y to domain=-7:9, unbounded coords=jump]
+\addplot[domain=-4:0.78, samples=60, thick, hoved] {(2*x+1)/(x-1)};
+\addplot[domain=1.22:6, samples=60, thick, hoved] {(2*x+1)/(x-1)};
+\draw[dashed, red!70!black] (axis cs:1,-6) -- (axis cs:1,8);
+\draw[dashed, red!70!black] (axis cs:-4,2) -- (axis cs:6,2);
+\node[font=\scriptsize, red!70!black, anchor=west] at (axis cs:1.1,-4.8) {$x=1$};
+\node[font=\scriptsize, red!70!black, anchor=south east] at (axis cs:6,2.1) {$y=2$};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+
+\medskip
+\textbf{For $f(x) = \dfrac{ax+b}{cx+d}$:} vertikal asymptote der nevneren er 0 og telleren ikke er 0. Horisontal asymptote $y = \dfrac{a}{c}$.
+Er både teller og nevner 0 for samme $x$, kan vi forkorte. Da blir det et \emph{hull}, ikke en asymptote.
+\end{mustkunne}
+
+\begin{eksempel}[1 — asymptoter og nullpunkt]
+Undersøk $f(x) = \dfrac{2x+1}{x-1}$. Grafen er tegnet over.
+
+\begin{stegtabell}
+$x - 1 \neq 0$, altså $D_f = \{x \mid x \neq 1\}$ & Nevneren må ikke være 0.\\
+Vertikal asymptote: $x = 1$ & Nevneren er 0. Telleren er $2\cdot 1 + 1 = 3 \neq 0$.\\
+$f(x) = 2 + \dfrac{3}{x-1}$ & Polynomdivisjon, se over.\\
+Horisontal asymptote: $y = 2$ & $\frac{3}{x-1}$ går mot 0 når $x$ blir stor. Samme som $\frac{a}{c} = \frac{2}{1}$.\\
+$2x + 1 = 0$, altså $x = -\frac{1}{2}$ & Nullpunkt: brøken er 0 når telleren er 0.\\
+$f(0) = \dfrac{1}{-1} = -1$ & Skjæring med $y$-aksen: sett inn $x = 0$.\\
+Kontroll: & $f(100) = \frac{201}{99} \approx 2{,}03$. Nær 2, som asymptoten sier.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{eksempel}[2 — hull i grafen]
+Undersøk $g(x) = \dfrac{x^2 - 4}{x - 2}$.
+
+\begin{minipage}[t]{0.62\linewidth}
+\begin{stegtabell}
+$x \neq 2$ & Nevneren må ikke være 0.\\
+$g(x) = \dfrac{(x-2)(x+2)}{x-2}$ & Tredje kvadratsetning i telleren.\\
+$g(x) = x + 2$ for $x \neq 2$ & Forkort. Telleren er også 0 i $x = 2$.\\
+Hull i $(2, 4)$ & Ingen asymptote. $y = 2 + 2 = 4$ gir hullet.\\
+Kontroll: & $g(3) = \frac{5}{1} = 5 = 3 + 2$.\\
+\end{stegtabell}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.34\linewidth}
+\centering
+\begin{tikzpicture}[baseline=(current bounding box.north)]
+\begin{axis}[width=\linewidth, height=0.9\linewidth, axis lines=middle, xmin=-3, xmax=5, ymin=-2, ymax=7,
+  xtick={2}, ytick={4}, tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$}, label style={font=\small}]
+\addplot[domain=-3:5, thick, hoved] {x + 2};
+\addplot[only marks, mark=*, mark size=2pt, hoved, fill=white] coordinates {(2,4)};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+\end{eksempel}
+
+\begin{vanligfeil}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
+  \item «$f(x) = \frac{x-3}{x+1}$ har vertikal asymptote $x = 3$» er feil. $x = 3$ gjør telleren 0 og er et nullpunkt. Asymptoten er $x = -1$.
+  \item «Horisontal asymptote er $y = \frac{b}{d}$» er feil. For $\frac{5x+1}{x+2}$ er $y = 5$, ikke $\frac{1}{2}$. Tallene foran $x$ avgjør: $y = \frac{a}{c}$.
+  \item «$\frac{x^2-9}{x-3}$ har vertikal asymptote $x = 3$» er feil. Uttrykket forkortes til $x + 3$. Grafen har et hull i $(3, 6)$.
+\end{itemize}
+\end{vanligfeil}
+
+\nivaahode{1}
+
+\oppg{1.1}{1}{\uh}
+Finn den vertikale og den horisontale asymptoten.
+\begin{tasks}(3)
+  \task $f(x) = \dfrac{x+5}{x-2}$
+  \task $g(x) = \dfrac{4x-1}{2x+6}$
+  \task $h(x) = \dfrac{6}{x+1}$
+\end{tasks}
+
+\oppg{1.2}{1}{\uh}
+Vi skal skrive $f(x) = \dfrac{3x+7}{x+1}$ på en annen form.
+\begin{tasks}(1)
+  \task Fullfør: $3x + 7 = 3(x+1) + $\skrivlinje[1.5cm]
+  \task Del opp brøken: $f(x) = 3 + \dfrac{4}{x+1}$ stemmer med a). Hva nærmer $\dfrac{4}{x+1}$ seg når $x$ blir veldig stor?
+  \task Hva er den horisontale asymptoten?
+\end{tasks}
+
+\oppg{1.3}{1}{\uh}
+La $f(x) = \dfrac{2x-6}{x+4}$.
+\begin{tasks}(3)
+  \task Finn definisjonsmengden.
+  \task Finn nullpunktet.
+  \task Finn skjæringspunktet med $y$-aksen.
+\end{tasks}
+
+\nivaahode{2}
+
+\oppg{2.1}{2}{\uh}
+La $f(x) = \dfrac{5x-2}{x-3}$.
+\begin{tasks}(1)
+  \task Bruk polynomdivisjon og skriv $f(x)$ som et tall pluss en brøk.
+  \task Finn begge asymptotene.
+  \task Finn nullpunktet og skjæringspunktet med $y$-aksen.
+  \task Skisser grafen med asymptotene stiplet.
+\end{tasks}
+
+\oppg{2.2}{2}{\uh}
+Faktoriser teller og nevner og forkort. Finn hull og asymptoter.
+\begin{tasks}(2)
+  \task $p(x) = \dfrac{x^2 - 5x + 4}{x - 1}$
+  \task $q(x) = \dfrac{x^2 - 3x + 2}{x^2 - 4}$
+\end{tasks}
+
+\oppg{2.3}{2}{\uh}
+Finn \textbf{den første feilen}. Hva er riktig svar?
+\[ f(x) = \frac{2x-8}{x^2-16} \;\longrightarrow\; \frac{2(x-4)}{(x-4)(x+4)} \;\longrightarrow\; \frac{2}{x+4} \;\longrightarrow\; \text{vertikale asymptoter } x = 4 \text{ og } x = -4 \;\longrightarrow\; y = 0 \text{ er horisontal asymptote} \]
+
+\nivaahode{3}
+
+\oppg{3.1}{3}{\uh}
+Lag en funksjon $f(x) = \dfrac{ax+b}{cx+d}$ med vertikal asymptote $x = 3$, horisontal asymptote $y = -2$ og nullpunkt $x = 1$.
+Kontroller at funksjonen din virker.
+
+\oppg{3.2}{3}{\uh}
+Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret.
+\begin{tasks}(1)
+  \task $f(x) = \dfrac{ax+b}{cx+d}$ med $c \neq 0$ har en vertikal asymptote.
+  \task Grafen til $f(x) = \dfrac{ax+b}{cx+d}$ med $c \neq 0$ og $ad \neq bc$ krysser den horisontale asymptoten $y = \dfrac{a}{c}$.
+  \task Vis at grafen til $h(x) = \dfrac{3x^2 + x}{x^2+1}$ krysser linjen $y = 3$. Funksjonen nærmer seg 3 når $x$ blir stor. Hva sier det om påstanden «en graf krysser aldri sin horisontale asymptote»?
+\end{tasks}
+
+\oppg{3.3}{3}{\uh}
+Lag en rasjonal funksjon med vertikal asymptote $x = 4$ og hull i $(-1, 3)$. Vis at den virker.
+
+\begin{sjekk}
+\begin{tasks}(2)
+  \task Finn asymptotene til $f(x) = \dfrac{6x+1}{x-4}$.
+  \task Hva er forskjellen på en asymptote og et hull?
+  \task! Forklar med polynomdivisjon at $\dfrac{x+4}{x-2} = 1 + \dfrac{6}{x-2}$ nærmer seg 1 når $x$ blir stor.
+\end{tasks}
+\end{sjekk}
+
+% ---------------------------------------------------------------------
+
+\del{2}{Rasjonale likninger og ulikheter}
+
+\begin{ordliste}
+rasjonal likning & En likning med $x$ i nevneren, for eksempel $\dfrac{2x+1}{x-1} = 3$. & \mittsprak\\
+rasjonal ulikhet & En ulikhet med $x$ i nevneren, for eksempel $\dfrac{x+3}{x-2} \le 1$. & \mittsprak\\
+vilkår & Det som må gjelde for at uttrykket er definert. Nevneren er ikke 0. & \mittsprak\\
+fortegnslinje & Figur som viser hvor et uttrykk er positivt (heltrukket) og negativt (stiplet). & \mittsprak\\
+\end{ordliste}
+
+\begin{mustkunne}
+\begin{minipage}[t]{0.47\linewidth}
+\textbf{Likninger.}
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+  \item Skriv vilkår: nevneren er ikke 0.
+  \item Gang begge sider med fellesnevneren.
+  \item Løs likningen.
+  \item Kontroller mot vilkåret. Er $x$ forbudt, er det ingen løsning.
+\end{enumerate}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.50\linewidth}
+\textbf{Ulikheter.}
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+  \item Flytt alt over på én side. Høyre side er 0.
+  \item Skriv som én brøk.
+  \item Tegn fortegnslinje for teller og nevner.
+  \item Les av. Nevnerens nullpunkt er \emph{aldri} med.
+\end{enumerate}
+\end{minipage}
+
+\medskip
+\textbf{Hvorfor ikke gange ulikheten med nevneren?} Er $x - 2$ positiv, beholder vi ulikhetstegnet. Er $x - 2$ negativ, må vi snu det.
+Vi vet ikke hvilket tilfelle som gjelder før vi har løst ulikheten. Derfor ganger vi aldri med et uttrykk med ukjent fortegn.
+\end{mustkunne}
+
+\begin{eksempel}[1 — rasjonal likning]
+Løs $\dfrac{2x+1}{x-1} = 3$.
+
+\begin{stegtabell}
+$x \neq 1$ & Vilkår: nevneren er ikke 0.\\
+$2x + 1 = 3(x - 1)$ & Gang begge sider med $x - 1$.\\
+$2x + 1 = 3x - 3$ & Gang ut parentesen.\\
+$x = 4$ & Samle $x$-leddene: $1 + 3 = 3x - 2x$.\\
+Kontroll: & $4 \neq 1$, så $x = 4$ er lov. $\frac{2\cdot 4 + 1}{4 - 1} = \frac{9}{3} = 3$. Det stemmer.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{eksempel}[2 — rasjonal ulikhet]
+Løs $\dfrac{x+3}{x-2} \le 1$.
+
+\textbf{Gal metode:} gang med $x - 2$. Vi får $x + 3 \le x - 2$, altså $3 \le -2$. Det er usant, så «ingen løsning». \textbf{Feil!} For $x = 0$ er $\frac{3}{-2} = -\frac{3}{2} \le 1$, og det er sant.
+
+\textbf{Riktig metode:}
+\begin{stegtabell}
+$\dfrac{x+3}{x-2} - 1 \le 0$ & Flytt alt over på én side.\\
+$\dfrac{x+3-(x-2)}{x-2} \le 0$ & Fellesnevner $x - 2$.\\
+$\dfrac{5}{x-2} \le 0$ & Forenkle telleren: $x + 3 - x + 2 = 5$.\\
+\end{stegtabell}
+
+\smallskip
+\begin{center}
+\begin{tikzpicture}[font=\small,fpos/.style={line width=1.1pt},fneg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
+  \draw[graa,thin] (1.40,0.40) -- (1.40,-1.25);
+  \node[anchor=east] at (-0.15,-0.00) {$x - 2$};
+  \draw[fneg] (0.00,-0.00) -- (1.40,-0.00);
+  \draw[fpos] (1.40,-0.00) -- (2.80,-0.00);
+  \node[fill=white,inner sep=1.5pt] at (1.40,-0.00) {$0$};
+  \node[anchor=east] at (-0.15,-0.85) {$\dfrac{5}{x-2}$};
+  \draw[fneg,hoved] (0.00,-0.85) -- (1.40,-0.85);
+  \draw[fpos,hoved] (1.40,-0.85) -- (2.80,-0.85);
+  \node[fill=white,inner sep=1.5pt] at (1.40,-0.85) {$\times$};
+  \node[below] at (1.40,-1.25) {$2$};
+\end{tikzpicture}
+\end{center}
+\begin{stegtabell}
+$x < 2$ & Telleren 5 er positiv. Brøken er negativ når $x - 2$ er negativ. $x = 2$ er aldri med.\\
+Kontroll: & $x = 0$ gir $-\frac{3}{2} \le 1$, sant. $x = 3$ gir $\frac{6}{1} = 6 \le 1$, usant.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{vanligfeil}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
+  \item Å gange en ulikhet med nevneren gjelder ikke generelt. «$\frac{1}{x-3} < 1$ gir $1 < x - 3$, altså $x > 4$» glemmer $x = 0$: $\frac{1}{-3} < 1$ er sant. Riktig svar er $x < 3$ eller $x > 4$.
+  \item Å glemme kontrollen er feil. $\frac{x}{x-3} = \frac{3}{x-3}$ gir $x = 3$, men $x = 3$ er forbudt. Likningen har ingen løsning.
+  \item Å ta med nevnerens nullpunkt er feil. $\frac{x-1}{x+4} \le 0$ har løsning $\langle -4, 1]$, ikke $[-4, 1]$.
+\end{itemize}
+\end{vanligfeil}
+
+\nivaahode{1}
+
+\oppg{2.1}{1}{\uh}
+Løs likningene. Kontroller svaret.
+\begin{tasks}(3)
+  \task $\dfrac{12}{x} = 4$
+  \task $\dfrac{x+6}{x} = 4$
+  \task $\dfrac{3}{x-1} = \dfrac{6}{x+1}$
+\end{tasks}
+
+\oppg{2.2}{1}{\uh}
+Skriv vilkårene. Hvilke verdier av $x$ er ikke tillatt?
+\begin{tasks}(3)
+  \task $\dfrac{5}{x-3} = 2$
+  \task $\dfrac{1}{x} + \dfrac{1}{x+4} = 3$
+  \task $\dfrac{x+1}{x^2-9} = 2$
+\end{tasks}
+
+\oppg{2.3}{1}{\uh}
+Vi skal løse $\dfrac{x-1}{x+3} > 0$. Fortegnslinjene for teller og nevner er tegnet.
+\begin{center}
+\begin{tikzpicture}[font=\small,fpos/.style={line width=1.1pt},fneg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
+  \draw[graa,thin] (1.40,0.40) -- (1.40,-1.95);
+  \draw[graa,thin] (3.30,0.40) -- (3.30,-1.95);
+  \node[anchor=east] at (-0.15,-0.00) {$x - 1$};
+  \draw[fneg] (0.00,-0.00) -- (1.40,-0.00);
+  \draw[fneg] (1.40,-0.00) -- (3.30,-0.00);
+  \draw[fpos] (3.30,-0.00) -- (4.70,-0.00);
+  \node[fill=white,inner sep=1.5pt] at (3.30,-0.00) {$0$};
+  \node[anchor=east] at (-0.15,-0.70) {$x + 3$};
+  \draw[fneg] (0.00,-0.70) -- (1.40,-0.70);
+  \draw[fpos] (1.40,-0.70) -- (3.30,-0.70);
+  \draw[fpos] (3.30,-0.70) -- (4.70,-0.70);
+  \node[fill=white,inner sep=1.5pt] at (1.40,-0.70) {$0$};
+  \node[anchor=east] at (-0.15,-1.55) {$\dfrac{x-1}{x+3}$};
+  \node[below] at (1.40,-1.95) {$-3$};
+  \node[below] at (3.30,-1.95) {$1$};
+\end{tikzpicture}
+\end{center}
+\begin{tasks}(1)
+  \task Tegn fortegnslinjen for brøken. Husk at nevneren aldri er 0.
+  \task Skriv løsningen som intervall.
+\end{tasks}
+
+\nivaahode{2}
+
+\oppg{2.4}{2}{\uh}
+Løs likningene. Kontroller svarene mot vilkåret.
+\begin{tasks}(1)
+  \task $\dfrac{2x}{x-3} = 1 + \dfrac{6}{x-3}$
+  \task $\dfrac{1}{x} + \dfrac{1}{x+2} = \dfrac{3}{4}$
+  \task $\dfrac{2}{x-1} = \dfrac{x}{x+2}$
+\end{tasks}
+
+\oppg{2.5}{2}{\uh}
+Løs ulikhetene med fortegnslinje. Svar som intervall.
+\begin{tasks}(1)
+  \task $\dfrac{x-4}{x+1} \ge 0$
+  \task $\dfrac{2x-1}{x-3} < 1$
+  \task $\dfrac{3}{x+2} \le 1$
+\end{tasks}
+
+\oppg{2.6}{2}{\uh}
+Finn \textbf{den første feilen}. Løs ulikheten riktig.
+\[ \frac{x+5}{x-1} \ge 2 \;\longrightarrow\; \frac{x+5}{x-1} - 2 \ge 0 \;\longrightarrow\; \frac{x+5-2x-2}{x-1} \ge 0 \;\longrightarrow\; \frac{3-x}{x-1} \ge 0 \;\longrightarrow\; 1 < x \le 3 \]
+
+\nivaahode{3}
+
+\oppg{3.1}{3}{\uh}
+Finn en ulikhet på formen $\dfrac{x+p}{x+q} \ge 0$ med løsningsmengde $\langle \leftarrow, -2\rangle \cup [3, \rightarrow\rangle$. Forklar hvordan du fant $p$ og $q$.
+
+\oppg{3.2}{3}{\uh}
+Løs ulikhetene og forklar forskjellen på svarene. Hvorfor er $x = 1$ med i den ene løsningen, men ikke i den andre?
+\begin{tasks}(2)
+  \task $\dfrac{(x-1)^2}{x+3} > 0$
+  \task $\dfrac{(x-1)^2}{x+3} \ge 0$
+\end{tasks}
+
+\oppg{3.3}{3}{\uh}
+Gitt likningen $\dfrac{x+k}{x-2} = 3$, der $k$ er et tall. For hvilken verdi av $k$ har likningen ingen løsning? Begrunn.
+
+\begin{sjekk}
+\begin{tasks}(2)
+  \task Løs $\dfrac{8}{x+1} = 2$.
+  \task Løs $\dfrac{x-2}{x+3} < 0$.
+  \task! Hvorfor kan vi ikke gange $\dfrac{5}{x} > 2$ med $x$ uten videre? Forklar.
+\end{tasks}
+\end{sjekk}

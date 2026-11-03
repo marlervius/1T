@@ -257,12 +257,12 @@ chk("U2b løsninger", sorted(round(float(s), 2) for s in sol if 0 < s < 10), [2.
 chk("U2b utenfor", round(float(max(sol)), 2), 17.07)
 chk("U2c V(2)", V.subs(x, 2), 832)
 
-chk("U3 faktor", factor(x**4 - 5*x**2 + 4), (x - 2) * (x - 1) * (x + 1) * (x + 2))
-los("U3", Eq(x**4 - 5*x**2 + 4, 0), [-2, -1, 1, 2])
-divchk("U3 steg 1", x**4 + 0*x**3 - 5*x**2 + 0*x + 4, x - 1, x**3 + x**2 - 4*x - 4)
-chk("U3 steg 2", factor(x**3 + x**2 - 4*x - 4), (x + 1) * (x - 2) * (x + 2))
+chk("U4 faktor", factor(x**4 - 5*x**2 + 4), (x - 2) * (x - 1) * (x + 1) * (x + 2))
+los("U4", Eq(x**4 - 5*x**2 + 4, 0), [-2, -1, 1, 2])
+divchk("U4 steg 1", x**4 + 0*x**3 - 5*x**2 + 0*x + 4, x - 1, x**3 + x**2 - 4*x - 4)
+chk("U4 steg 2", factor(x**3 + x**2 - 4*x - 4), (x + 1) * (x - 2) * (x + 2))
 
-# U4 programmering: koden kjøres slik den står
+# U3 programmering: koden kjøres slik den står
 def finn(p, d):
     ut = []
     for aa in range(-abs(d), abs(d) + 1):
@@ -271,9 +271,9 @@ def finn(p, d):
     return ut
 
 
-chk("U4a", finn(lambda t_: t_**3 - t_**2 - 10*t_ - 8, -8), [-2, -1, 4])
-chk("U4a faktor", factor(x**3 - x**2 - 10*x - 8), (x + 1) * (x + 2) * (x - 4))
-chk("U4b", finn(lambda t_: t_**4 - 5*t_**2 + 4, 4), [-2, -1, 1, 2])
+chk("U3a", finn(lambda t_: t_**3 - t_**2 - 10*t_ - 8, -8), [-2, -1, 4])
+chk("U3a faktor", factor(x**3 - x**2 - 10*x - 8), (x + 1) * (x + 2) * (x - 4))
+chk("U3b", finn(lambda t_: t_**4 - 5*t_**2 + 4, 4), [-2, -1, 1, 2])
 
 # U5 bevis
 # a^3 + b a^2 + c a + d = 0  =>  a(a^2 + b a + c) = -d
