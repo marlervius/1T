@@ -68,6 +68,7 @@ chk("1.2d", acos(Rational(1, 2)), rad(60))
 
 avrund("1.3a", sidek(12, 15, 48), 1, 11.3)
 avrund("1.3b", vink(11, 6, 8), 1, 102.6)
+chk("1.3b brøk", cosv(11, 6, 8), -Rational(21, 96))
 
 chk("1.4a", cosv(2 * sqrt(3), 2, 2), -Rational(1, 2))
 chk("1.4a v", acos(-Rational(1, 2)), rad(120))
@@ -93,13 +94,15 @@ chk("1.7c", 8**2 + 10**2 - 2 * 8 * 10 * cn(60), 84)
 aapen("1.8", "Bevis for c^2 = a^2 + b^2 - 2ab cos C, høyde fra A eller B")
 # kontroll av algebraen: høyde fra A på a, a = y + (a - y), y = b cos C
 yy = symbols("yy")
+chk("1.8 D forbi B", expand((x - c) ** 2 - (c - x) ** 2), 0)
 chk("1.8 algebra", expand(((b**2 - (b * cA) ** 2) + (a - b * cA) ** 2) - (a**2 + b**2 - 2 * a * b * cA)), 0)
 # 3.2 alltid/noen/aldri
 chk("1.9a", expand((b + c) ** 2 - (b**2 + c**2 - 2 * b * c * cA)), 2 * b * c * (1 + cA))
 sant("1.9a cos>-1", cos(rad(179)).evalf() > -1 and cos(rad(1)).evalf() < 1, "cos A > -1 for 0<A<180")
 sant("1.9b stor", side(3, 4, 90) > 4 and side(3, 4, 30) < 3, "a > begge ved 90, a < begge ved 30")
 chk("1.9b 30", side(3, 4, 30), sqrt(25 - 12 * sqrt(3)))
-chk("1.9c", expand(b**2 + c**2 - 2 * b * c * cn(60)), b**2 + c**2 - b * c)
+chk("1.9c", simplify((b**2 + c**2 - (b**2 + c**2 - b * c)) / (2 * b * c)), Rational(1, 2))
+chk("1.9c v", acos(Rational(1, 2)), rad(60))
 # 3.3 sidene x, x+1, x+2, cos til største vinkel = 1/8
 los("1.10", Eq(((x) ** 2 + (x + 1) ** 2 - (x + 2) ** 2) / (2 * x * (x + 1)), Rational(1, 8)), [4])
 chk("1.10 kontroll", cosv(6, 4, 5), Rational(1, 8))
@@ -128,6 +131,7 @@ aapen("2.1", "Klassifisering: a) SSS cos b) SVS cos c) SVV sinus d) SSV sinus (e
 avrund("2.2a", sidek(9, 14, 65), 1, 13.1, margin=0.05)
 avrund("2.2b", 10 * math.sin(math.radians(65)) / math.sin(math.radians(48)), 1, 12.2)
 avrund("2.2c", vink(13, 8, 11), 1, 84.8)
+chk("2.2c brøk", cosv(13, 8, 11), Rational(1, 11))
 sant("2.3a", 40 + 60 + 80 == 180 and 7 > 6, "vinkelsum ok, men b=7 er lengste side og ligger ikke overfor 80")
 sant("2.3b", 62 + 71 + 57 == 190, "vinkelsum 190")
 
@@ -139,36 +143,56 @@ sant("2.4c disc", 8**2 - 4 * 28 < 0, "negativ diskriminant")
 sant("2.4c sin", 8 * sin(rad(60)) / 6 > 1, "sin B > 1")
 
 avrund("2.5 C", vink(12, 7, 9), 1, 96.4)
-avrund("2.5 A", vink(7, 9, 12), 1, 35.4)
+chk("2.5 cos C", cosv(12, 7, 9), -Rational(1, 9))
 avrund("2.5 B", vink(9, 7, 12), 1, 48.2)
-# via sinussetningen fra C
-avrund("2.5 sinus", math.degrees(math.asin(7 * math.sin(math.radians(vink(12, 7, 9))) / 12)), 1, 35.4)
-sant("2.5 sum", abs(vink(7, 9, 12) + vink(9, 7, 12) + vink(12, 7, 9) - 180) < 1e-9, "sum 180")
+chk("2.5 cos B", cosv(9, 7, 12), Rational(2, 3))
+_C = vink(12, 7, 9)
+avrund("2.5 sin A", 7 * math.sin(math.radians(_C)) / 12, 3, 0.580)
+avrund("2.5 A (sinus)", math.degrees(math.asin(7 * math.sin(math.radians(_C)) / 12)), 1, 35.4)
+avrund("2.5 A (sinus, rundet C)", math.degrees(math.asin(7 * math.sin(math.radians(96.4)) / 12)), 1, 35.4)
+avrund("2.5 A (cos)", vink(7, 9, 12), 1, 35.4)
+avrund("2.5 sum rundet", 96.4 + 48.2 + 35.4, 1, 180.0)
+sant("2.5 spisse", vink(7, 9, 12) < 90 and vink(9, 7, 12) < 90 and _C > 90, "A og B spisse, C stump")
 
-# 2.3 feil
-A_ = vink(4, 5, 6)
-avrund("2.6 A", A_, 1, 41.4)
-avrund("2.6 sin B", 5 * math.sin(math.radians(A_)) / 4, 3, 0.827)
-avrund("2.6 B spiss", math.degrees(math.asin(5 * math.sin(math.radians(A_)) / 4)), 1, 55.8)
-avrund("2.6 B stump", 180 - math.degrees(math.asin(5 * math.sin(math.radians(A_)) / 4)), 1, 124.2)
-avrund("2.6 feil C", 180 - 41.4 - 124.2, 1, 14.4)
-avrund("2.6 riktig B", vink(5, 4, 6), 1, 55.8)
-avrund("2.6 riktig C", vink(6, 4, 5), 1, 82.8)
+# 2.6 feil: a=3, b=7, c=9
+_A = vink(3, 7, 9)
+avrund("2.6 A", _A, 1, 16.2)
+chk("2.6 cos A", cosv(3, 7, 9), Rational(121, 126))
+avrund("2.6 sin C", 9 * math.sin(math.radians(_A)) / 3, 3, 0.837)
+avrund("2.6 C feil", math.degrees(math.asin(9 * math.sin(math.radians(_A)) / 3)), 1, 56.8)
+avrund("2.6 C feil (rundet A)", math.degrees(math.asin(9 * math.sin(math.radians(16.2)) / 3)), 1, 56.8)
+avrund("2.6 C stump", 180 - math.degrees(math.asin(9 * math.sin(math.radians(_A)) / 3)), 1, 123.2)
+avrund("2.6 B feil", 180 - 16.2 - 56.8, 1, 107.0)
+sant("2.6 motsigelse", 107.0 > 56.8 and 7 < 9, "B størst selv om b < c")
+chk("2.6 cos C", cosv(9, 3, 7), -Rational(23, 42))
+chk("2.6 cos B", cosv(7, 3, 9), Rational(41, 54))
+avrund("2.6 riktig C", vink(9, 3, 7), 1, 123.2)
+avrund("2.6 riktig B", vink(7, 3, 9), 1, 40.6)
+avrund("2.6 sum", 16.2 + 123.2 + 40.6, 1, 180.0)
 
 avrund("2.7", 0.5 * 9 * 10 * math.sin(math.acos(Rational(1, 3).evalf())), 1, 42.4)
 chk("2.7 cos", cosv(11, 9, 10), Rational(1, 3))
+avrund("2.7 C", vink(11, 9, 10), 3, 70.529)
 chk("2.7 eksakt", Rational(1, 2) * 9 * 10 * sqrt(1 - Rational(1, 9)), 30 * sqrt(2))
 
 sant("2.8a", cosv(sqrt(10), 1, 2) < 0 and 10 > 1 + 4, "a^2 > b^2+c^2 gir cos A < 0")
 sant("2.8b", cosv(5, 4, 4) > 0 and cosv(5, 3, 4) == 0, "lengste side 5 i 4-4-5 gir spiss vinkel")
-sant("2.8c", cosv(11, 4, 6) < -1, "cos < -1, ingen trekant")
+chk("2.8c", cosv(11, 4, 6), -Rational(23, 16))
+sant("2.8c cos", cos(rad(179)).evalf() >= -1, "cos til en vinkel er alltid >= -1")
 # 3.2 A=60, b=10: for hvilke a?
 for aa, ant in [(8, 0), (5 * sqrt(3), 1), (9, 2), (10, 1), (12, 1)]:
     lsg = [r for r in solve(Eq(aa**2, 100 + c**2 - 10 * c), c) if r.is_real and r > 0]
     chk(f"2.9 a={aa}", len(lsg), ant)
 chk("2.9 disk", (10) ** 2 - 4 * (100 - a**2), 4 * a**2 - 300)
 chk("2.9 røtter", solve(Eq(c**2 - 10 * c + 100 - a**2, 0), c), [5 - sqrt(a**2 - 75), 5 + sqrt(a**2 - 75)])
-aapen("2.10", "Forklaring: cos entydig mellom 0 og 180, sin har to vinkler")
+_A_, _a_, _b_ = symbols("A_ a_ b_", positive=True)
+chk("2.10 røtter", simplify(expand((b * cos(_A_) + sqrt(_a_**2 - b**2 * sin(_A_) ** 2)) ** 2 - 2 * b * cos(_A_) * (b * cos(_A_) + sqrt(_a_**2 - b**2 * sin(_A_) ** 2)) + b**2 - _a_**2)), 0)
+chk("2.10 røtter2", simplify(expand((b * cos(_A_) - sqrt(_a_**2 - b**2 * sin(_A_) ** 2)) ** 2 - 2 * b * cos(_A_) * (b * cos(_A_) - sqrt(_a_**2 - b**2 * sin(_A_) ** 2)) + b**2 - _a_**2)), 0)
+for aa, ant in [(8, 0), (10, 0), (11, 1), (12, 1), (20, 1)]:
+    lsg = [r for r in solve(Eq(aa**2, 100 + c**2 - 2 * 10 * c * cn(120)), c) if r.is_real and r > 0]
+    chk(f"2.10 A=120 b=10 a={aa}", len(lsg), ant)
+sant("2.10 minus negativ", all((10 * cn(120) - math.sqrt(aa**2 - 100 * 0.75)) < 0 for aa in (9, 11, 20)), "minus-roten er negativ for stump A")
+chk("2.10 a>b", simplify(_b_**2 * sin(_A_) ** 2 + _b_**2 * cos(_A_) ** 2), _b_**2)
 
 aapen("Sjekk 2a", "sinussetningen (SVV)")
 aapen("Sjekk 2b", "cosinussetningen (SSS)")
@@ -180,14 +204,14 @@ chk("U1b diff", 64 + 81 - 144, 1)
 chk("U1c diff", 400 + 441 - 841, 0)
 aapen("U1d", "Forklaring: b^2+c^2-a^2 har samme fortegn som cos A")
 
-# U2 tomt
+# U1 tomt
 B2 = vink(60, 35, 48)
 D2 = vink(60, 42, 52)
-avrund("U2a B", B2, 1, 91.2)
-avrund("U2a D", D2, 1, 78.5)
-avrund("U2b areal", 0.5 * 35 * 48 * math.sin(math.radians(B2)) + 0.5 * 42 * 52 * math.sin(math.radians(D2)), 0, 1910)
+avrund("U1a B", B2, 1, 91.2)
+avrund("U1a D", D2, 1, 78.5)
+avrund("U1b areal", 0.5 * 35 * 48 * math.sin(math.radians(B2)) + 0.5 * 42 * 52 * math.sin(math.radians(D2)), 0, 1910)
 
-# U3 programmet: koden slik den står i oppgaven, med hullet fylt inn
+# U1 programmet: koden slik den står i oppgaven, med hullet fylt inn
 kode = '''
 from math import acos, degrees
 
@@ -224,12 +248,14 @@ def kjor(a1, b1, c1):
     return ut.getvalue().split("\n")[:-1]
 
 
-sant("U3 3-4-5", kjor(3, 4, 5) == ["36.9 53.1 90.0", "rett"], str(kjor(3, 4, 5)))
-sant("U3 5-7-8", kjor(5, 7, 8) == ["38.2 60.0 81.8", "spiss"], str(kjor(5, 7, 8)))
-sant("U3 1-2-4", kjor(1, 2, 4) == ["Ingen trekant"], str(kjor(1, 2, 4)))
-aapen("U3c", "Uten trekantulikheten feiler acos med domenefeil")
-sant("U3a flyt", math.degrees(math.acos((1 + 1 - math.sqrt(2) ** 2) / 2)) != 90.0, "sidene 1, 1, sqrt(2) gir ikke nøyaktig 90.0")
-sant("U3a flyt2", abs(math.degrees(math.acos((1 + 1 - math.sqrt(2) ** 2) / 2)) - 90) < 1e-4, "men innenfor toleransen")
+sant("U1 3-4-5", kjor(3, 4, 5) == ["36.9 53.1 90.0", "rett"], str(kjor(3, 4, 5)))
+sant("U1 5-7-8", kjor(5, 7, 8) == ["38.2 60.0 81.8", "spiss"], str(kjor(5, 7, 8)))
+sant("U1 1-2-4", kjor(1, 2, 4) == ["Ingen trekant"], str(kjor(1, 2, 4)))
+aapen("U1c", "Uten trekantulikheten feiler acos med domenefeil")
+sant("U1 1-1-sqrt2", kjor(1, 1, "2**0.5") == ["45.0 45.0 90.0", "rett"], str(kjor(1, 1, "2**0.5")))
+sant("U1 1-1-sqrt2 uten toleranse", 90.00000000000001 > 90 and not (90.00000000000001 < 90), "== 90 og < 90 gir begge usant, så «stump»")
+sant("U1a flyt", math.degrees(math.acos((1 + 1 - math.sqrt(2) ** 2) / 2)) != 90.0, "sidene 1, 1, sqrt(2) gir ikke nøyaktig 90.0")
+sant("U1a flyt2", abs(math.degrees(math.acos((1 + 1 - math.sqrt(2) ** 2) / 2)) - 90) < 1e-4, "men innenfor toleransen")
 
 # U4 parallellogramloven
 d1 = a**2 + b**2 - 2 * a * b * cos(pi - symbols("v"))
@@ -244,11 +270,9 @@ chk("U5 60", cosv(7, 5, 8), Rational(1, 2))
 
 # ---------- Mellomsvar avrundet vs urundet ----------
 avrund("Rund 1.5b", vink(310, 420, 438.2), 1, 42.3)
-avrund("Rund 2.5 A", math.degrees(math.asin(7 * math.sin(math.radians(96.4)) / 12)), 1, 35.4)
-avrund("Rund 2.5 B", 180 - 96.4 - 35.4, 1, 48.2)
-avrund("Rund 2.6 B", math.degrees(math.asin(5 * math.sin(math.radians(41.4)) / 4)), 1, 55.8)
-avrund("Rund 2.7", 0.5 * 9 * 10 * math.sin(math.radians(70.5)), 1, 42.4)
-avrund("Rund U2 areal", 0.5 * 35 * 48 * math.sin(math.radians(91.2)) + 0.5 * 42 * 52 * math.sin(math.radians(78.5)), 0, 1910)
+avrund("Rund 1.5b 3 des", vink(310, 420, 438.215), 1, 42.3)
+avrund("Rund U3 areal", 0.5 * 35 * 48 * math.sin(math.radians(91.2)) + 0.5 * 42 * 52 * math.sin(math.radians(78.5)), 0, 1910)
+avrund("Rund 2.7", 0.5 * 9 * 10 * math.sin(math.radians(70.529)), 1, 42.4)
 avrund("Rund 1.3b", vink(11, 6, 8), 1, 102.6)
 
 rapport()

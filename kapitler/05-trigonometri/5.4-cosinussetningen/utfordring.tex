@@ -9,21 +9,7 @@ Vis regning og begrunnelse. Kontroller med vinkelsummen eller ved å sette inn.
 
 \nivaahode{2}
 
-\oppg{U1}{2}{\uh}
-Tre trekanter har disse sidene.
-\begin{tasks}(1)
-  \task Avgjør om hver trekant er spiss, rett eller stump uten å finne vinklene: $6, 7, 10$ \ og \ $8, 9, 12$ \ og \ $20, 21, 29$.
-  \task Forklar hvorfor det holder å se på den lengste siden.
-\end{tasks}
-
-\oppg{U2}{2}{\mh}
-En tomt $ABCD$ har sidene $AB = 35$ m, $BC = 48$ m, $CD = 42$ m og $DA = 52$ m. Diagonalen $AC$ er $60$ m.
-\begin{tasks}(1)
-  \task Finn vinklene $B$ og $D$.
-  \task Finn arealet av tomten. Svar i hele kvadratmeter.
-\end{tasks}
-
-\oppg{U3}{2}{\prog}
+\oppg{U1}{2}{\prog}
 Programmet skal ta tre sider og avgjøre om trekanten er spiss, rett eller stump.
 \begin{kode}
 from math import acos, degrees
@@ -53,8 +39,24 @@ else:
 \end{kode}
 \begin{tasks}(1)
   \task Fyll inn betingelsen for en rett vinkel. Hvorfor er \lstinline[style=laereverk,numbers=none,frame=none]|storst == 90| lite trygt?
-  \task Test programmet på $3, 4, 5$ og $5, 7, 8$ og $1, 2, 4$. Skriv ned hva som skrives ut.
+  \task Test programmet på $3, 4, 5$ og $5, 7, 8$ og $1, 2, 4$ og $1, 1, \sqrt2$ (skriv \lstinline[style=laereverk,numbers=none,frame=none]|2**0.5|). Skriv ned hva som skrives ut.
   \task Hvorfor sjekker programmet trekantulikheten først?
+\end{tasks}
+
+\oppg{U2}{2}{\uh}
+Avgjør om hver trekant er spiss, rett eller stump uten å finne vinklene.
+\begin{tasks}(3)
+  \task Sidene $6$, $7$ og $10$
+  \task Sidene $8$, $9$ og $12$
+  \task Sidene $20$, $21$ og $29$
+\end{tasks}
+Forklar hvorfor det holder å se på den lengste siden.
+
+\oppg{U3}{2}{\mh}
+En tomt $ABCD$ har sidene $AB = 35$ m, $BC = 48$ m, $CD = 42$ m og $DA = 52$ m. Diagonalen $AC$ er $60$ m.
+\begin{tasks}(1)
+  \task Finn vinklene $B$ og $D$.
+  \task Finn arealet av tomten. Svar i hele kvadratmeter.
 \end{tasks}
 
 \nivaahode{3}
@@ -64,20 +66,20 @@ Et parallellogram har sidene $a$ og $b$. Vinkelen mellom dem er $v$. Vis at summ
 \begin{tikzpicture}[scale=0.8,font=\small]
   \coordinate (A) at (0,0); \coordinate (B) at (3.5,0);
   \coordinate (C) at (4.7,2); \coordinate (D) at (1.2,2);
-  \draw[thick] (A) -- (B) node[midway, below, sloped] {$a$}
+  \draw[thick] (A) -- (B) node[midway, below] {$a$}
                    -- (C)
                    -- (D)
-                   -- (A) node[midway, above, sloped] {$b$};
-  \draw[dashed] (A) -- (C); \draw[dashed] (B) -- (D);
+                   -- (A) node[midway, left] {$b$};
+  \draw[dashed] ($(A)!0.22!(C)$) -- (C); \draw[dashed] (B) -- (D);
   \draw pic[draw, angle radius=6mm] {angle = B--A--D};
-  \node at (0.95,0.3) {\scriptsize $v$};
+  \node at (0.8,0.8) {\scriptsize $v$};
   \node[below left] at (A) {$A$}; \node[below right] at (B) {$B$};
   \node[above right] at (C) {$C$}; \node[above left] at (D) {$D$};
 \end{tikzpicture}
 \hint{Hvilke trekanter har diagonalene som en av sidene? Hva er vinkelen ved $B$?}
 
 \oppg{U5}{3}{\uh}
-Lag selv en trekant med heltallige sider og en vinkel på nøyaktig $120^\circ$. Sidene skal ikke være multipler av $3, 5, 7$.
+Lag selv en trekant med heltallige sider og en vinkel på nøyaktig $120^\circ$. Trekanten skal ikke være $3, 5, 7$ eller en forstørrelse av den ($6, 10, 14, \ldots$).
 Forklar hvordan du fant den, og kontroller med cosinussetningen.
 
 \begin{oppsummering}
