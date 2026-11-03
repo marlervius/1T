@@ -28,7 +28,7 @@ eksakt svar & Et svar uten avrunding, for eksempel $4\sqrt3 + 6$. & \mittsprak\\
 \renewcommand{\arraystretch}{1.3}
 \begin{tabular}[t]{@{}>{\raggedright\arraybackslash}p{3.7cm} >{\raggedright\arraybackslash}p{3.4cm}@{}}
 rett vinkel & $\sin$, $\cos$, $\tan$, Pytagoras\\
-vinkel og siden overfor, pluss én til & sinussetningen\\
+vinkel og siden overfor, pluss én til & sinussetningen (SSV: sjekk om det finnes to trekanter)\\
 to sider og vinkelen mellom, eller tre sider & cosinussetningen\\
 to sider og vinkelen mellom, areal & arealsetningen\\
 \end{tabular}
@@ -49,7 +49,7 @@ to sider og vinkelen mellom, areal & arealsetningen\\
   \coordinate (C) at (6.598,1.5);
   \draw[thick] (A)--(B) node[midway,below] {$4$};
   \draw[thick] (B)--(C) node[midway,below,sloped] {$3$};
-  \draw[thick] (D)--(C);
+  \draw[thick] (D)--(C) node[midway,above] {\color{niv3}\bfseries ?};
   \draw[thick] (A)--(D) node[midway,above,sloped] {$4$};
   \draw[dashed] (B)--(D) node[midway,right] {\color{niv3}\bfseries ?};
   \draw (3.85,0.26)--(4.11,0.41)--(4.26,0.15);
@@ -113,8 +113,8 @@ Kontroll: & $BD = 2$ og $DC = 2\sqrt3$. Summen er $BC$.\\
 \begin{vanligfeil}
 \begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
   \item $\sin v = \frac{\text{motstående}}{\text{hypotenus}}$ gjelder ikke generelt i en trekant uten rett vinkel. I en likesidet trekant er alle sider like, så brøken ville blitt $1$, men $\sin 60^\circ = \frac{\sqrt3}{2}$.
-  \item Du bruker en vinkel fra feil trekant. Ligger $D$ på $BC$ og $\angle ADB = 60^\circ$, er $\angle ADC = 180^\circ - 60^\circ = 120^\circ$, ikke $60^\circ$.
-  \item Sinussetningen på en trekant med to sider og vinkelen mellom (SVS) er feil. Da har du ikke en vinkel og siden overfor. Bruk cosinussetningen.
+  \item Du bruker en vinkel fra feil trekant. Ligger $D$ på $BC$ og $\angle ADB = 70^\circ$, er $\angle ADC = 180^\circ - 70^\circ = 110^\circ$, ikke $70^\circ$.
+  \item Sinussetningen virker ikke på en trekant med to sider og vinkelen mellom (SVS): du har ingen vinkel med siden overfor. Bruk cosinussetningen.
 \end{itemize}
 \end{vanligfeil}
 
@@ -217,7 +217,7 @@ Svar eksakt.
   \coordinate (C) at (11.59,0);
   \draw[thick] (B)--(C);
   \draw[thick] (B)--(A) node[midway,above,sloped] {$6$};
-  \draw[thick] (A)--(C) node[midway,above,sloped] {\color{niv3}\bfseries ?};
+  \draw[thick] (A)--(C) node[midway,above] {\color{niv3}\bfseries ?};
   \draw[thick] (A)--(D) node[midway,right] {\color{niv3}\bfseries ?};
   \draw (1.2,0) arc (0:45:1.2);
   \node[font=\scriptsize] at (1.9,0.4) {$45^\circ$};
@@ -317,7 +317,7 @@ usikkerhet & Hvor mye en målt verdi kan avvike fra den riktige. & \mittsprak\\
 \end{minipage}\hfill
 \begin{minipage}[t]{0.45\linewidth}
 \centering
-\begin{tikzpicture}[baseline=(current bounding box.north),font=\small,scale=0.9]
+\begin{tikzpicture}[baseline=(current bounding box.north),font=\small,scale=0.75]
   \coordinate (P) at (0,0);
   \coordinate (Q) at (2.1,0);
   \coordinate (F) at (5.41,0);
@@ -355,7 +355,7 @@ Kontroll: & $\frac{h}{\tan 28^\circ} - \frac{h}{\tan 41^\circ} = 77,3 - 47,3 = 3
 \end{minipage}\hfill
 \begin{minipage}[t]{0.45\linewidth}
 \centering
-\begin{tikzpicture}[baseline=(current bounding box.north),font=\small,scale=1.2]
+\begin{tikzpicture}[baseline=(current bounding box.north),font=\small,scale=0.95]
   \coordinate (H) at (0,0);
   \coordinate (P) at (50:2.25);
   \coordinate (Q) at ([shift={(-10:1.5)}]P);
@@ -363,9 +363,9 @@ Kontroll: & $\frac{h}{\tan 28^\circ} - \frac{h}{\tan 41^\circ} = 77,3 - 47,3 = 3
   \draw[dashed] (P)--([shift={(0,0.9)}]P);
   \draw[thick] (H)--(P) node[midway,above,sloped] {\scriptsize$9$ km};
   \draw[thick] (P)--(Q) node[midway,above,sloped] {\scriptsize$6$ km};
-  \draw[thick,dashed] (H)--(Q) node[midway,below,sloped] {\color{niv3}\bfseries ?};
+  \draw[thick,dashed] (H)--(Q) node[midway,below] {\color{niv3}\bfseries ?};
   \draw (0,0.5) arc (90:50:0.5);
-  \node[font=\scriptsize] at (-0.3,0.7) {$40^\circ$};
+  \node[font=\scriptsize] at (0.27,0.85) {$40^\circ$};
   \draw ([shift={(0,0.35)}]P) arc (90:-10:0.35);
   \node[font=\scriptsize] at ([shift={(40:0.65)}]P) {$100^\circ$};
   \node[below left] at (H) {$H$};
@@ -403,25 +403,21 @@ Et skip seiler kurs $70^\circ$. Tegn en skisse med nord opp.
 \end{tasks}
 
 \oppg{2.2}{1}{\mh}
-Du står $45$ m fra foten av en flaggstang på flatt terreng. Høydevinkelen til toppen er $32^\circ$. Hvor høy er flaggstanga? Se bort fra øyehøyden. Svar med én desimal.
-
-\oppg{2.3}{1}{\mh}
 To båter $A$ og $B$ ligger $200$ m fra hverandre. Begge sikter mot en bøye $C$. I trekant $ABC$ er $\angle A = 50^\circ$ og $\angle B = 64^\circ$. Tegn en skisse og fullfør.
 \begin{tasks}(1)
   \task $\angle C = 180^\circ - 50^\circ - 64^\circ = \skrivlinje[15mm]$.
   \task $\dfrac{AC}{\sin 64^\circ} = \dfrac{200}{\sin\skrivlinje[12mm]}$, så $AC \approx \skrivlinje[2cm]$ m.
-  \task Finn $BC$ på samme måte.
 \end{tasks}
 
 \nivaahode{2}
 
-\oppg{2.4}{2}{\mh}
+\oppg{2.3}{2}{\mh}
 \begin{minipage}[t]{0.50\linewidth}
 Fra to punkter $A$ og $B$ på samme elvebredd, $75$ m fra hverandre, ser vi et tre $T$ på motsatt bredd. Vi måler $\angle TAB = 58^\circ$ og $\angle TBA = 74^\circ$. Finn bredden av elva, altså korteste avstand fra $T$ til linja $AB$. Svar med én desimal.
 \end{minipage}\hfill
 \begin{minipage}[t]{0.47\linewidth}
 \centering
-\begin{tikzpicture}[baseline=(current bounding box.north),font=\small,scale=0.9]
+\begin{tikzpicture}[baseline=(current bounding box.north),font=\small,scale=0.6]
   \fill[blue!10] (-0.5,0) rectangle (3.5,3.29);
   \draw (-0.5,0)--(3.5,0);
   \draw (-0.5,3.29)--(3.5,3.29);
@@ -434,16 +430,16 @@ Fra to punkter $A$ og $B$ på samme elvebredd, $75$ m fra hverandre, ser vi et t
   \draw (1.856,0)--(1.856,0.2)--(2.056,0.2);
   \draw (0.7,0) arc (0:58:0.7);
   \node[font=\scriptsize] at (1.0,0.3) {$58^\circ$};
-  \draw (2.4,0) arc (180:106:0.6);
-  \node[font=\scriptsize] at (2.28,0.45) {$74^\circ$};
+  \draw (2.5,0) arc (180:106:0.5);
+  \node[font=\scriptsize] at (3.45,0.55) {$74^\circ$};
   \draw[|-|] (0,-0.5)--(3,-0.5) node[midway,below] {\scriptsize$75$ m};
-  \node[left] at (A) {$A$};
-  \node[right] at (B) {$B$};
+  \node[below left] at (A) {$A$};
+  \node[below right] at (B) {$B$};
   \node[above] at (T) {$T$};
 \end{tikzpicture}
 \end{minipage}
 
-\oppg{2.5}{2}{\mh}
+\oppg{2.4}{2}{\mh}
 En båt seiler fra $H$ kurs $30^\circ$ i $15$ km til $P$. Så seiler den kurs $160^\circ$ i $10$ km til $Q$. Tegn en skisse.
 \begin{tasks}(2)
   \task Finn $\angle HPQ$.
@@ -452,57 +448,30 @@ En båt seiler fra $H$ kurs $30^\circ$ i $15$ km til $P$. Så seiler den kurs $1
   \task Hvilken kurs må båten ha fra $Q$ for å seile rett tilbake til $H$?
 \end{tasks}
 
-\oppg{2.6}{2}{\mh}
+\oppg{2.5}{2}{\mh}
 Fra $A$ er høydevinkelen til toppen $T$ av et fjell $20^\circ$. Vi går $300$ m rett mot fjellet til $B$. Der er høydevinkelen $32^\circ$. Eleven skal finne høyden $h$ av fjelltoppen over bakken. Finn \textbf{den første feilen}. Løs riktig.
 \[ \begin{aligned}
-\angle ATB &= 32^\circ - 20^\circ = 12^\circ\\
-\angle ABT &= 180^\circ - 32^\circ = 148^\circ\\
+\angle ATB &= 32^\circ - 20^\circ = 12^\circ, \quad \angle ABT = 180^\circ - 32^\circ = 148^\circ\\
 BT &= \frac{300 \cdot \sin 20^\circ}{\sin 12^\circ} \approx 493,5 \text{ m}\\
 h &= BT \cdot \sin 20^\circ \approx 168,8 \text{ m}
 \end{aligned} \]
 
-\oppg{2.7}{2}{\mh}
-\begin{minipage}[t]{0.46\linewidth}
-Et tak har bredde $10$ m. De to takflatene har vinklene $35^\circ$ og $50^\circ$ mot vannrett. Finn lengden av begge sperrene og mønehøyden, altså høyden fra mønet ned til bakken. Svar med én desimal.
-\end{minipage}\hfill
-\begin{minipage}[t]{0.50\linewidth}
-\centering
-\begin{tikzpicture}[baseline=(current bounding box.north),font=\small,scale=0.8]
-  \coordinate (A) at (0,0);
-  \coordinate (B) at (7,0);
-  \coordinate (C) at (4.41,3.087);
-  \coordinate (F) at (4.41,0);
-  \draw[thick] (A)--(B);
-  \draw[thick] (A)--(C) node[midway,above,sloped] {\color{niv3}\bfseries ?};
-  \draw[thick] (C)--(B) node[midway,above,sloped] {\color{niv3}\bfseries ?};
-  \draw[dashed] (C)--(F) node[midway,left] {\color{niv3}\bfseries ?};
-  \draw (4.21,0)--(4.21,0.2)--(4.41,0.2);
-  \draw (1,0) arc (0:35:1);
-  \node[font=\scriptsize] at (1.4,0.2) {$35^\circ$};
-  \draw (6,0) arc (180:130:1);
-  \node[font=\scriptsize] at (5.55,0.2) {$50^\circ$};
-  \draw[|-|] (0,-0.5)--(7,-0.5) node[midway,below] {\scriptsize$10$ m};
-  \node[left] at (A) {$A$};
-  \node[right] at (B) {$B$};
-  \node[above] at (C) {$C$};
-\end{tikzpicture}
-\end{minipage}
-
 \nivaahode{3}
 
-\oppg{2.8}{3}{\mh}
-En landmåler står $80$ m fra foten av en mast på flatt terreng og måler høydevinkelen til toppen med usikkerhet $\pm 1^\circ$.
+\oppg{2.6}{3}{\mh}
+Fra $A$ er høydevinkelen til toppen av et tårn $30^\circ$. Fra $B$, $60$ m nærmere tårnet, er den $40^\circ$. Begge vinklene er målt med usikkerhet $\pm 1^\circ$. Tegn en skisse.
 \begin{tasks}(1)
-  \task Vinkelen er $25^\circ$. Finn høyden når vinkelen er $25^\circ$, og den minste og største mulige høyden.
-  \task En annen mast, like langt unna, har høydevinkel $60^\circ$. Gjør det samme.
-  \task Forklar hvorfor usikkerheten i meter blir større i b) enn i a).
+  \task Finn høyden av tårnet. Rund av til hele meter.
+  \task Finn minste og største mulige høyde når vinkelen i $A$ varierer og vinkelen i $B$ er $40^\circ$.
+  \task Forklar hvorfor målingen blir så usikker.
 \end{tasks}
 
-\oppg{2.9}{3}{\mh}
-To skip forlater en havn samtidig. Skip $A$ seiler kurs $30^\circ$ med fart $30$ km/t. Skip $B$ seiler kurs $90^\circ$. Etter $2$ timer er avstanden mellom skipene $52$ km.
+\oppg{2.7}{3}{\mh}
+To skip forlater en havn samtidig. Skip $A$ seiler kurs $30^\circ$ med fart $21$ km/t. Skip $B$ seiler kurs $90^\circ$. Etter $2$ timer er avstanden mellom skipene $38$ km.
 \begin{tasks}(1)
   \task Tegn en skisse. Finn vinkelen mellom de to kursene.
   \task Finn farten til skip $B$. Er det mer enn ett mulig svar?
+  \task Kontroller ett av svarene med sinussetningen.
   \task Forklar hvorfor oppgaven har det antallet svar.
 \end{tasks}
 
