@@ -22,7 +22,7 @@ Mål for opplæringen er at eleven skal kunne
 | KM8 | lese, hente ut og vurdere matematikk i relevante tekster om ulike temaer og presentere relevante beregninger og analyser av resultatene | 3.6, gjennomgående |
 | KM9 | utforske og beskrive egenskapene ved polynomfunksjoner, rasjonale funksjoner, eksponentialfunksjoner og potensfunksjoner | 1.1, 1.3, 3.2–3.5 |
 | KM10 | bruke gjennomsnittlig og momentan vekstfart i konkrete eksempler og gjøre rede for den deriverte | 4.1–4.4 |
-| KM11 | forklare polynomdivisjon og bruke det til å omskrive algebraiske uttrykk, drøfte funksjoner og løse ligninger og ulikheter | 3.3, 3.4, 4.4 |
+| KM11 | forklare polynomdivisjon og bruke det til å omskrive algebraiske uttrykk, drøfte funksjoner og løse ligninger og ulikheter | 1.4 (grunnlag), 3.3, 3.4, 4.4 |
 | KM12 | gjøre rede for definisjonene av sinus, cosinus og tangens og bruke trigonometri til å beregne lengder, vinkler og arealer i vilkårlige trekanter | 5.1–5.4 |
 | KM13 | begrunne sinus-, cosinus- og arealsetningen | 5.2–5.4 |
 | KM14 | bruke trigonometri til å analysere og løse sammensatte teoretiske og praktiske problemer med lengder, vinkler og arealer | 5.5 |

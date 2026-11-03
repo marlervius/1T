@@ -99,7 +99,8 @@ Les målene i briefen i `laereplan/kompetansemaal-1T.md`. Se på verbene. Står 
 - Avslutt med en kontroll når det går (sett inn, regn baklengs).
 
 ### Vanlige feil
-- Skriv den gale versjonen, si at den er feil, gi den riktige. Hent feilene fra `brief.md`.
+- Skriv den gale versjonen, si at den er feil, gi den riktige. **Med formel**, ikke bare ord.
+- Kontroller påstanden i boksen med sympy i `verifiser.py` ("VF 1a" osv.). En feil i denne boksen lærer elevene noe galt. Hent feilene fra `brief.md`.
 - Oppgavene på nivå 2 og 3 skal teste minst to av disse feilene.
 
 ### Unngå
@@ -147,6 +148,12 @@ Les målene i briefen i `laereplan/kompetansemaal-1T.md`. Se på verbene. Står 
 - Nivå 1: bare svaret. Nivå 2: svar + kort mellomregning når det hjelper. Nivå 3 og U: kort
   løsning og begrunnelse, slik en god elev ville skrevet den.
 - Åpne oppgaver («lag selv»): gi ett eksempel på et godt svar og si at flere svar er riktige.
+- **Vilkår** står i parentes etter svaret: «a) $\frac{2x}{3}$ ($x \neq 0$)». Ta med vilkår i *alle* svar
+  med $x$ i nevneren. Ved divisjon med en brøk kommer også telleren i den brøken med i vilkåret.
+- Store brøker og produkter: én deloppgave per linje. Ikke press alt inn på én side — fasiten kan være 2 sider.
+- «Alltid / noen ganger / aldri»: en påstand som stemmer for alle *tillatte* verdier, er «alltid
+  (for tillatte verdier)». Skriv i oppgaveteksten «… for alle tillatte verdier av $x$?» når det gjelder.
+- Fasiten løser oppgaven med seksjonens egne metoder, ikke med metoder som kommer senere.
 - Eksakte svar. Avrundet svar bare når oppgaven ber om det, og da med `\approx`.
 
 ---
