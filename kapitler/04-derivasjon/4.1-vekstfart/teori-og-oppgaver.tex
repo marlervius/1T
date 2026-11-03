@@ -1,0 +1,357 @@
+% =====================================================================
+%  4.1 Gjennomsnittlig og momentan vekstfart — teori og oppgaver
+% =====================================================================
+
+\del{1}{Gjennomsnittlig vekstfart}
+
+\begin{ordliste}
+vekstfart & Hvor fort en størrelse endrer seg, målt per enhet på $x$-aksen. & \mittsprak\\
+gjennomsnittlig vekstfart & Hvor mye $f(x)$ endrer seg i snitt per enhet $x$ på et intervall. & \mittsprak\\
+sekant & En rett linje gjennom to punkt på en graf. & \mittsprak\\
+intervall & Alle tall mellom to grenser, for eksempel $[a, b]$. & \mittsprak\\
+\end{ordliste}
+
+\begin{mustkunne}
+\begin{minipage}[t]{0.52\linewidth}
+\textbf{Gjennomsnittlig vekstfart} fra $x = a$ til $x = b$:
+\[ \frac{f(b) - f(a)}{b - a} = \frac{\Delta y}{\Delta x} \]
+\textbf{Hvorfor:} Vi deler endringen i $y$ på endringen i $x$. Det er stigningstallet fra 3.1.
+Linja gjennom $(a, f(a))$ og $(b, f(b))$ er \emph{sekanten}, og stigningstallet til sekanten er den gjennomsnittlige vekstfarten.\par
+\smallskip
+\textbf{Enhet:} enheten til $f$ per enhet til $x$, for eksempel km per time.
+Negativ vekstfart betyr at $f$ synker i snitt.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.45\linewidth}
+\vspace{0pt}\centering
+\begin{tikzpicture}[baseline=(current bounding box.north)]
+\begin{axis}[width=\linewidth, height=0.85\linewidth, axis lines=middle, xmin=-0.4, xmax=5.2, ymin=-2.2, ymax=9.5,
+  xtick={1,4}, xticklabels={$a$,$b$}, ytick={-1,8}, yticklabels={$f(a)$,$f(b)$},
+  tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$}, label style={font=\small}]
+\addplot[domain=-0.3:4.45, thick, black!60, samples=40] {x^2 - 2*x};
+\addplot[domain=0:4.8, thick, hoved] {3*x - 4};
+\draw[dashed, graa] (axis cs:1,-1) -- (axis cs:4,-1) -- (axis cs:4,8);
+\addplot[only marks, mark=*, mark size=1.5pt, hoved] coordinates {(1,-1) (4,8)};
+\node[font=\scriptsize, anchor=north] at (axis cs:2.5,-1.1) {$\Delta x$};
+\node[font=\scriptsize, anchor=west] at (axis cs:4.1,3.5) {$\Delta y$};
+\node[font=\scriptsize, hoved, anchor=south east] at (axis cs:2.8,4.6) {sekant};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+\end{mustkunne}
+
+\begin{eksempel}[1 — fra formel]
+La $f(x) = x^2 - 2x$. Finn gjennomsnittlig vekstfart på $[1, 4]$.
+
+\begin{stegtabell}
+$f(1) = 1^2 - 2\cdot 1 = -1$ & Funksjonsverdien i starten av intervallet.\\
+$f(4) = 4^2 - 2\cdot 4 = 8$ & Funksjonsverdien i slutten av intervallet.\\
+$\dfrac{f(4) - f(1)}{4 - 1} = \dfrac{8 - (-1)}{3}$ & Endring i $y$ delt på endring i $x$.\\
+$= \dfrac{9}{3} = 3$ & Gjennomsnittlig vekstfart er $3$.\\
+Kontroll: & Sekanten $y = 3x - 4$ går gjennom $(1, -1)$ og $(4, 8)$.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{eksempel}[2 — fra tabell, med enhet]
+Tabellen viser temperaturen $T$ (i $^\circ$C) utover en dag. Finn gjennomsnittlig vekstfart fra kl. 6 til kl. 12.
+
+\begin{center}
+\begin{tabular}{c|ccccc}
+kl. & 6 & 9 & 12 & 15 & 18\\ \hline
+$T$ ($^\circ$C) & 4 & 8 & 13 & 16 & 12\\
+\end{tabular}
+\end{center}
+
+\begin{stegtabell}
+$\dfrac{T(12) - T(6)}{12 - 6} = \dfrac{13 - 4}{6}$ & Les av $13$ og $4$ i tabellen. Intervallet er 6 timer.\\
+$= \dfrac{9}{6} = 1,5$ & Regn ut.\\
+$1,5\ {}^\circ\text{C}$ per time & Enhet: $^\circ$C (for $T$) per time (for $x$).\\
+Kontroll: & $6 \cdot 1,5 = 9$, og $4 + 9 = 13$. Det stemmer.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{vanligfeil}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
+  \item $\dfrac{f(a) + f(b)}{2}$ er feil. Det er gjennomsnittet av to funksjonsverdier. For $f(x) = x^2 - 2x$ på $[1, 4]$ gir det $3,5$, men riktig vekstfart er $3$.
+  \item $\dfrac{f(a) - f(b)}{b - a}$ er feil. Teller og nevner må regnes i samme retning. Her får vi $-3$ i stedet for $3$.
+  \item Svaret «$3$» uten enhet er ikke ferdig. I en kontekst skriver du enheten, for eksempel $1,5\ {}^\circ$C per time. Ikke «timer per $^\circ$C».
+  \item Gjennomsnittlig vekstfart $0$ betyr ikke at $f$ er konstant. Moteksempel: $f(x) = x^2$ på $[-2, 2]$ gir $0$, men $f(0) = 0$ og $f(2) = 4$.
+\end{itemize}
+\end{vanligfeil}
+
+\nivaahode{1}
+
+\oppg{1.1}{1}{\uh}
+La $g(x) = x^2 + x$. Finn gjennomsnittlig vekstfart på intervallet.
+\begin{tasks}(3)
+  \task $[0, 3]$
+  \task $[1, 3]$
+  \task $[-1, 2]$
+\end{tasks}
+
+\oppg{1.2}{1}{\uh}
+La $h(x) = x^2 - 6x$. Finn gjennomsnittlig vekstfart på $[1, 3]$. Fullfør.
+\begin{tasks}(1)
+  \task $h(1) =$ \skrivlinje[2cm] \quad og \quad $h(3) =$ \skrivlinje[2cm]
+  \task $\dfrac{h(3) - h(1)}{3 - 1} = \dfrac{\rute - (\rute)}{\rute} =$ \skrivlinje[2cm]
+\end{tasks}
+
+\oppg{1.3}{1}{\uh}
+En bil kjører langs en vei. Tabellen viser hvor langt bilen har kjørt etter $t$ timer.
+\begin{center}
+\begin{tabular}{c|cccc}
+$t$ (timer) & 0 & 1 & 2 & 3\\ \hline
+avstand (km) & 0 & 70 & 150 & 210\\
+\end{tabular}
+\end{center}
+\begin{tasks}(1)
+  \task Finn gjennomsnittsfarten fra $t = 0$ til $t = 2$. Husk enhet.
+  \task Finn gjennomsnittsfarten fra $t = 1$ til $t = 3$.
+  \task Finn gjennomsnittsfarten i hver av de tre timene. Hvilken time gikk det raskest?
+\end{tasks}
+
+\nivaahode{2}
+
+\oppg{1.4}{2}{\uh}
+Grafen viser $f(x) = -x^2 + 4x$. Les av punkt og finn gjennomsnittlig vekstfart på intervallet.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=6.4cm, height=4.4cm, axis lines=middle, xmin=-0.6, xmax=4.8, ymin=-1, ymax=4.8,
+  xtick={0,1,2,3,4}, ytick={1,2,3,4}, grid=both, grid style={black!10},
+  tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$}, label style={font=\small}]
+\addplot[domain=-0.1:4.1, thick, hoved, samples=40] {-x^2 + 4*x};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\begin{tasks}(3)
+  \task $[0, 1]$
+  \task $[1, 4]$
+  \task $[0, 3]$
+\end{tasks}
+
+\oppg{1.5}{2}{\mh}
+En bil koster $240\,000$ kr som ny. Verdien etter $t$ år er $V(t) = 240\,000 \cdot 0,8^t$ kr.
+Avrund til nærmeste hundre kroner.
+\begin{tasks}(1)
+  \task Finn gjennomsnittlig vekstfart fra $t = 0$ til $t = 3$. Husk enhet.
+  \task Finn gjennomsnittlig vekstfart fra $t = 3$ til $t = 5$.
+  \task Svaret i b) er mindre enn svaret i a) uten fortegn. Forklar hvorfor, selv om bilen taper $20\,\%$ hvert år.
+\end{tasks}
+
+\oppg{1.6}{2}{\uh}
+La $f(x) = x^2 - 3x$. Da er $f(2) = -2$ og $f(6) = 18$. Finn \textbf{den første feilen}. Regn riktig.
+\[ \frac{f(6) - f(2)}{6 - 2} \quad\longrightarrow\quad \frac{18 - (-2)}{6 - 2} \quad\longrightarrow\quad \frac{18 - 2}{4} \quad\longrightarrow\quad 4 \]
+
+\nivaahode{3}
+
+\oppg{1.7}{3}{\uh}
+Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret. Anta $a < b$.
+\begin{tasks}(1)
+  \task For $f(x) = kx + m$ er gjennomsnittlig vekstfart på $[a, b]$ lik $k$.
+  \task For $f(x) = x^2$ er gjennomsnittlig vekstfart på $[a, b]$ positiv.
+  \task For $f(x) = x^2$ ligger gjennomsnittlig vekstfart på $[a, b]$ mellom $f(a)$ og $f(b)$.
+\end{tasks}
+
+\oppg{1.8}{3}{\uh}
+Finn det som mangler.
+\begin{tasks}(1)
+  \task En funksjon har $f(2) = 5$. Gjennomsnittlig vekstfart på $[2, 6]$ er $-3$. Finn $f(6)$.
+  \task La $f(x) = x^2 + px$. Gjennomsnittlig vekstfart på $[1, 5]$ er $3$. Finn $p$.
+\end{tasks}
+
+\begin{sjekk}
+\begin{tasks}(2)
+  \task Finn gjennomsnittlig vekstfart for $g(x) = x^2 + 3x$ på $[0, 2]$.
+  \task Temperaturen faller fra $12\ {}^\circ$C kl. 14 til $6\ {}^\circ$C kl. 17. Finn gjennomsnittlig vekstfart med enhet.
+  \task! Hva forteller en negativ gjennomsnittlig vekstfart om funksjonen?
+\end{tasks}
+\end{sjekk}
+
+% ---------------------------------------------------------------------
+
+\del{2}{Momentan vekstfart}
+
+\begin{ordliste}
+momentan vekstfart & Vekstfarten i ett bestemt punkt, altså akkurat der. & \mittsprak\\
+tangent & En rett linje som så vidt berører grafen i ett punkt. & \mittsprak\\
+tilnærming & Et tall som er nær det riktige tallet, men ikke helt likt. & \mittsprak\\
+nærme seg & Komme stadig nærmere et bestemt tall uten å trenge å bli lik det. & \mittsprak\\
+\end{ordliste}
+
+\begin{mustkunne}
+\begin{minipage}[t]{0.52\linewidth}
+\textbf{Momentan vekstfart} i et punkt er stigningstallet til \emph{tangenten} i punktet.\par
+\smallskip
+\textbf{Hvorfor sekantene hjelper:} Ett punkt er ikke nok til å regne et stigningstall. Vi bruker to punkt, $x$ og $x + h$:
+\[ \frac{f(x + h) - f(x)}{h} \]
+Lar vi $h$ bli mindre ($1;\ 0,1;\ 0,01;\ \ldots$), kommer det andre punktet nærmere det første. Sekanten dreier seg mot tangenten, og stigningstallene nærmer seg et tall. Det tallet er den momentane vekstfarten.\par
+\smallskip
+Vi gir dette tallet et navn i 4.2.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.45\linewidth}
+\vspace{0pt}\centering
+\begin{tikzpicture}[baseline=(current bounding box.north)]
+\begin{axis}[width=\linewidth, height=0.95\linewidth, axis lines=middle, xmin=-0.3, xmax=4.8, ymin=-1, ymax=9.5,
+  xtick={2}, xticklabels={$x$}, ytick=\empty, tick label style={font=\scriptsize}, xlabel={}, ylabel={$y$}, label style={font=\small}]
+\addplot[domain=0:4.1, thick, black!60, samples=40] {0.5*x^2};
+\addplot[domain=0.3:4.6, thick, hoved] {3*x - 4};
+\addplot[domain=0.6:4.4, thick, hoved] {2.5*x - 3};
+\addplot[domain=0.3:4.6, thick, dashed, niv3] {2*x - 2};
+\addplot[only marks, mark=*, mark size=1.5pt, black] coordinates {(2,2)};
+\addplot[only marks, mark=*, mark size=1.2pt, hoved] coordinates {(3,4.5) (4,8)};
+\node[font=\scriptsize, niv3, anchor=north west] at (axis cs:2.3,1.4) {tangent};
+\node[font=\scriptsize, hoved, anchor=south east] at (axis cs:2.3,7.5) {sekanter};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+\end{mustkunne}
+
+\begin{eksempel}[1 — mindre og mindre $h$]
+La $f(x) = x^2$. Anslå vekstfarten i $x = 3$. Vi regner $\dfrac{f(3 + h) - f(3)}{h}$ for mindre og mindre $h$. Her er $f(3) = 9$.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{c|c|c|c}
+$h$ & $f(3 + h)$ & $f(3 + h) - 9$ & $\dfrac{f(3 + h) - 9}{h}$\\ \hline
+$1$ & $16$ & $7$ & $7$\\
+$0,1$ & $9,61$ & $0,61$ & $6,1$\\
+$0,01$ & $9,0601$ & $0,0601$ & $6,01$\\
+$0,001$ & $9,006001$ & $0,006001$ & $6,001$\\
+\end{tabular}
+\end{center}
+
+\begin{stegtabell}
+$7;\ 6,1;\ 6,01;\ 6,001$ & Tallene blir mindre og nærmer seg $6$.\\
+Momentan vekstfart i $x = 3$ er $6$. & Sekantene nærmer seg tangenten når $h \to$ liten.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{eksempel}[2 — lese av en tangent]
+Grafen viser $g(x) = \dfrac{x^2}{4}$ med tangent i punktet $(2, 1)$. Finn vekstfarten i $x = 2$ ved å lese av.
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=6cm, height=4cm, axis lines=middle, xmin=-1, xmax=5.2, ymin=-1.6, ymax=4.2,
+  xtick={0,1,2,3,4}, ytick={-1,1,2,3}, grid=both, grid style={black!10},
+  tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$}, label style={font=\small}]
+\addplot[domain=-0.8:4.5, thick, hoved, samples=40] {x^2/4};
+\addplot[domain=-0.5:4.6, thick, dashed, niv3] {x - 1};
+\addplot[only marks, mark=*, mark size=1.5pt, black] coordinates {(2,1) (0,-1) (4,3)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\begin{stegtabell}
+Punkt på tangenten: $(0, -1)$ og $(4, 3)$ & Velg punkt der tangenten treffer rutenettet.\\
+$\dfrac{3 - (-1)}{4 - 0} = \dfrac{4}{4} = 1$ & Stigningstallet til tangenten.\\
+Kontroll med $h = 0,1$ og $h = 0,01$: & Tabell gir $1,025$ og $1,0025$. De nærmer seg $1$.\\
+\end{stegtabell}
+Avlesning fra en tegnet tangent er \emph{unøyaktig}: en liten feil i linja gir en annen verdi. Tabellen gir et sikrere anslag.
+\end{eksempel}
+
+\begin{vanligfeil}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
+  \item Momentan vekstfart er ikke funksjonsverdien. For $f(x) = x^2$ er $f(3) = 9$, men vekstfarten i $x = 3$ er $6$. $f(3)$ sier hvor høyt grafen er. Vekstfarten sier hvor bratt den er.
+  \item At sekanten med $h = 1$ gir den momentane vekstfarten gjelder ikke generelt. Moteksempel: for $f(x) = x^2$ i $x = 3$ gir $h = 1$ tallet $7$, ikke $6$. Det stemmer bare for en rett linje.
+  \item Vekstfarten må ha enhet. Er $s$ i meter og $t$ i sekunder, er enheten m/s, akkurat som for gjennomsnittlig vekstfart.
+\end{itemize}
+\end{vanligfeil}
+
+\nivaahode{1}
+
+\oppg{2.1}{1}{\uh}
+La $f(x) = x^2$. Vi anslår vekstfarten i $x = 1$. Her er $f(1) = 1$. Fullfør tabellen.
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{c|c|c|c}
+$h$ & $f(1 + h)$ & $f(1 + h) - 1$ & $\dfrac{f(1 + h) - 1}{h}$\\ \hline
+$1$ & $4$ & $3$ & $3$\\
+$0,1$ & \rute & \rute & \rute\\
+$0,01$ & \rute & \rute & \rute\\
+\end{tabular}
+\end{center}
+\begin{tasks}(1)
+  \task Hvilket tall nærmer stigningstallene seg?
+\end{tasks}
+
+\oppg{2.2}{1}{\uh}
+Grafen viser $f(x) = x^2 - 4x + 5$ og tangenten i punktet $(3, 2)$.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[width=6cm, height=4.2cm, axis lines=middle, xmin=-0.5, xmax=5.3, ymin=-0.8, ymax=5.6,
+  xtick={0,1,2,3,4,5}, ytick={1,2,3,4,5}, grid=both, grid style={black!10},
+  tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$}, label style={font=\small}]
+\addplot[domain=0.2:4.4, thick, hoved, samples=40] {x^2 - 4*x + 5};
+\addplot[domain=1.7:4.4, thick, dashed, niv3] {2*x - 4};
+\addplot[only marks, mark=*, mark size=1.5pt, black] coordinates {(3,2) (2,0) (4,4) (2,1)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\begin{tasks}(1)
+  \task Tangenten går gjennom $(2, 0)$ og $(4, 4)$. Finn momentan vekstfart i $x = 3$.
+  \task Er funksjonen voksende eller avtagende i $x = 3$? Hvordan ser du det?
+  \task Hva er momentan vekstfart i bunnpunktet $(2, 1)$? Hvordan ser tangenten ut der?
+\end{tasks}
+
+\oppg{2.3}{1}{\uh}
+Avgjør om vekstfarten er gjennomsnittlig eller momentan. Finn størrelsen med enhet når du kan.
+\begin{tasks}(1)
+  \task Fartsmåleren i bilen viser $70$ km/h akkurat nå.
+  \task Bilen kjørte $270$ km på $3$ timer.
+  \task Temperaturen var $4\ {}^\circ$C kl. 6 og $10\ {}^\circ$C kl. 9.
+  \task Termometeret stiger akkurat nå med $3\ {}^\circ$C per time.
+\end{tasks}
+
+\nivaahode{2}
+
+\oppg{2.4}{2}{\mh}
+La $f(x) = x^3$.
+\begin{tasks}(1)
+  \task Regn $\dfrac{f(1 + h) - f(1)}{h}$ for $h = 1;\ 0,1;\ 0,01;\ 0,001$. Lag en tabell.
+  \task Anslå vekstfarten i $x = 1$.
+  \task Regn $\dfrac{f(2 + h) - f(2)}{h}$ for $h = 0,01$ og $h = 0,001$. Anslå vekstfarten i $x = 2$.
+\end{tasks}
+
+\oppg{2.5}{2}{\mh}
+En syklist kjører en etappe. Tabellen viser hvor langt hun har kommet etter $t$ sekunder.
+\begin{center}
+\begin{tabular}{c|ccccccc}
+$t$ (s) & 0 & 10 & 20 & 30 & 40 & 50 & 60\\ \hline
+$s$ (m) & 0 & 60 & 150 & 270 & 400 & 520 & 620\\
+\end{tabular}
+\end{center}
+\begin{tasks}(1)
+  \task Finn gjennomsnittsfarten fra $t = 0$ til $t = 60$. Avrund til én desimal.
+  \task Anslå farten ved $t = 30$ ved å regne på $[20, 30]$ og $[30, 40]$.
+  \task Hva er forskjellen i betydning mellom svaret i a) og svaret i b)?
+\end{tasks}
+
+\oppg{2.6}{2}{\uh}
+Vi anslår vekstfarten til $f(x) = x^2 - x$ i $x = 2$ med $h = 0,1$. Finn \textbf{den første feilen}. Regn riktig.
+\[ \frac{f(2,1) - f(2)}{2,1 - 2} \ \longrightarrow\ \frac{(4,41 - 2,1) - 2}{0,1} \ \longrightarrow\ \frac{2,31 - 2}{0,1} \ \longrightarrow\ \frac{0,31}{0,1} = 0,031 \]
+
+\nivaahode{3}
+
+\oppg{2.7}{3}{\mh}
+La $f(x) = x^2$. Vi undersøker et mønster.
+\begin{tasks}(1)
+  \task Finn gjennomsnittlig vekstfart på $[2, 8]$.
+  \task Anslå vekstfarten i $x = 5$, midt i intervallet. Bruk $h = 0,1$ og $h = 0,01$.
+  \task Sammenlign a) og b). Velg selv et nytt intervall, og undersøk om det samme skjer. Hva tror du, og hvorfor kan du ikke vite det sikkert ennå?
+\end{tasks}
+
+\oppg{2.8}{3}{\mh}
+For en funksjon $f$ er sekantens stigningstall mellom $x = 2$ og $x = 2 + h$ lik $5$ for $h = 1$, $4,1$ for $h = 0,1$ og $4,01$ for $h = 0,01$.
+\begin{tasks}(1)
+  \task Anslå vekstfarten i $x = 2$.
+  \task Kan vekstfarten i $x = 2$ være $4,5$? Begrunn.
+  \task Finn en enkel funksjon som passer med tabellen. Kontroller med regning.
+  \hint{Regn sekantens stigningstall for noen enkle funksjoner i $x = 2$.}
+\end{tasks}
+
+\begin{sjekk}
+\begin{tasks}(2)
+  \task La $f(x) = x^2 + 1$. Regn $\dfrac{f(0 + h) - f(0)}{h}$ for $h = 0,1$.
+  \task En tangent går gjennom $(0, 1)$ og $(2, 5)$. Hva er vekstfarten i berøringspunktet?
+  \task! Hvorfor nærmer sekanten seg tangenten når $h$ blir mindre? Forklar kort.
+\end{tasks}
+\end{sjekk}

@@ -7,6 +7,7 @@
 \begin{ordliste}
 polynom & Et uttrykk av typen $x^3 - 2x^2 + 5$, med ledd som er potenser av $x$ ganget med tall. & \mittsprak\\
 grad & Den høyeste eksponenten i polynomet. $x^3 - 2x^2 + 5$ har grad 3. & \mittsprak\\
+polynomdivisjon & Å dele ett polynom på et annet. Svaret er en kvotient og en rest. & \mittsprak\\
 divisor og kvotient & I $P : D = Q$ er $D$ divisoren og $Q$ kvotienten. & \mittsprak\\
 rest & Det som blir til overs. Resten har lavere grad enn divisoren. & \mittsprak\\
 faktorsetningen & $(x - a)$ er en faktor i $P(x)$ nøyaktig når $P(a) = 0$. & \mittsprak\\
@@ -17,7 +18,7 @@ faktorsetningen & $(x - a)$ er en faktor i $P(x)$ nøyaktig når $P(a) = 0$. & \
 
 \begin{minipage}[t]{0.40\linewidth}
 \vspace{0pt}
-$157 : 12 = 13$ rest $1$\par\smallskip
+$157 : 12 = 13 + \frac{1}{12}$, altså $13$ rest $1$\par\smallskip
 Kontroll:\par
 $157 = 12 \cdot 13 + 1$
 \end{minipage}\hfill
@@ -26,11 +27,12 @@ $157 = 12 \cdot 13 + 1$
 \polylongdiv{x^2+5x+7}{x+2}
 \smallskip
 
+Resten $1$ skrives som brøken $\frac{1}{x+2}$.\par
 Kontroll: $x^2 + 5x + 7 = (x+2)(x+3) + 1$
 \end{minipage}
 
 \medskip
-I hvert steg deler du ledende ledd på ledende ledd, ganger svaret med divisoren og trekker fra. Du stopper når resten har lavere grad enn divisoren.
+I hvert steg deler du ledende ledd på ledende ledd, ganger svaret med divisoren, skriver produktet med motsatt fortegn og legger sammen. Det er det samme som å trekke fra. Du stopper når resten har lavere grad enn divisoren.
 Generelt er $P(x) = (x - a)\cdot Q(x) + r$.\par
 \textbf{Faktorsetningen.} Sett inn $x = a$: $P(a) = 0 \cdot Q(a) + r = r$. Resten er altså $P(a)$. Er $P(a) = 0$, går divisjonen opp, og $(x - a)$ er en faktor.
 \end{mustkunne}
@@ -38,10 +40,17 @@ Generelt er $P(x) = (x - a)\cdot Q(x) + r$.\par
 \begin{eksempel}[1 — polynomdivisjon]
 Regn ut $(x^3 - 2x^2 - 5x + 6) : (x - 1)$.
 
+\begin{stegtabell}
+$x^3 : x = x^2$ & Første ledd i kvotienten: ledende ledd delt på ledende ledd.\\
+$x^2(x - 1) = x^3 - x^2$ & Gang $x^2$ med divisoren.\\
+$-x^3 + x^2$ & Skriv produktet med motsatt fortegn under og legg sammen. Det er det samme som å trekke fra. Da blir det $-x^2$ igjen.\\
+Flytt ned $-5x$ & Neste runde starter med $-x^2 : x = -x$.\\
+\end{stegtabell}
+
 \polylongdiv{x^3-2x^2-5x+6}{x-1}
 
 \begin{stegtabell}
-Kvotient $x^2 - x - 6$, rest $0$ & Dette står nederst i oppstillingen.\\
+Kvotient $x^2 - x - 6$, rest $0$ & Kvotienten står til høyre for likhetstegnet. Resten står nederst.\\
 $(x-1)(x^2 - x - 6) = x^3 - 2x^2 - 5x + 6$ & Kontroll: gang ut divisor $\cdot$ kvotient. Det er polynomet vi startet med.\\
 \end{stegtabell}
 \end{eksempel}
@@ -50,8 +59,8 @@ $(x-1)(x^2 - x - 6) = x^3 - 2x^2 - 5x + 6$ & Kontroll: gang ut divisor $\cdot$ k
 Faktoriser $P(x) = x^3 - 7x + 6$.
 
 \begin{stegtabell}
-$P(1) = 1 - 7 + 6 = 0$ & Prøv heltall som går opp i konstantleddet $6$. Faktorsetningen: $(x - 1)$ er en faktor.\\
-$(x^3 + 0x^2 - 7x + 6) : (x - 1)$ & Leddet $x^2$ mangler. Skriv $0x^2$, ellers blir oppstillingen feil.\\
+$P(1) = 1 - 7 + 6 = 0$ & Prøv heltall som går opp i konstantleddet $6$. Faktorsetningen: $(x - 1)$ er en faktor. Divider $P(x) : (x-1)$.\\
+Leddet $x^2$ mangler & Sett av en tom kolonne til det (tenk $0x^2$).\\
 \end{stegtabell}
 
 \polylongdiv{x^3+0x^2-7x+6}{x-1}
@@ -65,9 +74,9 @@ $P(x) = (x - 1)(x - 2)(x + 3)$ & Svar.\\
 
 \begin{vanligfeil}
 \begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
-  \item Å hoppe over $0x^2$ i $x^3 - 7x + 6$ er feil. Skriv $x^3 + 0x^2 - 7x + 6$, ellers havner leddene i feil kolonne.
-  \item $P(2) = 0$ gir faktoren $(x + 2)$ er feil. Faktoren er $(x - 2)$. For $P(x) = x^3 - 2x^2 - x + 2$ er $P(2) = 0$, men $P(-2) = -12$, så $(x+2)$ er ikke en faktor.
-  \item Fortegnsfeil i subtraksjonen: $(x^2 + 3x) - (x^2 - x) = 2x$ er feil. Du trekker fra begge leddene: $3x - (-x) = 4x$.
+  \item Å hoppe over leddet $0x^2$ i $x^3 - 7x + 6$ er feil. Sett av en tom kolonne til det (tenk $x^3 + 0x^2 - 7x + 6$), ellers havner leddene i feil kolonne.
+  \item «$P(2) = 0$ gir faktoren $(x + 2)$» er feil. $P(2) = 0$ betyr at $(x - 2)$ er en faktor, ikke $(x+2)$. For $P(x) = x^3 - 2x^2 - x + 2$ er $P(2) = 0$, men $P(-2) = -12$.
+  \item Fortegnsfeil når produktet legges til. Produktet $x^2 - x$ skrives som $-x^2 + x$, ikke $-x^2 - x$. Da blir $(x^2 + 3x) + (-x^2 + x) = 4x$, ikke $2x$.
 \end{itemize}
 \end{vanligfeil}
 
@@ -84,7 +93,7 @@ Utfør polynomdivisjon. Kontroller ved å gange ut divisor $\cdot$ kvotient.
 \oppg{1.2}{1}{\uh}
 Her er begynnelsen på divisjonen $(x^3 + 2x^2 - 5x - 6) : (x - 2)$.
 
-\polylongdiv[stage=3]{x^3+2x^2-5x-6}{x-2}
+\polylongdiv[stage=4]{x^3+2x^2-5x-6}{x-2}
 
 \begin{tasks}(1)
   \task Fullfør divisjonen. Kvotienten er \skrivlinje[4cm] og resten er \rute.
@@ -92,7 +101,7 @@ Her er begynnelsen på divisjonen $(x^3 + 2x^2 - 5x - 6) : (x - 2)$.
 \end{tasks}
 
 \oppg{1.3}{1}{\uh}
-La $P(x) = x^3 - 4x^2 + x + 6$. Regn ut $P(a)$ og avgjør om faktoren er med.
+La $P(x) = x^3 - 4x^2 + x + 6$. Regn ut $P(a)$ og avgjør om uttrykket er en faktor i $P(x)$.
 \begin{tasks}(3)
   \task Er $(x - 3)$ en faktor?
   \task Er $(x + 2)$ en faktor?
@@ -112,7 +121,7 @@ Utfør polynomdivisjon. Skriv med rest hvis divisjonen ikke går opp.
 
 \oppg{1.5}{2}{\uh}
 Faktoriser fullstendig. Finn først et heltall som gir $P(a) = 0$.
-\begin{tasks}(1)
+\begin{tasks}(3)
   \task $x^3 - 6x^2 + 11x - 6$
   \task $x^3 + 3x^2 - 4x - 12$
   \task $x^3 - 3x - 2$
@@ -121,15 +130,22 @@ Faktoriser fullstendig. Finn først et heltall som gir $P(a) = 0$.
 \oppg{1.6}{2}{\uh}
 Mia skal faktorisere $P(x) = x^3 - 5x^2 + 2x + 8$. Finn \textbf{den første feilen}. Faktoriser riktig.
 \[ \begin{aligned}
-&P(2) = 8 - 20 + 4 + 8 = 0\\
-\longrightarrow\;&\text{Så } (x+2) \text{ er en faktor}\\
-\longrightarrow\;&P(x) = (x+2)(x^2 - 3x - 4)\\
-\longrightarrow\;&P(x) = (x+2)(x-4)(x+1)
+&P(2) = 8 - 20 + 4 + 8 = 0\text{, så } (x - 2) \text{ er en faktor}\\
+\longrightarrow\;&x^3 : x = x^2 \text{ og } x^2(x-2) = x^3 - 2x^2 \text{, som gir } -3x^2\\
+\longrightarrow\;&-3x^2 : x = -3x \text{ og } -3x(x-2) = -3x^2 + 6x \text{, som gir } 4x\\
+\longrightarrow\;&\text{Kvotienten er } x^2 - 3x + 4 \text{, så } P(x) = (x-2)(x^2 - 3x + 4)
 \end{aligned} \]
+
+\oppg{1.7}{2}{\uh}
+Se på divisjonen i 1.4d, $(x^3 + x^2 + x + 4) : (x - 1)$, og på $157 : 12$.
+\begin{tasks}(1)
+  \task Hva i $157 : 12$ svarer til kvotienten og resten i 1.4d?
+  \task Hvorfor stopper du når resten har lavere grad enn divisoren?
+\end{tasks}
 
 \nivaahode{3}
 
-\oppg{1.7}{3}{\uh}
+\oppg{1.8}{3}{\uh}
 Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret.
 \begin{tasks}(1)
   \task Et tredjegradspolynom har tre nullpunkter.
@@ -137,14 +153,14 @@ Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret.
   \task Hvis $P(2) = 0$ og $P(3) = 0$, er $(x - 2)(x - 3)$ en faktor i $P(x)$.
 \end{tasks}
 
-\oppg{1.8}{3}{\uh}
+\oppg{1.9}{3}{\uh}
 Gitt $P(x) = x^3 + kx^2 - 4x + 4$.
 \begin{tasks}(1)
   \task Finn $k$ slik at $(x - 2)$ er en faktor i $P(x)$.
   \task Faktoriser $P(x)$ fullstendig med denne verdien av $k$.
 \end{tasks}
 
-\oppg{1.9}{3}{\uh}
+\oppg{1.10}{3}{\uh}
 Lag selv et tredjegradspolynom som gir resten $5$ når det deles på $(x - 2)$. Forklar hvordan du vet at resten blir $5$. Finnes det flere slike polynomer?
 
 \begin{sjekk}
@@ -169,12 +185,12 @@ dobbelt nullpunkt & Et nullpunkt der faktoren $(x - p)$ står i andre potens. & 
 
 \begin{mustkunne}
 \begin{minipage}[t]{0.57\linewidth}
-\vspace{0pt}\textbf{Forløp.} For store $|x|$ er ledende ledd størst. Med $x = 100$ er $x^3 = 1\,000\,000$, mens $5x^2 = 50\,000$. Grafen ligner derfor på $a_nx^n$ langt ute.\par\smallskip
+\vspace{0pt}\textbf{Forløp.} For store $|x|$ er ledende ledd størst. Med $x = 100$ er $x^3 = 1\,000\,000$, mens $5x^2 = 50\,000$. Grafen ligner derfor på $a_nx^n$ langt ute. Grafen til en polynomfunksjon er sammenhengende, uten brudd.\par\smallskip
 \renewcommand{\arraystretch}{1.4}
 \begin{tabular}[t]{@{}p{1.2cm} p{3.3cm} p{3.3cm}@{}}
  & $a_n > 0$ & $a_n < 0$\\
-$n$ odde & ned til venstre, opp til høyre & opp til venstre, ned til høyre\\
-$n$ like & opp på begge sider & ned på begge sider\\
+$n$ oddetall & ned til venstre, opp til høyre & opp til venstre, ned til høyre\\
+$n$ partall & opp på begge sider & ned på begge sider\\
 \end{tabular}\par\smallskip
 \textbf{Nullpunkter.} Skriv $f$ på faktorisert form. Hver faktor $(x - p)$ gir et nullpunkt $x = p$. Grad $n$ gir høyst $n$ nullpunkter. Skjæring med $y$-aksen er $f(0)$.\par\smallskip
 \textbf{Dobbelt nullpunkt.} Et kvadrat er aldri negativt, så $(x - p)^2$ skifter ikke fortegn. Grafen \emph{berører} $x$-aksen og snur.\par\smallskip
@@ -187,7 +203,7 @@ $n$ like & opp på begge sider & ned på begge sider\\
   xtick={-1,2}, ytick={\empty}, tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$}, label style={font=\small}]
 \addplot[domain=-2.1:2.8, thick, hoved, samples=50] {(x+1)^2*(x-2)};
 \addplot[only marks, mark=*, mark size=1.5pt] coordinates {(-1,0) (2,0) (0,-2)};
-\node[font=\scriptsize, anchor=north west] at (axis cs:0.05,-2) {$(0,-2)$};
+\node[font=\scriptsize, anchor=east] at (axis cs:-0.25,-3.3) {$(0,-2)$};
 \end{axis}
 \end{tikzpicture}\par
 {\footnotesize $g(x) = (x+1)^2(x-2)$. Dobbelt nullpunkt i $x = -1$.}
@@ -309,7 +325,7 @@ Kontroll: & $x = 0$ gir $6 > 0$. $x = \frac{3}{2}$ gir $-\frac{9}{8}$, som ikke 
 
 \begin{vanligfeil}
 \begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
-  \item Et tredjegradspolynom har alltid tre nullpunkter gjelder ikke generelt. $x^3 + x = x(x^2 + 1)$ har bare nullpunktet $x = 0$. Grad 3 betyr høyst tre.
+  \item «Et tredjegradspolynom har alltid tre nullpunkter» gjelder ikke generelt. $x^3 + x = x(x^2 + 1)$ har bare nullpunktet $x = 0$. Grad 3 betyr høyst tre.
   \item Å dele begge sider på $x$ i $x^3 = 4x$ gir $x^2 = 4$ og mister løsningen $x = 0$. Flytt over og faktoriser: $x(x-2)(x+2) = 0$ gir tre løsninger.
   \item $(x - 2)^2(x + 1)$ skifter fortegn ved $x = 2$ er feil. For $x = 1$ er verdien $2$, og for $x = 3$ er den $4$. Begge er positive.
 \end{itemize}
@@ -327,10 +343,10 @@ Finn graden og ledende ledd. Går grafen opp eller ned til høyre? Og til venstr
 
 \oppg{2.2}{1}{\uh}
 Finn nullpunktene og skjæringen med $y$-aksen.
-\begin{tasks}(1)
+\begin{tasks}(3)
   \task $f(x) = (x - 1)(x + 4)(x - 5)$
   \task $g(x) = x(x + 2)(x - 3)$
-  \task $h(x) = -2(x - 3)(x + 1)(x - 4)$
+  \task $h(x) = -(x - 2)(x + 5)(x - 6)$
 \end{tasks}
 
 \oppg{2.3}{1}{\uh}
@@ -381,10 +397,10 @@ Løs likningene.
 
 \oppg{2.5}{2}{\uh}
 Løs ulikhetene. Svar som intervaller.
-\begin{tasks}(1)
+\begin{tasks}(3)
   \task $x^3 - 4x^2 - 11x + 30 < 0$
   \task $x^3 - 12x + 16 > 0$
-  \task $x(x - 3)^2 \le 0$
+  \task $(x + 1)(x - 3)^2 \ge 0$
 \end{tasks}
 
 \oppg{2.6}{2}{\uh}
@@ -397,10 +413,11 @@ La $f(x) = -(x + 3)(x - 1)^2$.
 \oppg{2.7}{2}{\uh}
 Tom skal løse $(x - 1)^2(x + 3) < 0$. Finn \textbf{den første feilen}. Løs riktig.
 \[ \begin{aligned}
-&\text{Nullpunkter: } x = 1 \text{ og } x = -3\\
-\longrightarrow\;&\text{Begge faktorene skifter fortegn}\\
-\longrightarrow\;&\text{Produktet er negativt mellom } -3 \text{ og } 1\\
-\longrightarrow\;&x \in \langle -3, 1\rangle
+&\text{Nullpunkter: } x = 1 \text{ (dobbelt) og } x = -3\\
+\longrightarrow\;&(x-1)^2 \text{ er aldri negativ, så fortegnet bestemmes av } (x+3)\\
+\longrightarrow\;&(x+3) \text{ er negativ for } x < -3\\
+\longrightarrow\;&\text{Produktet er } 0 \text{ i } x = 1 \text{, så } x = 1 \text{ tas med}\\
+\longrightarrow\;&x \in \langle \leftarrow, -3\rangle \text{ eller } x = 1
 \end{aligned} \]
 
 \nivaahode{3}
@@ -417,14 +434,14 @@ Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret.
 Vi vil ha en tredjegradsfunksjon med nullpunktene $-1$, $3$ og $4$ og $f(0) = -24$.
 \begin{tasks}(1)
   \task Lag en slik funksjon. Hvor mange finnes?
-  \task Finnes det også en fjerdegradsfunksjon med de samme tre nullpunktene og $f(0) = -24$? Lag en eller forklar hvorfor det er umulig.
+  \task Finnes det en fjerdegradsfunksjon med nullpunktene $-1$, $3$ og $4$ og ingen andre, og med $f(0) = -24$? Lag en eller forklar hvorfor det er umulig.
 \end{tasks}
 
 \oppg{2.10}{3}{\uh}
 Grafen til $f(x) = x^3 + ax^2 + bx$ har et dobbelt nullpunkt i $x = 2$.
 \begin{tasks}(1)
   \task Finn $a$ og $b$.
-  \task Løs $f(x) \ge 0$. Forklar hvorfor $x = 2$ er med, selv om grafen ikke skifter fortegn der.
+  \task Løs $f(x) \le 0$. Forklar hvorfor $x = 2$ er med, selv om grafen ikke skifter fortegn der.
 \end{tasks}
 
 \begin{sjekk}
