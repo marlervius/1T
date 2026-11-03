@@ -1,0 +1,60 @@
+% =====================================================================
+%  1.2 Kvadratsetningene og faktorisering — ekstra utfordring
+% =====================================================================
+
+\begin{infoboks}{Velg metode selv}
+Arket bygger på 1.2 Kvadratsetningene og faktorisering. Vis regning og begrunnelse.
+Kontroller svaret ved å gange ut igjen eller sette inn et tall.
+\end{infoboks}
+
+\nivaahode{2}
+
+\oppg{U1}{2}{\uh}
+Forenkle.
+\[ (2x+3)^2 - (2x-3)^2 \]
+
+\oppg{U2}{2}{\uh}
+Faktoriser fullstendig.
+\begin{tasks}(2)
+  \task $3x^3 - 27x$
+  \task $12a^2 - 3b^2$
+\end{tasks}
+
+\nivaahode{3}
+
+\oppg{U3}{3}{\uh}
+Vis at $(n+1)^2 - n^2$ alltid er et oddetall, for alle heltall $n$.
+
+\oppg{U4}{3}{\uh}
+Finn $k$ slik at $x^2 + kx + 25$ er et fullstendig kvadrat. Det finnes to svar.
+\hint{Et fullstendig kvadrat er på formen $(x+c)^2$. Hvilke verdier kan $c$ ha?}
+
+\oppg{U5}{3}{\prog}
+Se på programmet.
+\begin{kode}
+for n in range(1, 11):
+    v = (n + 1)**2 - n**2
+    h = 2*n + 1
+    print(n, v == h)
+\end{kode}
+\begin{tasks}(2)
+  \task Hva skriver programmet ut? Kjør det, eller forklar uten å kjøre.
+  \task Er dette et bevis for at $(n+1)^2 - n^2 = 2n + 1$ for alle $n$? Forklar.
+\end{tasks}
+
+\oppg{U6}{3}{\uh}
+\begin{tasks}(2)
+  \task Vis at $(m-d)(m+d) = m^2 - d^2$.
+  \task Bruk a) til å regne ut $47 \cdot 53$ uten kalkulator.
+\end{tasks}
+
+\oppg{U7}{3}{\uh}
+\begin{tasks}(2)
+  \task Faktoriser $x^4 - 16$ fullstendig.
+  \task Forklar hvorfor $x^2 + 4$ ikke kan faktoriseres videre med reelle tall.
+\end{tasks}
+
+\begin{oppsummering}
+Trekk ut felles faktor først. Velg deretter kvadratsetning eller konjugatsetning.
+Gang ut igjen for å kontrollere svaret.
+\end{oppsummering}

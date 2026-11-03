@@ -1,0 +1,271 @@
+% =====================================================================
+%  1.2 Kvadratsetningene og faktorisering — teori og oppgaver
+% =====================================================================
+
+\del{1}{Kvadratsetningene}
+
+\begin{ordliste}
+kvadratsetning & En regel for å gange ut et kvadrat eller en produkt av en sum og en differanse. & \mittsprak\\
+kvadrat & Et tall eller uttrykk ganget med seg selv, for eksempel $(a+b)^2$. & \mittsprak\\
+konjugatsetningen & Den tredje kvadratsetningen: $(a+b)(a-b) = a^2 - b^2$. & \mittsprak\\
+gange ut & Fjerne parentesene ved å gange hvert ledd med hvert ledd. & \mittsprak\\
+\end{ordliste}
+
+\begin{mustkunne}
+\textbf{Kvadratsetningene.} For alle tall $a$ og $b$ gjelder:
+\[ (a+b)^2 = a^2 + 2ab + b^2 \qquad (a-b)^2 = a^2 - 2ab + b^2 \qquad (a+b)(a-b) = a^2 - b^2 \]
+Den tredje kalles også konjugatsetningen.
+
+\textbf{Hvorfor $(a+b)^2 = a^2 + 2ab + b^2$?} Figuren viser et kvadrat med side $a+b$.
+
+\medskip
+\begin{minipage}[c]{0.42\linewidth}
+\begin{tikzpicture}[scale=0.85]
+  \fill[niv1!25] (0,0) rectangle (2.4,2.4);
+  \fill[niv2!25] (2.4,0) rectangle (3.8,2.4);
+  \fill[niv2!25] (0,2.4) rectangle (2.4,3.8);
+  \fill[niv3!25] (2.4,2.4) rectangle (3.8,3.8);
+  \draw[thick] (0,0) rectangle (3.8,3.8);
+  \node at (1.2,1.2) {$a^2$};
+  \node at (3.1,1.2) {$ab$};
+  \node at (1.2,3.1) {$ab$};
+  \node at (3.1,3.1) {$b^2$};
+  \node[below] at (1.2,0) {$a$};
+  \node[below] at (3.1,0) {$b$};
+  \node[left] at (0,1.2) {$a$};
+  \node[left] at (0,3.1) {$b$};
+\end{tikzpicture}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.52\linewidth}
+Arealet av hele kvadratet er $(a+b)^2$.
+
+Arealet er også summen av de fire delene:
+\[ (a+b)^2 = a^2 + ab + ab + b^2 = a^2 + 2ab + b^2 \]
+Det dobbelte produktet $2ab$ må med. Derfor er $(a+b)^2 \neq a^2 + b^2$.
+\end{minipage}
+\end{mustkunne}
+
+\begin{eksempel}[1 — steg for steg]
+Gang ut $(3x - 2)^2$.
+
+\begin{stegtabell}
+$= (3x)^2 - 2 \cdot 3x \cdot 2 + 2^2$ & Kvadratsetningen $(a-b)^2 = a^2 - 2ab + b^2$ med $a = 3x$ og $b = 2$.\\
+$= 9x^2 - 12x + 4$ & $(3x)^2 = 9x^2$, $2 \cdot 3x \cdot 2 = 12x$ og $2^2 = 4$.\\
+Kontroll med $x = 1$: & $(3 \cdot 1 - 2)^2 = 1$ og $9 - 12 + 4 = 1$. Det stemmer.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{eksempel}[2 — hoderegning]
+Regn ut $49 \cdot 51$ uten kalkulator.
+
+\begin{stegtabell}
+$49 \cdot 51 = (50 - 1)(50 + 1)$ & Skriv $49 = 50 - 1$ og $51 = 50 + 1$.\\
+$= 50^2 - 1^2$ & Konjugatsetningen: $(a-b)(a+b) = a^2 - b^2$.\\
+$= 2500 - 1 = 2499$ & Dette er lettere enn å gange 49 med 51.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{vanligfeil}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
+  \item $(a+b)^2 = a^2 + b^2$ er feil. Du glemmer det dobbelte produktet: $(a+b)^2 = a^2 + 2ab + b^2$.
+  \item $(2x+1)^2 = 2x^2 + 4x + 1$ er feil. Hele $2x$ skal kvadreres: $(2x+1)^2 = 4x^2 + 4x + 1$.
+  \item $(a+b)(a-b) = a^2 + b^2$ er feil. Fortegnet på $b^2$ er minus: $(a+b)(a-b) = a^2 - b^2$.
+\end{itemize}
+\end{vanligfeil}
+
+\nivaahode{1}
+
+\oppg{1.1}{1}{\uh}
+Gang ut og skriv som en sum av tre ledd.
+\begin{tasks}(4)
+  \task $(x+5)^2$
+  \task $(a-3)^2$
+  \task $(2b+1)^2$
+  \task $(m+n)^2$
+\end{tasks}
+
+\oppg{1.2}{1}{\uh}
+Gang ut. Bruk konjugatsetningen.
+\begin{tasks}(4)
+  \task $(x+4)(x-4)$
+  \task $(a+7)(a-7)$
+  \task $(2p+3)(2p-3)$
+  \task $(5-y)(5+y)$
+\end{tasks}
+
+\oppg{1.3}{1}{\uh}
+Fyll inn det som mangler.
+\begin{tasks}(2)
+  \task $(a+b)^2 = a^2 + $\skrivlinje[2cm]$ + b^2$
+  \task $(a+b)(a-b) = a^2 - $\skrivlinje[2cm]
+\end{tasks}
+
+\nivaahode{2}
+
+\oppg{1.4}{2}{\uh}
+Forenkle så mye du kan.
+\begin{tasks}(2)
+  \task $(x+3)^2 - (x-3)^2$
+  \task $(2a-1)^2 + 4a$
+  \task $(3x-2)(3x+2) - 5x^2$
+  \task $(m+2)^2 - (m+2)(m-2)$
+\end{tasks}
+
+\oppg{1.5}{2}{\uh}
+Regn ut uten kalkulator. Skriv tallet som en sum eller differanse først.
+\begin{tasks}(3)
+  \task $51^2$
+  \task $98^2$
+  \task $29 \cdot 31$
+\end{tasks}
+
+\oppg{1.6}{2}{\uh}
+Ola regner slik:
+\[ (x-3)(x-3) = x^2 - 3x - 3x - 9 = x^2 - 6x - 9 \]
+Finn den første feilen. Rett den og regn videre.
+
+\nivaahode{3}
+
+\oppg{1.7}{3}{\uh}
+Er påstanden alltid, noen ganger eller aldri sann? Begrunn.
+\begin{tasks}(3)
+  \task $(a-b)^2 = (b-a)^2$
+  \task $(x+2)^2 = x^2 + 4$
+  \task $(2a+b)^2 = 4a^2 + b^2$
+\end{tasks}
+
+\oppg{1.8}{3}{\uh}
+Gitt at $(x+a)^2 = x^2 + 10x + b$ for alle $x$. Finn $a$ og $b$. Vis hvordan du tenker.
+
+\oppg{1.9}{3}{\uh}
+\begin{tasks}(2)
+  \task Vis at $(a+b)^2 - (a-b)^2 = 4ab$.
+  \task Bruk a) til å regne ut $103^2 - 97^2$ uten kalkulator.
+\end{tasks}
+
+\begin{sjekk}
+\begin{tasks}(2)
+  \task Gang ut $(x-2)^2$.
+  \task Regn ut $(a+b)(a-b)$ når $a = 5$ og $b = 2$.
+  \task! Forklar hvorfor $(a+b)^2 \neq a^2 + b^2$.
+\end{tasks}
+\end{sjekk}
+
+% ---------------------------------------------------------------------
+
+\del{2}{Faktorisering}
+
+\begin{ordliste}
+faktorisere & Skrive et uttrykk som et produkt av faktorer. & \mittsprak\\
+felles faktor & En faktor som står i alle ledd, for eksempel $2x$ i $2x^3 - 18x$. & \mittsprak\\
+faktor & Et av tallene eller uttrykkene i et produkt. I $3(x+1)$ er faktorene $3$ og $x+1$. & \mittsprak\\
+fullstendig faktorisert & Ingen av faktorene kan faktoriseres videre. & \mittsprak\\
+\end{ordliste}
+
+\begin{mustkunne}
+\textbf{Felles faktor først.} Er det en felles faktor, trekk den ut først: $ab + ac = a(b+c)$.
+
+\textbf{Kvadratsetningene baklengs.} Vi leser likhetene fra høyre mot venstre:
+\[ a^2 - b^2 = (a+b)(a-b) \qquad a^2 + 2ab + b^2 = (a+b)^2 \qquad a^2 - 2ab + b^2 = (a-b)^2 \]
+
+\textbf{Hvorfor?} $x^2 - 9$ er en differanse mellom to kvadrater: $x^2 - 3^2$. Derfor er $x^2 - 9 = (x+3)(x-3)$.
+
+\textbf{Kontroll.} Gang ut svaret igjen. Du skal få uttrykket du startet med.
+\end{mustkunne}
+
+\begin{eksempel}[1 — felles faktor og konjugatsetningen]
+Faktoriser $2x^3 - 18x$ fullstendig.
+
+\begin{stegtabell}
+$= 2x(x^2 - 9)$ & Felles faktor $2x$. Del hvert ledd på $2x$: $2x^3 : 2x = x^2$ og $18x : 2x = 9$.\\
+$= 2x(x-3)(x+3)$ & Konjugatsetningen på $x^2 - 9 = x^2 - 3^2$.\\
+Kontroll: & $2x(x-3)(x+3) = 2x(x^2 - 9) = 2x^3 - 18x$. Det stemmer.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{eksempel}[2 — fullstendig kvadrat]
+Faktoriser $x^2 + 6x + 9$.
+
+\begin{stegtabell}
+$x^2 + 6x + 9 = x^2 + 2 \cdot x \cdot 3 + 3^2$ & Sjekk at $6x = 2 \cdot x \cdot 3$ og $9 = 3^2$.\\
+$= (x+3)^2$ & Første kvadratsetning baklengs med $a = x$ og $b = 3$.\\
+Kontroll med $x = 1$: & $1 + 6 + 9 = 16$ og $(1+3)^2 = 16$. Det stemmer.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{vanligfeil}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
+  \item $x^2 + 9 = (x+3)(x-3)$ er feil. $(x+3)(x-3) = x^2 - 9$. En sum av to kvadrater kan ikke faktoriseres slik.
+  \item $4x^2 + 8x = 4(x^2 + 2x)$ er ikke fullstendig. Faktoren $x$ står i begge ledd. Riktig: $4x(x+2)$.
+  \item $x^2 - 6x + 9 = (x+3)^2$ er feil. Fortegnet må være minus: $x^2 - 6x + 9 = (x-3)^2$.
+\end{itemize}
+\end{vanligfeil}
+
+\nivaahode{1}
+
+\oppg{2.1}{1}{\uh}
+Trekk ut felles faktor.
+\begin{tasks}(4)
+  \task $3x + 9$
+  \task $4a - 8b$
+  \task $x^2 + x$
+  \task $6m^2 - 3m$
+\end{tasks}
+
+\oppg{2.2}{1}{\uh}
+Faktoriser med konjugatsetningen.
+\begin{tasks}(3)
+  \task $x^2 - 4$
+  \task $a^2 - 25$
+  \task $9 - y^2$
+\end{tasks}
+
+\oppg{2.3}{1}{\uh}
+Skriv som ett kvadrat, $(\ldots)^2$.
+\begin{tasks}(2)
+  \task $x^2 + 8x + 16$
+  \task $4x^2 + 12x + 9$
+\end{tasks}
+
+\nivaahode{2}
+
+\oppg{2.4}{2}{\uh}
+Faktoriser fullstendig. Trekk ut felles faktor først.
+\begin{tasks}(4)
+  \task $5x^2 - 10x$
+  \task $2a^3 - 8a$
+  \task $3x^2 - 12$
+  \task $x^3 - x$
+\end{tasks}
+
+\oppg{2.5}{2}{\uh}
+Ola faktoriserer $4x^2 + 8x = 4(x^2 + 2x)$.
+\begin{tasks}(2)
+  \task Er svaret fullstendig faktorisert? Forklar kort.
+  \task Faktoriser $4x^2 + 8x$ fullstendig.
+\end{tasks}
+
+\oppg{2.6}{2}{\uh}
+Et rektangel har areal $x^2 - 9$ cm$^2$. Lengden er $x + 3$ cm. Finn bredden ved å faktorisere arealet.
+
+\nivaahode{3}
+
+\oppg{2.7}{3}{\uh}
+Er påstanden alltid, noen ganger eller aldri sann? Begrunn.
+\begin{tasks}(3)
+  \task $x^2 - 4x + 4 = (x-2)^2$
+  \task $x^2 + 9 = (x+3)(x-3)$
+  \task $x^2 - 9 = (x-3)^2$
+\end{tasks}
+
+\oppg{2.8}{3}{\uh}
+Faktoriser $x^2 + 6x - 16$ fullstendig.
+\hint{Skriv $x^2 + 6x$ som to ledd i en kvadratsetning. Trekk fra 9 og legg til 9 igjen.}
+
+\begin{sjekk}
+\begin{tasks}(2)
+  \task Faktoriser $3a^2 - 6a$.
+  \task Faktoriser $x^2 - 49$.
+  \task! Faktoriser $2x^2 + 8x + 8$ fullstendig.
+\end{tasks}
+\end{sjekk}

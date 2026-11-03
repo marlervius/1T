@@ -14,7 +14,7 @@ Status: `—` ikke startet · `brief` brief skrevet · `utkast` forfatter ferdig
 | Nr | Seksjon | Deler | Status |
 |---|---|---|---|
 | 1.1 | Potenser | Potensreglene · Null, negative eksponenter og standardform | ferdig (mønster) |
-| 1.2 | Kvadratsetningene og faktorisering | Kvadratsetningene · Faktorisering (felles faktor og kvadratsetninger baklengs) | — |
+| 1.2 | Kvadratsetningene og faktorisering | Kvadratsetningene · Faktorisering (felles faktor og kvadratsetninger baklengs) | utkast (pilot, venter på kontroll) |
 | 1.3 | Rotuttrykk og potenser med brøk som eksponent **(sjekk)** | Kvadratrot og n-te rot · $a^{1/n}$ og $a^{m/n}$ | — |
 | 1.4 | Rasjonale uttrykk | Forkorte · Addere og subtrahere med fellesnevner | — |
 
