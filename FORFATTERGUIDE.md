@@ -105,6 +105,8 @@ Les målene i briefen i `laereplan/kompetansemaal-1T.md`. Se på verbene. Står 
 ### Teoriboksen
 - Forklar **hvorfor**, ikke bare **hva**. Vis hvor regelen kommer fra (som i 1.1: skriv ut faktorene).
 - Maks ca. 10 linjer. Bruk tabell eller to spalter når det er flere regler.
+- Figur ved siden av tekst: `\begin{tikzpicture}[baseline=(current bounding box.north)]` i en `minipage[t]`,
+  ellers havner teksten under figuren med tomrom over.
 
 ### Eksemplene
 - Ett steg per linje i `stegtabell`. Forklaringen sier *hva* du gjør og *hvilken regel*.
@@ -112,12 +114,14 @@ Les målene i briefen i `laereplan/kompetansemaal-1T.md`. Se på verbene. Står 
 
 ### Vanlige feil
 - Skriv den gale versjonen, si at den er feil, gi den riktige. **Med formel**, ikke bare ord.
+- Si ikke «er feil» om noe som stemmer i noen tilfeller. Skriv «gjelder ikke generelt» og gi et
+  moteksempel. Ellers kolliderer boksen med «noen ganger»-svar i oppgavene.
 - Kontroller påstanden i boksen med sympy i `verifiser.py` ("VF 1a" osv.). En feil i denne boksen lærer elevene noe galt. Hent feilene fra `brief.md`.
 - Oppgavene på nivå 2 og 3 skal teste minst to av disse feilene.
 
 ### Unngå
 - At a) avslører svaret på b).
-- At svaret står et annet sted på siden. Tall fra eksempler, «Vanlig feil», ordlisten og
+- At svaret står et annet sted på siden — **også i teoriboksen**. Står et resultat utledet i «Dette må du kunne», kan det ikke være nivå 3-oppgave å vise det. Tall fra eksempler, «Vanlig feil», ordlisten og
   «Hva kan jeg?» skal **ikke** gjenbrukes i oppgavene. «Finn den første feilen» skal ha nye tall
   og helst flere steg, med feilen et stykke ut i kjeden.
 - Nivå 3 som bruker samme metode som en nivå 2-oppgave, og hint som gir bort hele metoden.
