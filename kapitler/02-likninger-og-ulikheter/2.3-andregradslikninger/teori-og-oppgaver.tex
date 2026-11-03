@@ -1,0 +1,346 @@
+% =====================================================================
+%  2.3 Andregradslikninger — teori og oppgaver
+% =====================================================================
+
+\del{1}{Faktorisering og nullproduktregelen}
+
+\begin{ordliste}
+andregradslikning & En likning der den høyeste potensen av $x$ er $x^2$. Eksempel: $x^2 - 4x + 3 = 0$. & \mittsprak\\
+nullproduktregelen & Hvis $a \cdot b = 0$, er $a = 0$ eller $b = 0$. & \mittsprak\\
+sum--produkt-metoden & Finn to tall med gitt produkt og gitt sum for å faktorisere $x^2 + bx + c$. & \mittsprak\\
+løsning & En verdi av $x$ som gjør likningen sann. En andregradslikning har 0, 1 eller 2 løsninger. & \mittsprak\\
+\end{ordliste}
+
+\begin{mustkunne}
+\textbf{Nullproduktregelen.} Hvis $a \cdot b = 0$, er $a = 0$ eller $b = 0$.
+\emph{Hvorfor?} Hvis $a \neq 0$, kan vi dele begge sider på $a$. Da blir $b = 0$.
+Regelen gjelder \textbf{bare for 0}. Fra $a \cdot b = 6$ kan vi ikke si noe om $a$ eller $b$.
+
+\smallskip
+\textbf{Se på likningen først.} Flytt alt over på én side, slik at høyre side er 0. Velg så metode:
+
+\smallskip
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{@{}l l l@{}}
+\textbf{Felles faktor} & $x^2 - 5x = 0 \;\Rightarrow\; x(x-5) = 0$ & $x = 0$ eller $x = 5$\\
+\textbf{Kvadratrot} & $x^2 = 9$ & $x = 3$ eller $x = -3$\\
+\textbf{Kvadratsetning} & $x^2 - 6x + 9 = 0 \;\Rightarrow\; (x-3)^2 = 0$ & $x = 3$\\
+\textbf{Sum--produkt} & $x^2 + 5x + 6 = (x+2)(x+3)$ & $x = -2$ eller $x = -3$\\
+\end{tabular}
+
+\smallskip
+Sum--produkt: finn to tall med produkt 6 og sum 5. Metoden virker bare når $a = 1$ og løsningene er hele tall.
+\end{mustkunne}
+
+\begin{eksempel}[1 — felles faktor, ikke del på $x$]
+Løs likningen $3x^2 = 12x$.
+
+\begin{stegtabell}
+$3x^2 - 12x = 0$ & Flytt $12x$ over, slik at høyre side er 0.\\
+$3x(x - 4) = 0$ & Sett $3x$ utenfor parentes. Vi deler ikke på $x$.\\
+$3x = 0$ eller $x - 4 = 0$ & Nullproduktregelen.\\
+$x = 0$ eller $x = 4$ & Løs hver av dem.\\
+Kontroll: & $x = 4$ gir $3 \cdot 16 = 48$ og $12 \cdot 4 = 48$. $x = 0$ gir $0 = 0$.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{eksempel}[2 — sum--produkt]
+Løs likningen $x^2 - x - 12 = 0$.
+
+\begin{stegtabell}
+Produkt $-12$, sum $-1$ & Tallene er $-4$ og $3$, fordi $(-4) \cdot 3 = -12$ og $-4 + 3 = -1$.\\
+$(x - 4)(x + 3) = 0$ & Faktoriser.\\
+$x = 4$ eller $x = -3$ & Nullproduktregelen.\\
+Kontroll: & $4^2 - 4 - 12 = 0$ og $(-3)^2 + 3 - 12 = 0$.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{vanligfeil}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
+  \item $x^2 = 5x \;\Rightarrow\; x = 5$ er feil. Når du deler på $x$, mister du $x = 0$. Riktig: $x(x - 5) = 0$, så $x = 0$ eller $x = 5$.
+  \item $x^2 = 9 \;\Rightarrow\; x = 3$ er feil. Også $(-3)^2 = 9$. Riktig: $x = 3$ eller $x = -3$.
+  \item $(x-2)(x-3) = 6 \;\Rightarrow\; x - 2 = 6$ eller $x - 3 = 6$ er feil. Regelen gjelder bare for 0. Riktig: gang ut til $x^2 - 5x = 0$, så $x = 0$ eller $x = 5$.
+\end{itemize}
+\end{vanligfeil}
+
+\nivaahode{1}
+
+\oppg{1.1}{1}{\uh}
+Løs likningene.
+\begin{tasks}(2)
+  \task $(x - 1)(x + 4) = 0$
+  \task $x(x - 7) = 0$
+  \task $(2x - 6)(x + 5) = 0$
+  \task $3(x + 2)(x - 8) = 0$
+\end{tasks}
+
+\oppg{1.2}{1}{\uh}
+Løs likningene. Skriv begge løsningene.
+\begin{tasks}(4)
+  \task $x^2 - 8x = 0$
+  \task $2x^2 + 10x = 0$
+  \task $x^2 = 49$
+  \task $2x^2 = 32$
+\end{tasks}
+
+\oppg{1.3}{1}{\uh}
+Vi skal løse $x^2 + 7x + 10 = 0$ med sum--produkt-metoden. Fyll inn.
+\begin{tasks}(1)
+  \task Tallene har produkt 10 og sum 7. De er \skrivlinje[1.5cm] og \skrivlinje[1.5cm].
+  \task $x^2 + 7x + 10 = (x + $\skrivlinje[1.2cm]$)(x + $\skrivlinje[1.2cm]$)$
+  \task $x = $\skrivlinje[1.5cm] eller $x = $\skrivlinje[1.5cm]
+\end{tasks}
+
+\nivaahode{2}
+
+\oppg{1.4}{2}{\uh}
+Løs likningene. Velg metode etter at du har sett på likningen.
+\begin{tasks}(2)
+  \task $x^2 - 3x - 10 = 0$
+  \task $x^2 - 10x + 25 = 0$
+  \task $6x^2 = 18x$
+  \task $x^2 + 2x = 15$
+\end{tasks}
+
+\oppg{1.5}{2}{\uh}
+Løs likningene. Husk at nullproduktregelen bare gjelder når den ene siden er 0.
+\begin{tasks}(2)
+  \task $(x - 3)(x + 2) = 14$
+  \task $x(x + 3) = 28$
+\end{tasks}
+
+\oppg{1.6}{2}{\uh}
+Ola løser en likning slik:
+\begin{align*}
+x^2 + 5x &= 4x + 20\\
+\longrightarrow\quad x^2 + 5x - 4x - 20 &= 0\\
+\longrightarrow\quad x^2 + x - 20 &= 0\\
+\longrightarrow\quad (x + 5)(x - 4) &= 0\\
+\longrightarrow\quad x = 5 \text{ eller } x &= -4
+\end{align*}
+Finn den første feilen. Løs likningen riktig.
+
+\nivaahode{3}
+
+\oppg{1.7}{3}{\uh}
+Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret.
+\begin{tasks}(1)
+  \task Likningen $x^2 = k$ har to løsninger.
+  \task Likningen $(x - p)(x - q) = 0$ har to ulike løsninger.
+  \task Løsningene av $x^2 + bx = 0$ er $x = 0$ og $x = -b$.
+\end{tasks}
+
+\oppg{1.8}{3}{\uh}
+Finn to verdier av $k$ slik at $x^2 + kx + 36 = 0$ har nøyaktig én løsning.
+\hint{Hvilken kvadratsetning gir 36 som siste ledd?}
+
+\oppg{1.9}{3}{\uh}
+En andregradslikning $x^2 + px + q = 0$ har løsningene $x = 3$ og $x = 8$.
+\begin{tasks}(1)
+  \task Finn $p$ og $q$.
+  \task Hvordan henger $p$ og $q$ sammen med løsningene? Forklar med faktorisering.
+\end{tasks}
+
+\begin{sjekk}
+\begin{tasks}(2)
+  \task Løs $x^2 + 7x = 0$.
+  \task Hvor mange løsninger har $x^2 = -16$?
+  \task! Ola løser $(x-1)(x+2) = 4$ ved å sette $x - 1 = 4$ eller $x + 2 = 4$. Forklar hva som er feil.
+\end{tasks}
+\end{sjekk}
+
+% ---------------------------------------------------------------------
+
+\del{2}{abc-formelen og diskriminanten}
+
+\begin{ordliste}
+abc-formelen & En formel som løser alle andregradslikninger $ax^2 + bx + c = 0$. & \mittsprak\\
+diskriminant & Tallet $D = b^2 - 4ac$. Det sier hvor mange løsninger likningen har. & \mittsprak\\
+fullstendig kvadrat & Et uttrykk som kan skrives som $(x + d)^2$, for eksempel $x^2 + 6x + 9$. & \mittsprak\\
+nullpunkt & Et punkt der grafen til en funksjon krysser $x$-aksen. Her er funksjonsverdien 0. & \mittsprak\\
+\end{ordliste}
+
+\begin{mustkunne}
+\textbf{Utledning med fullstendig kvadrat.} Vi lager et kvadrat på venstre side.
+
+\smallskip
+\begin{minipage}[t]{0.46\linewidth}
+\textbf{Tall:} $x^2 + 6x - 7 = 0$
+\begin{align*}
+x^2 + 6x &= 7\\
+x^2 + 6x + 3^2 &= 7 + 3^2\\
+(x + 3)^2 &= 16\\
+x + 3 &= \pm 4\\
+x &= 1 \text{ eller } x = -7
+\end{align*}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.50\linewidth}
+\textbf{Generelt:} $ax^2 + bx + c = 0$
+\begin{align*}
+x^2 + \tfrac{b}{a}x &= -\tfrac{c}{a}\\
+\left(x + \tfrac{b}{2a}\right)^2 &= \tfrac{b^2}{4a^2} - \tfrac{c}{a}\\
+&= \tfrac{b^2 - 4ac}{4a^2}\\
+x + \tfrac{b}{2a} &= \pm \tfrac{\sqrt{b^2 - 4ac}}{2a}
+\end{align*}
+\end{minipage}
+
+\medskip
+\[ \boxed{\;x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\;} \qquad D = b^2 - 4ac \]
+$D > 0$: to løsninger. $D = 0$: én løsning. $D < 0$: ingen løsning, fordi vi ikke kan ta kvadratroten av et negativt tall.
+
+\medskip
+\begin{minipage}[t]{0.32\linewidth}
+\centering
+\begin{tikzpicture}
+\begin{axis}[width=\linewidth, height=\linewidth, axis lines=middle, xmin=-2, xmax=4, ymin=-4, ymax=4,
+  xtick={-1,3}, ytick={\empty}, tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$},
+  label style={font=\small}, title={\small $D > 0$: to nullpunkt}]
+\addplot[domain=-1.5:3.5, thick, hoved, samples=40] {x^2 - 2*x - 3};
+\addplot[only marks, mark=*, mark size=1.5pt] coordinates {(-1,0) (3,0)};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\linewidth}
+\centering
+\begin{tikzpicture}
+\begin{axis}[width=\linewidth, height=\linewidth, axis lines=middle, xmin=-2, xmax=4, ymin=-4, ymax=4,
+  xtick={1}, ytick={\empty}, tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$},
+  label style={font=\small}, title={\small $D = 0$: ett nullpunkt}]
+\addplot[domain=-1:3, thick, hoved, samples=40] {x^2 - 2*x + 1};
+\addplot[only marks, mark=*, mark size=1.5pt] coordinates {(1,0)};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.32\linewidth}
+\centering
+\begin{tikzpicture}
+\begin{axis}[width=\linewidth, height=\linewidth, axis lines=middle, xmin=-2, xmax=4, ymin=-4, ymax=4,
+  xtick={1}, ytick={\empty}, tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$},
+  label style={font=\small}, title={\small $D < 0$: ingen nullpunkt}]
+\addplot[domain=-0.5:2.5, thick, hoved, samples=40] {x^2 - 2*x + 3};
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+
+\medskip
+\textbf{Faktorisering.} Har $ax^2 + bx + c = 0$ løsningene $x_1$ og $x_2$, er
+$ax^2 + bx + c = a(x - x_1)(x - x_2)$. Løsningen $x_1 = 2$ gir faktoren $(x - 2)$, ikke $(x + 2)$.
+\end{mustkunne}
+
+\begin{eksempel}[1 — abc-formelen med kontroll]
+Løs likningen $2x^2 - 3x - 2 = 0$.
+
+\begin{stegtabell}
+$a = 2,\; b = -3,\; c = -2$ & Les av tallene. Ta med fortegnet.\\
+$x = \dfrac{-(-3) \pm \sqrt{(-3)^2 - 4 \cdot 2 \cdot (-2)}}{2 \cdot 2}$ & Sett inn i abc-formelen. Bruk parentes rundt $b$.\\
+$x = \dfrac{3 \pm \sqrt{9 + 16}}{4}$ & $-(-3) = 3$, $(-3)^2 = 9$ og $-4 \cdot 2 \cdot (-2) = 16$.\\
+$x = \dfrac{3 \pm 5}{4}$ & $D = 25$ og $\sqrt{25} = 5$.\\
+$x = 2$ eller $x = -\dfrac{1}{2}$ & $\frac{3+5}{4} = 2$ og $\frac{3-5}{4} = -\frac{1}{2}$.\\
+Kontroll: & $2 \cdot 2^2 - 3 \cdot 2 - 2 = 0$ og $2 \cdot \frac14 + \frac32 - 2 = 0$.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{eksempel}[2 — antall løsninger uten å løse]
+Avgjør hvor mange løsninger hver likning har.
+
+\begin{stegtabell}
+$x^2 - 4x + 7 = 0$ & $D = (-4)^2 - 4 \cdot 1 \cdot 7 = 16 - 28 = -12$. $D < 0$: ingen løsning.\\
+$2x^2 + x - 3 = 0$ & $D = 1^2 - 4 \cdot 2 \cdot (-3) = 1 + 24 = 25$. $D > 0$: to løsninger.\\
+$4x^2 + 12x + 9 = 0$ & $D = 12^2 - 4 \cdot 4 \cdot 9 = 144 - 144 = 0$. $D = 0$: én løsning.\\
+\end{stegtabell}
+\end{eksempel}
+
+\begin{vanligfeil}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
+  \item $b = -3$ gir $-b^2 = -9$. Det er feil. Det er $b^2 = (-3)^2 = 9$ under rottegnet, og $-b = 3$ foran.
+  \item $x = -b \pm \dfrac{\sqrt{D}}{2a}$ er feil. Hele telleren deles på $2a$: $x = \dfrac{-b \pm \sqrt{D}}{2a}$.
+  \item I $x^2 + 2x = 8$ er $c$ ikke 8. Flytt først: $x^2 + 2x - 8 = 0$ gir $c = -8$.
+  \item Nullpunktene $2$ og $-3$ gir $(x - 2)(x + 3)$, ikke $(x + 2)(x - 3)$.
+\end{itemize}
+\end{vanligfeil}
+
+\nivaahode{1}
+
+\oppg{2.1}{1}{\uh}
+Regn ut diskriminanten $D = b^2 - 4ac$. Si hvor mange løsninger likningen har.
+\begin{tasks}(3)
+  \task $x^2 + 2x + 5 = 0$
+  \task $3x^2 - 2x - 1 = 0$
+  \task $4x^2 - 4x + 1 = 0$
+\end{tasks}
+
+\oppg{2.2}{1}{\uh}
+Løs likningene med abc-formelen. Gi eksakte svar.
+\begin{tasks}(3)
+  \task $x^2 - 7x + 10 = 0$
+  \task $x^2 + 2x - 4 = 0$
+  \task $2x^2 + 5x + 2 = 0$
+\end{tasks}
+
+\oppg{2.3}{1}{\uh}
+Løs $x^2 + 4x - 21 = 0$ med fullstendig kvadrat. Fyll inn.
+\begin{tasks}(1)
+  \task $x^2 + 4x = $\skrivlinje[1.2cm]. Legg til $2^2 = 4$ på begge sider: $x^2 + 4x + 4 = $\skrivlinje[1.2cm]
+  \task $(x + 2)^2 = $\skrivlinje[1.2cm], så $x + 2 = \pm$\skrivlinje[1.2cm]
+  \task $x = $\skrivlinje[1.2cm] eller $x = $\skrivlinje[1.2cm]
+\end{tasks}
+
+\nivaahode{2}
+
+\oppg{2.4}{2}{\uh}
+Løs likningene. Velg den raskeste metoden. Gi eksakte svar.
+\begin{tasks}(2)
+  \task $x^2 - 2x - 2 = 0$
+  \task $3x^2 + x - 2 = 0$
+  \task $2x^2 - 6x + 5 = 0$
+  \task $5x^2 - 20 = 0$
+\end{tasks}
+
+\oppg{2.5}{2}{\uh}
+Emma løser en likning slik:
+\begin{align*}
+2x^2 - 5x - 3 &= 0\\
+\longrightarrow\quad a = 2,\; b = -5,\; c &= -3\\
+\longrightarrow\quad x &= \frac{5 \pm \sqrt{(-5)^2 - 4 \cdot 2 \cdot (-3)}}{2 \cdot 2}\\
+\longrightarrow\quad x &= \frac{5 \pm \sqrt{-25 + 24}}{4}\\
+\longrightarrow\quad &\text{Ingen løsning, fordi } D = -1 < 0
+\end{align*}
+Finn den første feilen. Løs likningen riktig.
+
+\oppg{2.6}{2}{\mh}
+Et rektangel har omkrets 34 cm og areal 60 cm$^2$. Finn sidelengdene.
+\begin{tasks}(1)
+  \task Kall den ene siden $x$. Forklar hvorfor den andre siden er $17 - x$.
+  \task Sett opp en likning for arealet og løs den.
+\end{tasks}
+
+\oppg{2.7}{2}{\mh}
+En ball kastes rett opp. Høyden over bakken er $h(t) = 20t - 5t^2$ meter, der $t$ er tiden i sekunder.
+\begin{tasks}(1)
+  \task Når er ballen 15 meter over bakken?
+  \task Forklar hva de to svarene betyr.
+  \task Når treffer ballen bakken?
+\end{tasks}
+
+\nivaahode{3}
+
+\oppg{2.8}{3}{\uh}
+Se på parabelen $y = x^2 - 4x + k$. Finn verdier av $k$ slik at parabelen
+\begin{tasks}(3)
+  \task skjærer $x$-aksen i to punkt
+  \task tangerer $x$-aksen
+  \task ikke treffer $x$-aksen
+\end{tasks}
+
+\oppg{2.9}{3}{\uh}
+Forkort brøken. Oppgi hvilke verdier av $x$ som ikke er tillatt.
+\[ \frac{2x^2 - x - 3}{x^2 - 1} \]
+\hint{Finn nullpunktene til telleren.}
+
+\begin{sjekk}
+\begin{tasks}(2)
+  \task Løs $2x^2 - x - 1 = 0$.
+  \task Hvor mange løsninger har $x^2 + x + 1 = 0$?
+  \task! Hva forteller $D = 0$ om grafen til $y = ax^2 + bx + c$?
+\end{tasks}
+\end{sjekk}

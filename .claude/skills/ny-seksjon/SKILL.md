@@ -18,8 +18,10 @@ Du er arkitekten. Du skriver briefen og godkjenner. Forfatteren og kontrolløren
    fra `laereplan/kompetansemaal-1T.md`. Vær konkret: deler, ord, 3–5 misoppfatninger,
    idéer til nivå 3 og utfordringsarket, én programmeringsidé. Briefen er det viktigste
    kvalitetsgrepet — en svak brief gir en svak seksjon.
-4. Er noe faglig uklart (hører temaet til 1T? hvilken notasjon?), spør Marius før du går videre.
-5. Sett status `brief` i kapittelplanen.
+4. Sjekk at briefen ikke krever metoder fra senere seksjoner (se «Bygger på» og kapittelplanen).
+   Regn alle tall i briefen med sympy før forfatteren får den.
+5. Er noe faglig uklart (hører temaet til 1T? hvilken notasjon?), spør Marius før du går videre.
+6. Sett status `brief` i kapittelplanen.
 
 ## 2. Forfatter
 Start agenten `forfatter` med prompten:
