@@ -217,6 +217,9 @@ rapport()                                          # alltid sist
 - **Avrundede mellomsvar:** Legger eksempler eller fasit sammen (eller ganger) avrundede mellomsvar, skal
   resultatet bli det samme som når man regner urundet og avrunder til slutt. Kontroller begge veier med
   `avrund()`. Gir de ulikt svar, bytt tall i oppgaven (ikke bare i fasiten) — ellers tror eleven at riktig svar er feil.
+- **Trigonometri:** rund aldri av $\cos v$ eller $\sin v$ før du bruker $\cos^{-1}$/$\sin^{-1}$. Teoriboks og eksempler
+  skal si «bruk den omvendte funksjonen på brøken direkte», f.eks. $\cos^{-1}\!\left(-\frac{21}{96}\right)$. Viser fasiten
+  et mellomsvar, skal det ha minst tre desimaler, og hele kjeden skal gi fasitens sluttsvar.
 - Programmeringsoppgaver: kjør **koden slik den står i oppgaven** (med hullene fylt inn) og sammenlign utskriften.
 - Programmeringsoppgaver: kjør koden i Python og sammenlign utskriften.
 - Høyst ca. 1/3 av kontrollene kan være `aapen`.
