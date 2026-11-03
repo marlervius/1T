@@ -120,7 +120,9 @@ chk("1.6 f(-2)", fverdi(f16, -2), 28)
 # ---- 1.7: alltid / noen ganger / aldri
 sant("1.7a", d(x**3).subs(x, 0) == 0 and fortegn(d(x**3), -1) == fortegn(d(x**3), 1) == 1, "x^3 er voksende, men f'(0)=0")
 sant("1.7a eks2", d(x**2).subs(x, 1) == 2 and d(x**3).subs(x, 1) == 3, "f'>0 i vanlig tilfelle")
-sant("1.7b", all(d(u).subs(x, p) == 0 for u, p in [(x**2 - 4 * x, 2), (-x**2, 0), (x**3 - 3 * x, -1), (-x**4 + 2 * x**2, 1)]), "toppunkt/bunnpunkt gir f'=0")
+p7, q7, r7 = symbols("p7 q7 r7", real=True)
+sant("1.7b", solve(d(p7 * x**2 + q7 * x + r7), x) == [-q7 / (2 * p7)] and diff(d(x**2 + 3 * x), x) != 0, "f'=2px+q har én rot og skifter fortegn")
+chk("1.7b fortegn", [fortegn(d(x**2 - 4 * x + 1), 1), fortegn(d(x**2 - 4 * x + 1), 3)], [-1, 1])
 sant("1.7c", d(x**2) == d(x**2 + 5) and x**2 != x**2 + 5, "samme f', ulike f")
 
 # ---- 1.8: lag selv, topp x=-1, bunn x=2

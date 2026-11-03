@@ -40,18 +40,18 @@ $T = \frac12 a h = \frac12 ab\sin C$.
 \centering
 \begin{tikzpicture}[baseline=(current bounding box.north),scale=0.8,font=\small]
   \coordinate (C) at (0,0); \coordinate (B) at (-3.0,0);
-  \coordinate (A) at (1.3,2.2); \coordinate (D) at (1.3,0);
+  \coordinate (A) at (1.8,2.2); \coordinate (D) at (1.8,0);
   \draw[thick] (C)--(B)--(A)--cycle;
   \draw[dashed] (A)--(D); \draw[dashed] (C)--(D);
-  \draw (1.1,0)--(1.1,0.2)--(1.3,0.2);
-  \draw (-0.45,0) arc (180:59.4:0.45);
+  \draw (1.6,0)--(1.6,0.2)--(1.8,0.2);
+  \draw (-0.45,0) arc (180:50.7:0.45);
   \node at (-0.45,0.62) {\scriptsize $C$};
   \node[below left] at (C) {$C$}; \node[left] at (B) {$B$}; \node[above] at (A) {$A$};
   \node[below] at (-1.5,0) {$a$};
   \node[above left] at (-0.9,1.3) {$c$};
-  \node[above left] at (0.65,1.1) {$b$};
-  \node[right] at (1.3,1.0) {$h$};
-  \node[below,font=\scriptsize] at (0.65,0) {$180^\circ-C$};
+  \node[above left] at (0.9,1.1) {$b$};
+  \node[right] at (1.8,1.0) {$h$};
+  \node[below,font=\scriptsize] at (1.0,0) {$180^\circ-C$};
 \end{tikzpicture}\par\smallskip
 \raggedright
 \textbf{Stump $C$.} Høyden faller utenfor trekanten. I den rettvinklede trekanten er vinkelen ved $C$ lik $180^\circ - C$, så $h = b\sin(180^\circ - C) = b\sin C$. Dermed er $T = \frac12 ab\sin C$ også her.
@@ -242,8 +242,8 @@ Kontroll: $\frac12 \cdot 8 \cdot 5 \cdot \sin 120^\circ = 20 \cdot \frac{\sqrt3}
 
 \begin{eksempel}[2 — areal av en firkant]
 I firkant $ABCD$ er diagonalen $AC = 10$ cm, $AB = 8$ cm, $AD = 7$ cm, $\angle BAC = 40^\circ$ og $\angle CAD = 55^\circ$. Finn arealet med én desimal.\par\smallskip
-\begin{minipage}[t]{0.40\linewidth}
-\begin{tikzpicture}[baseline=(current bounding box.north),scale=0.8,font=\small]
+\begin{minipage}[t]{0.32\linewidth}
+\begin{tikzpicture}[baseline=(current bounding box.north),scale=0.55,font=\small]
   \coordinate (A) at (0,0); \coordinate (C) at (4.5,0);
   \coordinate (B) at (2.76,-2.31); \coordinate (D) at (1.81,2.58);
   \draw[thick] (A)--(B)--(C)--(D)--cycle;
@@ -259,7 +259,7 @@ I firkant $ABCD$ er diagonalen $AC = 10$ cm, $AB = 8$ cm, $AD = 7$ cm, $\angle B
   \node[above right] at (3.2,0) {$10$};
 \end{tikzpicture}
 \end{minipage}\hfill
-\begin{minipage}[t]{0.56\linewidth}
+\begin{minipage}[t]{0.64\linewidth}
 Diagonalen deler firkanten i trekantene $ABC$ og $ACD$. I begge kjenner vi to sider og vinkelen mellom dem, så vi kan bruke arealsetningen på hver av dem.
 \end{minipage}
 

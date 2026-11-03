@@ -33,34 +33,19 @@ $f'$ går fra $+$ til $-$ & toppunkt\\
 $f'$ går fra $-$ til $+$ & bunnpunkt\\
 $f'(a) = 0$, samme fortegn & terrassepunkt\\
 \end{tabular}\par\smallskip
-Ved et ekstremalpunkt er tangenten vannrett, så $f'(a) = 0$.
-\end{minipage}
-\end{mustkunne}
-
-\begin{eksempel}[1 — full drøfting]
-Drøft $f(x) = x^3 - 3x^2$.
-
-\begin{stegtabell}
-$f'(x) = 3x^2 - 6x = 3x(x - 2)$ & Deriver ledd for ledd. Sett $3x$ utenfor.\\
-$f'(x) = 0$ for $x = 0$ og $x = 2$ & Nullproduktregelen.\\
-Fortegnslinje for $f'$ & Faktorene $x$ og $x - 2$ gir $+, -, +$ (se figur). Tallet $3$ er positivt.\\
-Voksende: $\langle\leftarrow, 0]$ og $[2, \rightarrow\rangle$ & $f' > 0$ gir voksende.\\
-Avtagende: $[0, 2]$ & $f' < 0$ gir avtagende.\\
-$f(0) = 0$ og $f(2) = 8 - 12 = -4$ & Sett inn i $f$, ikke i $f'$. Toppunkt $(0, 0)$ ($+$ til $-$). Bunnpunkt $(2, -4)$ ($-$ til $+$).\\
-$x^2(x - 3) = 0$ gir $x = 0$ og $x = 3$ & Faktoriser $f$. Nullpunktene er $(0, 0)$ og $(3, 0)$.\\
-\end{stegtabell}
-
-\begin{center}
+Ved et ekstremalpunkt er tangenten vannrett, så $f'(a) = 0$.\par\smallskip
+{\footnotesize Figur til eksempel 1: grafen til $f(x) = x^3 - 3x^2$ og fortegnslinjen for $f'$.}\par
+\centering
 \begin{tikzpicture}[font=\small,fpos/.style={line width=1.1pt},fneg/.style={line width=1.1pt,dash pattern=on 4pt off 3pt}]
-\begin{axis}[name=graf, at={(0,0)}, anchor=south west, scale only axis, width=5.4cm, height=2.8cm,
-  axis lines=middle, xmin=-1.0769, xmax=3.0769, ymin=-5, ymax=1.8, enlargelimits=false,
+\begin{axis}[name=graf, at={(0,0)}, anchor=south west, scale only axis, width=5.4cm, height=3.3cm,
+  axis lines=middle, xmin=-1.0769, xmax=3.0769, ymin=-5, ymax=2.5, enlargelimits=false,
   xtick={0,2,3}, ytick={-4}, tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$}, label style={font=\small}]
 \addplot[domain=-1.07:3.07, thick, hoved, samples=60] {x^3-3*x^2};
 \addplot[only marks, mark=*, mark size=1.6pt, hoved] coordinates {(0,0) (2,-4)};
 \node[font=\scriptsize, anchor=south west] at (axis cs:0.1,0.1) {topp};
 \node[font=\scriptsize, anchor=north west] at (axis cs:2.1,-4.0) {bunn};
 \end{axis}
-\begin{scope}[shift={(0,-1.0)}]
+\begin{scope}[shift={(0,-1.1)}]
   \draw[graa,thin] (1.40,0.40) -- (1.40,-1.95);
   \draw[graa,thin] (4.00,0.40) -- (4.00,-1.95);
   \node[anchor=east] at (-0.15,-0.00) {$x$};
@@ -83,7 +68,21 @@ $x^2(x - 3) = 0$ gir $x = 0$ og $x = 3$ & Faktoriser $f$. Nullpunktene er $(0, 0
   \node[below] at (4.00,-1.95) {$2$};
 \end{scope}
 \end{tikzpicture}
-\end{center}
+\end{minipage}
+\end{mustkunne}
+
+\begin{eksempel}[1 — full drøfting]
+Drøft $f(x) = x^3 - 3x^2$.
+
+\begin{stegtabell}
+$f'(x) = 3x^2 - 6x = 3x(x - 2)$ & Deriver ledd for ledd. Sett $3x$ utenfor.\\
+$f'(x) = 0$ for $x = 0$ og $x = 2$ & Nullproduktregelen.\\
+Fortegnslinje for $f'$ & Faktorene gir $+, -, +$ (figuren i boksen over). Tallet $3$ er positivt.\\
+Voksende: $\langle\leftarrow, 0]$ og $[2, \rightarrow\rangle$ & $f' > 0$ gir voksende.\\
+Avtagende: $[0, 2]$ & $f' < 0$ gir avtagende.\\
+$f(0) = 0$ og $f(2) = 8 - 12 = -4$ & Sett inn i $f$. Topp $(0, 0)$, bunn $(2, -4)$.\\
+$x^2(x - 3) = 0$ gir $x = 0$ og $x = 3$ & Nullpunktene er $(0, 0)$ og $(3, 0)$.\\
+\end{stegtabell}
 \end{eksempel}
 
 \begin{eksempel}[2 — terrassepunkt]
@@ -180,7 +179,7 @@ Finn \textbf{den første feilen}. Løs riktig.
 f(x) = x^3 - 3x^2 - 24x \ &\longrightarrow\ f'(x) = 3x^2 - 6x - 24 \ \longrightarrow\ f'(x) = 3(x - 4)(x + 2)\\
 &\longrightarrow\ x = 4 \text{ eller } x = -2\\
 &\longrightarrow\ f' \text{ er negativ for } x < -2,\ \text{positiv for } -2 < x < 4,\ \text{negativ for } x > 4\\
-&\longrightarrow\ \text{bunnpunkt } (-2,\, 28),\ \text{toppunkt } (4,\, -80)
+&\longrightarrow\ \text{bunnpunkt } (-2, 28),\ \text{toppunkt } (4, -80)
 \end{aligned} \]
 
 \nivaahode{3}
@@ -189,7 +188,7 @@ f(x) = x^3 - 3x^2 - 24x \ &\longrightarrow\ f'(x) = 3x^2 - 6x - 24 \ \longrighta
 Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret.
 \begin{tasks}(1)
   \task Hvis $f$ er voksende på et intervall, er $f'(x) > 0$ for alle $x$ i intervallet.
-  \task Hvis $f$ har et toppunkt i $x = a$, er $f'(a) = 0$.
+  \task Et andregradspolynom har nøyaktig ett ekstremalpunkt.
   \task Hvis $f$ og $g$ har samme fortegnslinje for den deriverte, er $f(x) = g(x)$.
 \end{tasks}
 

@@ -6,10 +6,6 @@ from kontroll import *
 v = symbols("v")
 
 
-def rad(d):
-    return d * pi / 180
-
-
 def sn(d):
     """Eksakt sinus til en vinkel i grader."""
     return simplify(sin(rad(d)))
@@ -61,8 +57,8 @@ chk("1.1d", areal(8, 3, 45), 6 * sqrt(2))
 chk("1.2a", "B", "B")
 chk("1.2b", areal(6, 8, 30), 12)
 
-chk("1.3a", round(ar(7.5, 9.2, 64), 1), 31.0)
-chk("1.3b", round(ar(12.4, 8.6, 118), 1), 47.1)
+avrund("1.3a", ar(7.5, 9.2, 64), 1, 31.0)
+avrund("1.3b", ar(12.4, 8.6, 118), 1, 47.1)
 
 chk("1.4a", areal(12, 9, 120), 27 * sqrt(3))
 chk("1.4b", areal(8, 5, 135), 10 * sqrt(2))
@@ -75,8 +71,8 @@ sant("1.5 pil 3 feil", sn(120) != -sqrt(3) / 2, "sin 120 er ikke -sqrt3/2")
 chk("1.5 riktig", areal(6, 8, 120), 12 * sqrt(3))
 chk("1.5 sin120", sn(120), sqrt(3) / 2)
 
-chk("1.6a", round(ar(4.2, 3.5, 75), 1), 7.1)
-chk("1.6b", round(ar(4.2, 3.5, 105), 1), 7.1)
+avrund("1.6a", ar(4.2, 3.5, 75), 1, 7.1)
+avrund("1.6b", ar(4.2, 3.5, 105), 1, 7.1)
 chk("1.6 sin105=sin75", round(math.sin(math.radians(105)) - math.sin(math.radians(75)), 12), 0)
 
 # 1.7: bevis med stump B. Vinkel CBD = 180 - B, h = a sin(180-B) = a sin B
@@ -115,13 +111,17 @@ chk("2.2b sin", Rational(10, 20), Rational(1, 2))
 chk("2.2b vinkler", [sn(30), sn(150)], [Rational(1, 2), Rational(1, 2)])
 chk("2.2b areal", [areal(10, 4, 30), areal(10, 4, 150)], [10, 10])
 
-chk("2.3a", sinv(0.6), (36.9, 143.1))
-chk("2.3b", sinv(0.25), (14.5, 165.5))
-chk("2.3c", sinv(0.9), (64.2, 115.8))
+avrund("2.3a spiss", math.degrees(math.asin(0.6)), 1, 36.9)
+avrund("2.3a stump", 180 - math.degrees(math.asin(0.6)), 1, 143.1)
+avrund("2.3b spiss", math.degrees(math.asin(0.25)), 1, 14.5)
+avrund("2.3b stump", 180 - math.degrees(math.asin(0.25)), 1, 165.5)
+avrund("2.3c spiss", math.degrees(math.asin(0.9)), 1, 64.2)
+avrund("2.3c stump", 180 - math.degrees(math.asin(0.9)), 1, 115.8)
 
 k24 = 2 * 28 / (9 * 7)
-chk("2.4a", sinv(k24), (62.7, 117.3))
-chk("2.4b", round(ar(9, 7, 117.3), 1), 28.0)
+avrund("2.4a spiss", math.degrees(math.asin(k24)), 1, 62.7)
+avrund("2.4a stump", 180 - math.degrees(math.asin(k24)), 1, 117.3)
+avrund("2.4b", ar(9, 7, 117.3), 1, 28.0)
 
 chk("2.5a sin", Rational(2 * 12, 6 * 8) * sqrt(2), sqrt(2) / 2)
 chk("2.5a", [sn(45), sn(135)], [sqrt(2) / 2, sqrt(2) / 2])
@@ -133,8 +133,8 @@ sant("2.5c ingen", Rational(2 * 15, 6 * 4) > 1 and areal(6, 4, 90) == 12, "maks 
 
 # 2.6 firkant
 ar26 = ar(9, 12, 35) + ar(12, 8, 50)
-chk("2.6 t1", round(ar(9, 12, 35), 1), 31.0)
-chk("2.6 t2", round(ar(12, 8, 50), 1), 36.8)
+avrund("2.6 t1", ar(9, 12, 35), 1, 31.0)
+avrund("2.6 t2", ar(12, 8, 50), 1, 36.8)
 chk("2.6", round(ar26, 1), 67.7)
 
 # 2.7
@@ -159,13 +159,15 @@ sant("2.9 ingen", Rational(2 * 35, 60) > 1, "T = 35: ingen løsning")
 
 chk("Sjekk 2a", areal(8, 9, 30), 18)
 los("Sjekk 2a likning", Eq(Rational(1, 2) * a * 9 * sn(30), 18), [8], var=a)
-chk("Sjekk 2b", sinv(0.3), (17.5, 162.5))
+avrund("Sjekk 2b spiss", math.degrees(math.asin(0.3)), 1, 17.5)
+avrund("Sjekk 2b stump", 180 - math.degrees(math.asin(0.3)), 1, 162.5)
 aapen("Sjekk 2c", "sin v = sin(180 - v): to vinkler, samme høyde")
 
 # ---------- Utfordring ----------
 chk("U1", 6 * areal(4, 4, 60), 24 * sqrt(3))
 chk("U2 sin", 2 * 1600 / (50 * 80), Rational(4, 5))
-chk("U2", sinv(0.8), (53.1, 126.9))
+avrund("U2 spiss", math.degrees(math.asin(0.8)), 1, 53.1)
+avrund("U2 stump", 180 - math.degrees(math.asin(0.8)), 1, 126.9)
 chk("U3", areal(7, 12, 90), 42)
 sant("U3 sin<=1", all(areal(7, 12, d) <= 42 for d in range(1, 180)), "sin v <= 1")
 aapen("U4", "Diagonal deler parallellogram i to like trekanter; hver har areal 1/2 ab sin v")
@@ -179,7 +181,7 @@ kode = """
 import math
 n = 6
 res = []
-while n <= 1536:
+while n < 2000:
     T = n / 2 * math.sin(math.radians(360 / n))
     res.append((n, round(T, 4)))
     n = n * 2
