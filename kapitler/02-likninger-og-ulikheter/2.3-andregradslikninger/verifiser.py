@@ -73,21 +73,21 @@ sant("1.6 pil 4 er feil", not any(simplify((x + 5) * (x - 4)).subs(x, v) == 0 fo
 los("1.6", Eq(x**2 + 5 * x, 4 * x + 20), [-5, 4])
 
 # 1.7
-los("1.7a k=4", Eq(x**2, 4), [2, -2])
-los("1.7a k=0", Eq(x**2, 0), [0])
-los("1.7a k=-4", Eq(x**2, -4), [])
-los("1.7b p!=q", Eq((x - 1) * (x - 6), 0), [1, 6])
-los("1.7b p=q", Eq((x - 3) * (x - 3), 0), [3])
-chk("1.7c faktor", expand(x * (x + b)), x**2 + b * x)
-los("1.7c b=4", Eq(x**2 + 4 * x, 0), [0, -4])
-los("1.7c b=0", Eq(x**2 + 0 * x, 0), [0])
-los("1.7c b=-3", Eq(x**2 - 3 * x, 0), [0, 3])
+los("1.7a", Eq(x**2, 4), [2, -2])
+los("1.7a", Eq(x**2, 0), [0])
+los("1.7a", Eq(x**2, -4), [])
+los("1.7b", Eq((x - 1) * (x - 6), 0), [1, 6])
+los("1.7b", Eq((x - 3) * (x - 3), 0), [3])
+chk("1.7c", expand(x * (x + b)), x**2 + b * x)
+los("1.7c", Eq(x**2 + 4 * x, 0), [0, -4])
+los("1.7c", Eq(x**2 + 0 * x, 0), [0])
+los("1.7c", Eq(x**2 - 3 * x, 0), [0, 3])
 
 # 1.8
-chk("1.8 k=12", expand((x + 6) ** 2), x**2 + 12 * x + 36)
-chk("1.8 k=-12", expand((x - 6) ** 2), x**2 - 12 * x + 36)
-los("1.8 k=12 løsn", Eq(x**2 + 12 * x + 36, 0), [-6])
-los("1.8 k=-12 løsn", Eq(x**2 - 12 * x + 36, 0), [6])
+chk("1.8", expand((x + 6) ** 2), x**2 + 12 * x + 36)
+chk("1.8", expand((x - 6) ** 2), x**2 - 12 * x + 36)
+los("1.8", Eq(x**2 + 12 * x + 36, 0), [-6])
+los("1.8", Eq(x**2 - 12 * x + 36, 0), [6])
 
 # 1.9
 chk("1.9a", expand((x - 3) * (x - 8)), x**2 - 11 * x + 24)
@@ -199,19 +199,19 @@ chk("2.7 toppunkt", h(2), 20)
 
 # 2.8 parameter k
 ku = symbols("k")
-chk("2.8 D", D_(1, -4, ku), 16 - 4 * ku)
-ulikhet("2.8a to løsninger", 16 - 4 * ku > 0, Interval.open(-oo, 4), var=ku)
-los("2.8b k=4", Eq(x**2 - 4 * x + 4, 0), [2])
-ulikhet("2.8c ingen løsning", 16 - 4 * ku < 0, Interval.open(4, oo), var=ku)
-los("2.8 k=3", Eq(x**2 - 4 * x + 3, 0), [1, 3])
-los("2.8 k=5", Eq(x**2 - 4 * x + 5, 0), [])
+chk("2.8", D_(1, -4, ku), 16 - 4 * ku)
+ulikhet("2.8a", 16 - 4 * ku > 0, Interval.open(-oo, 4), var=ku)
+los("2.8b", Eq(x**2 - 4 * x + 4, 0), [2])
+ulikhet("2.8c", 16 - 4 * ku < 0, Interval.open(4, oo), var=ku)
+los("2.8", Eq(x**2 - 4 * x + 3, 0), [1, 3])
+los("2.8", Eq(x**2 - 4 * x + 5, 0), [])
 
 # 2.9 forkorte
-los("2.9 teller", Eq(2 * x**2 - x - 3, 0), [Rational(3, 2), -1])
-chk("2.9 faktorisering", expand(2 * (x - Rational(3, 2)) * (x + 1)), 2 * x**2 - x - 3)
-chk("2.9 faktorisering 2", expand((2 * x - 3) * (x + 1)), 2 * x**2 - x - 3)
-chk("2.9 forkorting", cancel((2 * x**2 - x - 3) / (x**2 - 1)), (2 * x - 3) / (x - 1))
-los("2.9 vilkår", Eq(x**2 - 1, 0), [1, -1])
+los("2.9", Eq(2 * x**2 - x - 3, 0), [Rational(3, 2), -1])
+chk("2.9", expand(2 * (x - Rational(3, 2)) * (x + 1)), 2 * x**2 - x - 3)
+chk("2.9", expand((2 * x - 3) * (x + 1)), 2 * x**2 - x - 3)
+chk("2.9", cancel((2 * x**2 - x - 3) / (x**2 - 1)), (2 * x - 3) / (x - 1))
+los("2.9", Eq(x**2 - 1, 0), [1, -1])
 
 # Sjekk 2
 los("Sjekk 2a", Eq(2 * x**2 - x - 1, 0), [1, Rational(-1, 2)])
@@ -234,7 +234,6 @@ los("U2b", Eq(2 * x, 3 - 1 / x), [1, Rational(1, 2)])
 chk("U2b omskriving", expand((2 * x - 3 + 1 / x) * x), 2 * x**2 - 3 * x + 1)
 
 kode_u3 = """from math import sqrt
-
 def abc(a, b, c):
     D = b**2 - 4*a*c
     if D < 0:
@@ -250,7 +249,7 @@ print(abc(1, -4, 4))
 buf = io.StringIO()
 with contextlib.redirect_stdout(buf):
     exec(kode_u3, {})
-sant("U3a utskrift", buf.getvalue() == "[-2.0, 4.0]\n[]\n[2.0]\n", repr(buf.getvalue()))
+sant("U3a", buf.getvalue() == "[-2.0, 4.0]\n[]\n[2.0]\n", repr(buf.getvalue()))
 ns = {}
 exec(kode_u3.split("print(")[0], ns)
 try:
@@ -258,12 +257,12 @@ try:
     feil_a0 = False
 except ZeroDivisionError:
     feil_a0 = True
-sant("U3b a=0 gir ZeroDivisionError", feil_a0, "deling på 2*a = 0")
+sant("U3b", feil_a0, "deling på 2*a = 0")
 kode_fix = kode_u3.split("print(")[0].replace("    D = b**2", "    if a == 0:\n        return [-c / b]\n    D = b**2", 1)
 ns2 = {}
 exec(kode_fix, ns2)
-chk("U3b fiks", ns2["abc"](0, 2, -4), [2.0])
-chk("U3b fiks vanlig", ns2["abc"](1, -2, -8), [-2.0, 4.0])
+chk("U3b", ns2["abc"](0, 2, -4), [2.0])
+chk("U3b", ns2["abc"](1, -2, -8), [-2.0, 4.0])
 
 los("U4", Eq(sqrt(x + 2), x), [2])
 los("U4 kvadrert", Eq(x + 2, x**2), [2, -1])
@@ -271,19 +270,19 @@ sant("U4 x=-1 falsk", sqrt(-1 + 2) == 1 and 1 != -1, "sqrt(1) = 1, ikke -1")
 sant("U4 x=2 ekte", sqrt(2 + 2) == 2, "sqrt(4) = 2")
 sant("U4 begge kvadrerer likt", (-1) ** 2 == 1**2, "kvadrering tar med -x også")
 
-chk("U5 a=1", expand((x - 2) * (x + 5)), x**2 + 3 * x - 10)
+chk("U5", expand((x - 2) * (x + 5)), x**2 + 3 * x - 10)
 for A_ in [2, -3, Rational(1, 2), 7]:
-    los(f"U5 a={A_}", Eq(A_ * (x - 2) * (x + 5), 0), [2, -5])
-chk("U5 a=2", expand(2 * (x - 2) * (x + 5)), 2 * x**2 + 6 * x - 20)
-chk("U5 a=-3", expand(-3 * (x - 2) * (x + 5)), -3 * x**2 - 9 * x + 30)
-chk("U5 a=1/2 heltall", expand(2 * (x - 2) * (x + 5)) / 2, x**2 + 3 * x - 10)
-chk("U5 uendelig", expand(symbols("m") * (x - 2) * (x + 5)).coeff(x, 2), symbols("m"))
+    los(f"U5", Eq(A_ * (x - 2) * (x + 5), 0), [2, -5])
+chk("U5", expand(2 * (x - 2) * (x + 5)), 2 * x**2 + 6 * x - 20)
+chk("U5", expand(-3 * (x - 2) * (x + 5)), -3 * x**2 - 9 * x + 30)
+chk("U5", expand(2 * (x - 2) * (x + 5)) / 2, x**2 + 3 * x - 10)
+chk("U5", expand(symbols("m") * (x - 2) * (x + 5)).coeff(x, 2), symbols("m"))
 
 xa, xb = (-b + sqrt(D_(a, b, c))) / (2 * a), (-b - sqrt(D_(a, b, c))) / (2 * a)
-chk("U6a sum", simplify(xa + xb), -b / a)
-chk("U6a produkt", simplify(expand(xa * xb)), c / a)
-chk("U6b x^2+7x+10", [-(2 + 5), 2 * 5], [-7, 10])
-chk("U6b sum-produkt", expand((x + 2) * (x + 5)), x**2 + 7 * x + 10)
-sant("U6b løsninger", -2 + -5 == -7 and (-2) * (-5) == 10, "sum -b, produkt c")
+chk("U6a", simplify(xa + xb), -b / a)
+chk("U6a", simplify(expand(xa * xb)), c / a)
+chk("U6b", [-(2 + 5), 2 * 5], [-7, 10])
+chk("U6b", expand((x + 2) * (x + 5)), x**2 + 7 * x + 10)
+sant("U6b", -2 + -5 == -7 and (-2) * (-5) == 10, "sum -b, produkt c")
 
 rapport()

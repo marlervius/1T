@@ -27,7 +27,7 @@ Status: `—` ikke startet · `brief` brief skrevet · `utkast` forfatter ferdig
 |---|---|---|---|---|
 | 2.1 | Uttrykk, identiteter, likninger og formler | Uttrykk, identitet, likning og funksjon — hva er forskjellen? · Sette opp og snu formler | 5, 3, 4 | ferdig |
 | 2.2 | Likningssystemer | Innsetting og addisjon · Grafisk løsning og antall løsninger | 4 | ferdig |
-| 2.3 | Andregradslikninger | Faktorisering og nullpunkt · abc-formelen og diskriminanten | 6, 4 | brief (forfatter i gang) |
+| 2.3 | Andregradslikninger | Faktorisering og nullpunkt · abc-formelen og diskriminanten | 6, 4 | utkast |
 | 2.4 | Ulikheter | Lineære ulikheter · Andregradsulikheter med fortegnslinje | 4, 6 | brief |
 
 ## Kapittel 3 Funksjoner  (`kapitler/03-funksjoner/`)
@@ -37,7 +37,7 @@ Status: `—` ikke startet · `brief` brief skrevet · `utkast` forfatter ferdig
 | 3.1 | Funksjonsbegrepet og lineære funksjoner | Definisjonsmengde og verdimengde · Stigningstall og konstantledd | 5, 3 | brief |
 | 3.2 | Andregradsfunksjoner | Nullpunkter og symmetrilinje · Ekstremalpunkt og fullstendige kvadraters metode | 6, 9 | brief |
 | 3.3 | Polynomfunksjoner og polynomdivisjon | Polynomdivisjon og faktorisering · Nullpunkter og forløp | 11, 9 | brief |
-| 3.4 | Rasjonale funksjoner | Asymptoter (med polynomdivisjon) · Rasjonale likninger og ulikheter | 9, 11, 4 | — |
+| 3.4 | Rasjonale funksjoner | Asymptoter (med polynomdivisjon) · Rasjonale likninger og ulikheter | 9, 11, 4 | brief |
 | 3.5 | Eksponential- og potensfunksjoner | Vekstfaktor og prosentvis endring · Potensfunksjoner $ax^b$ | 9, 7 | — |
 | 3.6 | Modellering | Regresjon med digitale verktøy · Vurdere gyldighet og lese tekster | 7, 8, 3 | — |
 

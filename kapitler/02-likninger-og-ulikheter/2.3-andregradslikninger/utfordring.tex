@@ -1,0 +1,72 @@
+% =====================================================================
+%  2.3 Andregradslikninger — ekstra utfordring
+% =====================================================================
+
+\begin{infoboks}{Velg metode selv}
+Arket bygger på 2.3 Andregradslikninger. Vis regning og begrunnelse. Bruk eksakte svar.
+Kontroller svarene i den opprinnelige likningen.
+\end{infoboks}
+
+\nivaahode{2}
+
+\oppg{U1}{2}{\uh}
+Noen likninger kan gjøres om til andregradslikninger. Sett $u = x^2$ og løs først likningen for $u$. Finn alle løsninger for $x$, og forklar hvor mange det er.
+\begin{tasks}(2)
+  \task $x^4 - 5x^2 + 4 = 0$
+  \task $x^4 + x^2 - 6 = 0$
+\end{tasks}
+
+\oppg{U2}{2}{\uh}
+Skriv hvilke verdier av $x$ som ikke er tillatt. Gang så med $x$ på begge sider og løs likningen.
+\begin{tasks}(2)
+  \task $x + \dfrac{6}{x} = 5$
+  \task $2x = 3 - \dfrac{1}{x}$
+\end{tasks}
+
+\oppg{U3}{2}{\prog}
+Programmet skal løse $ax^2 + bx + c = 0$.
+\begin{kode}
+from math import sqrt
+def abc(a, b, c):
+    D = b**2 - 4*a*c
+    if D < 0:
+        return []
+    if D == 0:
+        return [-b / (2*a)]
+    return [(-b - sqrt(D)) / (2*a), (-b + sqrt(D)) / (2*a)]
+
+print(abc(1, -2, -8))
+print(abc(1, 2, 5))
+print(abc(1, -4, 4))
+\end{kode}
+\begin{tasks}(1)
+  \task Hva skriver programmet ut? Forklar uten å kjøre det.
+  \task Hva skjer med \lstinline[style=laereverk,numbers=none,frame=none]|abc(0, 2, -4)|? Legg inn en sjekk som gjør at funksjonen gir riktig svar også da.
+\end{tasks}
+
+\nivaahode{3}
+
+\oppg{U4}{3}{\uh}
+Se på likningen $\sqrt{x + 2} = x$.
+\begin{tasks}(1)
+  \task Kvadrer begge sider og løs andregradslikningen du får.
+  \task Sett begge løsningene inn i den opprinnelige likningen. Hva oppdager du?
+  \task Forklar hvorfor en falsk løsning kan oppstå når vi kvadrerer. Bruk at $\sqrt{\phantom{x}}$ aldri er negativ.
+\end{tasks}
+
+\oppg{U5}{3}{\uh}
+Lag selv en andregradslikning $ax^2 + bx + c = 0$ med løsningene $x = 2$ og $x = -5$, der $a \neq 1$.
+Hvor mange slike likninger finnes? Begrunn.
+
+\oppg{U6}{3}{\uh}
+En andregradslikning $ax^2 + bx + c = 0$ har løsningene $x_1$ og $x_2$.
+\begin{tasks}(1)
+  \task Bruk abc-formelen til å vise at $x_1 + x_2 = -\dfrac{b}{a}$ og $x_1 \cdot x_2 = \dfrac{c}{a}$.
+  \task Bruk dette til å forklare hvorfor sum--produkt-metoden virker for $x^2 + bx + c = 0$.
+\end{tasks}
+
+\begin{oppsummering}
+Se på likningen først: felles faktor, kvadratrot eller kvadratsetning er ofte raskere enn abc-formelen.
+Likninger kan gjøres om til andregradslikninger, men sjekk alltid løsningene i den opprinnelige likningen.
+Løsningene har fast sum $-\frac{b}{a}$ og fast produkt $\frac{c}{a}$.
+\end{oppsummering}
