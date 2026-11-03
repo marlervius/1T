@@ -74,7 +74,7 @@ f = x**2 + 6 * x
 chk("1.4 steg", simplify(dq(f, x)), 2 * x + h + 6)
 chk("1.4a", deriv(f), 2 * x + 6)
 chk("1.4b", deriv(f).subs(x, 2), 10)
-chk("1.4c", deriv(f).subs(x, -1), 4)
+chk("1.4b -1", deriv(f).subs(x, -1), 4)
 chk("1.4b direkte", grense(f, 2), 10)
 
 s = 2 * x**2 + x  # x spiller rollen til t
@@ -87,23 +87,22 @@ aapen("1.5b", "Tolkning: farten er 13 m/s ved t = 3 s")
 f = x**2 - 3 * x
 chk("1.6 f(4)", f.subs(x, 4), 4)
 p1 = ((4 + h) ** 2 - 3 * (4 + h) - 4) / h
-p2 = (16 + 8 * h + h**2 - 12 - 3 * h - 4) / h
-p3_feil = (11 * h + h**2) / h
-p3_riktig = (5 * h + h**2) / h
+p2_feil = (16 + h**2 - 12 - 3 * h - 4) / h
+p2_riktig = (16 + 8 * h + h**2 - 12 - 3 * h - 4) / h
+p3 = (h**2 - 3 * h) / h
 sant("1.6 pil 1", simplify(dq(f, 4) - p1) == 0, "innsatt")
-sant("1.6 pil 2", simplify(p1 - p2) == 0, "utvidet")
-sant("1.6 pil 3 feil", simplify(p2 - p3_feil) != 0, "8h - 3h er 5h, ikke 11h")
-sant("1.6 pil 3 riktig", simplify(p2 - p3_riktig) == 0, "riktig")
+sant("1.6 pil 2 feil", simplify(p1 - p2_feil) != 0, "(4+h)^2 er ikke 16 + h^2")
+sant("1.6 pil 2 riktig", simplify(p1 - p2_riktig) == 0, "riktig")
+sant("1.6 pil 3 (følger feilen)", simplify(p2_feil - p3) == 0, "h^2 - 3h")
+chk("1.6 pil 4", p3, h - 3)
+chk("1.6 feil svar", limit(simplify(p3), h, 0), -3)
+chk("1.6 riktig kvotient", simplify(p2_riktig), 5 + h)
 chk("1.6 riktig svar", grense(f, 4), 5)
-chk("1.6 feil svar", limit(simplify(p3_feil), h, 0), 11)
 
-# 1.7 CAS
-f = 2 * x**2 - 5 * x
-chk("1.7 f(3)", f.subs(x, 3), 3)
-chk("1.7 f(3+h)-f(3)", expand(f.subs(x, 3 + h) - f.subs(x, 3)), 7 * h + 2 * h**2)
-chk("1.7a kvotient", simplify(dq(f, 3)), 7 + 2 * h)
-chk("1.7a", grense(f, 3), 7)
-chk("1.7b CAS", limit((f.subs(x, 3 + h) - f.subs(x, 3)) / h, h, 0), 7)
+# 1.7 forklaring
+aapen("1.7a", "0/0 har ingen verdi, ikke 0")
+aapen("1.7b", "Definisjonens deler: endring i y, endring i x, sekant, grense")
+chk("1.7c eksempel", grense(x**2, 3), 6)
 
 # 1.8 alltid / noen ganger / aldri
 # a) noen ganger: f(x) = x^2 - 6x i x = 4: f'(4) = 2 > 0, f(4) = -8 < 0
@@ -203,11 +202,12 @@ chk("2.4 steg 1", expand(f.subs(x, x + h) - f), 4 * x * h + 2 * h**2 + 5 * h)
 chk("2.4 steg 2", simplify(dq(f, x)), 4 * x + 2 * h + 5)
 chk("2.4", deriv(f), 4 * x + 5)
 
-f = 5 * x**2  # x spiller rollen til t
-chk("2.5 kvotient", simplify(dq(f, x)), 10 * x + 5 * h)
-chk("2.5a", deriv(f), 10 * x)
-chk("2.5b", deriv(f).subs(x, 2), 20)
-chk("2.5b direkte", grense(f, 2), 20)
+f = x**3 + x**2  # x spiller rollen til t
+chk("2.5a", diff(f, x), 3 * x**2 + 2 * x)
+chk("2.5a sumregel", deriv(x**3) + deriv(x**2), 3 * x**2 + 2 * x)
+chk("2.5b teller", expand(f.subs(x, 2 + h) - f.subs(x, 2)), 16 * h + 7 * h**2 + h**3)
+chk("2.5b kvotient", simplify(dq(f, 2)), 16 + 7 * h + h**2)
+chk("2.5b", grense(f, 2), 16)
 
 # 2.6 finn første feil: f(x) = x^3 + 4x
 f = x**3 + 4 * x
@@ -224,10 +224,11 @@ sant("2.6 pil 4 riktig", simplify(q3_riktig - q4_riktig) == 0, "riktig")
 chk("2.6 feil svar", limit(q4_feil, h, 0), 3 * x**2)
 chk("2.6 riktig svar", deriv(f), 3 * x**2 + 4)
 
-# 2.7 CAS, x^5
-chk("2.7a", limit(((x + h) ** 5 - x**5) / h, h, 0), 5 * x**4)
-chk("2.7b", expand((x + h) ** 5), x**5 + 5 * x**4 * h + 10 * x**3 * h**2 + 10 * x**2 * h**3 + 5 * x * h**4 + h**5)
-chk("2.7c mønster", 5 * x ** (5 - 1), 5 * x**4)
+# 2.7 CAS, x^7
+chk("2.7a", expand((x + h) ** 7), sum(binomial(7, i_) * x ** (7 - i_) * h**i_ for i_ in range(8)))
+chk("2.7a koeffisienter", [binomial(7, i_) for i_ in range(8)], [1, 7, 21, 35, 35, 21, 7, 1])
+chk("2.7b", limit(((x + h) ** 7 - x**7) / h, h, 0), 7 * x**6)
+chk("2.7c mønster", 7 * x ** (7 - 1), 7 * x**6)
 
 # 2.8 (k f)' = k f'
 kf = symbols("kf")
@@ -239,8 +240,9 @@ chk("2.8 eksempel", deriv(7 * x**3), 7 * deriv(x**3))
 chk("2.9a moteksempel", [deriv(x * x), diff(x, x) * diff(x, x)], [2 * x, 1])
 # f = 1 (konstant), g = x: (1 * x)' = 1, 0 * 1 = 0  -> ikke lik. f = g = 0: 0 = 0
 chk("2.9a stemmer", [deriv(Integer(0) * x), 0 * 0], [0, 0])
-# b) alltid: f = g + 5
-chk("2.9b", simplify(dq(G(x) + 5, x) - dq(G(x), x)), 0)
+# b) noen ganger: f = x^2 + 1, g = x^2 har samme deriverte men er ulike
+chk("2.9b samme deriverte", [deriv(x**2 + 1), deriv(x**2)], [2 * x, 2 * x])
+sant("2.9b ulike", simplify((x**2 + 1) - x**2) != 0, "f != g")
 
 # 2.10 baklengs: f'(x) = 2x + 3, f(0) = 1
 f = x**2 + 3 * x + 1
@@ -252,6 +254,7 @@ aapen("2.10b", "Uendelig mange: x^2 + 3x + c for hvilken som helst konstant c")
 # Sjekk 2
 chk("Sjekk 2a", diff(x**6, x), 6 * x**5)
 chk("Sjekk 2b", deriv(x**2 + 9), 2 * x)
+chk("Sjekk 2b sumregel", deriv(x**2) + deriv(Integer(9)), 2 * x)
 chk("Sjekk 2c", [(2 + 1) ** 3, 2**3 + 1**3], [27, 9])
 
 # =====================================================================
@@ -301,10 +304,10 @@ def fi(xv):
 
 chk("U3b 1/x forover", round(derivert(fi, 2, 0.001), 4), -0.2499)
 chk("U3b 1/x symmetrisk", round(symmetrisk(fi, 2, 0.001), 4), -0.25)
-chk("U3c forover h=0.1", round(derivert(fp, 3, 0.1), 4), 6.1)
-chk("U3c forover h=0.01", round(derivert(fp, 3, 0.01), 4), 6.01)
-chk("U3c symmetrisk h=0.1", round(symmetrisk(fp, 3, 0.1), 4), 6.0)
-chk("U3c x^3 symmetrisk h=0.1", round(symmetrisk(fk, 2, 0.1), 4), 12.01)
+chk("U3c forover h=0.1", round(derivert(fk, 2, 0.1), 4), 12.61)
+chk("U3c forover h=0.01", round(derivert(fk, 2, 0.01), 4), 12.0601)
+chk("U3c symmetrisk h=0.1", round(symmetrisk(fk, 2, 0.1), 4), 12.01)
+chk("U3c symmetrisk h=0.01", round(symmetrisk(fk, 2, 0.01), 4), 12.0001)
 
 # U4 (x^4)'
 chk("U4a kvadrert", expand((x**2 + 2 * x * h + h**2) ** 2),
