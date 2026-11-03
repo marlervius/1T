@@ -57,8 +57,8 @@ chk("1.1d", areal(8, 3, 45), 6 * sqrt(2))
 chk("1.2a", "B", "B")
 chk("1.2b", areal(6, 8, 30), 12)
 
-avrund("1.3a", ar(7.5, 9.2, 64), 1, 31.0)
-avrund("1.3b", ar(12.4, 8.6, 118), 1, 47.1)
+avrund("1.3a", ar(7.5, 9.2, 72), 1, 32.8)
+avrund("1.3b", ar(12.4, 8.6, 117), 1, 47.5)
 
 chk("1.4a", areal(12, 9, 120), 27 * sqrt(3))
 chk("1.4b", areal(8, 5, 135), 10 * sqrt(2))
@@ -120,7 +120,7 @@ avrund("2.3b stump", 180 - math.degrees(math.asin(0.25)), 1, 165.5)
 avrund("2.3c spiss", math.degrees(math.asin(0.9)), 1, 64.2)
 avrund("2.3c stump", 180 - math.degrees(math.asin(0.9)), 1, 115.8)
 
-k24 = 2 * 28 / (9 * 7)
+k24 = float(Rational(8, 9))
 avrund("2.4a spiss", math.degrees(math.asin(k24)), 1, 62.7)
 avrund("2.4a stump", 180 - math.degrees(math.asin(k24)), 1, 117.3)
 avrund("2.4b", ar(9, 7, 117.3), 1, 28.0)
@@ -134,11 +134,10 @@ chk("2.5c sin", Rational(2 * 15, 6 * 4), Rational(5, 4))
 sant("2.5c ingen", Rational(2 * 15, 6 * 4) > 1 and areal(6, 4, 90) == 12, "maks areal er 12 < 15")
 
 # 2.6 firkant
-ar26 = ar(9, 12, 35) + ar(12, 8, 50)
-avrund("2.6 t1", ar(9, 12, 35), 1, 31.0)
-avrund("2.6 t2", ar(12, 7, 48), 1, 31.2)
-avrund("2.6", ar(9, 12, 35) + ar(12, 7, 48), 1, 62.2)
-chk("2.6 avrundede ledd gir samme sum", round(31.0 + 31.2, 1), 62.2)
+avrund("2.6 t1", ar(9, 12, 37), 1, 32.5)
+avrund("2.6 t2", ar(12, 7, 45), 1, 29.7)
+avrund("2.6", ar(9, 12, 37) + ar(12, 7, 45), 1, 62.2)
+chk("2.6 avrundede ledd gir samme sum", round(32.5 + 29.7, 1), 62.2)
 
 # 2.7
 sant("2.7 pil 1 feil", Rational(1, 2) * 3 * 10 != 30, "1/2 * 3 * 10 = 15, ikke 30")
@@ -200,4 +199,5 @@ n_ = 3
 while abs(math.pi - n_ / 2 * math.sin(math.radians(360 / n_))) >= 0.001:
     n_ += 1
 chk("U6e", n_, 144)
+chk("2.4a brøk", Rational(2 * 28, 9 * 7), Rational(8, 9))
 rapport()

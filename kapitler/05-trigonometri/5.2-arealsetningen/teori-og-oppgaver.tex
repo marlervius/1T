@@ -114,8 +114,8 @@ Se på figuren.\par
 \oppg{1.3}{1}{\mh}
 Finn arealet. Svar med én desimal.
 \begin{tasks}(2)
-  \task $a = 7{,}5$ cm, $b = 9{,}2$ cm og $C = 64^\circ$
-  \task $a = 12{,}4$ cm, $c = 8{,}6$ cm og $B = 118^\circ$
+  \task $a = 7{,}5$ cm, $b = 9{,}2$ cm og $C = 72^\circ$
+  \task $a = 12{,}4$ cm, $c = 8{,}6$ cm og $B = 117^\circ$
 \end{tasks}
 
 \nivaahode{2}
@@ -203,13 +203,14 @@ supplementvinkel & Vinkelen $180^\circ - v$. Den har samme sinus som $v$. & \mit
 \end{ordliste}
 
 \begin{mustkunne}
-\begin{minipage}[t]{0.56\linewidth}
+\begin{minipage}[t]{0.63\linewidth}
 \textbf{Snu formelen.} Når $T$ er kjent, setter vi inn i $T = \frac12 ab\sin C$:
 \[ a = \frac{2T}{b\sin C} \qquad \sin C = \frac{2T}{ab} \]
 \textbf{Hvorfor to vinkler?} Fordi $\sin(180^\circ - v) = \sin v$, gir både $C = v$ og $C = 180^\circ - v$ samme høyde, og dermed samme areal. Figuren viser begge trekantene.\par\smallskip
+\textbf{Finn $C$} med $\sin^{-1}$ på brøken direkte, for eksempel $\sin^{-1}\!\left(\frac89\right)$. Rund ikke av $\sin C$ først. Her gir begge vinklene en trekant, fordi $C$ ligger mellom $a$ og $b$. Ligger vinkelen ikke mellom sidene (5.3), må du sjekke hver vinkel.\par\smallskip
 \textbf{Hvor mange løsninger?} Er $\sin C$ mellom $0$ og $1$: to vinkler. Er $\sin C = 1$: bare $90^\circ$. Er $\frac{2T}{ab} > 1$: ingen trekant.
 \end{minipage}\hfill
-\begin{minipage}[t]{0.40\linewidth}
+\begin{minipage}[t]{0.34\linewidth}
 \centering
 \begin{tikzpicture}[baseline=(current bounding box.north),scale=0.75,font=\small]
   \coordinate (C) at (0,0); \coordinate (B) at (4,0);
@@ -267,7 +268,7 @@ Diagonalen deler firkanten i trekantene $ABC$ og $ACD$. I begge kjenner vi to si
 \begin{stegtabell}
 $\frac12 \cdot 8 \cdot 10 \cdot \sin 40^\circ \approx 25{,}7$ & $T_{ABC}$: sidene $AB$ og $AC$ med $40^\circ$ mellom.\\
 $\frac12 \cdot 10 \cdot 7 \cdot \sin 55^\circ \approx 28{,}7$ & $T_{ACD}$: sidene $AC$ og $AD$ med $55^\circ$ mellom.\\
-$25{,}7 + 28{,}7 = 54{,}4$ & Legg sammen: $54{,}4$ cm$^2$.\\
+$25{,}7 + 28{,}7 = 54{,}4$ & Legg sammen: $54{,}4$ cm$^2$. Rund av arealene, ikke sinusverdiene.\\
 \end{stegtabell}
 \end{minipage}
 \end{eksempel}
@@ -323,7 +324,7 @@ Finn alle mulige vinkler $C$ mellom $a$ og $b$. Svar eksakt. Hvor mange trekante
 \end{tasks}
 
 \oppg{2.6}{2}{\mh}
-En firkantet tomt $ABCD$ har diagonalen $AC = 12$ m, $AB = 9$ m, $CD = 7$ m, $\angle BAC = 35^\circ$ og $\angle ACD = 48^\circ$.
+En firkantet tomt $ABCD$ har diagonalen $AC = 12$ m, $AB = 9$ m, $CD = 7$ m, $\angle BAC = 37^\circ$ og $\angle ACD = 45^\circ$.
 Finn arealet av tomten. Svar med én desimal.
 
 \oppg{2.7}{2}{\uh}
