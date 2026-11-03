@@ -62,6 +62,7 @@ Ingen preamble, ingen `\documentclass`, ingen `\usepackage`. Byggeskriptet lager
 - **Fortegnslinjer og tallinjer lages ALLTID med `verktoy/figurer.py`** (fortegnene regnes av sympy):
   `python3 verktoy/figurer.py fortegn "x+1" "x-3"` · med nevner: `… fortegn "x-1" "/x+2" --navn "\dfrac{x-1}{x+2}"`
   · tallinje: `python3 verktoy/figurer.py tallinje "[-1,3>" "<5,->" --fra -3 --til 7`. Lim utskriften inn som den er.
+  «Fyll ut»-oppgaver: `--tom-produkt` (eleven tegner produktlinja) eller `--tomme-rader` (eleven tegner alt).
 - `\hint{tekst}` — grått tips under en oppgave (bruk sjelden, mest på nivå 3)
 - `\skrivlinje[3cm]`, `\rute` — tomme felt i «fullfør»-oppgaver
 - `minipage[t]` med `\begin{tabular}[t]` — to spalter i `mustkunne`

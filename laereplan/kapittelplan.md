@@ -28,7 +28,7 @@ Status: `—` ikke startet · `brief` brief skrevet · `utkast` forfatter ferdig
 | 2.1 | Uttrykk, identiteter, likninger og formler | Uttrykk, identitet, likning og funksjon — hva er forskjellen? · Sette opp og snu formler | 5, 3, 4 | ferdig |
 | 2.2 | Likningssystemer | Innsetting og addisjon · Grafisk løsning og antall løsninger | 4 | ferdig |
 | 2.3 | Andregradslikninger | Faktorisering og nullpunkt · abc-formelen og diskriminanten | 6, 4 | ferdig |
-| 2.4 | Ulikheter | Lineære ulikheter · Andregradsulikheter med fortegnslinje | 4, 6 | brief |
+| 2.4 | Ulikheter | Lineære ulikheter · Andregradsulikheter med fortegnslinje | 4, 6 | ferdig |
 
 ## Kapittel 3 Funksjoner  (`kapitler/03-funksjoner/`)
 

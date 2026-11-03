@@ -31,8 +31,10 @@ def _tex(v):
     return sp.latex(v).replace(r"\frac", r"\tfrac")
 
 
-def fortegnslinje(faktorer, navn=None, bredde=1.9, marg=1.4):
-    """faktorer: liste av strenger/uttrykk. Start en streng med '/' for faktor i nevneren."""
+def fortegnslinje(faktorer, navn=None, bredde=1.9, marg=1.4, tom_produkt=False, tomme_rader=False):
+    """faktorer: liste av strenger/uttrykk. Start en streng med '/' for faktor i nevneren.
+    tom_produkt=True: produktlinja står uten streker (eleven fyller ut).
+    tomme_rader=True: også faktorradene står uten streker og fortegn (bare nullpunkter og navn)."""
     rader = []
     for f in faktorer:
         nevner = isinstance(f, str) and f.startswith("/")
@@ -68,7 +70,8 @@ def fortegnslinje(faktorer, navn=None, bredde=1.9, marg=1.4):
         tegn = [int(sp.sign(u.subs(x, t))) for t in test]
         prod_tegn = [a * b for a, b in zip(prod_tegn, tegn)]
         ut.append(rf"  \node[anchor=east] at (-0.15,{y:.2f}) {{${lab}$}};")
-        linje(y, tegn)
+        if not tomme_rader:
+            linje(y, tegn)
         for i, v in enumerate(nuller):
             if sp.simplify(u.subs(x, v)) == 0:
                 # Faktoren selv er 0 her (også i nevneren). Bare produktet/brøken er ikke definert.
@@ -76,13 +79,15 @@ def fortegnslinje(faktorer, navn=None, bredde=1.9, marg=1.4):
                     prod_merke[i] = r"\times"
                 elif prod_merke[i] is None:
                     prod_merke[i] = "0"
-                merke(p[i], y, "0")
+                if not tomme_rader:
+                    merke(p[i], y, "0")
     produkt = navn or " ".join(f"({l})" if len(rader) > 1 else l for l, _, n in rader if not n)
     ut.append(rf"  \node[anchor=east] at (-0.15,{yprod:.2f}) {{${produkt}$}};")
-    linje(yprod, prod_tegn, "hoved")
-    for i, m in enumerate(prod_merke):
-        if m:
-            merke(p[i], yprod, m)
+    if not (tom_produkt or tomme_rader):
+        linje(yprod, prod_tegn, "hoved")
+        for i, m in enumerate(prod_merke):
+            if m:
+                merke(p[i], yprod, m)
     for pi, v in zip(p, nuller):
         ut.append(rf"  \node[below] at ({pi:.2f},{ybot:.2f}) {{${_tex(v)}$}};")
     ut.append(r"\end{tikzpicture}")
@@ -122,9 +127,11 @@ if __name__ == "__main__":
     f = sub.add_parser("fortegn")
     f.add_argument("faktorer", nargs="+")
     f.add_argument("--navn")
+    f.add_argument("--tom-produkt", action="store_true", help="produktlinja uten streker (eleven fyller ut)")
+    f.add_argument("--tomme-rader", action="store_true", help="alle rader uten streker (eleven fyller ut alt)")
     t = sub.add_parser("tallinje")
     t.add_argument("intervaller", nargs="+")
     t.add_argument("--fra", type=int, required=True)
     t.add_argument("--til", type=int, required=True)
     a = p.parse_args()
-    print(fortegnslinje(a.faktorer, a.navn) if a.type == "fortegn" else tallinje(a.intervaller, a.fra, a.til))
+    print(fortegnslinje(a.faktorer, a.navn, tom_produkt=a.tom_produkt, tomme_rader=a.tomme_rader) if a.type == "fortegn" else tallinje(a.intervaller, a.fra, a.til))
