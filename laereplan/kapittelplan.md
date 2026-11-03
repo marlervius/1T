@@ -34,7 +34,7 @@ Status: `—` ikke startet · `brief` brief skrevet · `utkast` forfatter ferdig
 
 | Nr | Seksjon | Deler | KM | Status |
 |---|---|---|---|---|
-| 3.1 | Funksjonsbegrepet og lineære funksjoner | Definisjonsmengde og verdimengde · Stigningstall og konstantledd | 5, 3 | utkast |
+| 3.1 | Funksjonsbegrepet og lineære funksjoner | Definisjonsmengde og verdimengde · Stigningstall og konstantledd | 5, 3 | ferdig |
 | 3.2 | Andregradsfunksjoner | Nullpunkter og symmetrilinje · Ekstremalpunkt og fullstendige kvadraters metode | 6, 9 | utkast |
 | 3.3 | Polynomfunksjoner og polynomdivisjon | Polynomdivisjon og faktorisering · Nullpunkter og forløp | 11, 9 | brief (forfatter i gang) |
 | 3.4 | Rasjonale funksjoner | Asymptoter (med polynomdivisjon) · Rasjonale likninger og ulikheter | 9, 11, 4 | brief |
