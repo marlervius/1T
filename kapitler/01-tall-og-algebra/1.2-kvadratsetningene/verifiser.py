@@ -17,10 +17,17 @@ chk("Eks 2.1 kontroll", expand(2 * x * (x - 3) * (x + 3)), 2 * x**3 - 18 * x)
 chk("Eks 2.2", factor(x**2 + 6 * x + 9), (x + 3) ** 2)
 chk("Eks 2.2 kontroll", (1 + 3) ** 2, 1 + 6 + 9)
 
+chk("Eks 1.1 steg 1", (3 * x) ** 2 - 2 * 3 * x * 2 + 2**2, 9 * x**2 - 12 * x + 4)
+chk("Eks 1.1 steg 0", expand((3 * x - 2) ** 2), expand((3 * x) ** 2 - 2 * 3 * x * 2 + 2**2))
+chk("Eks 2.1 steg 1", expand(2 * x * (x**2 - 9)), 2 * x**3 - 18 * x)
+chk("Eks 2.1 steg 2", expand(2 * x * (x - 3) * (x + 3)), expand(2 * x * (x**2 - 9)))
+chk("Eks 2.2 steg 1", x**2 + 2 * x * 3 + 3**2, x**2 + 6 * x + 9)
+chk("Eks 2.2 steg 2", expand((x + 3) ** 2), x**2 + 2 * x * 3 + 3**2)
+
 # ---------- Del 1 ----------
 chk("1.1a", expand((x + 5) ** 2), x**2 + 10 * x + 25)
 chk("1.1b", expand((a - 3) ** 2), a**2 - 6 * a + 9)
-chk("1.1c", expand((2 * b + 1) ** 2), 4 * b**2 + 4 * b + 1)
+chk("1.1c", expand((4 * b + 1) ** 2), 16 * b**2 + 8 * b + 1)
 chk("1.1d", expand((m + n) ** 2), m**2 + 2 * m * n + n**2)
 
 chk("1.2a", expand((x + 4) * (x - 4)), x**2 - 16)
@@ -40,12 +47,18 @@ chk("1.5a", 51**2, 2601)
 chk("1.5b", 98**2, 9604)
 chk("1.5c", 29 * 31, 899)
 
-chk("1.6a", expand((x - 3) * (x - 3)), x**2 - 6 * x + 9)
-sant("1.6b", (-3) * (-3) == 9, "(-3)(-3) = +9, ikke -9")
+E0 = (x + 1) ** 2 - (x - 4) ** 2
+sant("1.6 pil 1", expand(E0 - ((x**2 + 2 * x + 1) - (x - 4) ** 2)) == 0, "riktig")
+sant("1.6 pil 2", expand((x - 4) ** 2 - (x**2 - 8 * x - 16)) != 0, "feil: (x-4)^2 = x^2-8x+16")
+chk("1.6 rett", expand((x - 4) ** 2), x**2 - 8 * x + 16)
+sant("1.6 pil 3", expand((x**2 - 8 * x - 16) + (-x**2 + 8 * x + 16)) == 0, "fortegnsbytte stemmer med feilen")
+chk("1.6 pil 4", x**2 + 2 * x + 1 - x**2 + 8 * x + 16, 10 * x + 17)
+chk("1.6 riktig svar", expand(E0), 10 * x - 15)
 
 chk("1.7a", expand((a - b) ** 2 - (b - a) ** 2), 0)
 los("1.7b", Eq((x + 2) ** 2, x**2 + 4), [0])
-chk("1.7c", expand((2 * a + b) ** 2 - (4 * a**2 + b**2)), 4 * a * b)
+chk("1.7c", expand((x - 5) ** 2 - (x**2 - 10 * x - 25)), 50)
+los("1.7c los", Eq((x - 5) ** 2, x**2 - 10 * x - 25), [])
 
 sol = solve(Poly(expand((x + p) ** 2 - (x**2 + 10 * x + q)), x).all_coeffs(), [p, q], dict=True)[0]
 chk("1.8", (sol[p], sol[q]), (5, 25))
@@ -77,28 +90,33 @@ chk("2.4c", factor(3 * x**2 - 12), 3 * (x - 2) * (x + 2))
 chk("2.4d", factor(x**3 - x), x * (x - 1) * (x + 1))
 
 aapen("2.5a", "Nei. Vi kan trekke ut x av x^2 + 2x, så faktoriseringen er ikke fullstendig.")
-chk("2.5b", factor(4 * x**2 + 8 * x), 4 * x * (x + 2))
+chk("2.5 Ola", expand(3 * (2 * a**3 - 3 * a**2)), 6 * a**3 - 9 * a**2)
+chk("2.5b", factor(6 * a**3 - 9 * a**2), 3 * a**2 * (2 * a - 3))
 
-chk("2.6", cancel((x**2 - 9) / (x + 3)), x - 3)
+chk("2.6", cancel((x**2 - 9) / (x + 3)), x - 3)  # x > 3
 
-chk("2.7a", expand((x - 2) ** 2), x**2 - 4 * x + 4)
-chk("2.7b", expand((x + 3) * (x - 3) - (x**2 + 9)), -18)
-los("2.7c", Eq(x**2 - 9, (x - 3) ** 2), [3])
+los("2.7a", Eq(x**2 + 16, (x + 4) ** 2), [0])
+los("2.7b", Eq(x**2 + 4, (x + 2) * (x - 2)), [])
+los("2.7c", (9 * x**2 - 4, (3 * x - 2) * (3 * x + 2)), "alle")
 chk("2.8", factor(2 * x**2 - 50), 2 * (x - 5) * (x + 5))
-aapen("2.8 forklaring", "konjugatsetningen gir alltid parene (x-5)(x+5)")
+chk("2.8 annet", factor(2 * (x + 1) ** 2 - 72), 2 * (x - 5) * (x + 7))
+chk("2.8 forklaring", factor(2 * x**2 + 50), 2 * (x**2 + 25))
+chk("2.8 x=5", (2 * x**2 + 50).subs(x, 5), 100)
 
 chk("Sjekk 2a", factor(3 * a**2 - 6 * a), 3 * a * (a - 2))
 chk("Sjekk 2b", factor(x**2 - 49), (x + 7) * (x - 7))
 chk("Sjekk 2c", factor(2 * x**2 + 8 * x + 8), 2 * (x + 2) ** 2)
 
 # ---------- Ekstra utfordring ----------
-chk("U1", expand((2 * x + 3) ** 2 - (2 * x - 3) ** 2), 24 * x)
+chk("U1", expand((x + y + 1) ** 2), x**2 + y**2 + 2 * x * y + 2 * x + 2 * y + 1)
 chk("U2a", factor(3 * x**3 - 27 * x), 3 * x * (x - 3) * (x + 3))
 chk("U2b", factor(12 * a**2 - 3 * b**2), 3 * (2 * a - b) * (2 * a + b))
 
 chk("U3", expand((n + 1) ** 2 - n**2), 2 * n + 1)
 
 los("U4", Eq(k**2, 100), [10, -10], var=k)
+los("U4 k=9", Eq(discriminant(x**2 + 6 * x + k, x), 0), [9], var=k)
+chk("U4 k=9 faktor", factor(x**2 + 6 * x + 9), (x + 3) ** 2)
 chk("U4a", factor(x**2 + 10 * x + 25), (x + 5) ** 2)
 chk("U4b", factor(x**2 - 10 * x + 25), (x - 5) ** 2)
 
@@ -119,8 +137,25 @@ aapen("U5b", "Sjekken dekker bare n = 1 til 10. Et bevis må gjelde for alle hel
 
 chk("U6a", expand((m - d) * (m + d)), m**2 - d**2)
 chk("U6b", 47 * 53, 50**2 - 3**2)
+chk("U6c", max(i * (100 - i) for i in range(0, 101)), 2500)
+chk("U6c arg", max(i * (100 - i) for i in range(0, 101)), 50 * 50)
 
 chk("U7a", factor(x**4 - 16), (x - 2) * (x + 2) * (x**2 + 4))
 aapen("U7b", "x^2 + 4 har ingen reelle nullpunkter, så den kan ikke faktoriseres videre med reelle tall.")
+
+gaar = [t for t in range(1, 21) if any(i * i - j * j == t for i in range(0, 25) for j in range(0, i + 1))]
+chk("U8", [t for t in range(1, 21) if t not in gaar], [2, 6, 10, 14, 18])
+sant("U8 rest", all(t % 4 == 2 for t in range(1, 21) if t not in gaar), "alle har rest 2 ved deling med 4")
+
+# ---------- Vanlig feil ----------
+sant("VF 1a", (1 + 1) ** 2 != 1**2 + 1**2, "a=b=1: 4 != 2")
+sant("VF 1b", (2 * 1 + 1) ** 2 != 2 * 1**2 + 4 * 1 + 1, "x=1: 9 != 7")
+chk("VF 1b riktig", expand((2 * x + 1) ** 2), 4 * x**2 + 4 * x + 1)
+sant("VF 1c", (2 + 1) * (2 - 1) != 2**2 + 1**2, "a=2, b=1: 3 != 5")
+sant("VF 2a", expand((x + 3) * (x - 3)) == x**2 - 9, "x^2+9 er ikke (x+3)(x-3)")
+chk("VF 2b", expand(4 * x * (x + 2)), 4 * x**2 + 8 * x)
+los("VF 2c", Eq(x**2 - 6 * x + 9, (x + 3) ** 2), [0])
+sant("VF 2c tall", (1 - 6 + 9) != (1 + 3) ** 2, "x=1: 4 != 16")
+chk("VF 2c riktig", factor(x**2 - 6 * x + 9), (x - 3) ** 2)
 
 rapport()
