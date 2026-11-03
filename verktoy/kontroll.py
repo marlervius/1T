@@ -14,6 +14,7 @@ Regler:
 - Hver oppgave i heftet og på utfordringsarket må ha minst én kontroll her.
 """
 import json
+import math
 import sys
 from pathlib import Path
 
@@ -99,6 +100,24 @@ def ulikhet(nr, ulikheten, forventet, var=None):
     ok = losning == forventet
     _logg.append({"nr": nr, "type": "ulikhet", "verdi": str(losning), "forventet": str(forventet), "ok": ok})
     return ok
+
+
+def avrund(nr, verdi, desimaler, forventet, margin=0.05):
+    """Avrund et kalkulatorsvar og sammenlign med fasiten. Feiler også hvis verdien ligger så nær
+    en avrundingsgrense (f.eks. 3,4499…) at elever med litt ulik mellomregning kan få et annet siffer.
+    Da bør tallene i oppgaven byttes. Eksempel: avrund("1.3b", 8*sin(rad(55)), 1, 6.6)"""
+    v = float(sympify(verdi).evalf())
+    s = v * 10**desimaler
+    naer_grense = abs(s - math.floor(s) - 0.5) < margin
+    ok = (round(v, desimaler) == round(float(forventet), desimaler)) and not naer_grense
+    _logg.append({"nr": nr, "type": "avrund", "verdi": f"{v:.6g}" + (" (NÆR AVRUNDINGSGRENSE — bytt tall)" if naer_grense else ""),
+                  "forventet": str(forventet), "ok": ok})
+    return ok
+
+
+def rad(grader):
+    """Grader -> radianer, eksakt (sympy). sin(rad(30)) gir 1/2."""
+    return sympify(grader) * pi / 180
 
 
 def sant(nr, pastand, beskrivelse=""):

@@ -154,6 +154,7 @@ Les målene i briefen i `laereplan/kompetansemaal-1T.md`. Se på verbene. Står 
 - Gangetegn: `\cdot`. Aldri `*` eller `x`.
 - Brøk i oppgavetekst og `tasks`: `\dfrac`. Brøk i fasit og løpende tekst: `\frac`.
 - I ordlisten, tabeller og tett tekst: `\frac`, ikke `\dfrac` (ellers kolliderer radene).
+  Unntak: differansekvotienter ($\dfrac{f(a+h)-f(a)}{h}$) i fasiten kan ha `\dfrac`. Brøk i brøk og lange kjeder settes på egen linje med `\[ … \]`.
 - Ingen utropstegn, heller ikke «Feil!» i eksempler. Skriv «Det er feil:».
 - **Brøk i eksponent: alltid `\tfrac`**, for eksempel `8^{\tfrac{2}{3}}`. `\frac` i en eksponent blir for lite til å lese i OneNote.
 - Formler med brøk inni brøk (som $\frac{x + 2/x}{2}$) settes på egen linje med `\[ … \]`.
@@ -196,6 +197,8 @@ los("3.5", (2*(x + 1), 2*x + 2), "alle")          # alle tillatte verdier (bruk 
 los("3.6", Eq(x/(x - 2), 2/(x - 2) + 3), [])        # x = 2 fjernes automatisk (nevner 0)
 ulikhet("2.4a", x**2 - 2*x - 3 < 0, Interval(-1, 3, True, True))   # <-1, 3>  (True = åpent endepunkt)
 ulikhet("2.4b", 2*x**2 >= 8*x, Union(Interval(-oo, 0), Interval(4, oo)))
+avrund("5.3a", 8*sin(rad(40)), 1, 5.1)            # kalkulatorsvar: feiler også nær avrundingsgrense
+chk("5.2", sin(rad(30)), Rational(1, 2))          # rad() gir eksakte grader
 sant("2.8", Rational(1, 1024) < Rational(1, 1000), "rekkefølge")
 aapen("2.7", "Forklaringsoppgave")                 # bare for oppgaver som ikke kan regnes
 rapport()                                          # alltid sist

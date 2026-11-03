@@ -20,7 +20,7 @@ $(k)' = 0$ & en konstant vokser ikke\\
 $(kx)' = k$ & stigningstall $k$\\
 $(x^n)' = n\,x^{n-1}$ & mønsteret fra 4.2\\
 $(k\cdot f)' = k\cdot f'$ & konstant utenfor\\
-$(f + g)' = f' + g'$ & ledd for ledd\\
+$(f + g)' = f' + g'$ & vekstfartene legges sammen\\
 \end{tabular}
 \end{minipage}\hfill
 \begin{minipage}[t]{0.47\linewidth}
@@ -98,7 +98,7 @@ Gang ut eller forkort først. Deriver deretter. Skriv utregningen.
 \begin{tasks}(2)
   \task $(x + 3)^2$
   \task $(3x - 1)(x + 2)$
-  \task $\dfrac{x^3 + 4x}{x}$ \ ($x \neq 0$)
+  \task $\dfrac{x^4 + 2x^2}{x^2}$ \ ($x \neq 0$)
   \task $\dfrac{2x^3 - 6x^2}{2x}$ \ ($x \neq 0$)
 \end{tasks}
 
@@ -124,7 +124,12 @@ Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret.
 \end{tasks}
 
 \oppg{1.8}{3}{\uh}
-Finn et polynom $f$ slik at $f'(x) = 6x^2 - 2$ og $f(1) = 3$. Hvor mange polynomer har den deriverte $6x^2 - 2$ uten kravet $f(1) = 3$?
+Ola deriverer $(x+1)(x-1)$ faktor for faktor og får $1\cdot 1 = 1$.
+\begin{tasks}(1)
+  \task Deriver $(x+1)(x-1)$ riktig.
+  \task For hvilken $x$ gir Olas metode likevel riktig stigningstall?
+  \task Forklar hvorfor regelen til Ola ikke gjelder generelt.
+\end{tasks}
 
 \begin{sjekk}
 \begin{tasks}(2)
@@ -161,13 +166,13 @@ Regn om til $y = mx + c$.\par
 \begin{minipage}[t]{0.40\linewidth}
 \vspace{0pt}\centering
 \begin{tikzpicture}[baseline=(current bounding box.north)]
-\begin{axis}[width=\linewidth, height=0.95\linewidth, axis lines=middle, xmin=-0.6, xmax=4.0, ymin=-3.2, ymax=3.2,
+\begin{axis}[width=\linewidth, height=0.95\linewidth, axis lines=middle, xmin=-0.6, xmax=4.0, ymin=-3.8, ymax=3.2,
   xtick={1}, xticklabels={$a$}, ytick={-2}, yticklabels={$f(a)$},
   tick label style={font=\scriptsize}, xlabel={$x$}, ylabel={$y$}, label style={font=\small}]
 \addplot[domain=-0.4:3.5, thick, black!60, samples=40] {x^2 - 3*x};
 \addplot[domain=-0.5:3.2, thick, hoved] {-x - 1};
 \addplot[only marks, mark=*, mark size=1.5pt, hoved] coordinates {(1,-2)};
-\node[font=\scriptsize, hoved, anchor=south west] at (axis cs:2.0,-2.4) {tangent};
+\node[font=\scriptsize, hoved, anchor=north east] at (axis cs:2.1,-3.1) {tangent};
 \end{axis}
 \end{tikzpicture}
 \end{minipage}
@@ -201,8 +206,8 @@ Tangentene er $y = -2$ og $y = 2$ & Vannrett linje gjennom punktet.\\
 \begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=0pt]
   \item $y - f(a) = f'(x)(x - a)$ er feil. Stigningstallet må være tallet $f'(a)$. Med $f'(x) = 2x - 3$ får du en parabel, ikke en linje.
   \item Å bruke $f(a)$ som stigningstall er feil. For $f(x) = x^2 - 3x$ i $x = 1$ er $f(1) = -2$, men stigningstallet er $f'(1) = -1$.
-  \item Å svare $x = a$ som tangent er feil. Likningen $f'(x) = 0$ gir bare $x$. Tangenten er $y = f(a)$.
-  \item Svaret $y + 2 = -x + 1$ er ikke ferdig. Skriv $y = mx + c$.
+  \item Å svare $x = a$ som vannrett tangent er feil. Likningen $f'(x) = 0$ gir bare $x$. Tangenten er $y = f(a)$.
+  \item $y - (-4) = y - 4$ er feil. To minus gir pluss: $y - (-4) = y + 4$.
 \end{itemize}
 \end{vanligfeil}
 
@@ -245,12 +250,12 @@ La $f(x) = x^3 - 3x^2 + 2$.
 Finn \textbf{den første feilen}. Løs riktig.
 \[ f(x) = x^2 - 5x \ \longrightarrow\ f(4) = -4 \ \longrightarrow\ f'(x) = 2x - 5 \ \longrightarrow\ f'(4) = 3 \ \longrightarrow\ y - 4 = 3(x - 4) \ \longrightarrow\ y = 3x - 8 \]
 
-\oppg{2.6}{2}{\mh}
+\oppg{2.6}{2}{\uh}
 En ball kastes rett opp. Høyden er $h(t) = 20t - 5t^2$ meter etter $t$ sekunder (tenkt modell).
 \begin{tasks}(1)
   \task Finn $h'(t)$. Hva er farten etter 1 sekund? Husk enhet.
   \task Når er farten $0$ m/s? Hva er høyden da?
-  \task Finn toppunktet til $h$ med metoden fra 3.2. Sammenlign med b). Hvorfor må svarene stemme?
+  \task Finn toppunktet til $h$ med symmetrilinja fra 3.2. Sammenlign med b). Hvorfor må svarene stemme?
 \end{tasks}
 
 \nivaahode{3}
@@ -267,11 +272,12 @@ Er påstanden alltid, noen ganger eller aldri sann? Begrunn svaret.
 \begin{tasks}(1)
   \task To ulike punkter på grafen til et andregradspolynom har parallelle tangenter.
   \task Grafen til et tredjegradspolynom har en vannrett tangent.
+  \task Hvor mange vannrette tangenter kan grafen til et tredjegradspolynom ha? Begrunn.
 \end{tasks}
 
 \begin{sjekk}
 \begin{tasks}(2)
-  \task Finn tangenten til $f(x) = x^2$ i $x = -1$.
+  \task Finn tangenten til $f(x) = x^2$ i $x = 2$.
   \task Hvor er tangenten til $f(x) = x^2 - 8x$ vannrett?
   \task! Hvorfor bruker vi tallet $f'(a)$ og ikke funksjonen $f'(x)$ som stigningstall i tangentlikningen?
 \end{tasks}

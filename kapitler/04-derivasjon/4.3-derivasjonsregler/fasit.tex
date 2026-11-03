@@ -7,13 +7,15 @@
 \fo{1.2} a) $6x + 4$ \ b) $4x^3 - 6x^2$ \ c) $x$ \ d) $15x^2 - 1$
 \fo{1.3} a) $f'(x) = 3x^2 - 6x + 5$ \ b) $f'(3) = 3\cdot 9 - 6\cdot 3 + 5 = 14$
 \fo{1.4} a) $x^2 + 6x + 9$ gir $2x + 6$ \ b) $3x^2 + 5x - 2$ gir $6x + 5$
-c) $x^2 + 4$ gir $2x$ \ d) $x^2 - 3x$ gir $2x - 3$
+c) $x^2 + 2$ gir $2x$ ($x \neq 0$) \ d) $x^2 - 3x$ gir $2x - 3$ ($x \neq 0$)
 \fo{1.5} Feilen er overgangen til $f'(x) = 2x + 3 - 4$. Konstanten $-4$ gir $0$, ikke $-4$. Riktig: $f'(x) = 2x + 3$ og $f'(3) = 9$.
 \fo{1.6} a) $s'(t) = t + 2$ \ b) $s'(4) = 6$. Etter 4 sekunder er farten $6$ m/s.
 c) $s(4) = 16$. Etter 4 sekunder har syklisten kommet $16$ m (strekning). Farten i det øyeblikket er $6$ m/s.
 \fo{1.7} a) Noen ganger. $f(x) = x^2 + 1$ og $g(x) = x^2$ har samme derivert, men er ikke like. De kan avvike med en konstant, og konstanter deriveres til $0$.
 b) Alltid. Leddet $ax^n$ ($a \neq 0$) gir $n a x^{n-1}$, og $na \neq 0$. Det høyeste leddet blir derfor ett trinn lavere og forsvinner ikke.
-\fo{1.8} $f'(x) = 6x^2 - 2$ gir $f(x) = 2x^3 - 2x + C$. Vi har $f(1) = 0 + C = 3$, så $f(x) = 2x^3 - 2x + 3$. Uten kravet finnes uendelig mange, én for hver verdi av $C$.
+\fo{1.8} a) $(x+1)(x-1) = x^2 - 1$ gir $2x$.
+b) Olas svar er $1$. Vi løser $2x = 1$, så $x = \frac{1}{2}$.
+c) Hvis $f\cdot g$ ble derivert faktor for faktor, ville $(x\cdot x)' = 1$. Men $(x^2)' = 2x$. Stigningstallet til et produkt avhenger av både $f$ og $g$ og hvordan begge endrer seg. Det er ikke bare to stigningstall som ganges.
 \fo{Sjekk 1} a) $12x^3 - 5$ \ b) $0$ \ c) Vi har ingen regel for potens av parentes. $(x+2)^2 = x^2 + 4x + 4$ gir $2x + 4$.
 
 \fk{Del 2 — Tangentlikning}
@@ -26,26 +28,28 @@ c) $3x^2 - 6x = 9$ gir $x = -1$ eller $x = 3$. Punktene er $(-1, -2)$ og $(3, 2)
 \fo{2.5} Feilen er overgangen til $y - 4 = 3(x - 4)$. Punktet er $(4, -4)$, så det skal stå $y + 4 = 3(x - 4)$. Riktig svar: $y = 3x - 16$.
 \fo{2.6} a) $h'(t) = 20 - 10t$. Etter 1 sekund er farten $10$ m/s.
 b) $20 - 10t = 0$ gir $t = 2$ s. Høyden er $h(2) = 20$ m.
-c) Toppunktet har $t = 20/10 = 2$ og $h = 20$. Det samme svaret: i toppen står ballen et øyeblikk stille, og tangenten er vannrett.
+c) Symmetrilinja er $t = -\frac{20}{2\cdot(-5)} = 2$ s og $h(2) = 20$ m. Det samme svaret: i toppen står ballen et øyeblikk stille, og tangenten er vannrett.
 \fo{2.7} a) $f'(x) = 2ax + b$, så $2a + b = 4$. Punktet gir $9a + 3b = 15$, altså $3a + b = 5$. Da er $a = 1$ og $b = 2$.
 b) $f(x) = x^2 + 2x$ gir $f(1) = 3$, så $y - 3 = 4(x - 1)$ og $y = 4x - 1$.
 \fo{2.8} a) Aldri. $f'(x) = 2ax + b$ med $a \neq 0$ har hver verdi bare én gang, så to ulike punkter får ulikt stigningstall.
 b) Noen ganger. $f(x) = x^3$ har $f'(0) = 0$. Men $f(x) = x^3 + x$ har $f'(x) = 3x^2 + 1 \ge 1$, aldri $0$.
-\fo{Sjekk 2} a) $y = -2x - 1$ \ b) $x = 4$ (tangenten er $y = -16$)
+c) $0$, $1$ eller $2$. Vannrett tangent betyr $f'(x) = 0$, og $f'$ er et andregradspolynom med høyst to nullpunkter. Eksempler: $x^3 + x$ (ingen), $x^3$ ($x = 0$), $x^3 - 3x$ ($x = \pm 1$).
+\fo{Sjekk 2} a) $f(2) = 4$, $f'(2) = 4$, så $y = 4x - 4$ \ b) $x = 4$ (tangenten er $y = -16$)
 c) $f'(x)$ er en funksjon som varierer med $x$. Tangenten er en rett linje med ett fast stigningstall, og det er tallet $f'(a)$.
 
 \fk{Ekstra utfordring}
-\fo{U1} a) $K'(x) = 0,02x + 20$ og $K'(100) = 22$. Den 101. enheten koster omtrent $22$ kr ekstra.
-b) $K(101) - K(100) = 22,01$ kr. Kurven er nesten rett over en enhet, så sekanten og tangenten har nesten likt stigningstall.
-\fo{U2} $f'(x) = 3x^2 - 6 = 6$ gir $x = \pm 2$. Punktene er $(2, -4)$ og $(-2, 4)$. Tangentene er $y = 6x - 16$ og $y = 6x + 16$.
-\fo{U3} Tangenten i $x = 1$: $f(1) = 3$ og $f'(1) = -2$, så $y = -2x + 5$. Den skjærer $y$-aksen i $5$ og $x$-aksen i $2,5$. Areal: $\frac{1}{2}\cdot 2,5 \cdot 5 = 6,25$.
-\fo{U4} a) Utskrift: \texttt{m = 3.0 og c = -3.0}. $m$ er stigningstallet og $c$ er konstantleddet i $y = mx + c$.
+\fo{U1} a) Utskrift: \texttt{m = 3.0 og c = -3.0}. $m$ er stigningstallet og $c$ er konstantleddet i $y = mx + c$.
 b) $f'(x) = 4x^3 - 1$, $f'(1) = 3$, $f(1) = 0$. Tangenten er $y = 3x - 3$. Det stemmer.
 c) Utskrift: \texttt{m = 10.0 og c = -16.0}. Reglene: $f'(2) = 10$, $f(2) = 4$, så $y = 10x - 16$.
+\fo{U2} a) $K'(x) = 0,02x + 20$ og $K'(100) = 22$. Den 101. enheten koster omtrent $22$ kr ekstra.
+b) $K(101) - K(100) = 22,01$ kr. Kurven er nesten rett over en enhet, så sekanten og tangenten har nesten likt stigningstall.
+\fo{U3} $f'(x) = 3x^2 - 6 = 6$ gir $x = \pm 2$. Punktene er $(2, -4)$ og $(-2, 4)$. Tangentene er $y = 6x - 16$ og $y = 6x + 16$.
+\fo{U4} Tangenten i $x = 1$: $f(1) = 3$ og $f'(1) = -2$, så $y = -2x + 5$. Den skjærer $y$-aksen i $5$ og $x$-aksen i $2,5$. Areal: $\frac{1}{2}\cdot 2,5 \cdot 5 = 6,25$.
 \fo{U5} a) Vi har $f'(1) = 2a + b$ og $f(2) = 4a + 2b = 2(2a + b)$. Alltid er $f(2) = 2f'(1)$. Med $f'(1) = 4$ må $f(2) = 8$, ikke $10$. Kravene motsier hverandre.
 b) $f(2) = 8$. Da gir begge krav $b = 4 - 2a$, så det er uendelig mange løsninger, for eksempel $a = 1$, $b = 2$.
 \fo{U6} Tangenten i $x = a$: $f'(a) = 2a$ og $f(a) = a^2$, så $y - a^2 = 2a(x - a)$ og $y = 2ax - a^2$.
 Tangenten i $x = -a$: $y = -2ax - a^2$. Vi setter sidene lik: $2ax = -2ax$, så $4ax = 0$ og $x = 0$ (fordi $a \neq 0$).
 Da er $y = -a^2$. Skjæringspunktet $(0, -a^2)$ ligger på $y$-aksen.
-\fo{U7} Tangenten i $x = a$ er $y = 2ax - a^2$. Punktet $(1, -3)$ gir $-3 = 2a - a^2$, altså $a^2 - 2a - 3 = 0$, så $a = 3$ eller $a = -1$.
-Tangentene er $y = 6x - 9$ og $y = -2x - 1$.
+\fo{U7} Tangenten i $x = a$ er $y = 2ax - a^2$.
+a) Punktet $(1, -3)$ gir $-3 = 2a - a^2$, altså $a^2 - 2a - 3 = 0$, så $a = 3$ eller $a = -1$. Tangentene er $y = 6x - 9$ og $y = -2x - 1$.
+b) Punktet $(p, q)$ gir $q = 2ap - a^2$, altså $a^2 - 2pa + q = 0$. Diskriminanten er $4(p^2 - q)$. To tangenter når $q < p^2$ (punktet er under grafen), én når $q = p^2$ (punktet er på grafen), ingen når $q > p^2$ (punktet er over grafen).

@@ -91,14 +91,15 @@ chk("1.6c s(4)", s.subs(t, 4), 16)
 chk("1.6c tabell", (s.subs(t, 4 + Rational(1, 100)) - s.subs(t, 4)) / Rational(1, 100), Rational(6005, 1000))
 
 # 1.7 alltid/noen/aldri
-sant("1.7a", d(x**2 + 1) == d(x**2) and (x**2 + 1) != x**2, "forskjøvet med konstant")
 chk("1.7a samme f", d(x**2 + 7) - d(x**2 - 4), 0)
-sant("1.7b", all(degree(d(a * x**nn), x) == nn - 1 for nn in range(1, 8)) , "grad n gir grad n-1")
-# 1.7c baklengs: f' = 6x^2 - 2, f(1) = 3
-F = 2 * x**3 - 2 * x + 3
-chk("1.8 f'", d(F), 6 * x**2 - 2)
-chk("1.8 f(1)", F.subs(x, 1), 3)
-chk("1.8 konstant", solve(Eq((2 * x**3 - 2 * x + c).subs(x, 1), 3), c), [3])
+sant("1.7a", d(x**2 + 1) == d(x**2) and (x**2 + 1) != x**2, "forskjøvet med konstant")
+sant("1.7b", all(degree(d(a * x**nn), x) == nn - 1 for nn in range(1, 8)), "grad n gir grad n-1")
+
+# 1.8 Olas metode
+chk("1.8a", d((x + 1) * (x - 1)), 2 * x)
+chk("1.8a Ola", d(x + 1) * d(x - 1), 1)
+los("1.8b", Eq(d((x + 1) * (x - 1)), d(x + 1) * d(x - 1)), [Rational(1, 2)])
+sant("1.8c", d(x * x) != d(x) * d(x), "(x*x)' = 2x, men 1*1 = 1")
 
 # Sjekk 1
 chk("Sjekk 1a", d(3 * x**4 - 5 * x), 12 * x**3 - 5)
@@ -170,8 +171,7 @@ chk("2.6a", diff(hh_, t), 20 - 10 * t)
 chk("2.6a fart 1 s", diff(hh_, t).subs(t, 1), 10)
 los("2.6b", Eq(diff(hh_, t), 0), [2], var=t)
 chk("2.6c", hh_.subs(t, 2), 20)
-chk("2.6d toppunkt", -Rational(20, 1) / (2 * -5), 2)
-chk("2.6e fart 3", diff(hh_, t).subs(t, 3), -10)
+chk("2.6c toppunkt", -Rational(20, 1) / (2 * -5), 2)
 
 # 2.7 a og b
 A, B = symbols("A B")
@@ -182,45 +182,42 @@ chk("2.7a f(3)", (x**2 + 2 * x).subs(x, 3), 15)
 chk("2.7b", tangent_uttrykk(x**2 + 2 * x, 1), 4 * x - 1)
 
 # 2.8 alltid/noen/aldri
-sant("2.8a", all(solve(Eq(d(a * x**2 + b * x + c), d(a * x**2 + b * x + c).subs(x, 2)), x) == [2] for _ in [0]), "f'(x) = f'(2) bare i x = 2")
 chk("2.8a generelt", solve(Eq(2 * a * x + b, 2 * a * 5 + b), x), [5])
 los("2.8b ja", Eq(d(x**3), 0), [0])
 los("2.8b nei", Eq(d(x**3 + x), 0), [])
-
-# 2.9 baklengs: y = x^2 + bx + c, vannrett tangent i (2, 1)
-losn2 = solve([Eq(4 + B, 0), Eq(4 + 2 * B + A, 1)], [A, B])
-chk("2.9", [losn2[B], losn2[A]], [-4, 5])
-chk("2.9 f'(2)", d(x**2 - 4 * x + 5).subs(x, 2), 0)
-chk("2.9 f(2)", (x**2 - 4 * x + 5).subs(x, 2), 1)
+los("2.8c ingen", Eq(d(x**3 + x), 0), [])
+los("2.8c en", Eq(d(x**3), 0), [0])
+los("2.8c to", Eq(d(x**3 - 3 * x), 0), [-1, 1])
+sant("2.8c maks to", degree(d(a * x**3 + b * x**2 + c * x), x) == 2, "f' er andregrad")
 
 # Sjekk 2
-chk("Sjekk 2a", tangent_uttrykk(x**2, -1), -2 * x - 1)
+chk("Sjekk 2a", tangent_uttrykk(x**2, 2), 4 * x - 4)
 los("Sjekk 2b", Eq(d(x**2 - 8 * x), 0), [4])
 aapen("Sjekk 2c", "f'(a) er et tall (stigningstallet), f'(x) er en funksjon")
 
 # ---------- Utfordring ----------
 K = Rational(1, 100) * x**2 + 20 * x + 5000
-chk("U1a", d(K), Rational(1, 50) * x + 20)
-chk("U1b", d(K).subs(x, 100), 22)
-chk("U1c", K.subs(x, 101) - K.subs(x, 100), Rational(2201, 100))
-sant("U1d", abs(d(K).subs(x, 100) - (K.subs(x, 101) - K.subs(x, 100))) < Rational(1, 10), "nesten lik")
+chk("U2a", d(K), Rational(1, 50) * x + 20)
+chk("U2b", d(K).subs(x, 100), 22)
+chk("U2c", K.subs(x, 101) - K.subs(x, 100), Rational(2201, 100))
+sant("U2d", abs(d(K).subs(x, 100) - (K.subs(x, 101) - K.subs(x, 100))) < Rational(1, 10), "nesten lik")
 
 f_u2 = x**3 - 6 * x
-los("U2 x", Eq(d(f_u2), 6), [-2, 2])
-chk("U2 y2", f_u2.subs(x, 2), -4)
-chk("U2 y-2", f_u2.subs(x, -2), 4)
-chk("U2 t1", tangent_uttrykk(f_u2, 2), 6 * x - 16)
-chk("U2 t2", tangent_uttrykk(f_u2, -2), 6 * x + 16)
+los("U3 x", Eq(d(f_u2), 6), [-2, 2])
+chk("U3 y2", f_u2.subs(x, 2), -4)
+chk("U3 y-2", f_u2.subs(x, -2), 4)
+chk("U3 t1", tangent_uttrykk(f_u2, 2), 6 * x - 16)
+chk("U3 t2", tangent_uttrykk(f_u2, -2), 6 * x + 16)
 
 f_u3 = x**2 - 4 * x + 6
-chk("U3 f(1)", f_u3.subs(x, 1), 3)
-chk("U3 f'(1)", d(f_u3).subs(x, 1), -2)
-chk("U3 linje", tangent_uttrykk(f_u3, 1), -2 * x + 5)
-los("U3 x-akse", Eq(-2 * x + 5, 0), [Rational(5, 2)])
-chk("U3 y-akse", (-2 * x + 5).subs(x, 0), 5)
-chk("U3 areal", Rational(1, 2) * Rational(5, 2) * 5, Rational(25, 4))
+chk("U4 f(1)", f_u3.subs(x, 1), 3)
+chk("U4 f'(1)", d(f_u3).subs(x, 1), -2)
+chk("U4 linje", tangent_uttrykk(f_u3, 1), -2 * x + 5)
+los("U4 x-akse", Eq(-2 * x + 5, 0), [Rational(5, 2)])
+chk("U4 y-akse", (-2 * x + 5).subs(x, 0), 5)
+chk("U4 areal", Rational(1, 2) * Rational(5, 2) * 5, Rational(25, 4))
 
-# U4 programmering: koden kjøres slik den står
+# U1 programmering: koden kjøres slik den står
 kode_u4 = '''
 def f(x):
     return x**4 - x
@@ -236,13 +233,13 @@ print("m =", round(m, 2), "og c =", round(c, 2))
 ut = io.StringIO()
 with contextlib.redirect_stdout(ut):
     exec(kode_u4, {})
-chk("U4 utskrift", ut.getvalue().strip(), "m = 3.0 og c = -3.0")
+chk("U1 utskrift", ut.getvalue().strip(), "m = 3.0 og c = -3.0")
 ut = io.StringIO()
 with contextlib.redirect_stdout(ut):
     exec(kode_u4.replace("x**4 - x", "x**3 - 2*x").replace("a = 1", "a = 2"), {})
-chk("U4c utskrift", ut.getvalue().strip(), "m = 10.0 og c = -16.0")
-chk("U4c eksakt", tangent_uttrykk(x**3 - 2 * x, 2), 10 * x - 16)
-chk("U4 eksakt", tangent_uttrykk(x**4 - x, 1), 3 * x - 3)
+chk("U1c utskrift", ut.getvalue().strip(), "m = 10.0 og c = -16.0")
+chk("U1c eksakt", tangent_uttrykk(x**3 - 2 * x, 2), 10 * x - 16)
+chk("U1 eksakt", tangent_uttrykk(x**4 - x, 1), 3 * x - 3)
 
 # U5 Ola
 chk("U5 f(2) = 2 f'(1)", (4 * a + 2 * b) - 2 * (2 * a + b), 0)
@@ -259,6 +256,10 @@ chk("U6 tangent -a", tB, -2 * a * x - a**2)
 chk("U6 skjæring x", solve(Eq(tA, tB), x), [0])
 chk("U6 skjæring y", tA.subs(x, 0), -a**2)
 
+# U7b antall tangenter gjennom (p, q)
+pp, qq = symbols("pp qq")
+chk("U7b diskriminant", discriminant(a**2 - 2 * pp * a + qq, a), 4 * (pp**2 - qq))
+sant("U7b tilfeller", all(len(solveset(a**2 - 2 * P * a + Q, a, domain=S.Reals)) == ant for P, Q, ant in [(1, -3, 2), (1, 1, 1), (1, 5, 0)]), "2, 1, 0 tangenter")
 # U7 tangent gjennom (1, -3)
 los("U7 a", Eq(-3, 2 * a - a**2), [-1, 3], var=a)
 chk("U7 t1", tangent_uttrykk(x**2, 3), 6 * x - 9)
