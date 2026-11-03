@@ -57,7 +57,7 @@ chk("1.1b", h1(4), 7)
 chk("1.1c", h1(-2), -11)
 
 tab = {-2: 3, -1: 0, 0: -1, 1: 0, 2: 3}
-sant("1.2 tabell er x^2-1", all(x**2 - 1 == x**2 - 1 and (xx**2 - 1) == yy for xx, yy in tab.items()), "tabellen")
+sant("1.2 tabell er x^2-1", all(xx**2 - 1 == yy for xx, yy in tab.items()), "tabellen")
 chk("1.2a", tab[2], 3)
 chk("1.2b", [xx for xx, yy in tab.items() if yy == 0], [-1, 1])
 los("1.2b likning", Eq(x**2 - 1, 0), [-1, 1])
@@ -83,8 +83,9 @@ sant("1.5c", dom(1 / sqrt(x + 1)) == Interval.open(-1, oo), "<-1,->")
 # 1.6: f(x) = x^2 - 4x, finn f(a-1)
 f6 = lambda t_: t_**2 - 4 * t_
 sant("1.6p1", f6(a - 1) == (a - 1) ** 2 - 4 * (a - 1), "innsetting")
-sant("1.6p2", simplify((a - 1) ** 2 - 4 * (a - 1) - (a**2 - 1 - 4 * a + 4)) != 0, "feil: (a-1)^2 != a^2-1")
-sant("1.6p3", expand(a**2 - 1 - 4 * a + 4) == a**2 - 4 * a + 3, "samling")
+sant("1.6p2", expand((a - 1) ** 2 - 4 * (a - 1)) == expand(a**2 - 2 * a + 1 - 4 * (a - 1)), "kvadratsetning, riktig")
+sant("1.6p3", expand(a**2 - 2 * a + 1 - 4 * (a - 1)) != expand(a**2 - 2 * a + 1 - 4 * a - 4) and -4 * (a - 1) != -4 * a - 4, "feil: -4(a-1) er -4a+4")
+sant("1.6p4", expand(a**2 - 2 * a + 1 - 4 * a - 4) == a**2 - 6 * a - 3, "samling")
 chk("1.6r", f6(a - 1), a**2 - 6 * a + 5)
 chk("1.6s", expand((a - 1) ** 2 - 4 * (a - 1)), a**2 - 2 * a + 1 - 4 * a + 4)
 
@@ -92,7 +93,8 @@ h7 = lambda t_: 5 - 2 * t_
 chk("1.7a", h7(4), -3)
 los("1.7b", Eq(5 - 2 * x, 9), [-2])
 aapen("1.7c", "h(4) gir en verdi; h(x)=9 spør hvilken x som gir 9")
-chk("1.7d", h7(-2), 9)
+aapen("1.7d", "2x+1 uttrykk; 2x+1=7 likning; 2(x+1)=2x+2 identitet; f(x)=2x+1 funksjon")
+chk("1.7d id", expand(2 * (x + 1) - (2 * x + 2)), 0)
 
 # ---------- Nivå 3 ----------
 aapen("1.8a", "elev -> fødselsdato: funksjon, hver elev har én")
@@ -102,6 +104,7 @@ los("1.8d", Eq(y**2, 4), [-2, 2], var=y)
 
 sant("1.9 f=2x", function_range(2 * x, x, Interval(1, 5)) == Interval(2, 10), "D=[1,5], V=[2,10]")
 sant("1.9b f=-2x+12", function_range(-2 * x + 12, x, Interval(1, 5)) == Interval(2, 10), "synkende, samme V")
+sant("1.9b2", function_range(Rational(1, 2) * (x - 1) ** 2 + 2, x, Interval(1, 5)) == Interval(2, 10), "1/2(x-1)^2+2")
 sant("1.9c", (-2 * 1 + 12, -2 * 5 + 12) == (10, 2), "f(1)=10, f(5)=2")
 
 sant("1.10", dom(sqrt(x - 3) / (x - 7)) == Union(Interval.Ropen(3, 7), Interval.open(7, oo)), "a=3, b=7")
@@ -130,7 +133,6 @@ chk("Eks 2.1 kontroll 2", -2 * 3 + 3, -3)
 
 # ---------- Eksempel 2: treningssenter ----------
 fs = lambda t_: 290 * t_ + 400
-chk("Eks 2.2 f(6)", fs(6), 2140)
 chk("Eks 2.2 f(0)", fs(0), 400)
 chk("Eks 2.2 f(12)", fs(12), 3880)
 
@@ -185,7 +187,8 @@ chk("2.6r", [a6, b6], [-3, 2])
 chk("2.6k", [-3 * (-2) + 2, -3 * 2 + 2], [8, -4])
 
 # ---------- Nivå 3 ----------
-chk("2.7a", expand((a * (x + 1) + b) - (a * x + b)), a)
+sa, ta = symbols("s_ t_")
+chk("2.7a", expand((a * (sa + ta) + b) - (a * sa + b) - (a * ta + b)), -b)
 chk("2.7b", expand((a * 2 * x + b) - 2 * (a * x + b)), -b)
 chk("2.7c a<>0", solve(a * x + b, x), [-b / a])
 sant("2.7c a=0,b=3", solveset(0 * x + 3, x, R) == S.EmptySet, "ingen")
@@ -194,6 +197,8 @@ sant("2.7c a=0,b=0", solveset(0 * x + 0, x, R) == R, "alle")
 P = lambda t_: 60000 * t_ - 400000
 chk("2.8a", expand(P(x + 1) - P(x)), 60000)
 chk("2.8b", P(0), -400000)
+chk("2.8d", [P(60), 2 * P(30)], [3200000, 2800000])
+chk("2.8d b", expand(60000 * 60 + b - 2 * (60000 * 30 + b)), -b)
 chk("2.8c", [P(30), P(120)], [1400000, 6800000])
 sant("2.8c V", function_range(P(x), x, Interval(30, 120)) == Interval(1400000, 6800000), "V")
 
@@ -201,7 +206,8 @@ a9, b9 = lin((0, -1), (3, 5))
 chk("2.9a a", a9, 2)
 chk("2.9a k", a9 * 7 + b9, 13)
 chk("2.9a k via AC", Rational(13 - (-1), 7 - 0), 2)
-aapen("2.9b", "alle punkt på samme linje har samme a")
+sant("2.9b", solveset(k > a9 * 7 + b9, k, R) == Interval.open(13, oo), "k > 13")
+aapen("2.9c", "alle punkt på samme linje har samme a")
 
 # ---------- Sjekk 2 ----------
 chk("Sjekk 2a", lin((2, 1), (6, 9))[0], 2)
@@ -253,13 +259,21 @@ chk("U4a", [s1, s2], [3, 3])
 a4, b4 = lin((1, 2), (3, 8))
 chk("U4b", [a4, b4], [3, -1])
 chk("U4b kontroll", 3 * (-2) - 1, -7)
-aapen("U4c", "(y2-y1)/(x2-x1) = (y3-y1)/(x3-x1)")
 
 aapen("U5a", "x1 = x2 gir nevner 0")
-aapen("U5b", "en loddrett linje gir to verdier for samme x")
+aapen("U5b", "en loddrett linje gir mange verdier for samme x")
 
-sant("U6a", dom(sqrt(x**2 - 7 * x + 10)) == Union(Interval(-oo, 2), Interval(5, oo)), "<-,2] U [5,->")
-sant("U6a faktor", expand((x - 2) * (x - 5)) == x**2 - 7 * x + 10, "faktorisering")
-sant("U6b", dom(1 / ((x + 1) * (x - 6))) == Union(Interval.open(-oo, -1), Interval.open(-1, 6), Interval.open(6, oo)), "alle unntatt -1 og 6")
+aapen("U6a", "bevis: samme stigningstall fra felles punkt B gir samme linje")
+losk = solve(Eq(Rational(1) * (k - 2) / 2, (8 - k) / (k - 3)), k)
+chk("U6b", losk, [-2, 5])
+for kk in (5, -2):
+    pts = [(1, 2), (3, kk), (kk, 8)]
+    sant(f"U6b kontroll {kk}", len(set(pts)) == 3 and Rational(pts[1][1] - 2, 2) == Rational(8 - kk, kk - 3), "ulike punkt, lik stigning")
+
+sant("U7a", dom(sqrt(x**2 - 7 * x + 10)) == Union(Interval(-oo, 2), Interval(5, oo)), "<-,2] U [5,->")
+sant("U7a faktor", expand((x - 2) * (x - 5)) == x**2 - 7 * x + 10, "faktorisering")
+sant("U7b", dom(1 / ((x + 1) * (x - 6))) == Union(Interval.open(-oo, -1), Interval.open(-1, 6), Interval.open(6, oo)), "alle unntatt -1 og 6")
+
+sant("U7c", function_range(x**2, x, R) == Interval(0, oo), "x^2 har V = [0,->")
 
 rapport()

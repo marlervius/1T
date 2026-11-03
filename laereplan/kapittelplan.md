@@ -45,8 +45,8 @@ Status: `—` ikke startet · `brief` brief skrevet · `utkast` forfatter ferdig
 
 | Nr | Seksjon | Deler | KM | Status |
 |---|---|---|---|---|
-| 4.1 | Gjennomsnittlig og momentan vekstfart | Sekant · Tangent | 10 | — |
-| 4.2 | Den deriverte | Grenseverdi og definisjonen · Utlede $(x^n)' = nx^{n-1}$ for små $n$ | 10, 2 | — |
+| 4.1 | Gjennomsnittlig og momentan vekstfart | Sekant · Tangent | 10 | brief |
+| 4.2 | Den deriverte | Grenseverdi og definisjonen · Utlede $(x^n)' = nx^{n-1}$ for små $n$ | 10, 2 | brief |
 | 4.3 | Derivasjonsregler for polynom | Regler · Tangentlikning | 10 | — |
 | 4.4 | Drøfting av funksjoner | Fortegnslinje for $f'$ · Ekstremalpunkter og optimering | 11, 10 | — |
 
