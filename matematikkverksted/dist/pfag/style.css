@@ -8,6 +8,9 @@ html[data-course="2P"]{--dark:#28324f;--accent:#f7ce89;--tint:#f7eddc;--line:#df
 
 html[data-course="R1"]{--dark:#373165;--accent:#e8d5a9;--tint:#eeebf8;--line:#dcd8eb}
 html[data-course="R2"]{--dark:#333f58;--accent:#bae8ff;--tint:#e8f0f8;--line:#d7e0ea}
+html[data-course="1P-Y HO"]{--dark:#315a49;--accent:#cbe9b4;--tint:#e8f3df;--line:#d4e4d2}
+html[data-course="1P-Y Elektro"]{--dark:#293f61;--accent:#f8d58b;--tint:#e8eff8;--line:#d5dfed}
+.top{flex-wrap:wrap;gap:.75rem}.courses{flex-wrap:wrap}#lab-figure svg{width:100%;max-width:520px;height:auto}
 .hero-figure-link{display:block;color:white;text-decoration:none}
 .hero-figure-link:hover figcaption{text-decoration:underline}
 #laereplan tbody th{background:transparent}

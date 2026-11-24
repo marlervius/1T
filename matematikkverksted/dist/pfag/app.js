@@ -3,13 +3,15 @@ import { mountPractice, noteExample, progress, resetPractice, resumeId } from '.
 import { mathHtml } from '../matematikk.js';
 
 const fag=document.documentElement.dataset.course;
-const courseFiles={'1P':'./1p.js','2P':'./2p.js',R1:'./r1.js',R2:'./r2.js'};
+const courseFiles={'1P':'./1p.js','2P':'./2p.js',R1:'./r1.js',R2:'./r2.js','1P-Y HO':'./1py-ho.js','1P-Y Elektro':'./1py-elektro.js'};
 const {course}=await import(courseFiles[fag]);
 const real=fag==='R1'||fag==='R2';
+const vocational=fag.startsWith('1P-Y');
+const ho=fag==='1P-Y HO';
 const steps=real?(await import('./mellomsteg.js')).mellomsteg[fag.toLowerCase()]:{};
 if (real) (await import('./realfagsutfordringer.js')).addExpressionTasks(course);
-const mountLab=real?(await import('./rlabs.js')).mountRealLab:(await import('./labs.js')).mountLab;
-const year={'1P':'Vg1','2P':'Vg2',R1:'Vg2',R2:'Vg3'}[fag];
+const mountLab=vocational?(await import('./ylabs.js')).mountVocationalLab:real?(await import('./rlabs.js')).mountRealLab:(await import('./labs.js')).mountLab;
+const year=vocational?'Vg1 yrkesfag':{'1P':'Vg1','2P':'Vg2',R1:'Vg2',R2:'Vg3'}[fag];
 const one=fag==='1P';
 const main=document.querySelector('main');
 const nav=document.querySelector('#nav');
@@ -18,7 +20,7 @@ const arr=v=>Array.isArray(v)?v:[v];
 const prose=value=>real?mathHtml(String(value??'')):esc(value);
 const list=items=>arr(items).map(i=>'<li>'+prose(i)+'</li>').join('');
 const link=(path,text,cls='')=>'<a class="'+cls+'" href="#'+path+'">'+esc(text)+'</a>';
-const labName={'1P':'Sammenlikn to priser','2P':'Undersøk et datasett',R1:'Deriverbar i knekkpunktet?',R2:'Integral, areal og akkumulering'}[fag];
+const labName=vocational?(ho?'Budsjettlaboratorium':'Trigonometrilaboratorium'):{'1P':'Sammenlikn to priser','2P':'Undersøk et datasett',R1:'Deriverbar i knekkpunktet?',R2:'Integral, areal og akkumulering'}[fag];
 const codeWorkshops={rekursjon:'rekursjon',numerisk:'trapes'};
 const labChapters={R1:['derivert'],R2:['integral','fundamentalteorem']};
 const draftKey=id=>'matverk-'+fag+'-utkast-'+id;
@@ -32,24 +34,25 @@ function realPicture(){
 }
 function picture(){
  if(real)return realPicture();
+ if(vocational)return '<figure><svg role="img" aria-label="'+(ho?'Budsjett med tre kostnadsposter':'Rettvinklet trekant med motstående og hosliggende katet')+'" viewBox="0 0 360 163">'+(ho?'<path d="M25 135H335" stroke="#a9c9c4"/><rect x="45" y="40" width="65" height="95" fill="#abebc0"/><rect x="145" y="75" width="65" height="60" fill="#f7c682"/><rect x="245" y="100" width="65" height="35" fill="#d9e7dc"/><g fill="white" text-anchor="middle"><text x="78" y="153">Utstyr</text><text x="178" y="153">Drift</text><text x="278" y="153">Service</text></g>':'<path d="M45 135H310V30Z" stroke="#abebc0" stroke-width="4" fill="none"/><path d="M292 135V117H310" stroke="#f7c682" fill="none"/><path d="M90 135 A45 45 0 0 0 87 118" stroke="#f7c682" fill="none"/><g fill="white"><text x="180" y="153">hosliggende</text><text x="318" y="85">b</text><text x="163" y="72">hypotenus</text><text x="95" y="125">v</text></g>')+'</svg><figcaption>'+labName+'</figcaption></figure>';
  const inner=one?`<path d="M30 131H340M30 131V16" stroke="#a9c9c4" fill="none"/><path d="M30 126L320 24" stroke="#abebc0" stroke-width="4"/><path d="M30 86L320 64" stroke="#f7c682" stroke-width="4"/><circle cx="175" cy="75" r="5" fill="white"/><g fill="white"><text x="34" y="20">Pris (kr)</text><text x="239" y="154">Forbruk (GB)</text></g>`:`<path d="M20 132H340" stroke="#e4e8ee"/><g fill="#f7ce89"><rect x="43" y="100" width="35" height="32"/><rect x="99" y="52" width="35" height="80"/><rect x="155" y="20" width="35" height="112"/><rect x="211" y="68" width="35" height="64"/><rect x="267" y="116" width="35" height="16"/></g><g fill="white" text-anchor="middle">${[10,15,20,25,30].map((n,i)=>'<text x="'+(60+i*56)+'" y="151">'+n+'</text>').join('')}</g>`;
  return '<figure><svg role="img" aria-label="'+(one?'To abonnementer har lik pris der linjene krysser hverandre.':'Reisetid i minutter. Flest elever bruker 20 minutter.')+'" viewBox="0 0 360 163">'+inner+'</svg><figcaption>'+(one?'Når lønner abonnementet seg?':'Hvor lang er en typisk skolevei?')+'</figcaption></figure>';
 }
 function menu(){
  const path=location.hash.slice(1)||'start';
- const entries=[['start','Kapitler'],['lab','Laboratorium'],['progresjon','Min progresjon'],['laerer','Lærerrom']];
+ const entries=[['start','Kapitler'],['lab','Laboratorium'],...(vocational?[['prove','Årsprøve']]:[]),['progresjon','Min progresjon'],['laerer','Lærerrom']];
  nav.innerHTML=entries.map(([k,v])=>link(k,v)).join('')+'<details open><summary>Kapitler i '+fag+'</summary>'+course.chapters.map(ch=>link('tema/'+ch.id,ch.title)).join('')+'</details>';
  for(const a of nav.querySelectorAll('a')) if(a.hash==='#'+path)a.setAttribute('aria-current','page');
 }
 function home(){
  const last=course.chapters.find(ch=>ch.id===resumeId(course));
  const due=progress(course).find(ch=>ch.due);
- return '<section class="hero"><div><span>Videregående · '+year+'</span><h1>Matematikk <em>'+fag+'</em></h1><p>'+prose(course.intro)+'</p><div class="buttons">'+link(last?'ov/'+last.id:'tema/'+course.chapters[0].id,last?'Fortsett øvingen':'Start første kapittel','primary')+link('lab',labName,'secondary')+'</div></div>'+picture()+'</section>'+(due?'<p class="notice">'+link('ov/'+due.id,'Tid for ny mestringssjekk i '+due.title)+'</p>':'')+'<h2>Velg kapittel</h2><div class="cards">'+course.chapters.map(ch=>'<a class="card" href="#tema/'+ch.id+'"><h3>'+esc(ch.title)+'</h3><p>'+prose(ch.summary)+'</p></a>').join('')+'</div>';
+ return '<section class="hero"><div><span>Videregående · '+year+'</span><h1>Matematikk <em>'+fag+'</em></h1><p>'+prose(course.intro)+'</p><div class="buttons">'+link(last?'ov/'+last.id:'tema/'+course.chapters[0].id,last?'Fortsett øvingen':'Start første kapittel','primary')+link('lab',labName,'secondary')+'</div></div>'+picture()+'</section>'+(one?'<h2>Matematikk for yrkesfag</h2><div class="cards"><a class="card" href="./1py-ho.html"><h3>1P-Y · Helse- og oppvekstfag</h3><p>Måleenheter, praksisdata, formler, regneark og velferdsteknologi.</p></a><a class="card" href="./1py-elektro.html"><h3>1P-Y · Elektro og datateknologi</h3><p>Formler, likninger, måleenheter, økonomi og trigonometri.</p></a></div>':'')+(due?'<p class="notice">'+link('ov/'+due.id,'Tid for ny mestringssjekk i '+due.title)+'</p>':'')+'<h2>Velg kapittel</h2><div class="cards">'+course.chapters.map(ch=>'<a class="card" href="#tema/'+ch.id+'"><h3>'+esc(ch.title)+'</h3><p>'+prose(ch.summary)+'</p></a>').join('')+'</div>';
 }
 function dataset(ch){
  if(!ch.dataset)return '';
  const {title,headers,rows}=ch.dataset;
- const filename=real?ch.id+'.csv':'Trondheim_2025.csv';
+ const filename=real||vocational?ch.id+'.csv':'Trondheim_2025.csv';
  const csv=[headers,...rows].map(row=>row.join(';')).join('\r\n');
  return '<div class="scroll"><table><caption>'+esc(title)+'</caption><thead><tr>'+headers.map(h=>'<th scope="col">'+esc(h)+'</th>').join('')+'</tr></thead><tbody>'+rows.map(row=>'<tr>'+row.map(v=>'<td>'+esc(v)+'</td>').join('')+'</tr>').join('')+'</tbody></table></div><p><a download="'+esc(filename)+'" href="data:text/csv;charset=utf-8,%EF%BB%BF'+encodeURIComponent(csv)+'">Last ned til regneark (CSV)</a></p>';
 }
@@ -111,6 +114,7 @@ function realTeacher(){
 }
 function teacher(){
  if(real)return realTeacher();
+ if(vocational)return '<h1>Lærerrom · '+fag+'</h1><section class="panel reading"><h2>Årsplan – veiledende rekkefølge</h2><p>Bruk kapitlene i oppgitt rekkefølge, med jevnlig repetisjon. Avslutt med årsprøve og et selvstendig yrkesrettet oppdrag.</p><p><a href="'+esc(course.source)+'">Gjeldende kompetansemål hos Udir</a></p></section>'+course.chapters.map((ch,i)=>'<section class="panel"><h3>'+ (i+1)+'. '+link('tema/'+ch.id,ch.title)+'</h3><ul>'+list(ch.goals)+'</ul><p>'+prose(arr(ch.teacher).join(' '))+'</p>'+link('oppdrag/'+ch.id,'Elevoppdrag')+' · '+link('ov/'+ch.id,'Øving')+'</section>').join('');
  return '<h1>Lærerrom · '+fag+'</h1><section class="panel reading"><h2>En økt på 45 minutter</h2><ol>'+list(one?['0–5 min: Tegn to prislinjer. La elevene forutsi hvilken avtale som passer ved lavt og høyt forbruk.','5–15 min: Åpne prislaboratoriet. La par anslå skjæringspunktet før de undersøker grafen og tabellen.','15–30 min: Endre fastpris og enhetspris. Hvert par lager et tilfelle der avtalene aldri får samme pris.','30–40 min: Bytt eksempler med et annet par. Begrunn valg av avtale ved to ulike forbruk.','40–45 min: Lever prisuttrykkene, skjæringspunktet og en setning om når konklusjonen gjelder.']:['0–5 min: Vis et lite datasett med reisetider og be om et anslag på en typisk reisetid.','5–15 min: Åpne datalaboratoriet. La par forutsi median og gjennomsnitt før beregning.','15–30 min: Endre den høyeste verdien. Forklar hva som skjer med begge sentralmålene.','30–40 min: Bytt datasett med en medelev. Begrunn hvilket sentralmål dere ville brukt i en presentasjon.','40–45 min: Lever ett eksempel der medianen er stabil, med mellomregning og tolkning.'])+'</ol>'+link('lab','Åpne laboratoriet','primary')+'</section><h2>Læreplan og elevoppdrag</h2><p>Del lenken til ønsket kapittel, øving eller oppdrag med klassen. Åpne oppdrag vurderes ut fra elevens framgangsmåte og begrunnelse.</p><p><a href="'+esc(course.source)+'">Kompetansemål og vurdering hos Udir</a></p>'+course.chapters.map(ch=>'<section class="panel"><h3>'+link('tema/'+ch.id,ch.title)+'</h3><ul>'+list(ch.goals)+'</ul><p>'+esc(arr(ch.teacher).join(' '))+'</p>'+link('oppdrag/'+ch.id,'Se elevoppdrag og vurderingskriterier')+'</section>').join('');
 }
 function record(){
@@ -126,6 +130,8 @@ function render(){
  if(route==='innhold'){main.focus();return}
  if(route==='lab'){
    main.innerHTML='<h1>'+(real?'Laboratorium · '+fag:labName)+'</h1><div id="lab"></div>';cleanupLab=mountLab(main.querySelector('#lab'),fag);
+ }else if(route==='prove' && vocational){
+   main.innerHTML='<h1>Årsprøve · '+fag+'</h1><p>Tre oppgaver fra hvert kapittel. Svar uten hjelp, og se hvilke kapitler du bør repetere.</p><div id="year-test"></div>';mountYearTest(main.querySelector('#year-test'));
  }else if(route==='laerer') main.innerHTML=teacher();
  else if(route==='progresjon'){
    main.innerHTML=record();main.querySelector('#reset').onclick=()=>{if(confirm('Slette øvingshistorikk og egne utkast i '+fag+' fra denne nettleseren?')){resetPractice(course);if(fag==="R2")for(const k of ["rekursjon-kode","rekursjon-notater","trapes-kode","trapes-notater","trapes-eksakt"])try{localStorage.removeItem(k)}catch{}for(const c of course.chapters)try{localStorage.removeItem(draftKey(c.id))}catch{}render()}};
@@ -144,6 +150,18 @@ function render(){
  const heading=main.querySelector('h1')?.textContent;
  document.title=!heading||route==='start'||!location.hash?'Matematikkverksted '+fag:heading+' · Matematikkverksted '+fag;
  main.focus({preventScroll:true});window.scrollTo(0,0);
+}
+function mountYearTest(root){
+ const tasks=course.chapters.flatMap(ch=>[0,1,2].map(level=>({ch,level,t:ch.task(level,Math.floor(Math.random()*1001))})));
+ let index=0;const results=[];
+ function show(){
+  if(index===tasks.length){root.innerHTML='<section class="panel"><h2>Resultat: '+results.filter(r=>r.correct).length+' av '+tasks.length+'</h2><p>Dette er en øvingsprøve, ikke en karakter.</p>'+course.chapters.map(ch=>{const rs=results.filter(r=>r.ch===ch);return '<p>'+link('tema/'+ch.id,ch.title)+' · '+rs.filter(r=>r.correct).length+'/3'+(rs.every(r=>r.correct)?' – bra!':' – repeter fagstoff og øving')+'</p>'}).join('')+'<button id="again">Ny prøve</button></section>';root.querySelector('#again').onclick=()=>mountYearTest(root);return;}
+  const {ch,level,t}=tasks[index];root.innerHTML='<section class="panel reading"><p class="eyebrow">Oppgave '+(index+1)+' av '+tasks.length+' · '+esc(ch.title)+' · '+['Støtte','Øving','Utfordring'][level]+'</p><h2>'+esc(t.q)+'</h2><form class="form-row"><label>Ditt svar '+esc(t.unit||'')+' <input type="text" inputmode="decimal" required></label><button>Svar</button></form><p role="status"></p><button class="secondary" id="skip-test">Hopp over</button></section>';
+  const form=root.querySelector('form'),status=root.querySelector('[role="status"]');
+  function finish(correct){results.push({ch,correct});form.querySelectorAll('button,input').forEach(el=>el.disabled=true);root.querySelector('#skip-test').remove();status.textContent=(correct?'Riktig! ':'Ikke riktig. ')+t.solution;const next=document.createElement('button');next.textContent=index+1===tasks.length?'Se resultat':'Neste oppgave';next.onclick=()=>{index++;show()};status.after(next);next.focus();}
+  form.onsubmit=e=>{e.preventDefault();const check=vurder({type:'tall',svar:t.answer},form.querySelector('input').value);if(!check.gyldig){status.textContent=check.melding;return;}finish(check.riktig)};
+  root.querySelector('#skip-test').onclick=()=>finish(false);
+ }show();
 }
 document.querySelector('.skip').onclick=e=>{e.preventDefault();main.focus()};
 window.addEventListener('hashchange',render);
