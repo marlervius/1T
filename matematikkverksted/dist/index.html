@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Matematikk 1T på nett. Utforsk åtte kapitler, tren adaptivt og finn hvilke ferdigheter du kan øve på videre.">
+<meta name="theme-color" content="#f7f8fc">
+<title>Matematikkverksted 1T</title>
+<link rel="stylesheet" href="./vendor/katex/katex.min.css">
+<link rel="stylesheet" href="./stil.css">
+<link rel="stylesheet" href="./verksted.css">
+<link rel="stylesheet" href="./lab.css">
+<link rel="stylesheet" href="./laerer.css">
+<script defer src="./vendor/katex/katex.min.js"></script>
+<script type="module" src="./app.js"></script>
+<script defer src="./matteknapper.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Hopp til innhold</a>
+<header class="top">
+  <a href="#oversikt" class="brand"><span class="brandmark" aria-hidden="true">ƒ</span><span>Matematikk<span class="brandlight">verksted</span></span><span class="brand-course">1T</span></a>
+  <div class="topactions"><nav class="fagvalg" aria-label="Velg matematikkfag"><a href="./" aria-current="page">1T</a><a href="./1p.html">1P</a><a href="./2p.html">2P</a><a href="./r1.html">R1</a><a href="./r2.html">R2</a></nav><button class="search-button" id="open-search" aria-label="Søk i læreverket"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="10" cy="10" r="6.5"/><path d="m15 15 5 5"/></svg> <span>Søk i læreverket</span><kbd aria-hidden="true">/</kbd></button><button id="mobile-menu" aria-controls="navigation" aria-expanded="false">Meny</button></div>
+</header>
+<div class="shell">
+  <aside class="sidebar" aria-label="Meny"><nav id="navigation" aria-label="Innhold"></nav>
+  <div id="side-progress"></div></aside>
+  <main id="main" tabindex="-1"></main>
+</div>
+<dialog id="search-dialog" aria-labelledby="search-label">
+  <div class="dialog-head"><h2 id="search-label">Søk i læreverket</h2><button class="icon-button" type="button" id="close-search" aria-label="Lukk søk">×</button></div>
+  <label class="visually-hidden" for="search">Emne, begrep eller kapittel</label>
+  <input id="search" placeholder="For eksempel «ulikheter»" autocomplete="off">
+  <div id="search-results"></div>
+</dialog>
+<noscript><p class="noscript">Dette læreverket trenger JavaScript for å vise leksjoner og rette svar. Du kan lese teorien hos <a href="https://openmath.online/books/books">OpenMathBooks</a>.</p></noscript>
+</body>
+</html>

@@ -1,0 +1,37 @@
+.program-page {
+  max-width: 78rem;
+}
+.program-page > p {
+  max-width: 68ch;
+}
+.program-lab label {
+  display: block;
+  margin: 1rem 0 .35rem;
+  font-weight: 700;
+}
+.program-code {
+  display: block;
+  background: #f7faff;
+  font: .98rem/1.5 ui-monospace, Consolas, monospace;
+  tab-size: 2;
+}
+.program-notes {
+  display: block;
+}
+.program-result canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1rem 0;
+}
+.program-result caption {
+  text-align: left;
+  font-weight: 650;
+}
+.program-result .scroll:focus-visible {
+  outline: 3px solid #ba6318;
+  outline-offset: 3px;
+}
+.program-result td {
+  font-variant-numeric: tabular-nums;
+}

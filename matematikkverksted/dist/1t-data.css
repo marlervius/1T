@@ -1,0 +1,20 @@
+.data-main{width:min(100%,1120px)}
+.data-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;align-items:start}
+.data-grid section{scroll-margin-top:92px}
+.data-grid h3{margin:25px 0 8px}
+.data-status{font-size:.88rem;margin:12px 0 0;color:var(--purple-dark);font-weight:700}
+.data-status:empty,.data-import-list:empty{display:none}
+.data-import-list{font-size:.88rem;margin-bottom:0;padding-left:1.5rem}
+.data-restore{display:block;margin-top:12px}
+.data-restore:disabled{opacity:.55}
+.data-main input[type=file]{width:100%;margin-top:7px;color:var(--muted);font-size:.9rem}
+.data-select{width:min(100%,360px);margin-bottom:10px}
+.data-table-scroll{overflow:auto}
+.data-table caption{text-align:left;margin:0 0 8px;color:var(--muted)}
+.data-table td:first-child,.data-table th:first-child{overflow-wrap:anywhere;min-width:115px}
+.data-table th:not(:first-child),.data-table td:not(:first-child){min-width:72px}
+.data-table td:last-child,.data-table th:last-child{min-width:112px}
+.data-delete{margin-top:18px}
+#importgruppe{border-top:1px solid var(--line);padding-top:16px;margin-top:18px}
+#importgruppe .field-label{margin-top:15px}
+@media(max-width:680px){.data-grid{grid-template-columns:minmax(0,1fr)}}

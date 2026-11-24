@@ -1,0 +1,8 @@
+:root { color-scheme: light dark; font-family: system-ui, sans-serif; line-height: 1.55; }
+body { margin: 0; }
+main { max-width: 48rem; margin: 2rem auto; padding: 0 1rem; }
+label { display: block; }
+button, input { font: inherit; margin: .3rem 0; padding: .25rem .45rem; max-width: 100%; }
+#elevlenke { width: min(36rem, 93%); }
+li { margin: .45rem 0; }
+form, section section { margin-block: 1rem; }

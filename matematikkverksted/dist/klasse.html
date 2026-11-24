@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Klasseoversikt · Matematikkverksted 1T</title>
+<link rel="stylesheet" href="./stil.css">
+<link rel="stylesheet" href="./1t-data.css">
+<script type="module" src="./klasse.mjs"></script>
+</head>
+<body>
+<a class="skip" href="#innhold">Hopp til innhold</a>
+<header class="top"><a class="brand" href="./index.html"><span class="brandmark" aria-hidden="true">ƒ</span><span>Matematikk<span class="brandlight">verksted</span></span><span class="top-tag">1T</span></a></header>
+<main id="innhold" class="data-main stack">
+<nav class="breadcrumb" aria-label="Sti"><a href="./index.html#laerer">Lærerrom</a><span aria-hidden="true">/</span> Klasseoversikt</nav>
+<header class="page-head"><h1>Klasseoversikt</h1><p>Samle frivillig delte elevrapporter fra 1T. Oversikten lagres i denne nettleseren.</p></header>
+<section class="pane" aria-labelledby="klasse-heading">
+<h2 id="klasse-heading">Velg klasse og importer</h2>
+<p>Avtal en klassekode og et unikt kallenavn med hver elev. Bruk kallenavn uten fullt navn. Klassekoden grupperer rapporter og gir ingen tilgangskontroll. Avklar bruk av rapporter som kan knyttes til elever med skolen før dere deler dem.</p>
+<form class="filters" id="klassevalg">
+<label for="klassekode">Klassekode<input id="klassekode" class="answer-input" type="text" maxlength="24" list="klasser" autocomplete="off" required></label>
+<datalist id="klasser"></datalist>
+<button class="button solid">Vis klasse</button>
+<button class="button outline" id="vis-demo" type="button">Prøv med fiktive rapporter</button>
+</form>
+<section id="importgruppe" hidden>
+<p>Be elevene laste ned en elevrapport. Nyere rapporter med samme klassekode og kallenavn erstatter tidligere rapporter.</p>
+<div class="actions"><a id="elevlenke" class="button outline" href="./mine-data.html#del">Åpne siden elevene bruker</a></div>
+<label class="field-label" for="rapporter">Velg én eller flere elevrapporter (.json)</label>
+<input type="file" id="rapporter" accept=".json,application/json" multiple>
+</section>
+<p id="synk-lenke" hidden><a href="./klassesynk.html">Åpne skolens klassesynk</a></p>
+<p id="klasse-status" role="status" class="data-status"></p>
+<ul id="importmeldinger" class="data-import-list"></ul>
+</section>
+<section class="pane" id="klasseoversikt" hidden aria-labelledby="oversikt-heading">
+<h2 id="oversikt-heading" tabindex="-1">Rapporter for klassen</h2>
+<p id="klassestatus"></p>
+<label class="field-label" for="ferdighet">Ferdighet</label>
+<select class="answer-input data-select" id="ferdighet"></select>
+<div id="tabell" class="data-table-scroll" tabindex="0" role="region" aria-label="Ferdighetsgrunnlag per kallenavn"></div>
+<details><summary>Slik leser du grunnlaget</summary>
+<p>«For lite grunnlag» vises når vi har færre enn to ulike oppgaver, eller færre enn to selvstendige førstegangssvar. Med støtte betyr at hint eller eksempel ble registrert. Riktig etter nytt forsøk vises separat. Tallene kan brukes til å velge oppfølging i undervisningen.</p>
+</details>
+<div class="actions data-delete"><button class="button outline" id="slett-klasse">Slett denne klassen</button><button class="button outline" id="slett-alt">Nullstill hele oversikten</button></div>
+</section>
+</main>
+</body>
+</html>

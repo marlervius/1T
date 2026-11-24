@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="nb">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>Klassesynk for 1T</title>
+  <link rel="stylesheet" href="./klassesynk.css">
+  <script type="module" src="./klassesynk-side.mjs"></script>
+</head>
+<body>
+  <main>
+    <a href="./">Matematikk 1T</a>
+    <h1>Klassesynk for 1T</h1>
+    <p id="status" role="status">Klassesynk er deaktivert på dette nettstedet.</p>
+    <section id="elev" hidden>
+      <h2>Del øvingssammendraget ditt</h2>
+      <p>Skolens løsning mottar kallenavnet og antall oppgaver per ferdighet. Rå svar og øvingslogg lagres i nettleseren.</p>
+      <p id="elevstatus"></p>
+      <button id="synk" disabled>Send sammendrag fra denne nettleseren</button>
+    </section>
+    <form id="innlogging" hidden>
+      <h2>Lærerinnlogging</h2>
+      <label>E-post <input type="email" name="email" autocomplete="username" required></label>
+      <label>Passord <input type="password" name="password" autocomplete="current-password" required></label>
+      <button>Logg inn</button>
+    </form>
+    <section id="laerer" hidden>
+      <h2>Mine klasser</h2>
+      <button id="loggut" type="button">Logg ut</button>
+      <form id="ny-klasse">
+        <label>Klassenavn <input name="navn" required maxlength="60"></label>
+        <button>Opprett klasse</button>
+      </form>
+      <ul id="klasser"></ul>
+      <section id="klasse" hidden>
+        <h3 id="klassenavn"></h3>
+        <button id="oppdater" type="button">Hent siste sammendrag</button>
+        <button id="slett-klasse" type="button">Slett klassen</button>
+        <form id="ny-elev">
+          <p>Bruk avtalte kallenavn når du oppretter elevlenker.</p>
+          <label>Kallenavn <input name="kallenavn" required maxlength="40"></label>
+          <button>Lag elevlenke</button>
+        </form>
+        <div id="lenke" hidden>
+          <label>Personlig elevlenke <input id="elevlenke" readonly></label>
+          <p>Del lenken privat med eleven. Eleven bruker samme lenke hver gang. Kopier den nå, mens den vises.</p>
+        </div>
+        <ul id="elever"></ul>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

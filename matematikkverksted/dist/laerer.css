@@ -1,0 +1,47 @@
+.lp-desk-grid {display:grid;grid-template-columns:minmax(0,1.35fr) minmax(16rem,1fr);gap:1rem;align-items:start}
+.lp-desk h2,.lp-elev h2,.lp-matrix h2 {font-size:clamp(1.35rem,2.5vw,1.85rem)}
+.lp-desk p,.lp-elev p,.lp-matrix p {max-width:78ch}
+.lp-section,.lp-elev>.pane,.lp-screen,.lp-matrix {margin-top:1rem}
+.lp-form label,.lp-notice label {display:grid;gap:.3rem;font-size:.91rem;font-weight:650}
+.lp-form,.lp-form [data-lp-extra]:not([hidden]) {display:grid;gap:.7rem}
+.lp-form select,.lp-notice input {width:100%;max-width:100%;font:inherit;min-height:2.75rem;border:1px solid var(--line,#b6c5c4);border-radius:.5rem;padding:.45rem .65rem;background:var(--white,#fff);color:var(--ink,#192a30)}
+.lp-desk .lp-notice {font-weight:650;margin:.9rem 0 .6rem}
+.lp-notice:empty {margin:.6rem 0}
+.lp-desk .actions a:last-child:not(.button) {padding:.4rem 0}
+.lp-desk .lp-builder>p:last-child {margin-top:.8rem}
+.lp-toggle {display:flex;gap:.65rem;align-items:center;font-weight:650;min-height:2.75rem}
+.lp-toggle input {width:1.15rem;height:1.15rem;flex:none;accent-color:var(--purple,#254f62)}
+.lp-lesson h3,.lp-elev h3 {margin:1.1rem 0 .45rem}
+.lp-projects {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(15rem,100%),1fr));gap:.65rem}
+.lp-project {padding:.8rem .9rem;border:1px solid var(--line,#dce6e4);border-radius:.55rem;text-decoration:none;color:var(--ink,#1e3035);background:var(--paper,#f8fbfa);display:grid;gap:.25rem;align-content:start}
+.lp-project:hover {border-color:currentColor}
+.lp-project small {font-size:.85rem;color:var(--muted,#515f63)}
+.lp-project strong {line-height:1.3}
+.lp-desk details,.lp-elev details,.lp-matrix details {font-size:1rem}
+.lp-matrix caption {text-align:left;font-weight:700;padding:.6rem 0}
+.lp-table-wrap {max-width:100%;overflow:auto}
+.lp-matrix table {min-width:33rem}
+.lp-matrix td,.lp-matrix th {vertical-align:top}
+.lp-matrix th:first-child {width:30%}
+.lp-matrix table ul {padding:0;margin:0;list-style:none}
+.lp-matrix table li+li,.lp-core li+li {margin-top:.55rem}
+.lp-elev {max-width:60rem}
+.lp-steps {padding-left:1.5rem}
+.lp-steps li {padding-left:.2rem;margin-bottom:.8rem}
+.lp-sheet>li+li {border-top:1px solid var(--line,#dce6e4);padding-top:.8rem}
+.lp-answer-space {display:none}
+@media (max-width:850px){.lp-desk-grid {grid-template-columns:minmax(0,1fr)}}
+@media print {
+  body:has(.lp-print-area) .top,body:has(.lp-print-area) .sidebar,body:has(.lp-print-area) .skip,body:has(.lp-print-area) .lp-screen,body:has(.lp-print-area) .site-footer {display:none!important}
+  body:has(.lp-print-area),body:has(.lp-print-area) .shell,body:has(.lp-print-area) main {display:block!important;background:white!important;color:black!important;padding:0!important;margin:0!important;max-width:none;width:100%}
+  body .lp-print-area .page-head,body .lp-print-area .pane {background:white!important;border:0;box-shadow:none;color:black;padding:.2rem 0;margin:.6rem 0}
+  .lp-print-area h1 {font-size:22pt}
+  .lp-print-area h2 {font-size:15pt}
+  .lp-print-area p,.lp-print-area li {font-size:11pt;line-height:1.45}
+  .lp-print-area .lp-steps li {break-inside:avoid;margin:.7rem 0}
+  .lp-print-area .lp-answer-space {display:block;height:1.2cm;border-bottom:1px solid #999}
+  body:not(.lp-fasit) .lp-print-area .lp-solution {display:none}
+  .lp-fasit .lp-solution {break-before:page}
+  .lp-print-area summary {color:black;list-style:none}
+  .lp-print-area pre {white-space:pre-wrap;background:white;color:black;border:1px solid #bbb}
+}

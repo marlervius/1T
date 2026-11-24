@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Del eller flytt progresjon · Matematikkverksted 1T</title>
+<link rel="stylesheet" href="./stil.css">
+<link rel="stylesheet" href="./1t-data.css">
+<script type="module" src="./mine-data.mjs"></script>
+</head>
+<body>
+<a class="skip" href="#innhold">Hopp til innhold</a>
+<header class="top"><a class="brand" href="./index.html"><span class="brandmark" aria-hidden="true">ƒ</span><span>Matematikk<span class="brandlight">verksted</span></span><span class="top-tag">1T</span></a></header>
+<main id="innhold" class="data-main stack">
+<nav class="breadcrumb" aria-label="Sti"><a href="./index.html#progresjon">Min progresjon</a><span aria-hidden="true">/</span> Del eller flytt progresjon</nav>
+<header class="page-head"><h1>Del eller flytt progresjon</h1><p>Lag en kort rapport som du selv kan dele med læreren, eller en privat sikkerhetskopi som du kan bruke på en annen enhet.</p></header>
+<div class="data-grid">
+<section id="del" class="pane" aria-labelledby="del-heading">
+<h2 id="del-heading">Del en elevrapport</h2>
+<p>Det er frivillig å dele. Rapporten inneholder kallenavn, klassekode, eksporttid og oppsummerte øvingsresultater per ferdighet. Svartekst og egne notater utelates.</p>
+<form id="elevrapport" class="stack">
+<label class="field-label" for="klassekode">Klassekode<input id="klassekode" name="klassekode" class="answer-input" maxlength="24" autocomplete="off" required></label>
+<label class="field-label" for="kallenavn">Avtalt kallenavn<input id="kallenavn" name="kallenavn" class="answer-input" maxlength="24" autocomplete="off" required></label>
+<p class="track">Bruk kallenavnet du avtalte med læreren. Klassekoden brukes til gruppering.</p>
+<button class="button solid">Last ned elevrapport</button>
+</form>
+<p id="rapport-status" role="status" class="data-status"></p>
+</section>
+<section id="sikkerhetskopi" class="pane" aria-labelledby="kopi-heading">
+<h2 id="kopi-heading">Flytt egen progresjon</h2>
+<p>Den private kopien inneholder avkryssinger, notater, øvingshistorikk, påbegynt øving og progresjon i andregradsforløpet. Oppbevar den privat.</p>
+<button class="button solid" id="last-ned-kopi">Last ned privat sikkerhetskopi</button>
+<h3>Gjenopprett fra fil</h3>
+<p>Gjenoppretting erstatter din lokale 1T-progresjon. Lukk andre faner med 1T først, og ta gjerne en kopi av det som er lagret her.</p>
+<label class="field-label" for="kopifil">Velg en privat 1T-sikkerhetskopi (.json)</label>
+<input type="file" id="kopifil" accept=".json,application/json">
+<button class="button outline data-restore" id="gjenopprett" disabled>Gjenopprett progresjon</button>
+<p id="kopi-status" role="status" class="data-status"></p>
+</section>
+</div>
+</main>
+</body>
+</html>

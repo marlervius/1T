@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="nb" data-course="R2">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#333f58">
+  <meta name="description" content="Skriv, kjør og test kode for rekursive følger og trapesmetoden i matematikk R2.">
+  <title>Programmeringsverksted | Matematikkverksted R2</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./programmering.css">
+  <script defer src="./programmering.js"></script>
+</head>
+<body>
+  <a class="skip" href="#innhold">Hopp til innhold</a>
+  <header class="top">
+    <a class="brand" href="../r2.html"><b aria-hidden="true">ƒ</b> Matematikkverksted</a>
+    <nav class="courses" aria-label="Velg matematikkfag">
+      <a href="../">1T</a><a href="../1p.html">1P</a><a href="../2p.html">2P</a><a href="../r1.html">R1</a><a href="../r2.html">R2</a>
+    </nav>
+  </header>
+  <div class="layout">
+    <aside>
+      <nav aria-label="På denne siden">
+        <a href="../r2.html">Tilbake til R2</a>
+        <a href="#rekursjon">Rekursive følger</a>
+        <a href="#trapes">Trapesmetoden</a>
+        <a href="#syntaks">Instruksjoner</a>
+      </nav>
+    </aside>
+    <main id="innhold" class="program-page" tabindex="-1">
+      <p class="crumb">Matematikk R2</p>
+      <h1>Programmeringsverksted</h1>
+      <p>Forutsi hva som skjer, kjør koden og sammenlign med en eksakt beregning. Bruk testen til å revidere programmet eller forklaringen din.</p>
+      <noscript><p class="notice">Slå på JavaScript for å redigere og kjøre programmene.</p></noscript>
+
+      <section id="rekursjon" class="panel program-lab" aria-labelledby="rekursjon-tittel">
+        <h2 id="rekursjon-tittel">Rekursive følger</h2>
+        <p>Beregn de første tre leddene for hånd når a₀ = 100 og aₖ₊₁ = 0,8aₖ + 10. Forutsi hva som skjer over tid. Kjør koden og test deretter en startverdi på den andre siden av likevekten.</p>
+        <form class="program-form">
+          <label for="rekursjon-kode">Kode for følgen</label>
+          <textarea id="rekursjon-kode" class="program-code" rows="10" wrap="off" spellcheck="false" autocapitalize="off" aria-describedby="rekursjon-hjelp" maxlength="14000"></textarea>
+          <p id="rekursjon-hjelp" class="muted">Skriv ut hvert ledd som indeks og verdi. Referansen beregnes med den eksplisitte formelen for start, r og b i modellen aₖ₊₁ = r·aₖ + b. <a href="#syntaks">Se instruksjonene for kodespråket.</a></p>
+          <div class="buttons">
+            <button type="submit">Kjør følgekoden</button>
+            <button type="button" class="secondary program-reset">Gjenopprett startkode</button>
+          </div>
+        </form>
+        <p role="status"></p>
+        <div class="program-result" hidden>
+          <canvas width="680" height="240" role="img" aria-label="Punktdiagram over leddene programmet skrev ut. De samme verdiene står i tabellen."></canvas>
+          <div class="scroll" tabindex="0" role="region" aria-label="Resultattabell for følgen">
+            <table>
+              <caption>Følgen fra programmet og den eksplisitte formelen</caption>
+              <thead><tr><th scope="col">Indeks k</th><th scope="col">Beregnet aₖ</th><th scope="col">Eksplisitt aₖ</th><th scope="col">Beregnet − eksakt</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+        <label for="rekursjon-notater">Observasjon og revisjon for følgen</label>
+        <p id="rekursjon-spm">Hva skjedde for de to startverdiene? Hvordan finner du likevekten, og hvorfor nærmer følgen seg den her? Beskriv én endring du gjorde og hva den nye kjøringen viste.</p>
+        <textarea id="rekursjon-notater" class="program-notes" aria-describedby="rekursjon-spm"></textarea>
+      </section>
+
+      <section id="trapes" class="panel program-lab" aria-labelledby="trapes-tittel">
+        <h2 id="trapes-tittel">Trapesmetoden</h2>
+        <p>Forutsi om trapesmetoden gir for høy eller for lav verdi for integralet av x² på [0, 2]. Test med n = 1, 2, 4 og 8, og undersøk hva som skjer med avviket når n dobles.</p>
+        <form class="program-form">
+          <label for="trapes-kode">Kode for trapesmetoden</label>
+          <textarea id="trapes-kode" class="program-code" rows="12" wrap="off" spellcheck="false" autocapitalize="off" aria-describedby="trapes-hjelp" maxlength="14000"></textarea>
+          <p id="trapes-hjelp" class="muted">Skriv ut én rad med n og summen av trapesarealene. Sammenligningstesten bruker fire verdier for n og overstyrer tilordningen av n i koden. <a href="#syntaks">Se instruksjonene for kodespråket.</a></p>
+          <label for="trapes-eksakt">Eksakt integral</label>
+          <input id="trapes-eksakt" class="program-exact" type="text" maxlength="100" spellcheck="false" aria-describedby="trapes-eksakt-hjelp">
+          <p id="trapes-eksakt-hjelp" class="muted">Bruk et tall eller uttrykk, for eksempel 8/3. Oppdater referansen når du endrer funksjonen eller intervallet, eller la feltet stå tomt.</p>
+          <div class="buttons">
+            <button type="submit" value="single">Kjør trapeskoden</button>
+            <button type="submit" value="batch">Test med n = 1, 2, 4 og 8</button>
+            <button type="button" class="secondary program-reset">Gjenopprett startkode</button>
+          </div>
+        </form>
+        <p role="status"></p>
+        <div class="program-result" hidden>
+          <div class="scroll" tabindex="0" role="region" aria-label="Resultattabell for trapesmetoden">
+            <table>
+              <caption>Tilnærming og avvik fra det eksakte integralet</caption>
+              <thead><tr><th scope="col">Antall trapeser n</th><th scope="col">Tilnærming</th><th scope="col">Eksakt integral</th><th scope="col">Tilnærming − eksakt</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+        <label for="trapes-notater">Observasjon og revisjon for trapesmetoden</label>
+        <p id="trapes-spm">Forklar fortegnet til avviket ved hjelp av grafens krumning. Bytt til f(x) = x, beregn det eksakte integralet og kjør testen igjen. Hva viser testen om algoritmen?</p>
+        <textarea id="trapes-notater" class="program-notes" aria-describedby="trapes-spm"></textarea>
+      </section>
+
+      <section id="syntaks" class="panel reading" aria-labelledby="syntaks-tittel">
+        <h2 id="syntaks-tittel">Instruksjoner i kodespråket</h2>
+        <ul>
+          <li><code>a = 0.8*a + 10</code> gir variabelen en ny verdi. Skriv desimaltall med punktum og gangetegn med <code>*</code>.</li>
+          <li><code>f(x) = x^2</code> definerer en funksjon. <code>f(2)</code> beregner funksjonsverdien.</li>
+          <li><code>for k = 1 til n</code> starter en løkke som går fra 1 til og med n. Sett <code>slutt</code> på en egen linje etter løkkekroppen.</li>
+          <li><code>skriv k, a</code> legger to verdier i en ny rad. Avslutt en linje med <code>#</code> og en kommentar hvis du vil forklare hva koden gjør.</li>
+        </ul>
+        <p>En løkke kan ha opptil 500 iterasjoner. Programmet kan skrive inntil 501 rader. Kode og notater lagres i nettleseren når lokal lagring er tilgjengelig.</p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
